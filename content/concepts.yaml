@@ -1,0 +1,17 @@
+# 개념 사전 (임시 — T10에서 13개 중단원 전체로 교체). 공개한 ID는 바꾸지 않고 aliases 로만 변경한다.
+concepts:
+  interdependence:
+    label: 상호의존
+    definition: 한 장소의 생활과 선택이 다른 장소의 조건과 영향을 주고받는 관계.
+    units: ['01-01']
+    aliases: []
+  scale:
+    label: 공간 규모
+    definition: 지역·국가·세계처럼 현상을 바라보는 범위.
+    units: ['01-01']
+    aliases: []
+  glocalization:
+    label: 세계지역화
+    definition: 세계적 흐름이 지역의 조건과 만나 새로운 형태로 바뀌는 과정.
+    units: ['01-01']
+    aliases: []
