@@ -1,0 +1,20 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Provincia Autonoma di Bolzano/Bozen",
+        "nuts_id": "ITH1",
+        "method": "centroid of the largest polygon in the NUTS 2021 region"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.416178,
+          46.696248
+        ]
+      }
+    }
+  ]
+}

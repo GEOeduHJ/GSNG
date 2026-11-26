@@ -1,0 +1,20 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Canarias",
+        "nuts_id": "ES70",
+        "method": "centroid of the largest polygon in the NUTS 2021 region"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.556723,
+          28.290777
+        ]
+      }
+    }
+  ]
+}

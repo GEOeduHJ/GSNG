@@ -1,0 +1,63 @@
+{
+  "year": 2025,
+  "unit": "USD",
+  "flow": "U.S. general imports by country of origin",
+  "hs": "HS chapters 61-62 (apparel)",
+  "rows": [
+    {
+      "iso3": "VNM",
+      "name": "VIETNAM",
+      "value": 16485297834
+    },
+    {
+      "iso3": "CHN",
+      "name": "CHINA",
+      "value": 11150029858
+    },
+    {
+      "iso3": "BGD",
+      "name": "BANGLADESH",
+      "value": 7875610285
+    },
+    {
+      "iso3": "IND",
+      "name": "INDIA",
+      "value": 4975972179
+    },
+    {
+      "iso3": "KHM",
+      "name": "CAMBODIA",
+      "value": 4891903527
+    },
+    {
+      "iso3": "IDN",
+      "name": "INDONESIA",
+      "value": 4676175252
+    },
+    {
+      "iso3": "MEX",
+      "name": "MEXICO",
+      "value": 2771890159
+    },
+    {
+      "iso3": "PAK",
+      "name": "PAKISTAN",
+      "value": 2423814869
+    },
+    {
+      "iso3": "ITA",
+      "name": "ITALY",
+      "value": 2198790554
+    },
+    {
+      "iso3": "HND",
+      "name": "HONDURAS",
+      "value": 2132523847
+    },
+    {
+      "iso3": "KOR",
+      "name": "KOREA, SOUTH",
+      "value": 166422526
+    }
+  ]
+}
