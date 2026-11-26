@@ -123,6 +123,15 @@ describe('chart and map data', () => {
   });
 });
 
+describe('values below the reporting threshold', () => {
+  it('marks below-threshold countries instead of treating them as missing', () => {
+    const geo = { type: 'FeatureCollection', features: [{ properties: { iso_a3: 'KOR' } }, { properties: { iso_a3: 'XXX' } }] };
+    const joined = joinValues(geo, { KOR: null, XXX: null }, { KOR: '<0.1' });
+    expect(joined.features[0].properties).toMatchObject({ value: null, below: true });
+    expect(joined.features[1].properties.below).toBe(false);
+  });
+});
+
 describe('point categories', () => {
   it('lists unique categories with their colors in first-seen order', () => {
     const geo = { features: [

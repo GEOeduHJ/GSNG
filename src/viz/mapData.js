@@ -2,13 +2,16 @@ export const BASE_MAP_URL = '/data/base/countries-110m.geojson';
 export const MAP_COLORS = ['#e6efe9', '#bcd5ca', '#86b3a2', '#4f8b77', '#2f6f5e'];
 export const NO_DATA_COLOR = '#dedad0';
 
-export function joinValues(geojson, values = {}) {
+export const BELOW_COLOR = '#f4f7f5';
+
+/** `below` lists countries the source reports only as under a threshold (e.g. '<0.1'): not missing, just tiny. */
+export function joinValues(geojson, values = {}, below = {}) {
   return {
     ...geojson,
     features: (geojson.features ?? []).map((feature) => {
       const iso = feature.properties?.iso_a3;
       const value = iso && values[iso] != null ? Number(values[iso]) : null;
-      return { ...feature, properties: { ...feature.properties, value } };
+      return { ...feature, properties: { ...feature.properties, value, below: Boolean(iso && below[iso]) } };
     }),
   };
 }

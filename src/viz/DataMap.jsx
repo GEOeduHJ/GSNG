@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { BASE_MAP_URL, MAP_COLORS, NO_DATA_COLOR, classBreaks, joinValues, legendLabels, mapOptions, pointCategories, POINT_COLOR, topValues } from './mapData.js';
+import { BASE_MAP_URL, MAP_COLORS, NO_DATA_COLOR, classBreaks, joinValues, legendLabels, mapOptions, pointCategories, POINT_COLOR, BELOW_COLOR, topValues } from './mapData.js';
 import { useJson } from './useJson.js';
 import { ValueTable } from './DataChart.jsx';
 
@@ -21,15 +21,16 @@ const emptyStyle = { version: 8, sources: {}, layers: [{ id: 'background', type:
 function stepExpression(breaks) {
   const expression = ['step', ['get', 'value'], MAP_COLORS[0]];
   breaks.forEach((value, index) => expression.push(value, MAP_COLORS[index + 1]));
-  return ['case', ['==', ['get', 'value'], null], NO_DATA_COLOR, expression];
+  return ['case', ['==', ['get', 'below'], true], BELOW_COLOR, ['==', ['get', 'value'], null], NO_DATA_COLOR, expression];
 }
 
-function Legend({ breaks, unit }) {
+function Legend({ breaks, unit, belowLabel }) {
   if (!breaks.length) return null;
   const labels = legendLabels(breaks);
   return (
     <ul className="map-legend" aria-label={`범례 (${unit ?? ''})`}>
       {labels.map((text, index) => <li key={text}><span style={{ background: MAP_COLORS[index] }} />{text}</li>)}
+      {belowLabel && <li><span style={{ background: BELOW_COLOR }} />{belowLabel}</li>}
       <li><span style={{ background: NO_DATA_COLOR }} />자료 없음</li>
     </ul>
   );
@@ -59,7 +60,7 @@ export default function DataMap({ url, config = {}, alt, fallback, onInteract, r
         map.on('dragstart', () => interactRef.current?.());
         map.on('zoomstart', (event) => { if (event.originalEvent) interactRef.current?.(); });
         map.on('load', () => {
-          const countries = points ? base : joinValues(base, payload.values);
+          const countries = points ? base : joinValues(base, payload.values, payload.below);
           map.addSource('countries', { type: 'geojson', data: countries });
           map.addLayer({ id: 'countries-fill', type: 'fill', source: 'countries', paint: { 'fill-color': points ? '#e8e4da' : stepExpression(breaks), 'fill-opacity': 0.95 } });
           map.addLayer({ id: 'countries-line', type: 'line', source: 'countries', paint: { 'line-color': '#ffffff', 'line-width': 0.5 } });
@@ -81,7 +82,7 @@ export default function DataMap({ url, config = {}, alt, fallback, onInteract, r
   return (
     <>
       {renderFailed ? fallback : <div ref={containerRef} className="figure-canvas map-canvas" role="img" aria-label={alt} />}
-      {!points && <Legend breaks={breaks} unit={payload?.unit} />}
+      {!points && <Legend breaks={breaks} unit={payload?.unit} belowLabel={payload?.below && Object.keys(payload.below).length ? payload.belowLabel ?? '기준값 미만' : ''} />}
       {points && pointCategories(payload).length > 0 && (
         <ul className="map-legend" aria-label="범례">
           {pointCategories(payload).map((item) => <li key={item.label}><span style={{ background: item.color, borderRadius: '50%' }} />{item.label}</li>)}
