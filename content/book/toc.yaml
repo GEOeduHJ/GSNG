@@ -1,0 +1,152 @@
+# 4 대단원 / 13 중단원 / 41 절 — v1 src/content/units/unit-0*.js 에서 옮김
+parts:
+  - id: part-01
+    numeral: I
+    title: 세계시민, 세계화와 지역 이해
+    units:
+      - id: 01-01
+        title: 세계화와 세계시민
+        standardCode: 12세지01-01
+        lessons:
+          - index: 1
+            title: 세계화는 무엇이고, 우리에게 어떤 영향을 미칠까?
+          - index: 2
+            title: 세계화 시대에 지역은 어떻게 대응할까?
+          - index: 3
+            title: 세계를 이해하는 관점과 세계시민의 역할은 무엇일까?
+      - id: 01-02
+        title: 지역 변화의 역동성
+        standardCode: 12세지01-02
+        lessons:
+          - index: 1
+            title: 지역 통합의 움직임은 왜 일어날까?
+          - index: 2
+            title: 지역 분리의 움직임은 왜 일어날까?
+          - index: 3
+            title: 지역의 역동성을 이해하는 것은 왜 중요할까?
+      - id: 01-03
+        title: 지리 정보와 지리정보기술
+        standardCode: 12세지01-03
+        lessons:
+          - index: 1
+            title: 지리정보기술은 무엇일까?
+          - index: 2
+            title: 세계시민의 일상생활에서 활용되는 지리정보기술에는 무엇이 있을까?
+          - index: 3
+            title: 지리적 문제를 어떻게 탐색하고 해결할 수 있을까?
+  - id: part-02
+    numeral: II
+    title: 모자이크 세계, 세계의 다양한 자연환경과 문화
+    units:
+      - id: 02-01
+        title: 세계의 기후와 인간 생활
+        standardCode: 12세지02-01
+        lessons:
+          - index: 1
+            title: 세계의 기후는 왜 지역마다 다르게 나타날까?
+          - index: 2
+            title: 열대 기후 지역 주민들은 어떻게 살아갈까?
+          - index: 3
+            title: 온대 기후 지역은 왜 기후가 다양할까?
+          - index: 4
+            title: 사람들은 불리한 기후를 어떻게 극복할까?
+      - id: 02-02
+        title: 세계의 지형과 인간 생활
+        standardCode: 12세지02-02
+        lessons:
+          - index: 1
+            title: 세계의 대지형은 어떻게 만들어졌을까?
+          - index: 2
+            title: 땅 위에서 사람들은 어떻게 살아갈까?
+          - index: 3
+            title: 관광자원으로 활용되는 지형에는 무엇이 있을까?
+          - index: 4
+            title: 지형의 지속가능한 활용 방안은 무엇일까?
+      - id: 02-03
+        title: 세계의 종교와 인간 생활
+        standardCode: 12세지02-03
+        lessons:
+          - index: 1
+            title: 세계의 주요 종교는 어떻게 분포할까?
+          - index: 2
+            title: 세계 주요 종교의 특징은 무엇일까?
+          - index: 3
+            title: 종교는 인간 생활에 어떤 영향을 미칠까?
+      - id: 02-04
+        title: 세계의 다양한 음식과 축제
+        standardCode: 12세지02-04
+        lessons:
+          - index: 1
+            title: 세계의 음식 문화는 얼마나 다양할까?
+          - index: 2
+            title: 세계에는 얼마나 다양한 축제들이 있을까?
+          - index: 3
+            title: 문화의 다양성을 보존하기 위해서는 어떻게 해야 할까?
+  - id: part-03
+    numeral: III
+    title: 네트워크 세계, 세계의 인구와 경제 공간
+    units:
+      - id: 03-01
+        title: 세계의 인구 문제와 인구 이주
+        standardCode: 12세지03-01
+        lessons:
+          - index: 1
+            title: 세계의 인구는 어디에 많이 분포할까?
+          - index: 2
+            title: 인구 구조의 변화는 어떤 인구 문제를 가져올까?
+          - index: 3
+            title: 세계의 인구는 왜 이주할까?
+      - id: 03-02
+        title: 세계의 식량 자원과 식량 문제
+        standardCode: 12세지03-02
+        lessons:
+          - index: 1
+            title: 식량 자원의 생산과 소비는 어떻게 이루어질까?
+          - index: 2
+            title: 식량 문제는 왜 발생할까?
+          - index: 3
+            title: 식량 문제는 어떻게 해결할 수 있을까?
+      - id: 03-03
+        title: 글로벌 경제 체제와 공간적 불균등
+        standardCode: 12세지03-03
+        lessons:
+          - index: 1
+            title: 글로벌 경제를 움직이는 것은 무엇일까?
+          - index: 2
+            title: 지구촌의 공간적 불균등은 왜 만들어질까?
+          - index: 3
+            title: 공간적 불균등을 어떻게 해소할 수 있을까?
+  - id: part-04
+    numeral: IV
+    title: 지속가능한 세계, 세계의 환경 문제와 평화
+    units:
+      - id: 04-01
+        title: 세계의 에너지 자원
+        standardCode: 12세지04-01
+        lessons:
+          - index: 1
+            title: 주요 에너지 자원의 소비 구조는 어떻게 변화했을까?
+          - index: 2
+            title: 주요 에너지 자원의 생산과 소비는 어떻게 이루어질까?
+          - index: 3
+            title: 친환경 에너지의 종류와 특징은 무엇일까?
+      - id: 04-02
+        title: 세계의 주요 환경 문제
+        standardCode: 12세지04-02
+        lessons:
+          - index: 1
+            title: 세계의 주요 환경 문제에는 무엇이 있을까?
+          - index: 2
+            title: 환경 문제를 왜 쉽게 해결하지 못할까?
+          - index: 3
+            title: 환경 문제 해결과 생태전환적 삶을 위해서는 어떤 노력이 필요할까?
+      - id: 04-03
+        title: 공존과 평화를 위한 노력
+        standardCode: 12세지04-03
+        lessons:
+          - index: 1
+            title: 세계 곳곳에서 분쟁은 왜 일어날까?
+          - index: 2
+            title: 분쟁 지역 주민들의 삶은 어떠할까?
+          - index: 3
+            title: 세계 평화를 위해 어떤 노력을 해야 할까?
