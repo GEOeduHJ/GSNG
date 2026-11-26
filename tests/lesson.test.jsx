@@ -3,7 +3,7 @@ import { act, render, renderHook, screen, waitFor } from '@testing-library/react
 import { useActiveStep } from '../src/book/lesson/useActiveStep.js';
 import { stageIndexFor } from '../src/book/lesson/stages.js';
 import { buildChartOption, chartRows } from '../src/viz/chartData.js';
-import { classBreaks, joinValues, legendLabels, formatNumber } from '../src/viz/mapData.js';
+import { classBreaks, joinValues, legendLabels, formatNumber, pointCategories } from '../src/viz/mapData.js';
 import DataStage from '../src/book/lesson/DataStage.jsx';
 import LessonSpread from '../src/book/lesson/LessonSpread.jsx';
 import { BookProvider } from '../src/book/BookContext.jsx';
@@ -120,6 +120,18 @@ describe('chart and map data', () => {
     expect(joined.features[0].properties.value).toBe(80);
     expect(joined.features[1].properties.value).toBeNull();
     expect(classBreaks([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 5)).toHaveLength(4);
+  });
+});
+
+describe('point categories', () => {
+  it('lists unique categories with their colors in first-seen order', () => {
+    const geo = { features: [
+      { properties: { category: '열대 우림 기후(Af)', color: '#1b7837' } },
+      { properties: { category: '사막 기후(BWh)', color: '#d9a441' } },
+      { properties: { category: '열대 우림 기후(Af)', color: '#1b7837' } },
+      { properties: { name: '범주 없음' } },
+    ] };
+    expect(pointCategories(geo)).toEqual([{ label: '열대 우림 기후(Af)', color: '#1b7837' }, { label: '사막 기후(BWh)', color: '#d9a441' }]);
   });
 });
 

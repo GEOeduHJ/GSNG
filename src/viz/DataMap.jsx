@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { BASE_MAP_URL, MAP_COLORS, NO_DATA_COLOR, classBreaks, joinValues, legendLabels, mapOptions, topValues } from './mapData.js';
+import { BASE_MAP_URL, MAP_COLORS, NO_DATA_COLOR, classBreaks, joinValues, legendLabels, mapOptions, pointCategories, POINT_COLOR, topValues } from './mapData.js';
 import { useJson } from './useJson.js';
 import { ValueTable } from './DataChart.jsx';
 
@@ -65,7 +65,7 @@ export default function DataMap({ url, config = {}, alt, fallback, onInteract, r
           map.addLayer({ id: 'countries-line', type: 'line', source: 'countries', paint: { 'line-color': '#ffffff', 'line-width': 0.5 } });
           if (points) {
             map.addSource('points', { type: 'geojson', data: payload });
-            map.addLayer({ id: 'points', type: 'circle', source: 'points', paint: { 'circle-radius': 7, 'circle-color': '#8a5a2b', 'circle-stroke-color': '#fff', 'circle-stroke-width': 2 } });
+            map.addLayer({ id: 'points', type: 'circle', source: 'points', paint: { 'circle-radius': 7, 'circle-color': ['coalesce', ['get', 'color'], POINT_COLOR], 'circle-stroke-color': '#fff', 'circle-stroke-width': 2 } });
             map.addLayer({ id: 'points-label', type: 'symbol', source: 'points', layout: { 'text-field': ['get', 'name'], 'text-size': 14, 'text-offset': [0, 1.2] }, paint: { 'text-color': '#23231f', 'text-halo-color': '#fff', 'text-halo-width': 1.5 } });
           }
         });
@@ -82,6 +82,11 @@ export default function DataMap({ url, config = {}, alt, fallback, onInteract, r
     <>
       {renderFailed ? fallback : <div ref={containerRef} className="figure-canvas map-canvas" role="img" aria-label={alt} />}
       {!points && <Legend breaks={breaks} unit={payload?.unit} />}
+      {points && pointCategories(payload).length > 0 && (
+        <ul className="map-legend" aria-label="범례">
+          {pointCategories(payload).map((item) => <li key={item.label}><span style={{ background: item.color, borderRadius: '50%' }} />{item.label}</li>)}
+        </ul>
+      )}
       <ValueTable header={['국가', payload?.unit ?? '값']} rows={rows} />
     </>
   );

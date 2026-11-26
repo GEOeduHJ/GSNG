@@ -56,3 +56,15 @@ export function mapOptions(config = {}, { reduced = false } = {}) {
     fadeDuration: reduced ? 0 : 300,
   };
 }
+
+export const POINT_COLOR = '#8a5a2b';
+
+/** Unique {label, color} pairs from point features with a `category` property, in first-seen order. */
+export function pointCategories(geojson) {
+  const seen = new Map();
+  for (const feature of geojson?.features ?? []) {
+    const label = feature.properties?.category;
+    if (label && !seen.has(label)) seen.set(label, feature.properties.color ?? POINT_COLOR);
+  }
+  return [...seen].map(([label, color]) => ({ label, color }));
+}
