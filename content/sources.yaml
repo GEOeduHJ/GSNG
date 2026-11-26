@@ -315,3 +315,43 @@ sources:
     reuseBasis: UNDOF의 설치 배경과 공식 임무 범위 확인용 유엔 자료.
     verificationStatus: 유엔 공식 사실표에서 1974년 설치와 임무 범위 확인. 당사자별 관점과 분쟁 전체 맥락을 단독으로 설명하지 않음.
     usage: 참고 링크입니다. 개별 표·이미지·데이터를 재배포하려면 제공기관의 해당 자료 이용 조건을 별도로 확인해야 합니다.
+  world-bank-trade-share:
+    title: Trade (% of GDP)
+    organization: World Bank
+    url: https://data.worldbank.org/indicator/NE.TRD.GNFS.ZS
+    sourceDate: null
+    checkedAt: '2026-11-26'
+    licenseStatus: CC BY 4.0
+    reuseBasis: World Development Indicators의 상품·서비스 무역 비중 지표. 지도와 시계열은 자료 manifest에 연결된 정적 파일을 사용함.
+    verificationStatus: World Bank 공식 지표 페이지에서 지표명, 산출 설명과 CC BY 4.0 표시를 확인. 개별 값은 manifest에 기록된 원자료 가공 파일과 대조해야 함.
+    usage: 무역 비중 자료를 인용할 때 World Bank와 지표명을 표시하고 기준 연도를 함께 적습니다.
+  world-bank-internet-use:
+    title: Individuals using the Internet (% of population)
+    organization: World Bank
+    url: https://data.worldbank.org/indicator/IT.NET.USER.ZS
+    sourceDate: null
+    checkedAt: '2026-11-26'
+    licenseStatus: CC BY 4.0
+    reuseBasis: World Development Indicators의 인터넷 이용 인구 비율 지표. 지도와 시계열은 자료 manifest에 연결된 정적 파일을 사용함.
+    verificationStatus: World Bank 공식 지표 페이지에서 지표명과 공개 자료 범위를 확인. 개별 값은 manifest에 기록된 원자료 가공 파일과 대조해야 함.
+    usage: 인터넷 이용률 자료를 인용할 때 World Bank와 지표명을 표시하고 기준 연도를 함께 적습니다.
+  eurostat-regional-tourism:
+    title: Nights spent at tourist accommodation establishments by NUTS 2 region (tgs00111)
+    organization: Eurostat
+    url: https://ec.europa.eu/eurostat/databrowser/view/tgs00111/default/table?category=t_reg.t_reg_tour
+    sourceDate: '2014–2025 data coverage'
+    checkedAt: '2026-11-26'
+    licenseStatus: 통계자료 재사용 가능. 출처를 밝히고 수정한 경우 변경 사실을 표시함.
+    reuseBasis: NUTS 2 지역별 관광 숙박시설 숙박일수 통계. 카나리아 제도와 남티롤의 정적 시계열은 자료 manifest에 연결됨.
+    verificationStatus: Eurostat 공식 Data Browser에서 자료 코드 tgs00111, 자료 범위와 제목을 확인. 공식 저작권 안내에서 출처 표시 및 변경 표시 조건을 확인. 지역의 원인이나 주민 생활을 이 통계만으로 판단하지 않음.
+    usage: Eurostat tgs00111과 기준 연도를 표시합니다. 수치는 숙박시설에서 보낸 밤의 합계로 설명합니다.
+  us-census-apparel-imports:
+    title: Merchandise Trade Imports
+    organization: U.S. Census Bureau
+    url: https://www.census.gov/foreign-trade/data/IMDB.html
+    sourceDate: '2025'
+    checkedAt: '2026-11-26'
+    licenseStatus: 자료 manifest에는 Data.gov catalog의 CC0 1.0으로 기록됨. 원자료별 조건을 함께 확인함.
+    reuseBasis: 미국 Census 공식 수입 자료. 국가별 원산지와 품목 코드, 일반수입액을 포함하며 이 단원 파일은 HS 61–62 의류에 한정됨.
+    verificationStatus: U.S. Census Bureau 공식 페이지에서 일반수입 자료의 원산지·품목·가치 항목과 2025년 월별 파일 제공을 확인. 정적 파일의 개별 값은 manifest와 가공 자료에 대조해야 함.
+    usage: 미국이 수입한 의류의 원산지별 통계로 표시하고 세계 전체 무역이나 개별 제품의 경로로 일반화하지 않습니다.

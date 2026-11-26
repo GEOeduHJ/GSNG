@@ -1,0 +1,41 @@
+id: '01-01'
+standardCode: 12세지01-01
+title: 세계화와 세계시민
+goal: 세계화가 여러 공간 규모에서 장소와 사람을 연결하고 지역마다 다르게 나타나는 과정을 자료로 살펴보고, 세계시민의 관점에서 근거를 들어 설명할 수 있다.
+concepts: [interdependence, scale, glocalization, globalization, world-citizenship]
+opening:
+  intro: |
+    globalization(세계화)은 상품·정보·사람·자본의 국경을 넘는 이동이 늘면서 서로 다른 장소의 생활이 연결되는 변화다. 인터넷으로 정보를 주고받고 다른 지역에서 만든 상품을 사용하는 일도 연결의 일부다. 한 장소의 선택은 먼 곳의 일과 생활에 영향을 줄 수 있다.
+
+    연결은 세계·국가·지역이라는 scale(공간 규모)에 따라 다르게 보인다. 같은 세계적 흐름도 지역의 조건과 주민의 선택을 만나 다른 모습으로 나타난다. 이 중단원에서는 실제 지도와 통계를 읽고, 지역의 대응과 세계시민의 역할을 근거에 따라 설명한다.
+  illustration:
+    src: /images/01-01/opening.webp
+    alt: 청소년과 여러 연령대의 이웃들이 기기로 소통하고 상자와 식재료, 식기를 나누며, 녹색의 추상 선이 일상 장면을 잇는다.
+  focus:
+    kind: map
+    step:
+      id: focus
+      type: map
+      data: /data/01-01/trade-share-map.json
+      source: wdi-trade-share-map
+      caption: 국가별 무역 비중(GDP 대비), 2023년
+      alt: 2023년 국가별 무역 비중(GDP 대비)을 색으로 나타낸 지도다.
+      config: { kind: choropleth }
+      concepts: [globalization, scale]
+closing:
+  summary: |
+    세계화는 상품·정보·사람·자본의 이동으로 서로 다른 장소를 연결한다. 무역 비중과 인터넷 이용률 자료는 연결의 분포와 변화를 보여 주지만, 한 지표만으로 한 지역의 부나 생활 조건을 판단할 수는 없다. 지도와 시계열을 함께 읽으면 세계·국가·지역 규모의 차이와 상호의존을 살필 수 있다.
+
+    세계적 흐름은 지역에서 같은 모양으로 나타나지 않는다. 지역은 자기 조건에 맞게 흐름을 받아들이거나 바꾸며, 선택마다 이익과 부담이 다르게 놓인다. 세계시민은 영향을 받는 사람과 결정 권한을 함께 살피고, 개인의 실천과 학교·기업·공공의 책임을 연결해 설명한다.
+  bridge: 다음 중단원에서는 지역의 경계와 생활이 연결과 선택 속에서 어떻게 달라지는지 살펴본다.
+  transfer:
+    prompt: 사우스티롤(이탈리아 볼차노 자치주)의 관광 숙박일수 자료를 보고 세계화에 대한 지역의 대응을 상호의존·공간 규모·세계지역화 개념으로 설명하시오.
+    step:
+      id: transfer
+      type: chart
+      data: /data/01-01/region-south-tyrol-series.json
+      source: region-south-tyrol-series
+      caption: 남티롤 관광 숙박일수, 2014–2024년
+      alt: 남티롤 관광 숙박일수의 2014년부터 2024년까지 변화를 나타낸 선 그래프다.
+      config: { kind: line, maxYear: 2024 }
+      concepts: [interdependence, scale, glocalization]
