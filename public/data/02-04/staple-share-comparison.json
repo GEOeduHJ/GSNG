@@ -1,0 +1,132 @@
+{
+  "year": 2023,
+  "unit": "% (해당 국가 1인당 식품 공급 열량 중 해당 품목 비중)",
+  "rows": [
+    {
+      "country": "방글라데시",
+      "iso3": "BGD",
+      "name": "방글라데시 · 쌀·쌀 제품",
+      "staple": "쌀·쌀 제품",
+      "value": 64.2
+    },
+    {
+      "country": "방글라데시",
+      "iso3": "BGD",
+      "name": "방글라데시 · 밀·밀 제품",
+      "staple": "밀·밀 제품",
+      "value": 3.72
+    },
+    {
+      "country": "방글라데시",
+      "iso3": "BGD",
+      "name": "방글라데시 · 옥수수·옥수수 제품",
+      "staple": "옥수수·옥수수 제품",
+      "value": 0.25
+    },
+    {
+      "country": "대한민국",
+      "iso3": "KOR",
+      "name": "대한민국 · 쌀·쌀 제품",
+      "staple": "쌀·쌀 제품",
+      "value": 16.87
+    },
+    {
+      "country": "대한민국",
+      "iso3": "KOR",
+      "name": "대한민국 · 밀·밀 제품",
+      "staple": "밀·밀 제품",
+      "value": 12.0
+    },
+    {
+      "country": "대한민국",
+      "iso3": "KOR",
+      "name": "대한민국 · 옥수수·옥수수 제품",
+      "staple": "옥수수·옥수수 제품",
+      "value": 3.86
+    },
+    {
+      "country": "인도",
+      "iso3": "IND",
+      "name": "인도 · 쌀·쌀 제품",
+      "staple": "쌀·쌀 제품",
+      "value": 25.34
+    },
+    {
+      "country": "인도",
+      "iso3": "IND",
+      "name": "인도 · 밀·밀 제품",
+      "staple": "밀·밀 제품",
+      "value": 22.31
+    },
+    {
+      "country": "인도",
+      "iso3": "IND",
+      "name": "인도 · 옥수수·옥수수 제품",
+      "staple": "옥수수·옥수수 제품",
+      "value": 1.42
+    },
+    {
+      "country": "이탈리아",
+      "iso3": "ITA",
+      "name": "이탈리아 · 쌀·쌀 제품",
+      "staple": "쌀·쌀 제품",
+      "value": 1.67
+    },
+    {
+      "country": "이탈리아",
+      "iso3": "ITA",
+      "name": "이탈리아 · 밀·밀 제품",
+      "staple": "밀·밀 제품",
+      "value": 25.37
+    },
+    {
+      "country": "이탈리아",
+      "iso3": "ITA",
+      "name": "이탈리아 · 옥수수·옥수수 제품",
+      "staple": "옥수수·옥수수 제품",
+      "value": 0.63
+    },
+    {
+      "country": "멕시코",
+      "iso3": "MEX",
+      "name": "멕시코 · 쌀·쌀 제품",
+      "staple": "쌀·쌀 제품",
+      "value": 1.5
+    },
+    {
+      "country": "멕시코",
+      "iso3": "MEX",
+      "name": "멕시코 · 밀·밀 제품",
+      "staple": "밀·밀 제품",
+      "value": 6.27
+    },
+    {
+      "country": "멕시코",
+      "iso3": "MEX",
+      "name": "멕시코 · 옥수수·옥수수 제품",
+      "staple": "옥수수·옥수수 제품",
+      "value": 31.66
+    },
+    {
+      "country": "미국",
+      "iso3": "USA",
+      "name": "미국 · 쌀·쌀 제품",
+      "staple": "쌀·쌀 제품",
+      "value": 2.11
+    },
+    {
+      "country": "미국",
+      "iso3": "USA",
+      "name": "미국 · 밀·밀 제품",
+      "staple": "밀·밀 제품",
+      "value": 15.23
+    },
+    {
+      "country": "미국",
+      "iso3": "USA",
+      "name": "미국 · 옥수수·옥수수 제품",
+      "staple": "옥수수·옥수수 제품",
+      "value": 2.05
+    }
+  ]
+}

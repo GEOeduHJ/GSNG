@@ -1,0 +1,98 @@
+# Unit 02-04: World cuisines, festivals, and cultural diversity
+items:
+  - id: staple-rice-share-map
+    path: /data/02-04/staple-rice-share-map.json
+    title: 국가별 쌀 공급 열량 비중
+    organization: FAO, FAOSTAT
+    url: https://www.fao.org/faostat/en/#data/FBS
+    retrievedAt: '2026-11-26'
+    license: CC BY 4.0
+    attribution: 'FAO, FAOSTAT Food Balances (2023); accessed 2026-11-26; CC BY 4.0.'
+    script: scripts/data/02-04/fao_food_balances.py
+    unit: '% of total food supply energy (kcal/capita/day)'
+    year: 2023
+    summary: 국가별 1인당 식품 공급 열량 중 쌀 및 쌀 제품의 비중이다. 공급 가능량 지표이며 실제 섭취량을 나타내지 않는다.
+  - id: staple-wheat-share-map
+    path: /data/02-04/staple-wheat-share-map.json
+    title: 국가별 밀 공급 열량 비중
+    organization: FAO, FAOSTAT
+    url: https://www.fao.org/faostat/en/#data/FBS
+    retrievedAt: '2026-11-26'
+    license: CC BY 4.0
+    attribution: 'FAO, FAOSTAT Food Balances (2023); accessed 2026-11-26; CC BY 4.0.'
+    script: scripts/data/02-04/fao_food_balances.py
+    unit: '% of total food supply energy (kcal/capita/day)'
+    year: 2023
+    summary: 국가별 1인당 식품 공급 열량 중 밀 및 밀 제품의 비중이다. 공급 가능량 지표이며 실제 섭취량을 나타내지 않는다.
+  - id: staple-maize-share-map
+    path: /data/02-04/staple-maize-share-map.json
+    title: 국가별 옥수수 공급 열량 비중
+    organization: FAO, FAOSTAT
+    url: https://www.fao.org/faostat/en/#data/FBS
+    retrievedAt: '2026-11-26'
+    license: CC BY 4.0
+    attribution: 'FAO, FAOSTAT Food Balances (2023); accessed 2026-11-26; CC BY 4.0.'
+    script: scripts/data/02-04/fao_food_balances.py
+    unit: '% of total food supply energy (kcal/capita/day)'
+    year: 2023
+    summary: 국가별 1인당 식품 공급 열량 중 옥수수 및 옥수수 제품의 비중이다. 공급 가능량 지표이며 실제 섭취량을 나타내지 않는다.
+  - id: staple-share-comparison
+    path: /data/02-04/staple-share-comparison.json
+    title: 주요 6개국 주식 작물 열량 비중 비교
+    organization: FAO, FAOSTAT
+    url: https://www.fao.org/faostat/en/#data/FBS
+    retrievedAt: '2026-11-26'
+    license: CC BY 4.0
+    attribution: 'FAO, FAOSTAT Food Balances (2023); accessed 2026-11-26; CC BY 4.0.'
+    script: scripts/data/02-04/fao_food_balances.py
+    unit: '% of total food supply energy (kcal/capita/day)'
+    year: 2023
+    summary: 방글라데시·대한민국·인도·이탈리아·멕시코·미국의 쌀·밀·옥수수 공급 열량 비중을 비교한다.
+  - id: festival-rituals-points
+    path: /data/02-04/festival-rituals-points.geojson
+    title: 유네스코 축제·의례 무형유산 대표목록 점 자료
+    organization: UNESCO; GeoNames
+    url: https://ich.unesco.org/en/lists
+    retrievedAt: '2026-11-26'
+    license: 'GeoNames coordinates: CC BY 4.0; UNESCO listing facts only (no page text or media reproduced)'
+    attribution: 'Coordinates: GeoNames, CC BY 4.0. Listing facts: UNESCO Intangible Cultural Heritage, Representative List; accessed 2026-11-26.'
+    script: scripts/data/02-04/unesco_festivals.py
+    unit: WGS84 decimal degrees
+    year: null
+    summary: UNESCO 대표목록의 축제·의례 성격 15개 종목. 점은 각 종목의 대표 장소 좌표이며, 종목별 UNESCO 주소와 좌표 사전 주소는 README에 있다.
+  - id: festival-inscribed-years
+    path: /data/02-04/festival-inscribed-years.json
+    title: 수록한 축제·의례 15개 종목의 등재 연도별 수
+    organization: UNESCO Intangible Cultural Heritage
+    url: https://ich.unesco.org/en/lists
+    retrievedAt: '2026-11-26'
+    license: UNESCO listing facts only (no page text or media reproduced)
+    attribution: 'UNESCO Intangible Cultural Heritage, Representative List; accessed 2026-11-26.'
+    script: scripts/data/02-04/unesco_festivals.py
+    unit: count of selected 15 items
+    year: null
+    summary: 지도에 수록한 축제·의례 종목 15개만 등재 연도별로 집계했다. UNESCO 전체 등재 건수 통계가 아니다.
+  - id: mediterranean-diet-countries-map
+    path: /data/02-04/mediterranean-diet-countries-map.json
+    title: 유네스코 지중해 식생활 공동 등재국 지도
+    organization: UNESCO Intangible Cultural Heritage
+    url: https://ich.unesco.org/en/RL/mediterranean-diet-00884
+    retrievedAt: '2026-11-26'
+    license: UNESCO listing facts only (no page text or media reproduced)
+    attribution: 'UNESCO Intangible Cultural Heritage, Mediterranean diet (2013); accessed 2026-11-26.'
+    script: scripts/data/02-04/unesco_festivals.py
+    unit: '1 = joint-inscription country; 0 = other mapped country'
+    year: 2013
+    summary: 지중해 식생활 공동 등재국 7개를 표시한다. 등재 목록의 국가 참여 여부이지 음식 소비나 식생활 양상을 측정한 값은 아니다.
+  - id: mediterranean-diet-country-table
+    path: /data/02-04/mediterranean-diet-country-table.json
+    title: 지중해 식생활 공동 등재국 목록
+    organization: UNESCO Intangible Cultural Heritage
+    url: https://ich.unesco.org/en/RL/mediterranean-diet-00884
+    retrievedAt: '2026-11-26'
+    license: UNESCO listing facts only (no page text or media reproduced)
+    attribution: 'UNESCO Intangible Cultural Heritage, Mediterranean diet (2013); accessed 2026-11-26.'
+    script: scripts/data/02-04/unesco_festivals.py
+    unit: countries
+    year: 2013
+    summary: 2013년 지중해 식생활 종목에 공동 등재된 7개국을 ISO3 코드 및 한국어 이름으로 제시한다.

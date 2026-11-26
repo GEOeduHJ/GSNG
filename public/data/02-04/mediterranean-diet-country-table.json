@@ -1,0 +1,40 @@
+{
+  "year": 2013,
+  "rows": [
+    {
+      "country": "키프로스",
+      "iso3": "CYP",
+      "inscribed": 2013
+    },
+    {
+      "country": "크로아티아",
+      "iso3": "HRV",
+      "inscribed": 2013
+    },
+    {
+      "country": "스페인",
+      "iso3": "ESP",
+      "inscribed": 2013
+    },
+    {
+      "country": "그리스",
+      "iso3": "GRC",
+      "inscribed": 2013
+    },
+    {
+      "country": "이탈리아",
+      "iso3": "ITA",
+      "inscribed": 2013
+    },
+    {
+      "country": "모로코",
+      "iso3": "MAR",
+      "inscribed": 2013
+    },
+    {
+      "country": "포르투갈",
+      "iso3": "PRT",
+      "inscribed": 2013
+    }
+  ]
+}
