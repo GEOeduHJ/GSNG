@@ -1,17 +1,291 @@
-# 개념 사전 (임시 — T10에서 13개 중단원 전체로 교체). 공개한 ID는 바꾸지 않고 aliases 로만 변경한다.
+# 개념 사전 — 2022 개정 「세계시민과 지리」 핵심 아이디어·내용 요소·성취기준 근거.
+# 쪽수는 교육과정 PDF의 인쇄면 기준이며, 공개한 ID는 바꾸지 않고 aliases로만 변경한다.
 concepts:
   interdependence:
     label: 상호의존
-    definition: 한 장소의 생활과 선택이 다른 장소의 조건과 영향을 주고받는 관계.
-    units: ['01-01']
+    definition: 서로 다른 장소의 생활과 선택이 교류를 통해 영향을 주고받는 관계.
+    units: ['01-01', '03-02', '04-01']
+    basis: '교육과정 인쇄면 p.131 핵심 아이디어—세계화 속 삶의 연결; p.132 성취기준 적용 고려—지역 간 상호의존'
     aliases: []
   scale:
     label: 공간 규모
-    definition: 지역·국가·세계처럼 현상을 바라보는 범위.
-    units: ['01-01']
+    definition: 현상을 세계·국가·지역 등 어느 공간 범위에서 살펴보는지를 가리키는 관점.
+    units: ['01-01', '01-02', '03-01', '04-02', '04-03']
+    basis: '교육과정 인쇄면 p.131 핵심 아이디어—다양한 지리적 스케일; p.132 성취기준 01-01'
     aliases: []
   glocalization:
     label: 세계지역화
-    definition: 세계적 흐름이 지역의 조건과 만나 새로운 형태로 바뀌는 과정.
+    definition: 세계적 흐름이 지역의 조건과 만나 지역마다 다르게 받아들여지거나 새롭게 바뀌는 과정.
+    units: ['01-01', '02-04', '03-03']
+    basis: '교육과정 인쇄면 pp.132, 134-135 성취기준 해설—세계화와 지역화의 관계, 음식 문화의 융합, 글로컬 가치사슬'
+    aliases: []
+  globalization:
+    label: 세계화
+    definition: 상품·정보·사람·자본의 국경 간 이동이 늘면서 여러 지역의 생활과 경제가 더 긴밀하게 연결되는 변화.
     units: ['01-01']
+    basis: '교육과정 인쇄면 p.131 내용 요소—세계화와 세계시민; p.132 성취기준 01-01'
+    aliases: []
+  world-citizenship:
+    label: 세계시민성
+    definition: 자신이 사는 지역과 국가를 넘어 세계의 사람과 문제에 책임을 느끼고 공동의 삶에 참여하는 관점.
+    units: ['01-01']
+    basis: '교육과정 인쇄면 p.131 핵심 아이디어—세계시민의 삶과 실천; p.132 성취기준 01-01'
+    aliases: []
+  region:
+    label: 지역
+    definition: 자연·문화·경제의 특징이나 사람과 장소의 관계를 기준으로 구분한 공간으로, 기준과 상황에 따라 경계와 의미가 달라질 수 있다.
+    units: ['01-02']
+    basis: '교육과정 인쇄면 pp.132-133 성취기준 01-02 해설—지역은 사회적으로 구성되고 변화하는 실체'
+    aliases: []
+  regional-integration:
+    label: 지역 통합
+    definition: 여러 국가나 지역이 공통의 정치·경제·사회적 이익을 위해 협력과 연결을 강화하는 과정.
+    units: ['01-02']
+    basis: '교육과정 인쇄면 p.132 성취기준 01-02—지역 통합 사례와 원인'
+    aliases: []
+  regional-separation:
+    label: 지역 분리
+    definition: 지역 안의 집단이나 국가가 정체성이나 이해관계의 차이를 바탕으로 기존 결합에서 분리되려는 움직임.
+    units: ['01-02']
+    basis: '교육과정 인쇄면 pp.132-133 성취기준 01-02 해설—언어·종교·민족에 따른 분리와 지역 변화'
+    aliases: []
+  spatial-data:
+    label: 공간자료
+    definition: 장소의 위치와 공간적 분포나 관계를 지명·좌표 등 위치 정보와 연결해 기록한 자료.
+    units: ['01-03']
+    basis: '교육과정 인쇄면 p.131 내용 요소—지리 정보와 지리정보기술; p.132 성취기준 01-03'
+    aliases: []
+  geospatial-technology:
+    label: 지리정보기술
+    definition: 위치가 있는 자료를 수집·저장·분석·표현해 지리적 문제를 살피는 디지털 기술.
+    units: ['01-03']
+    basis: '교육과정 인쇄면 pp.131-132 내용 요소·성취기준 01-03—지리정보기술의 활용'
+    aliases: []
+  geographic-information-system:
+    label: 지리정보시스템
+    definition: 위치가 있는 여러 자료를 겹쳐 분석해 공간적 분포와 관계를 찾아내는 컴퓨터 기반 체계.
+    units: ['01-03']
+    basis: '교육과정 인쇄면 p.132 성취기준 01-03 해설—지리정보기술의 일상 활용과 공동 문제 해결'
+    aliases: []
+  spatial-decision-making:
+    label: 공간적 의사 결정
+    definition: 지도와 공간자료를 근거로 장소별 조건을 비교해 입지나 문제 해결 방안을 정하는 과정.
+    units: ['01-03']
+    basis: '교육과정 인쇄면 p.132 성취기준 01-03—지리적 문제 해결과 의사 결정'
+    aliases: []
+  climate:
+    label: 기후
+    definition: 한 지역의 기온·강수·바람 등이 오랜 기간 반복되어 나타나는 평균적 특징.
+    units: ['02-01']
+    basis: '교육과정 인쇄면 p.131 내용 요소—다양한 기후와 인간 생활; p.133 성취기준 02-01'
+    aliases: []
+  climate-region:
+    label: 기후 지역
+    definition: 기후 요소의 분포와 계절 변화가 비슷하게 나타나는 장소들을 묶어 구분한 공간.
+    units: ['02-01']
+    basis: '교육과정 인쇄면 pp.133-134 성취기준 02-01 해설·적용 고려—기후 지역의 차이와 생활 양식'
+    aliases: []
+  climate-adaptation:
+    label: 기후 적응
+    definition: 사람들이 지역의 기후 조건에 맞추어 생활과 생산 방식을 조정하거나 불리한 영향을 줄이는 방법.
+    units: ['02-01']
+    basis: '교육과정 인쇄면 pp.133-134 성취기준 02-01 해설—기후를 활용하거나 극복하는 사례'
+    aliases: []
+  human-environment-interaction:
+    label: 인간과 자연환경의 상호 작용
+    definition: 자연환경의 조건이 사람들의 생활에 영향을 주고 인간 활동이 다시 환경을 바꾸는 관계.
+    units: ['02-01', '02-02', '04-02']
+    basis: '교육과정 인쇄면 p.131 핵심 아이디어—기후·지형과 인간 삶; pp.133, 136 성취기준 02-01·02-02·04-02'
+    aliases: []
+  landform:
+    label: 지형
+    definition: 지각 운동과 풍화·침식·퇴적 작용 등이 만들어 낸 지표의 높낮이와 모양.
+    units: ['02-02']
+    basis: '교육과정 인쇄면 p.131 내용 요소—지형과 인간 생활; p.133 성취기준 02-02'
+    aliases: []
+  development-conservation-conflict:
+    label: 개발과 보전의 갈등
+    definition: 지형이나 자연경관을 개발해 얻는 이익과 보전해야 할 가치가 맞서 이용 방식을 둘러싸고 의견이 갈리는 상황.
+    units: ['02-02']
+    basis: '교육과정 인쇄면 pp.133-134 성취기준 02-02 해설·적용 고려—지형 활용을 둘러싼 입장 차이'
+    aliases: []
+  sustainable-use:
+    label: 지속가능한 이용
+    definition: 자원을 이용할 때 현재의 필요와 생태계의 회복력, 미래 세대의 이용 가능성을 함께 고려하는 방식.
+    units: ['02-02', '04-01']
+    basis: '교육과정 인쇄면 p.131 내용 요소—지형의 지속가능한 이용·에너지 대안; pp.133, 136 성취기준 02-02·04-01'
+    aliases: []
+  religious-tradition:
+    label: 종교 전통
+    definition: 종교 공동체가 전해 온 믿음·의례·규범과 생활 관행의 특징.
+    units: ['02-03']
+    basis: '교육과정 인쇄면 p.131 내용 요소—세계 주요 종교 경관; p.133 성취기준 02-03 해설—주요 종교의 특징'
+    aliases: []
+  religious-landscape:
+    label: 종교 경관
+    definition: 종교의 역사와 믿음이 건축물·장소 이름·의례 공간 등으로 드러난 경관.
+    units: ['02-03']
+    basis: '교육과정 인쇄면 p.131 내용 요소—세계 주요 종교 경관; p.133 성취기준 02-03'
+    aliases: []
+  religion-and-everyday-life:
+    label: 종교와 일상생활
+    definition: 종교적 믿음과 관습이 식사·옷차림·시간 사용·공동체 관계 등 일상에 미치는 영향.
+    units: ['02-03']
+    basis: '교육과정 인쇄면 pp.133-134 성취기준 02-03 해설·적용 고려—종교와 인간 생활의 관계'
+    aliases: []
+  cultural-diversity:
+    label: 문화 다양성
+    definition: 서로 다른 집단과 지역이 지닌 언어·신념·관습·표현 방식이 함께 존재하는 상태.
+    units: ['02-03', '02-04']
+    basis: '교육과정 인쇄면 p.131 핵심 아이디어·내용 요소—문화 다양성; p.134 성취기준 02-04'
+    aliases: []
+  cultural-diffusion:
+    label: 문화 전파
+    definition: 사람의 이동과 교류를 통해 문화 요소가 다른 장소로 전해지고 새 맥락에서 받아들여지는 과정.
+    units: ['02-03', '02-04']
+    basis: '교육과정 인쇄면 pp.133-134 성취기준 해설—종교의 지역 분포와 세계화 속 문화의 변화'
+    aliases: []
+  food-culture:
+    label: 음식 문화
+    definition: 자연환경과 역사, 생산·교류 방식이 어우러져 지역의 음식 재료·조리·식사 관습을 만든 양상.
+    units: ['02-04']
+    basis: '교육과정 인쇄면 p.131 내용 요소—다양한 음식의 지리적 의미; p.134 성취기준 02-04'
+    aliases: []
+  festival-geography:
+    label: 축제의 지리적 의미
+    definition: 축제가 장소의 환경·역사·이동·정체성과 연결되어 지역마다 다른 시기와 형태로 나타나는 양상.
+    units: ['02-04']
+    basis: '교육과정 인쇄면 p.131 내용 요소—다양한 축제의 지리적 의미; p.134 성취기준 02-04'
+    aliases: []
+  population-distribution:
+    label: 인구 분포
+    definition: 사람들이 지표 공간의 어디에 얼마나 모여 사는지를 보여 주는 양상.
+    units: ['03-01']
+    basis: '교육과정 인쇄면 p.131 내용 요소—인구 분포 및 구조; p.135 성취기준 03-01'
+    aliases: []
+  population-structure:
+    label: 인구 구조
+    definition: 연령·성별 등 기준으로 인구를 나누어 구성과 특징을 살펴보는 틀.
+    units: ['03-01']
+    basis: '교육과정 인쇄면 pp.131, 135 내용 요소·성취기준 03-01—인구 분포와 구조'
+    aliases: []
+  international-migration:
+    label: 국제 이주
+    definition: 국경을 넘어 거주지를 옮기는 이동으로 출발지와 도착지가 함께 연결되는 현상.
+    units: ['03-01']
+    basis: '교육과정 인쇄면 p.131 내용 요소—국제적 이주의 영향; p.135 성취기준 03-01'
+    aliases: []
+  migration-impact:
+    label: 이주의 영향
+    definition: 이주가 인구 유출 지역과 유입 지역의 사회·경제·문화 조건에 가져오는 변화를 함께 살피는 관점.
+    units: ['03-01']
+    basis: '교육과정 인쇄면 p.135 성취기준 03-01 해설—국제 이주의 유출·유입 지역 영향'
+    aliases: []
+  food-system:
+    label: 식량 체계
+    definition: 식량 자원이 생산·가공·운송·판매·소비되기까지 연결된 활동과 주체의 구조.
+    units: ['03-02']
+    basis: '교육과정 인쇄면 p.131 내용 요소—식량 자원의 생산과 소비; p.135 성취기준 03-02'
+    aliases: []
+  food-security:
+    label: 식량 안보
+    definition: 사람들이 필요한 식량을 안정적으로 구해 충분하고 안전한 식사를 이어갈 수 있는 상태.
+    units: ['03-02']
+    basis: '교육과정 인쇄면 pp.135-136 성취기준 03-02 및 해설—안정적인 식량 생산과 공급'
+    aliases: []
+  food-market-concentration:
+    label: 식량 시장 집중
+    definition: 소수 기업이 곡물의 생산이나 유통·판매에서 큰 비중과 통제력을 갖는 시장 구조.
+    units: ['03-02']
+    basis: '교육과정 인쇄면 pp.135-136 성취기준 03-02 해설·적용 고려—주요 곡물 기업과 유통 시장 독점'
+    aliases: []
+  spatial-inequality:
+    label: 공간적 불균등
+    definition: 소득·자원·기회·환경 부담 등이 장소에 따라 고르지 않게 배분되는 상태.
+    units: ['03-02', '03-03', '04-01']
+    basis: '교육과정 인쇄면 p.131 핵심 아이디어—생산 요소의 공간적 불균등; pp.135-137 성취기준·해설—경제와 에너지의 격차'
+    aliases: []
+  transnational-corporation:
+    label: 초국적 기업
+    definition: 여러 나라에 생산·판매·투자 활동을 두고 기업 네트워크를 운영하는 회사.
+    units: ['03-03']
+    basis: '교육과정 인쇄면 p.131 내용 요소—글로벌 경제와 공간적 불균등; p.135 성취기준 03-03'
+    aliases: []
+  global-value-chain:
+    label: 글로벌 가치사슬
+    definition: 상품이나 서비스의 설계·원료·생산·운송·판매 과정이 여러 지역과 기업에 나뉘어 연결된 구조.
+    units: ['03-03']
+    basis: '교육과정 인쇄면 p.135 성취기준 03-03 해설—초국적 기업과 글로컬 가치사슬'
+    aliases: []
+  international-cooperation:
+    label: 국제 협력
+    definition: 여러 국가와 국제 주체가 국경을 넘는 문제를 함께 다루기 위해 협의하고 행동하는 과정.
+    units: ['03-03', '04-02', '04-03']
+    basis: '교육과정 인쇄면 pp.135-137 성취기준 03-03·04-02·04-03—경제·환경·평화 문제의 공동 대응'
+    aliases: []
+  ethical-consumption:
+    label: 윤리적 소비
+    definition: 구매가 노동 조건·환경·생산 지역에 미치는 영향을 따져 책임 있는 소비를 선택하는 실천.
+    units: ['03-03']
+    basis: '교육과정 인쇄면 p.135 성취기준 03-03 해설—공간적 불균등을 줄이는 개인 실천'
+    aliases: []
+  energy-system:
+    label: 에너지 체계
+    definition: 에너지원의 채굴·발전·운송·공급·소비가 서로 연결되어 작동하는 구조.
+    units: ['04-01']
+    basis: '교육과정 인쇄면 p.131 내용 요소—세계의 에너지 문제와 대안; p.136 성취기준 04-01 해설'
+    aliases: []
+  renewable-energy:
+    label: 재생 에너지
+    definition: 햇빛·바람·물·지열처럼 자연 과정에서 다시 보충되는 원천을 이용해 얻는 에너지.
+    units: ['04-01']
+    basis: '교육과정 인쇄면 p.136 성취기준 04-01—친환경 에너지원의 특징과 생산 전략'
+    aliases: []
+  energy-transition:
+    label: 에너지 전환
+    definition: 에너지 생산·공급·소비 체계를 환경 부담을 줄이고 지속가능성을 높이는 방향으로 바꾸는 과정.
+    units: ['04-01']
+    basis: '교육과정 인쇄면 pp.136-137 성취기준 04-01 및 적용 고려—지속가능한 에너지 생산과 불평등'
+    aliases: []
+  environmental-problem:
+    label: 환경 문제
+    definition: 인간 활동과 자연 과정이 얽혀 생태계와 사람들의 삶에 해를 주며 여러 장소에 영향을 미치는 현상.
+    units: ['04-02']
+    basis: '교육과정 인쇄면 p.131 내용 요소—세계의 환경 문제; p.136 성취기준 04-02'
+    aliases: []
+  environmental-justice:
+    label: 환경 정의
+    definition: 환경 피해와 자원 이용의 이익이 누구에게 돌아가고, 결정 과정에 누구의 목소리가 반영되는지 살피는 관점.
+    units: ['04-02']
+    basis: '교육과정 인쇄면 pp.136-137 성취기준 04-02 적용 고려—국가별 손익 차이와 환경 대응의 복잡성'
+    aliases: []
+  ecological-transition:
+    label: 생태전환
+    definition: 생태계의 한계와 인간·자연의 공존을 고려해 생산·소비·생활 방식을 바꾸어 가는 방향.
+    units: ['04-02']
+    basis: '교육과정 인쇄면 p.131 내용 요소—생태전환적 삶; p.136 성취기준 04-02'
+    aliases: []
+  geopolitics:
+    label: 지정학
+    definition: 장소·영토·자원과 국가 간 힘의 관계가 국제 정세와 정책에 어떻게 작용하는지 살피는 관점.
+    units: ['04-03']
+    basis: '교육과정 인쇄면 p.131 내용 요소—지정학적 분쟁; pp.136-137 성취기준 04-03 적용 고려'
+    aliases: []
+  geopolitical-conflict:
+    label: 지정학적 분쟁
+    definition: 영토·자원·경계·권력 등을 둘러싼 이해관계가 국제 정세와 얽혀 나타나는 갈등.
+    units: ['04-03']
+    basis: '교육과정 인쇄면 p.136 성취기준 04-03 해설—국제 정세 변화와 지정학적 분쟁'
+    aliases: []
+  peacebuilding:
+    label: 평화 구축
+    definition: 폭력을 멈추는 데서 그치지 않고 갈등 원인을 다루며 안전하고 지속적인 공존의 조건을 세우려는 노력.
+    units: ['04-03']
+    basis: '교육과정 인쇄면 pp.131, 136 성취기준 04-03—평화를 위한 노력과 세계시민의 실천'
+    aliases: []
+  global-justice:
+    label: 세계 정의
+    definition: 세계의 사람과 지역 사이에 권리·기회·부담이 공정하게 나누어지는지 살피는 기준.
+    units: ['04-03']
+    basis: '교육과정 인쇄면 pp.131, 136 성취기준 04-03—세계 평화와 정의에 기여하는 방안'
     aliases: []
