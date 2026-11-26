@@ -48,17 +48,6 @@ export function KeyTerms({ ids, concepts }) {
   );
 }
 
-export function PageTurn({ unit, index }) {
-  const prev = index > 1 ? { href: routes.lesson(unit.id, index - 1), label: `이전 절` } : { href: routes.open(unit.id), label: '질문 만들기 쪽' };
-  const next = index < unit.lessons.length ? { href: routes.lesson(unit.id, index + 1), label: '다음 절' } : { href: routes.close(unit.id), label: '내 질문에 답하기 쪽' };
-  return (
-    <nav className="page-turn no-print" aria-label="쪽 넘기기">
-      <a href={prev.href}>← {prev.label}</a>
-      <a href={next.href}>{next.label} →</a>
-    </nav>
-  );
-}
-
 /** One lesson as a facing-page spread: reading on the left, scroll-linked data (then activity) on the right. */
 export default function LessonSpread({ unit, route }) {
   const { book } = useBook();
@@ -123,7 +112,6 @@ export default function LessonSpread({ unit, route }) {
   return (
     <article className="lesson-page">
       <Spread left={left} right={right} rightSticky={wide} pages={[lesson.index * 2 + 1, lesson.index * 2 + 2]} label={`${unit.title} 절 ${lesson.index}`} />
-      <PageTurn unit={unit} index={lesson.index} />
     </article>
   );
 }
