@@ -122,6 +122,17 @@ describe('DataStage', () => {
     expect(screen.getByText(/요약 문장/)).toBeTruthy();
   });
 
+  it('uses maxYear for the caption year and shows required attribution', async () => {
+    vi.stubGlobal('fetch', vi.fn(() => Promise.reject(new Error('offline'))));
+    const step = { id: 's3', type: 'chart', data: '/data/x.json', caption: '무역 비중 시계열', source: 'wdi', alt: '설명', config: { kind: 'line', maxYear: 2024 }, schematic: false, concepts: [] };
+    const manifest = { items: [{ id: 'wdi', organization: 'World Bank', year: 2025, attribution: '© EuroGeographics' }] };
+    const { container } = render(<DataStage step={step} manifest={manifest} />);
+    const caption = container.querySelector('figcaption').textContent;
+    expect(caption).toContain('World Bank, 2024년까지');
+    expect(caption).not.toContain('2025');
+    expect(caption).toContain('© EuroGeographics');
+  });
+
   it('marks schematic data in the caption', async () => {
     vi.stubGlobal('fetch', vi.fn(() => Promise.reject(new Error('offline'))));
     const step = { id: 's2', type: 'chart', data: '/data/x.json', caption: '개념도', source: '', alt: '설명', config: { kind: 'bar' }, schematic: true, concepts: [] };

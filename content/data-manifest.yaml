@@ -77,6 +77,7 @@ items:
     unit: WGS84 decimal degrees
     year: 2021
     summary: GISCO NUTS 2021 ES70 경계에서 가장 큰 폴리곤의 중심을 계산한 점이다(경도 -16.556723, 위도 28.290777).
+    attribution: '© EuroGeographics (행정 경계)'
   - id: region-south-tyrol-series
     path: /data/01-01/region-south-tyrol-series.json
     title: 남티롤 관광 숙박일수
@@ -99,6 +100,7 @@ items:
     unit: WGS84 decimal degrees
     year: 2021
     summary: GISCO NUTS 2021 ITH1 경계에서 가장 큰 폴리곤의 중심을 계산한 점이다(경도 11.416178, 위도 46.696248).
+    attribution: '© EuroGeographics (행정 경계)'
   - id: apparel-trade
     path: /data/01-01/apparel-trade.json
     title: 의류(HS 61–62) 미국 수입액 상위 원산지

@@ -5,7 +5,9 @@ function sourceLine(step, manifest) {
   const item = (manifest?.items ?? []).find((entry) => entry.id === step.source);
   const parts = [];
   if (item?.organization) parts.push(item.organization);
-  if (item?.year) parts.push(`${item.year}년 기준`);
+  if (step.config?.maxYear != null) parts.push(`${step.config.maxYear}년까지`);
+  else if (item?.year) parts.push(`${item.year}년 기준`);
+  if (item?.attribution) parts.push(item.attribution);
   return { text: parts.join(', '), summary: item?.summary ?? '' };
 }
 
