@@ -9,7 +9,7 @@ export function emptyUnitRecord(unitId) {
     priorityReason: '',
     nextStepPlan: '',
     evidence: [],
-    explanation: { questionId: '', claim: '', reasoning: '' },
+    explanation: { questionId: '', claim: '', reasoning: '', evidenceIds: [] },
     revisedQuestion: '',
     transferResponse: '',
     reflection: '',
@@ -46,7 +46,7 @@ export function migrateV3(v3 = {}) {
       stepId: null,
       note: item?.observation ?? '',
     }));
-    record.explanation = { questionId: old?.explanationQuestionId ?? '', claim: old?.claim ?? '', reasoning: old?.reasoning ?? '' };
+    record.explanation = { questionId: old?.explanationQuestionId ?? '', claim: old?.claim ?? '', reasoning: old?.reasoning ?? '', evidenceIds: [] };
     record.reflection = old?.reflection ?? '';
     units[unitId] = record;
   }

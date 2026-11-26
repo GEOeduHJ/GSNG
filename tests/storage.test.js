@@ -57,7 +57,7 @@ describe('migrateV3', () => {
     expect(record.unitId).toBe('01-01');
     expect(record.nextStepPlan).toBe('계획');
     expect(record.evidence).toEqual([{ id: 'migrated-01-01-1', questionId: 'q1', lessonId: null, stepId: null, note: '관찰' }]);
-    expect(record.explanation).toEqual({ questionId: '', claim: 'c', reasoning: 'r' });
+    expect(record.explanation).toEqual({ questionId: '', claim: 'c', reasoning: 'r', evidenceIds: [] });
     expect(record.reflection).toBe('f');
   });
 });
