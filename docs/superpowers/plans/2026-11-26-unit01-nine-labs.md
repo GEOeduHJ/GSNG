@@ -103,4 +103,4 @@
 - [x] Run `npm run build` and `git diff --check`; both passed after the final code edits. The build reports the existing large-chunk warning for map/chart bundles.
 - [x] Review source paths, activity-to-evidence linkage, independent lesson persistence, and data labels. No manual browser/screen-reader QA was run; report that limitation explicitly.
 - [x] Independent critical review found no unresolved Critical or Important issues. Minor source-link and selected-state announcements were resolved. No new heavy visualization dependency was introduced.
-- [ ] Commit the branch, fast-forward the clean local `main`, push to `origin/main` without force, and verify the remote commit and clean status.
+- [x] Commit the branch (`7aa5fe2`), fast-forward the clean local `main`, push to `origin/main` without force, and verify remote SHA `7aa5fe2a49eab56407707152474f781064e732e1`.
