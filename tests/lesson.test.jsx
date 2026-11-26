@@ -3,7 +3,7 @@ import { act, render, renderHook, screen, waitFor } from '@testing-library/react
 import { useActiveStep } from '../src/book/lesson/useActiveStep.js';
 import { stageIndexFor } from '../src/book/lesson/stages.js';
 import { buildChartOption, chartRows } from '../src/viz/chartData.js';
-import { classBreaks, joinValues } from '../src/viz/mapData.js';
+import { classBreaks, joinValues, legendLabels, formatNumber } from '../src/viz/mapData.js';
 import DataStage from '../src/book/lesson/DataStage.jsx';
 import LessonSpread from '../src/book/lesson/LessonSpread.jsx';
 import { BookProvider } from '../src/book/BookContext.jsx';
@@ -109,6 +109,18 @@ describe('chart and map data', () => {
     expect(joined.features[0].properties.value).toBe(80);
     expect(joined.features[1].properties.value).toBeNull();
     expect(classBreaks([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 5)).toHaveLength(4);
+  });
+});
+
+describe('number display', () => {
+  it('formats values for people', () => {
+    expect(formatNumber(48.8170039103332)).toBe('48.8');
+    expect(formatNumber(16485297834)).toBe('16,485,297,834');
+    expect(formatNumber(null)).toBe('–');
+  });
+
+  it('builds readable legend labels', () => {
+    expect(legendLabels([48.817, 71.438])).toEqual(['48.8 미만', '48.8–71.4', '71.4 이상']);
   });
 });
 

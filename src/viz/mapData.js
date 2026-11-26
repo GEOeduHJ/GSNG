@@ -31,3 +31,14 @@ export function topValues(values = {}, names = {}, count = 10) {
     .slice(0, count)
     .map(([iso, value]) => [names[iso] ?? iso, value]);
 }
+
+export function formatNumber(value) {
+  if (value == null || value === '' || !Number.isFinite(Number(value))) return value == null || value === '' ? '–' : String(value);
+  return Number(value).toLocaleString('en-US', { maximumFractionDigits: 1 });
+}
+
+export function legendLabels(breaks) {
+  if (!breaks.length) return [];
+  const f = formatNumber;
+  return [`${f(breaks[0])} 미만`, ...breaks.slice(1).map((value, index) => `${f(breaks[index])}–${f(value)}`), `${f(breaks.at(-1))} 이상`];
+}

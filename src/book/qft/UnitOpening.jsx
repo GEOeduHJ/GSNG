@@ -74,7 +74,7 @@ function Produce({ record, update }) {
       <h2>자료를 보고 질문 만들기</h2>
       <ol className="question-list">
         {rows.map((question, index) => (
-          <li key={question?.id ?? 'blank'}>
+          <li key={index === 0 ? 'row-first' : question.id}>
             <label htmlFor={`q-${index}`}>질문 {index + 1}</label>
             <input id={`q-${index}`} type="text" value={question?.text ?? ''} onChange={(event) => change(index, event.target.value)} />
             {question && <button type="button" className="text-button" aria-label={`질문 ${index + 1} 지우기`} onClick={() => update((current) => ({ ...current, questions: current.questions.filter((item) => item.id !== question.id) }))}>지우기</button>}

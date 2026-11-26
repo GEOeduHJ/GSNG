@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { BASE_MAP_URL, MAP_COLORS, NO_DATA_COLOR, classBreaks, joinValues, topValues } from './mapData.js';
+import { BASE_MAP_URL, MAP_COLORS, NO_DATA_COLOR, classBreaks, joinValues, legendLabels, topValues } from './mapData.js';
 import { useJson } from './useJson.js';
 import { ValueTable } from './DataChart.jsx';
 
@@ -26,7 +26,7 @@ function stepExpression(breaks) {
 
 function Legend({ breaks, unit }) {
   if (!breaks.length) return null;
-  const labels = [`${breaks[0]} 미만`, ...breaks.slice(1).map((value, index) => `${breaks[index]}–${value}`), `${breaks.at(-1)} 이상`];
+  const labels = legendLabels(breaks);
   return (
     <ul className="map-legend" aria-label={`범례 (${unit ?? ''})`}>
       {labels.map((text, index) => <li key={text}><span style={{ background: MAP_COLORS[index] }} />{text}</li>)}

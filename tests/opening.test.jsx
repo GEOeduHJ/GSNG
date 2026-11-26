@@ -41,6 +41,16 @@ describe('UnitOpening', () => {
     expect(saved(storage).stageTimes.rules).toBeTruthy();
   });
 
+  it('keeps focus in the first question field after the first keystroke', () => {
+    renderOpening();
+    fireEvent.click(screen.getByRole('button', { name: '선생님 안내에 따라 시작' }));
+    const input = screen.getByLabelText('질문 1');
+    input.focus();
+    fireEvent.change(input, { target: { value: '왜' } });
+    expect(document.activeElement).toBe(screen.getByLabelText('질문 1'));
+    expect(screen.getByLabelText('질문 1')).toBe(input);
+  });
+
   it('requires classifying and changing a question before prioritizing', () => {
     const record = { ...emptyUnitRecord('01-01'), questions: [{ id: 'q1', text: '무역 비중은 얼마일까', classification: '', convertedType: '', convertedText: '', selectedVersion: 'original', selected: false, conceptTags: [] }], stageTimes: { rules: 't', produce: 't' } };
     const storage = memoryStorage({ [STORAGE_KEY_V4]: JSON.stringify({ version: 4, units: { '01-01': record } }) });

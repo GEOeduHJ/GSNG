@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { buildChartOption, chartHeader, chartRows } from './chartData.js';
 import { useJson } from './useJson.js';
-import { BASE_MAP_URL } from './mapData.js';
+import { BASE_MAP_URL, formatNumber } from './mapData.js';
 
 let echartsPromise;
 function loadEcharts() {
@@ -21,7 +21,7 @@ export function ValueTable({ header, rows }) {
       <summary>값 표 보기</summary>
       <table>
         <thead><tr>{header.map((cell, index) => <th key={index} scope="col">{cell}</th>)}</tr></thead>
-        <tbody>{rows.map((row, index) => <tr key={index}>{row.map((cell, cellIndex) => <td key={cellIndex}>{cell}</td>)}</tr>)}</tbody>
+        <tbody>{rows.map((row, index) => <tr key={index}>{row.map((cell, cellIndex) => <td key={cellIndex}>{cellIndex === 0 ? cell : formatNumber(cell)}</td>)}</tr>)}</tbody>
       </table>
     </details>
   );
