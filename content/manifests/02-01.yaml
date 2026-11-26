@@ -1,0 +1,145 @@
+items:
+  - id: u0201-climograph-seoul
+    path: /data/02-01/climograph-seoul.json
+    title: 서울 월평균 기온·강수량 평년값, 1991–2020
+    organization: Open-Meteo (ERA5, ECMWF/Copernicus Climate Change Service)
+    url: 'https://archive-api.open-meteo.com/v1/archive?latitude=37.56600&longitude=126.97840&start_date=1991-01-01&end_date=2020-12-31&daily=temperature_2m_mean%2Cprecipitation_sum&timezone=auto&models=era5'
+    retrievedAt: '2026-11-26'
+    license: CC BY 4.0 (Open-Meteo API data)
+    attribution: 'Weather data by Open-Meteo.com; ERA5 reanalysis by ECMWF/Copernicus Climate Change Service. Monthly values calculated from daily reanalysis.'
+    script: scripts/data/02-01/climate_normals.py
+    unit: °C (monthly mean), mm/month (monthly precipitation mean)
+    year: 2020
+    summary: 서울 1991–2020년 1월 평균 기온 -2.4°C, 8월 26.0°C, 7월 평균 강수량 313.5mm이다. 관측소 관측값이 아니라 재분석 격자 자료로 계산한 값이다.
+  - id: u0201-climograph-manaus
+    path: /data/02-01/climograph-manaus.json
+    title: 마나우스 월평균 기온·강수량 평년값, 1991–2020
+    organization: Open-Meteo (ERA5, ECMWF/Copernicus Climate Change Service)
+    url: 'https://archive-api.open-meteo.com/v1/archive?latitude=-3.10194&longitude=-60.02500&start_date=1991-01-01&end_date=2020-12-31&daily=temperature_2m_mean%2Cprecipitation_sum&timezone=auto&models=era5'
+    retrievedAt: '2026-11-26'
+    license: CC BY 4.0 (Open-Meteo API data)
+    attribution: 'Weather data by Open-Meteo.com; ERA5 reanalysis by ECMWF/Copernicus Climate Change Service. Monthly values calculated from daily reanalysis.'
+    script: scripts/data/02-01/climate_normals.py
+    unit: °C (monthly mean), mm/month (monthly precipitation mean)
+    year: 2020
+    summary: 마나우스 1991–2020년 1월 평균 기온 26.4°C, 8월 27.5°C, 7월 평균 강수량 105.1mm이다. 관측소 관측값이 아니라 재분석 격자 자료로 계산한 값이다.
+  - id: u0201-climograph-mumbai
+    path: /data/02-01/climograph-mumbai.json
+    title: 뭄바이 월평균 기온·강수량 평년값, 1991–2020
+    organization: Open-Meteo (ERA5, ECMWF/Copernicus Climate Change Service)
+    url: 'https://archive-api.open-meteo.com/v1/archive?latitude=19.07283&longitude=72.88261&start_date=1991-01-01&end_date=2020-12-31&daily=temperature_2m_mean%2Cprecipitation_sum&timezone=auto&models=era5'
+    retrievedAt: '2026-11-26'
+    license: CC BY 4.0 (Open-Meteo API data)
+    attribution: 'Weather data by Open-Meteo.com; ERA5 reanalysis by ECMWF/Copernicus Climate Change Service. Monthly values calculated from daily reanalysis.'
+    script: scripts/data/02-01/climate_normals.py
+    unit: °C (monthly mean), mm/month (monthly precipitation mean)
+    year: 2020
+    summary: 뭄바이 1991–2020년 1월 평균 기온 23.6°C, 8월 26.6°C, 7월 평균 강수량 636.2mm이다. 관측소 관측값이 아니라 재분석 격자 자료로 계산한 값이다.
+  - id: u0201-climograph-cairo
+    path: /data/02-01/climograph-cairo.json
+    title: 카이로 월평균 기온·강수량 평년값, 1991–2020
+    organization: Open-Meteo (ERA5, ECMWF/Copernicus Climate Change Service)
+    url: 'https://archive-api.open-meteo.com/v1/archive?latitude=30.06263&longitude=31.24967&start_date=1991-01-01&end_date=2020-12-31&daily=temperature_2m_mean%2Cprecipitation_sum&timezone=auto&models=era5'
+    retrievedAt: '2026-11-26'
+    license: CC BY 4.0 (Open-Meteo API data)
+    attribution: 'Weather data by Open-Meteo.com; ERA5 reanalysis by ECMWF/Copernicus Climate Change Service. Monthly values calculated from daily reanalysis.'
+    script: scripts/data/02-01/climate_normals.py
+    unit: °C (monthly mean), mm/month (monthly precipitation mean)
+    year: 2020
+    summary: 카이로 1991–2020년 1월 평균 기온 14.1°C, 8월 29.7°C, 7월 평균 강수량 0.0mm이다. 관측소 관측값이 아니라 재분석 격자 자료로 계산한 값이다.
+  - id: u0201-climograph-athens
+    path: /data/02-01/climograph-athens.json
+    title: 아테네 월평균 기온·강수량 평년값, 1991–2020
+    organization: Open-Meteo (ERA5, ECMWF/Copernicus Climate Change Service)
+    url: 'https://archive-api.open-meteo.com/v1/archive?latitude=37.98376&longitude=23.72784&start_date=1991-01-01&end_date=2020-12-31&daily=temperature_2m_mean%2Cprecipitation_sum&timezone=auto&models=era5'
+    retrievedAt: '2026-11-26'
+    license: CC BY 4.0 (Open-Meteo API data)
+    attribution: 'Weather data by Open-Meteo.com; ERA5 reanalysis by ECMWF/Copernicus Climate Change Service. Monthly values calculated from daily reanalysis.'
+    script: scripts/data/02-01/climate_normals.py
+    unit: °C (monthly mean), mm/month (monthly precipitation mean)
+    year: 2020
+    summary: 아테네 1991–2020년 1월 평균 기온 9.4°C, 8월 28.0°C, 7월 평균 강수량 6.3mm이다. 관측소 관측값이 아니라 재분석 격자 자료로 계산한 값이다.
+  - id: u0201-climograph-london
+    path: /data/02-01/climograph-london.json
+    title: 런던 월평균 기온·강수량 평년값, 1991–2020
+    organization: Open-Meteo (ERA5, ECMWF/Copernicus Climate Change Service)
+    url: 'https://archive-api.open-meteo.com/v1/archive?latitude=51.50853&longitude=-0.12574&start_date=1991-01-01&end_date=2020-12-31&daily=temperature_2m_mean%2Cprecipitation_sum&timezone=auto&models=era5'
+    retrievedAt: '2026-11-26'
+    license: CC BY 4.0 (Open-Meteo API data)
+    attribution: 'Weather data by Open-Meteo.com; ERA5 reanalysis by ECMWF/Copernicus Climate Change Service. Monthly values calculated from daily reanalysis.'
+    script: scripts/data/02-01/climate_normals.py
+    unit: °C (monthly mean), mm/month (monthly precipitation mean)
+    year: 2020
+    summary: 런던 1991–2020년 1월 평균 기온 5.3°C, 8월 17.6°C, 7월 평균 강수량 54.2mm이다. 관측소 관측값이 아니라 재분석 격자 자료로 계산한 값이다.
+  - id: u0201-climograph-shanghai
+    path: /data/02-01/climograph-shanghai.json
+    title: 상하이 월평균 기온·강수량 평년값, 1991–2020
+    organization: Open-Meteo (ERA5, ECMWF/Copernicus Climate Change Service)
+    url: 'https://archive-api.open-meteo.com/v1/archive?latitude=31.22222&longitude=121.45806&start_date=1991-01-01&end_date=2020-12-31&daily=temperature_2m_mean%2Cprecipitation_sum&timezone=auto&models=era5'
+    retrievedAt: '2026-11-26'
+    license: CC BY 4.0 (Open-Meteo API data)
+    attribution: 'Weather data by Open-Meteo.com; ERA5 reanalysis by ECMWF/Copernicus Climate Change Service. Monthly values calculated from daily reanalysis.'
+    script: scripts/data/02-01/climate_normals.py
+    unit: °C (monthly mean), mm/month (monthly precipitation mean)
+    year: 2020
+    summary: 상하이 1991–2020년 1월 평균 기온 5.1°C, 8월 28.4°C, 7월 평균 강수량 156.6mm이다. 관측소 관측값이 아니라 재분석 격자 자료로 계산한 값이다.
+  - id: u0201-climograph-yakutsk
+    path: /data/02-01/climograph-yakutsk.json
+    title: 야쿠츠크 월평균 기온·강수량 평년값, 1991–2020
+    organization: Open-Meteo (ERA5, ECMWF/Copernicus Climate Change Service)
+    url: 'https://archive-api.open-meteo.com/v1/archive?latitude=62.03114&longitude=129.72289&start_date=1991-01-01&end_date=2020-12-31&daily=temperature_2m_mean%2Cprecipitation_sum&timezone=auto&models=era5'
+    retrievedAt: '2026-11-26'
+    license: CC BY 4.0 (Open-Meteo API data)
+    attribution: 'Weather data by Open-Meteo.com; ERA5 reanalysis by ECMWF/Copernicus Climate Change Service. Monthly values calculated from daily reanalysis.'
+    script: scripts/data/02-01/climate_normals.py
+    unit: °C (monthly mean), mm/month (monthly precipitation mean)
+    year: 2020
+    summary: 야쿠츠크 1991–2020년 1월 평균 기온 -36.9°C, 8월 15.7°C, 7월 평균 강수량 44.6mm이다. 관측소 관측값이 아니라 재분석 격자 자료로 계산한 값이다.
+  - id: u0201-climograph-nuuk
+    path: /data/02-01/climograph-nuuk.json
+    title: 누크 월평균 기온·강수량 평년값, 1991–2020
+    organization: Open-Meteo (ERA5, ECMWF/Copernicus Climate Change Service)
+    url: 'https://archive-api.open-meteo.com/v1/archive?latitude=64.18347&longitude=-51.72157&start_date=1991-01-01&end_date=2020-12-31&daily=temperature_2m_mean%2Cprecipitation_sum&timezone=auto&models=era5'
+    retrievedAt: '2026-11-26'
+    license: CC BY 4.0 (Open-Meteo API data)
+    attribution: 'Weather data by Open-Meteo.com; ERA5 reanalysis by ECMWF/Copernicus Climate Change Service. Monthly values calculated from daily reanalysis.'
+    script: scripts/data/02-01/climate_normals.py
+    unit: °C (monthly mean), mm/month (monthly precipitation mean)
+    year: 2020
+    summary: 누크 1991–2020년 1월 평균 기온 -12.1°C, 8월 8.0°C, 7월 평균 강수량 61.5mm이다. 관측소 관측값이 아니라 재분석 격자 자료로 계산한 값이다.
+  - id: u0201-climate-city-points
+    path: /data/02-01/climate-city-points.geojson
+    title: 세계 도시 위치와 쾨펜–가이거 기후형
+    organization: Beck et al. (2023), GloH2O; Natural Capital Alliance; Open-Meteo/GeoNames
+    url: https://www.gloh2o.org/koppen/
+    retrievedAt: '2026-11-26'
+    license: CC BY 4.0 (Beck et al. climate map; GeoNames city coordinates via Open-Meteo)
+    attribution: 'Climate classes from Beck et al. (2023), CC BY 4.0; coordinates from GeoNames via Open-Meteo Geocoding API. Modified: selected 9 cities, translated labels, and applied the source legend colors.'
+    script: scripts/data/02-01/climate_normals.py
+    unit: WGS84 decimal degrees
+    year: 2020
+    summary: Beck et al.의 1991–2020년 1km 기후형 지도에서 9개 도시 좌표의 분류값을 읽었다. 서울은 Dwa, 마나우스는 Af, 누크는 ET이다.
+  - id: u0201-water-stress-map
+    path: /data/02-01/water-stress-map.json
+    title: 국가별 물 스트레스 수준, 2022년
+    organization: World Bank WDI (FAO AQUASTAT 자료)
+    url: 'https://api.worldbank.org/v2/country/all/indicator/ER.H2O.FWST.ZS?format=json&per_page=20000&date=2022'
+    retrievedAt: '2026-11-26'
+    license: CC BY 4.0 (World Bank indicator page; FAO database terms also apply)
+    attribution: 'FAO AQUASTAT indicator 6.4.2, republished by World Bank WDI; accessed 2026-11-26. Modified: selected 2022 country values, rounded to 0.1 percentage point, and retained missing values as null.'
+    script: scripts/data/02-01/climate_adaptation_indicators.py
+    unit: '% of available freshwater resources'
+    year: 2022
+    summary: 2022년 값은 World Bank 국가·경제 217개 중 176개에서 확인했다. 사우디아라비아 974.2%, 이집트 141.2%, 대한민국 85.2%이며 나머지 결측은 null이다.
+  - id: u0201-irrigated-land-map
+    path: /data/02-01/irrigated-land-map.json
+    title: 국가별 농업용 관개 토지 비율, 2022년
+    organization: World Bank WDI (FAOSTAT 자료)
+    url: 'https://api.worldbank.org/v2/country/all/indicator/AG.LND.IRIG.AG.ZS?format=json&per_page=20000&date=2022'
+    retrievedAt: '2026-11-26'
+    license: CC BY 4.0 (World Bank indicator page; FAO database terms also apply)
+    attribution: 'FAOSTAT agricultural land data, republished by World Bank WDI; accessed 2026-11-26. Modified: selected 2022 country values, rounded to 0.1 percentage point, and retained missing values as null.'
+    script: scripts/data/02-01/climate_adaptation_indicators.py
+    unit: '% of total agricultural land'
+    year: 2022
+    summary: 2022년 값은 World Bank 국가·경제 217개 중 63개에서 확인했다. 이집트 100.0%, 방글라데시 88.8%, 호주 0.5%이며 나머지 결측은 null이다.

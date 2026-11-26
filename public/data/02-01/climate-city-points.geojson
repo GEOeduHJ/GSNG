@@ -1,0 +1,140 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "서울",
+        "category": "냉대 겨울 건조 기후(Dwa)",
+          "color": "#AAAFFF"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9784,
+          37.566
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "마나우스",
+        "category": "열대 우림 기후(Af)",
+        "color": "#0000FF"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -60.025,
+          -3.10194
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "뭄바이",
+        "category": "열대 몬순 기후(Am)",
+        "color": "#0078FF"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          72.88261,
+          19.07283
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "카이로",
+        "category": "고온 사막 기후(BWh)",
+        "color": "#FF0000"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.24967,
+          30.06263
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "아테네",
+        "category": "지중해성 기후(Csa)",
+        "color": "#FFFF00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.72784,
+          37.98376
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "런던",
+        "category": "서안 해양성 기후(Cfb)",
+        "color": "#64FF50"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.12574,
+          51.50853
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "상하이",
+        "category": "온난 습윤 기후(Cfa)",
+        "color": "#C8FF50"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.45806,
+          31.22222
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "야쿠츠크",
+        "category": "냉대 습윤 기후(Dfc)",
+        "color": "#007D7D"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          129.72289,
+          62.03114
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "누크",
+        "category": "한대 툰드라 기후(ET)",
+        "color": "#B2B2B2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -51.72157,
+          64.18347
+        ]
+      }
+    }
+  ]
+}
