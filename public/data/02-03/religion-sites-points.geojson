@@ -1,0 +1,140 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "예루살렘",
+        "category": "공동 성지(크리스트교·이슬람교·유대교)",
+        "color": "#6E6B80"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.21633,
+          31.76904
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "베들레헴",
+        "category": "크리스트교",
+        "color": "#6674BA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.20376,
+          31.70487
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "메카",
+        "category": "이슬람교",
+        "color": "#3D8B78"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.82563,
+          21.42664
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "메디나",
+        "category": "이슬람교",
+        "color": "#3D8B78"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.61417,
+          24.46861
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "룸비니",
+        "category": "불교",
+        "color": "#D28A46"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          83.27714,
+          27.48619
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "부다가야",
+        "category": "불교",
+        "color": "#D28A46"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          84.9869,
+          24.69808
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "사르나트",
+        "category": "불교",
+        "color": "#D28A46"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          83.02452,
+          25.38092
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "바라나시",
+        "category": "힌두교",
+        "color": "#B45F7B"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          83.01041,
+          25.31668
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "마투라",
+        "category": "힌두교",
+        "color": "#B45F7B"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.67215,
+          27.5035
+        ]
+      }
+    }
+  ]
+}
