@@ -8,6 +8,8 @@ The browser reads curriculum content as plain JavaScript data. Never place PDF p
 - `bookIndex.js`: imports all four units and exports a flattened lesson index for routes and navigation.
 - `sources.js`: public institution and dataset links used by the lesson files.
 
+Each source record keeps `sourceDate`, `checkedAt`, `licenseStatus`, `reuseBasis`, and `verificationStatus`. `null` means the date or check has not been recorded. Current references are link-only; no provider data or images are copied into the app. Before embedding an asset or publishing a data-driven lesson, record its specific date, source coverage, license/use basis, and review date.
+
 ## Unit shape
 
 ```js

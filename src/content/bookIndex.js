@@ -51,6 +51,11 @@ export function validateCourseContent() {
   if (MIDDLE_UNITS.length !== 13) problems.push(`중단원 수가 13이 아닙니다: ${MIDDLE_UNITS.length}`);
   if (LESSONS.length !== 41) problems.push(`학습 절 수가 41이 아닙니다: ${LESSONS.length}`);
   if (MODULES.length !== 13) problems.push(`성취기준 모듈 수가 13이 아닙니다: ${MODULES.length}`);
+  for (const [sourceId, source] of Object.entries(SOURCES)) {
+    for (const field of ['sourceDate', 'checkedAt', 'licenseStatus', 'reuseBasis', 'verificationStatus']) {
+      if (!(field in source)) problems.push(`출처 검토 메타데이터 누락: ${sourceId} → ${field}`);
+    }
+  }
   for (const lesson of LESSONS) {
     if (ids.has(lesson.id)) problems.push(`중복 학습 절 ID: ${lesson.id}`);
     ids.add(lesson.id);
