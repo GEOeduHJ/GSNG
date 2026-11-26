@@ -1,0 +1,78 @@
+items:
+  - id: u0202-usgs-earthquakes-m6
+    path: /data/02-02/earthquakes-m6-2000-2025.geojson
+    title: 세계 규모 6 이상 지진 분포 (2000–2025)
+    organization: U.S. Geological Survey (USGS)
+    url: "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minmagnitude=6&eventtype=earthquake&catalog=us"
+    retrievedAt: '2026-11-26'
+    license: 미국 정부 공개 도메인 자료 (USGS ComCat US catalog; 출처 표시)
+    attribution: U.S. Geological Survey, ANSS Comprehensive Earthquake Catalog (catalog=us)
+    script: scripts/data/02-02/tectonic_hazards.py
+    unit: WGS84 decimal degrees; magnitude (mag)
+    year: 2025
+    summary: 2000–2025년 규모 6 이상 지진 3,881건이다. 규모 6~6.9는 3,493건, 규모 7 이상은 388건이다. USGS 기본 상세 페이지의 우선 규모와 catalog=us 값은 다를 수 있다.
+
+  - id: u0202-gvp-holocene-volcanoes
+    path: /data/02-02/holocene-volcanoes.geojson
+    title: 세계 홀로세 화산 분포
+    organization: Smithsonian Institution Global Volcanism Program (GVP)
+    url: "https://webservices.volcano.si.edu/geoserver/GVP-VOTW/wfs?service=WFS&version=1.0.0&request=GetFeature&typeName=GVP-VOTW%3ASmithsonian_VOTW_Holocene_Volcanoes&outputFormat=application%2Fjson"
+    retrievedAt: '2026-11-26'
+    license: 데이터베이스 편집물은 미국 정부 직원 저작물로 공개 도메인; Smithsonian 이용조건상 교육·비상업 이용 및 GVP 인용 준수
+    attribution: Global Volcanism Program, Smithsonian Institution. Volcanoes of the World v.5.4.1 (15 Nov 2026), DOI 10.5479/si.GVP.VOTW5-2026.5.4
+    script: scripts/data/02-02/tectonic_hazards.py
+    unit: WGS84 decimal degrees; elevation in meters
+    year: 2026
+    summary: GVP 홀로세 화산 1,209개의 위치를 담았다. 홀로세 화산 목록이며 현재 활동 중인 화산만을 뜻하지 않는다. 이름은 번역하지 않고 빈 문자열로 두었다.
+
+  - id: u0202-wdi-low-elevation-population
+    path: /data/02-02/low-elevation-population-map.json
+    title: 해발 5m 미만 지역 거주 인구 비율 (2015)
+    organization: World Bank, World Development Indicators (WDI)
+    url: https://data.worldbank.org/indicator/EN.POP.EL5M.ZS
+    retrievedAt: '2026-11-26'
+    license: CC BY 4.0
+    attribution: World Bank, World Development Indicators; indicator source data from CIESIN, Columbia University
+    script: scripts/data/02-02/world_bank.py
+    unit: '% of total population'
+    year: 2015
+    summary: 최신 관측 연도인 2015년 국가별 비율이다. 217개 WDI 국가·경제 코드 중 215개에 값이 있다. 방글라데시 8.38%, 인도네시아 8.82%, 네덜란드 53.69%이다.
+
+  - id: u0202-wdi-low-elevation-land-area
+    path: /data/02-02/low-elevation-land-area-map.json
+    title: 해발 5m 미만 저지대 면적 비율 (2015)
+    organization: World Bank, World Development Indicators (WDI)
+    url: https://data.worldbank.org/indicator/AG.LND.EL5M.ZS
+    retrievedAt: '2026-11-26'
+    license: CC BY 4.0
+    attribution: World Bank, World Development Indicators; indicator source data from CIESIN, Columbia University
+    script: scripts/data/02-02/world_bank.py
+    unit: '% of total land area'
+    year: 2015
+    summary: 최신 관측 연도인 2015년 국가별 저지대 면적 비율이다. 217개 WDI 국가·경제 코드 중 215개에 값이 있다. 방글라데시 15.87%, 인도네시아 7.71%, 네덜란드 52.01%이다.
+
+  - id: u0202-unesco-sagarmatha-point
+    path: /data/02-02/sagarmatha-point.geojson
+    title: 사가르마타 국립공원 위치 및 등재 정보
+    organization: UNESCO World Heritage Centre
+    url: https://whc.unesco.org/en/list/120/maps
+    retrievedAt: '2026-11-26'
+    license: CC-BY-SA IGO 3.0 (UNESCO listing description; source metadata attributed)
+    attribution: UNESCO World Heritage Centre, Sagarmatha National Park, CC-BY-SA IGO 3.0
+    script: scripts/data/02-02/sagarmatha.py
+    unit: WGS84 decimal degrees; area in hectares
+    year: 1979
+    summary: UNESCO 공식 대표 좌표는 경도 86.91306°, 위도 27.96528°이다. 세계유산 등재 연도 1979년, 등재 면적 124,400ha이며 경계 폴리곤이나 공원 중심점은 아니다.
+
+  - id: u0202-sagarmatha-visitors-series
+    path: /data/02-02/sagarmatha-visitors-series.json
+    title: 사가르마타 국립공원 회계연도 방문객 수
+    organization: Sagarmatha National Park Office, Department of National Parks and Wildlife Conservation (DNPWC), Nepal
+    url: https://www.snp.gov.np/uploads/download/1597001947.pdf
+    retrievedAt: '2026-11-26'
+    license: ©2016 Sagarmatha National Park Office; 전체 또는 일부 복제 시 문서 제목과 발행기관을 저작권자로 표기
+    attribution: Sagarmatha National Park Office. Sagarmatha National Park and Its Buffer Zone Management Plan 2016–2020. ©2016 SNP.
+    script: scripts/data/02-02/sagarmatha.py
+    unit: visitors per fiscal year (x-axis year is fiscal year start)
+    year: 2015
+    summary: DNPWC 관리계획 부록 VII의 FY 1975/76–2014/15 기록이다. 1975/76년 3,600명, 2012/13년 36,650명, 2014/15년 34,412명이다. 원자료에서 빠진 7개 회계연도는 null이다.
