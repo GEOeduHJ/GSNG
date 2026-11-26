@@ -1,0 +1,161 @@
+sources:
+  pew-global-religious-change-2025:
+    title: How the Global Religious Landscape Changed From 2010 to 2020
+    organization: Pew Research Center
+    url: https://www.pewresearch.org/religion/2025/06/09/how-the-global-religious-landscape-changed-from-2010-to-2020/
+    sourceDate: '2025-06-09'
+    checkedAt: '2026-11-27'
+    licenseStatus: Pew Research Center 이용 약관에 따른 조건부 재사용. CC BY 아님.
+    reuseBasis: 자료의 선택된 통계만 가공해 사용하며, manifest의 출처·면책·번역 고지를 화면에 표시한다. 원자료 전체나 본질적인 부분을 재게시하지 않는다.
+    verificationStatus: 2025 보고서와 Appendix B의 2010·2020 국가별 및 세계 종교 구성 범위를 데이터 README와 대조했다. 이 자료는 종교 소속 인구 비율 추정치이며 신앙 실천 빈도나 인과를 측정하지 않는다.
+    usage: Pew Research Center의 지정 인용 문구와 데이터 면책·번역 고지를 유지한다. 본문에서는 해석과 번역이 Pew의 책임·검토·승인을 받은 것이 아님을 밝힌다.
+  geonames-gazetteer:
+    title: GeoNames Gazetteer
+    organization: GeoNames
+    url: https://www.geonames.org/export/
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: CC BY 4.0
+    reuseBasis: GeoNames의 선택된 도시 대표 좌표를 사용했다. 지명·좌표를 선택하고 번역했으며 종교 범주를 추가한 수정 사항은 자료 manifest에 표시한다.
+    verificationStatus: 사용한 대표 도시 레코드의 좌표와 데이터 README의 대조 기록을 확인했다. 점은 도시 중심 좌표이며 개별 성지 건축물의 위치를 뜻하지 않는다.
+    usage: GeoNames 출처와 CC BY 4.0, 선택·번역·범주 분류 등 수정 사실을 표시한다.
+  harvard-pluralism-religion-guidelines:
+    title: Encounter over the Curriculum
+    organization: The Pluralism Project at Harvard University (American Academy of Religion guidelines referenced)
+    url: https://pluralism.org/encounter-over-the-curriculum
+    sourceDate: '2010'
+    checkedAt: '2026-11-27'
+    licenseStatus: 링크만 제공. 문장·이미지·문서 재배포 조건은 별도 확인 필요.
+    reuseBasis: 종교를 학문적으로 가르칠 때 종교 내부의 다양성, 역사적 변화, 문화와의 관계를 다루도록 안내하는 방법론 참고 링크. 원문을 복제하지 않는다.
+    verificationStatus: 종교 교육의 비신앙적·비홍보적 접근과 종교의 내부 다양성·역동성·문화적 맥락이라는 원칙을 페이지에서 확인했다.
+    usage: 방법론 참고 링크로만 표시하고 원문 문장이나 자료를 복제하지 않는다.
+  harvard-pluralism-christianity:
+    title: A Worldwide Tradition
+    organization: The Pluralism Project at Harvard University
+    url: https://pluralism.org/a-worldwide-tradition
+    sourceDate: '2020'
+    checkedAt: '2026-11-27'
+    licenseStatus: 링크만 제공. 문장·이미지·PDF 재배포 조건은 별도 확인 필요.
+    reuseBasis: 크리스트교의 지중해 지역 역사와 예수에 관한 핵심 서술, 세계 여러 지역으로의 확산과 내부 분화에 관한 참고 링크. 원문을 복제하지 않는다.
+    verificationStatus: 당시 로마 지배하 팔레스타인 지역, 지중해 공동체의 성장, 전통 내부의 여러 흐름을 설명하는 페이지 내용을 확인했다.
+    usage: 역사적 개요를 요약할 때 링크를 표시하고, 하나의 설명이 모든 크리스트교 공동체의 경험을 대표하지 않도록 한다.
+  harvard-pluralism-islam:
+    title: Introduction to Islam
+    organization: The Pluralism Project at Harvard University
+    url: https://pluralism.org/introduction-to-islam
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 링크만 제공. 문장·이미지·PDF 재배포 조건은 별도 확인 필요.
+    reuseBasis: 이슬람교의 신앙 요소와 무함마드의 메카·메디나 활동, 내부의 여러 흐름을 소개하는 참고 링크. 원문을 복제하지 않는다.
+    verificationStatus: 타우히드, 무함마드, 꾸란과 이슬람 내부의 서로 다른 해석에 대한 페이지 내용을 확인했다.
+    usage: 기본 개념을 요약할 때 링크를 표시하고, 특정 실천을 모든 무슬림에게 동일하게 적용하지 않는다.
+  harvard-pluralism-islam-expansion:
+    title: Expansion of Islamic Civilization
+    organization: The Pluralism Project at Harvard University
+    url: https://pluralism.org/expansion-of-islamic-civilization
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 링크만 제공. 문장·이미지·PDF 재배포 조건은 별도 확인 필요.
+    reuseBasis: 이슬람 문명의 여러 지역 확산과 상인·수피 공동체·통치 세력의 서로 다른 역할을 설명하는 참고 링크. 원문을 복제하지 않는다.
+    verificationStatus: 북아프리카·서아프리카·중앙아시아 등으로의 확산과 지역별 상업·정치 경로를 설명한 페이지 내용을 확인했다.
+    usage: 이슬람 전파를 강제 개종 또는 정복만으로 설명하지 않고, 지역·시기별 다양한 경로를 함께 다룬다.
+  harvard-pluralism-islamic-practices:
+    title: Islamic Practices
+    organization: The Pluralism Project at Harvard University
+    url: https://pluralism.org/islamic-practices
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 링크만 제공. 문장·이미지·PDF 재배포 조건은 별도 확인 필요.
+    reuseBasis: 이슬람의 실천과 라마단, 이슬람 음력의 맥락을 확인하는 참고 링크. 원문을 복제하지 않는다.
+    verificationStatus: 라마단 금식과 음력 달력 및 이슬람 내부의 실천 차이를 다룬 내용을 확인했다.
+    usage: 라마단 등 실천 사례를 개인별 차이를 밝히며 요약한다.
+  harvard-pluralism-halal-food:
+    title: Halal Food
+    organization: The Pluralism Project at Harvard University
+    url: https://pluralism.org/halal-food
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 링크만 제공. 문장·이미지·PDF 재배포 조건은 별도 확인 필요.
+    reuseBasis: 할랄·하람 개념과 무슬림 공동체의 음식 문화가 다양하다는 점을 확인하는 참고 링크. 원문을 복제하지 않는다.
+    verificationStatus: 할랄이 허용됨을 뜻하고 음식 실천과 음식 문화가 내부적으로 다양하다는 페이지 내용을 확인했다.
+    usage: 식사 사례는 일부 사람과 공동체의 관습으로 소개하며 모든 무슬림에게 같은 선택을 가정하지 않는다.
+  harvard-pluralism-ramadan:
+    title: Ramadan and Eid al-Fitr
+    organization: The Pluralism Project at Harvard University
+    url: https://pluralism.org/ramadan-and-eid-al-fitr
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 링크만 제공. 문장·이미지·PDF 재배포 조건은 별도 확인 필요.
+    reuseBasis: 라마단이 이슬람 음력의 달이며 금식과 공동체 실천의 시기임을 확인하는 참고 링크. 원문을 복제하지 않는다.
+    verificationStatus: 라마단의 이슬람 음력상 위치와 금식, 공동체 활동에 관한 페이지 내용을 확인했다.
+    usage: 개인별 금식 실천은 다를 수 있음을 함께 밝히고, 날짜를 양력 고정 날짜처럼 제시하지 않는다.
+  harvard-pluralism-buddhism:
+    title: 'The Dharma: The Teachings of the Buddha'
+    organization: The Pluralism Project at Harvard University
+    url: https://pluralism.org/the-dharma-the-teachings-of-the-buddha
+    sourceDate: '2020'
+    checkedAt: '2026-11-27'
+    licenseStatus: 링크만 제공. 문장·이미지·PDF 재배포 조건은 별도 확인 필요.
+    reuseBasis: 불교의 사성제와 팔정도에 관한 개요 참고 링크. 원문을 복제하지 않는다.
+    verificationStatus: 사성제·팔정도의 기본 서술과 윤리·사유·명상 실천의 연결을 페이지에서 확인했다.
+    usage: 교리 개요를 요약하며 불교 전통의 여러 흐름과 지역적 차이를 함께 언급한다.
+  harvard-pluralism-buddhism-expansion:
+    title: The Expansion of Buddhism
+    organization: The Pluralism Project at Harvard University
+    url: https://pluralism.org/the-expansion-of-buddhism
+    sourceDate: '2020'
+    checkedAt: '2026-11-27'
+    licenseStatus: 링크만 제공. 문장·이미지·PDF 재배포 조건은 별도 확인 필요.
+    reuseBasis: 불교가 남아시아와 동남아시아, 중앙아시아, 동아시아에서 서로 다른 경로와 지역적 변화를 거친 역사 개요 참고 링크. 원문을 복제하지 않는다.
+    verificationStatus: 스리랑카·동남아시아 및 중앙아시아를 통한 중국·동아시아 전파의 개요와 지역에 따른 불교 흐름의 차이를 확인했다.
+    usage: 전파 경로를 하나의 선형 과정이나 한 지역의 고정된 특성으로 표현하지 않는다.
+  harvard-pluralism-hinduism:
+    title: Hinduism
+    organization: The Pluralism Project at Harvard University
+    url: https://pluralism.org/hinduism-0
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 링크만 제공. 문장·이미지·PDF 재배포 조건은 별도 확인 필요.
+    reuseBasis: 힌두교 전통의 역사적·지역적 다양성과 공통으로 논의되는 사상에 관한 참고 링크. 원문을 복제하지 않는다.
+    verificationStatus: 단일한 신조로 정의하기 어려운 전통의 다양성과 다르마·카르마·윤회·해탈 관련 설명의 범위를 확인했다.
+    usage: 힌두교에 단일 창시자나 하나의 보편적 실천을 부여하지 않으며 사상 용어를 요약할 때 내부 차이를 밝힌다.
+  harvard-pluralism-hindu-textures:
+    title: The Textures of Tradition
+    organization: The Pluralism Project at Harvard University
+    url: https://pluralism.org/the-textures-of-tradition
+    sourceDate: '2020'
+    checkedAt: '2026-11-27'
+    licenseStatus: 링크만 제공. 문장·이미지·PDF 재배포 조건은 별도 확인 필요.
+    reuseBasis: 남아시아의 여러 지역 문화와 사상 전통이 힌두교 형성에 얽힌 역사 개요 참고 링크. 원문을 복제하지 않는다.
+    verificationStatus: 힌두교 전통을 단일 장소의 출현이 아닌 남아시아의 여러 문화가 얽힌 역사로 설명한 페이지 내용을 확인했다.
+    usage: 발상지 표현은 하나의 도시나 고정된 시점으로 단정하지 않는다.
+  harvard-pluralism-hinduism-history:
+    title: Hinduism
+    organization: The Pluralism Project at Harvard University
+    url: https://pluralism.org/hinduism
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 링크만 제공. 문장·이미지·PDF 재배포 조건은 별도 확인 필요.
+    reuseBasis: 힌두교 전통이 남아시아 밖으로 전해지고 지역에서 변화한 역사에 관한 참고 링크. 원문을 복제하지 않는다.
+    verificationStatus: 힌두교 전통이 동남아시아로 확산한 역사와 교역·정치적 관계 및 지역 전통의 만남을 설명한 내용을 확인했다.
+    usage: 전파 경로를 하나로 환원하지 않고 복수의 지역적 관계와 해석을 함께 살핀다.
+  manitoba-world-religions-hindu-origin:
+    title: 'Hinduism: Origins'
+    organization: Manitoba Education and Early Childhood Learning
+    url: https://www.edu.gov.mb.ca/k12/docs/support/world_religions/hinduism/origins.pdf
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 링크만 제공. PDF 문장·도표 재배포 조건은 별도 확인 필요.
+    reuseBasis: 고등학교 세계 종교 학습 자료에서 힌두교의 여러 역사적 뿌리와 단일 창시자로 설명하기 어려운 성격을 확인하는 참고 링크. 원문을 복제하지 않는다.
+    verificationStatus: Manitoba 교육 자료가 힌두교를 단일 창시자의 가르침으로 추적하기 어렵다고 설명하는 내용을 확인했다.
+    usage: 발생 지역과 역사를 단일 인물·장소·시점으로 단정하지 않고 여러 지역적 전통의 형성으로 설명한다.
+  harvard-pluralism-changing-religious-landscape:
+    title: A Changing Religious Landscape
+    organization: The Pluralism Project at Harvard University
+    url: https://pluralism.org/a-changing-religious-landscape
+    sourceDate: '2020'
+    checkedAt: '2026-11-27'
+    licenseStatus: 링크만 제공. 문장·이미지·PDF 재배포 조건은 별도 확인 필요.
+    reuseBasis: 종교 공동체와 예배 공간이 지역 건축과 기존 건물의 재사용 등 여러 방식으로 경관에 나타나는 사례 참고 링크. 원문을 복제하지 않는다.
+    verificationStatus: 다양한 종교 공간이 전용 건축물뿐 아니라 기존 건물을 활용하는 사례가 있음을 페이지에서 확인했다.
+    usage: 건축 양식이 모든 신자나 종교 전통을 대표한다고 설명하지 않는다.
