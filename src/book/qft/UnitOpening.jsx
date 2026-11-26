@@ -27,6 +27,12 @@ export function canShowCarryOver(record) {
   return Boolean(record.stageTimes?.produce) && (record.questions ?? []).some(filled);
 }
 
+/** Plan is done when at least one priority question exists, each has a concept tag, and the plan line is written. */
+export function planReady(record) {
+  const chosen = selectedQuestions(record);
+  return chosen.length > 0 && chosen.every((q) => q.conceptTags.length > 0) && record.nextStepPlan.trim().length >= 4;
+}
+
 const stageReady = {
   produce: (record) => record.questions.some(filled),
   improve: (record) => {
@@ -37,7 +43,7 @@ const stageReady = {
     const count = selectedQuestions(record).length;
     return count >= 1 && count <= 3 && record.priorityReason.trim().length >= 4;
   },
-  plan: (record) => selectedQuestions(record).every((q) => q.conceptTags.length > 0) && record.nextStepPlan.trim().length >= 4,
+  plan: (record) => planReady(record),
 };
 
 function previousUnitId(book, unitId) {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Spread from '../Spread.jsx';
 import { useBook, useUnitRecord } from '../BookContext.jsx';
 import { routes } from '../router.js';
@@ -78,8 +78,11 @@ function Explain({ record, update, unit }) {
 
 function Revise({ record, update }) {
   const original = record.questions.find((question) => question.id === record.explanation.questionId);
+  const prefilled = useRef(false);
   useEffect(() => {
-    if (!record.revisedQuestion && original) update((current) => ({ ...current, revisedQuestion: questionText(original) }));
+    if (prefilled.current || !original) return;
+    prefilled.current = true;
+    if (!record.revisedQuestion) update((current) => ({ ...current, revisedQuestion: questionText(original) }));
   }, [original, record.revisedQuestion, update]);
   return (
     <div>

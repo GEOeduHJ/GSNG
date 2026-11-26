@@ -1,6 +1,7 @@
 import { forwardRef } from 'react';
 import { useUnitRecord } from '../book/BookContext.jsx';
 import { ACTIVITY_TEMPLATES } from './registry.jsx';
+import FictionalNote from './FictionalNote.jsx';
 
 /** The lesson's activity box; state lives in record.activityState[lessonId]. */
 const LessonActivity = forwardRef(function LessonActivity({ unit, lesson }, ref) {
@@ -16,9 +17,10 @@ const LessonActivity = forwardRef(function LessonActivity({ unit, lesson }, ref)
   });
   return (
     <section className="activity" ref={ref} aria-labelledby={`act-${lesson.id}`}>
+      {fictional && <FictionalNote />}
       <h2 id={`act-${lesson.id}`}>{config.title ?? '탐구 활동'}</h2>
       {config.instruction && <p>{config.instruction}</p>}
-      <Template config={config} value={value} onChange={onChange} fictional={fictional} />
+      <Template config={config} value={value} onChange={onChange} fictional={false} />
     </section>
   );
 });

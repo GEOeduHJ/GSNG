@@ -134,3 +134,34 @@ describe('I5: two tabs do not overwrite each other', () => {
     expect(Probe).toBeTruthy();
   });
 });
+
+describe('deferred minors fixed during unit II', () => {
+  it('puts the fictional-situation note before the activity title', async () => {
+    vi.stubGlobal('fetch', vi.fn(() => Promise.reject(new Error('offline'))));
+    vi.stubGlobal('IntersectionObserver', class { observe() {} disconnect() {} unobserve() {} });
+    const { default: LessonActivity } = await import('../src/activities/LessonActivity.jsx');
+    const book = makeBook();
+    const lesson = { ...book.units[0].lessons[2], activity: { template: 'civic-hearing', fictional: true, config: { title: '청문회', actors: [], levels: [] } } };
+    const { container } = render(<BookProvider book={book} storage={memoryStorage()}><LessonActivity unit={book.units[0]} lesson={lesson} /></BookProvider>);
+    const section = container.querySelector('.activity');
+    expect(section.firstElementChild.className).toBe('fictional-note');
+    expect(container.querySelectorAll('.fictional-note')).toHaveLength(1);
+  });
+
+  it('does not pass the plan stage with no priority questions', async () => {
+    const { planReady } = await import('../src/book/qft/UnitOpening.jsx');
+    expect(planReady({ ...emptyUnitRecord('01-01'), nextStepPlan: '자료를 본다' })).toBe(false);
+  });
+
+  it('lets the student clear the revised question', async () => {
+    const { default: UnitClosing } = await import('../src/book/close/UnitClosing.jsx');
+    const q = { id: 'q1', text: '처음 질문', classification: '열린', convertedType: '', convertedText: '', selectedVersion: 'original', selected: true, conceptTags: [] };
+    const storage = memoryStorage({ [STORAGE_KEY_V4]: JSON.stringify({ version: 4, units: { '01-01': { ...emptyUnitRecord('01-01'), questions: [q], explanation: { questionId: 'q1', claim: '주장', reasoning: '설명', evidenceIds: ['e'] }, stageTimes: { explain: 't' } } } }) });
+    const book = makeBook();
+    render(<BookProvider book={book} storage={storage}><UnitClosing unit={book.units[0]} /></BookProvider>);
+    const field = screen.getByLabelText('다듬은 질문');
+    expect(field.value).toBe('처음 질문');
+    fireEvent.change(field, { target: { value: '' } });
+    expect(screen.getByLabelText('다듬은 질문').value).toBe('');
+  });
+});
