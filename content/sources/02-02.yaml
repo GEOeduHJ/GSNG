@@ -1,0 +1,41 @@
+sources:
+  usgs-dynamic-earth:
+    title: 'Understanding Plate Motions — This Dynamic Earth'
+    organization: U.S. Geological Survey (USGS)
+    url: https://pubs.usgs.gov/gip/dynamic/understanding.html
+    sourceDate: '1996'
+    checkedAt: '2026-11-27'
+    licenseStatus: USGS 공공 자료 링크만 참고하며 웹 페이지의 도표와 이미지는 재배포하지 않음.
+    reuseBasis: 판의 수렴·발산·변환과 산맥·지진·화산의 관계를 확인하는 설명 출처.
+    verificationStatus: USGS 자료에서 판 경계의 세 유형, 수렴에 따른 산맥 형성, 경계 밖 화산 사례를 확인함.
+    usage: 분포의 일반적 관계를 설명하되 모든 지진·화산이 판 경계에만 있다고 쓰지 않음.
+  usgs-cratons:
+    title: 'Before the Break-up of Pangaea — This Dynamic Earth'
+    organization: U.S. Geological Survey (USGS)
+    url: https://pubs.usgs.gov/gip/dynamic/Pangaea.html
+    sourceDate: '1996'
+    checkedAt: '2026-11-27'
+    licenseStatus: USGS 공공 자료 링크만 참고하며 웹 페이지의 도표와 이미지는 재배포하지 않음.
+    reuseBasis: 대륙 내부의 오래되고 안정된 크라톤과 주변 지질대에 관한 설명 출처.
+    verificationStatus: USGS 자료에서 대륙의 오래되고 비교적 안정된 내부가 크라톤으로 불리는 점을 확인함.
+    usage: 안정육괴를 비교적 안정된 대륙 내부로 설명하고 그 밖의 지질 변화를 함께 다룸.
+  usgs-continent-change:
+    title: Our Changing Continent
+    organization: U.S. Geological Survey (USGS)
+    url: https://pubs.usgs.gov/gip/continents/index.html
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: USGS 공공 자료 링크만 참고하며 웹 페이지의 도표와 이미지는 재배포하지 않음.
+    reuseBasis: 산지 형성과 오랜 침식·퇴적에 따른 지형 변화의 설명 출처.
+    verificationStatus: USGS 자료에서 산맥이 만들어진 뒤 침식으로 낮아지고 다시 융기하는 장기 변화 사례를 확인함.
+    usage: 오래된 습곡 산지를 일반화할 때 침식 작용을 설명하는 참고 자료로 사용함.
+  nps-landforms:
+    title: Park Landforms
+    organization: U.S. National Park Service (NPS)
+    url: https://www.nps.gov/subjects/geology/landforms.htm
+    sourceDate: '2019-08-29'
+    checkedAt: '2026-11-27'
+    licenseStatus: 참고 링크만 사용하며 페이지의 개별 사진·자료는 재배포하지 않음.
+    reuseBasis: 지형을 만드는 내부 작용과 물·바람·얼음·중력의 작용, 주요 지형 유형을 확인하는 설명 출처.
+    verificationStatus: NPS 자료에서 지형의 다양한 형상과 지각·화산 활동 및 외부 작용의 역할, 해안·빙하·카르스트 지형 항목을 확인함.
+    usage: 미국 국립공원 자료를 세계의 모든 지역에 일반화하지 않고 지형 과정의 참고 설명으로만 사용함.
