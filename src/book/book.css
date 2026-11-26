@@ -83,7 +83,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .page { position: relative; padding: var(--page-pad); padding-bottom: 56px; min-width: 0; }
 .spread.is-narrow .page { padding: 24px 20px 48px; }
 .spread.is-narrow .page-right { border-top: 1px solid var(--rule); }
-.page-right.is-sticky .page-right-inner { position: sticky; top: 72px; }
+.page-right.is-sticky .stage-sticky { position: sticky; top: 72px; }
+.page-turn { max-width: 1360px; margin: 16px auto 0; display: flex; justify-content: space-between; font-size: var(--body-size); }
+.page-turn a { text-decoration: none; }
+.map-legend { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 12px; padding: 0; margin: 8px 0 0; font-size: var(--tiny-size); }
+.map-legend span { display: inline-block; width: 14px; height: 14px; margin-right: 4px; vertical-align: -2px; border: 1px solid var(--rule); }
+.figure-image { display: block; width: 100%; height: auto; }
 .folio { position: absolute; bottom: 18px; font-family: var(--serif); font-size: var(--tiny-size); color: var(--ink-soft); }
 .page-left .folio { left: var(--page-pad); }
 .page-right .folio { right: var(--page-pad); }

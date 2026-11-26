@@ -1,0 +1,33 @@
+export const BASE_MAP_URL = '/data/base/countries-110m.geojson';
+export const MAP_COLORS = ['#e6efe9', '#bcd5ca', '#86b3a2', '#4f8b77', '#2f6f5e'];
+export const NO_DATA_COLOR = '#dedad0';
+
+export function joinValues(geojson, values = {}) {
+  return {
+    ...geojson,
+    features: (geojson.features ?? []).map((feature) => {
+      const iso = feature.properties?.iso_a3;
+      const value = iso && values[iso] != null ? Number(values[iso]) : null;
+      return { ...feature, properties: { ...feature.properties, value } };
+    }),
+  };
+}
+
+/** Quantile cut points (n classes → n-1 breaks), ignoring nulls. */
+export function classBreaks(values, classes = 5) {
+  const sorted = values.filter((value) => value != null && Number.isFinite(Number(value))).map(Number).sort((a, b) => a - b);
+  if (!sorted.length) return [];
+  const breaks = [];
+  for (let index = 1; index < classes; index += 1) {
+    breaks.push(sorted[Math.min(sorted.length - 1, Math.floor((index * sorted.length) / classes))]);
+  }
+  return breaks;
+}
+
+export function topValues(values = {}, names = {}, count = 10) {
+  return Object.entries(values)
+    .filter(([, value]) => value != null)
+    .sort(([, a], [, b]) => b - a)
+    .slice(0, count)
+    .map(([iso, value]) => [names[iso] ?? iso, value]);
+}
