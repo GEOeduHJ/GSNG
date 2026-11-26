@@ -35,6 +35,20 @@ export function buildChartOption(config = {}, data = {}, names = {}, { reduced =
     grid: { left: 16, right: 24, top: 48, bottom: 16, containLabel: true },
     tooltip: { trigger: config.kind === 'bar' ? 'item' : 'axis', textStyle: { fontSize: 14 } },
   };
+  if (config.kind === 'pyramid') {
+    const unit = data.unit ?? config.unit ?? '';
+    return {
+      ...common,
+      tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }, valueFormatter: (value) => `${Math.abs(value)}${unit}`, textStyle: { fontSize: 14 } },
+      legend: { top: 0, textStyle: label },
+      xAxis: { type: 'value', name: unit, nameTextStyle: label, axisLabel: { ...label, formatter: (value) => String(Math.abs(value)) } },
+      yAxis: { type: 'category', data: data.groups ?? [], axisLabel: label },
+      series: [
+        { type: 'bar', name: '남성', stack: 'total', data: (data.male ?? []).map((value) => (value == null ? null : -value)), itemStyle: { color: '#345f86' } },
+        { type: 'bar', name: '여성', stack: 'total', data: data.female ?? [], itemStyle: { color: '#a2574a' } },
+      ],
+    };
+  }
   if (config.kind === 'climograph') {
     const units = data.unit ?? {};
     return {
@@ -77,11 +91,13 @@ function monthLabels(data) {
 
 export function chartHeader(config = {}, data = {}) {
   if (config.kind === 'climograph') return ['', ...monthLabels(data)];
+  if (config.kind === 'pyramid') return ['연령', `남성(${data.unit ?? ''})`, `여성(${data.unit ?? ''})`];
   if (config.kind === 'bar') return ['국가·지역', data.unit ?? config.unit ?? '값'];
   return ['', ...limitedSeries(config, data).years];
 }
 
 export function chartRows(config = {}, data = {}, names = {}) {
+  if (config.kind === 'pyramid') return (data.groups ?? []).map((group, index) => [group, data.male?.[index] ?? '–', data.female?.[index] ?? '–']);
   if (config.kind === 'climograph') {
     const units = data.unit ?? {};
     return [[`강수량(${units.precipitation ?? 'mm'})`, ...(data.precipitation ?? [])], [`기온(${units.temperature ?? '°C'})`, ...(data.temperature ?? [])]];

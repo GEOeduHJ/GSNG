@@ -2,7 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { act, render, renderHook, screen, waitFor } from '@testing-library/react';
 import { useActiveStep } from '../src/book/lesson/useActiveStep.js';
 import { stageIndexFor } from '../src/book/lesson/stages.js';
-import { buildChartOption, chartRows } from '../src/viz/chartData.js';
+import { buildChartOption, chartHeader, chartRows } from '../src/viz/chartData.js';
 import { classBreaks, joinValues, legendLabels, formatNumber, pointCategories } from '../src/viz/mapData.js';
 import DataStage from '../src/book/lesson/DataStage.jsx';
 import LessonSpread from '../src/book/lesson/LessonSpread.jsx';
@@ -107,6 +107,18 @@ describe('chart and map data', () => {
     expect(option.series[1].yAxisIndex).toBe(1);
     expect(option.xAxis.data).toEqual(['1월', '2월']);
     expect(chartRows({ kind: 'climograph' }, data)).toEqual([['강수량(mm)', 16.8, 28.2], ['기온(°C)', -2.4, 0.4]]);
+  });
+
+  it('builds a population pyramid with males to the left', () => {
+    const data = { country: '대한민국', year: 2024, unit: '%', groups: ['0-4', '5-9'], male: [1.5, 2.0], female: [1.4, 1.9] };
+    const option = buildChartOption({ kind: 'pyramid' }, data);
+    expect(option.yAxis.data).toEqual(['0-4', '5-9']);
+    expect(option.series.map((series) => series.name)).toEqual(['남성', '여성']);
+    expect(option.series[0].data).toEqual([-1.5, -2.0]);
+    expect(option.series[1].data).toEqual([1.4, 1.9]);
+    expect(option.xAxis.axisLabel.formatter(-1.5)).toBe('1.5');
+    expect(chartRows({ kind: 'pyramid' }, data)).toEqual([['0-4', 1.5, 1.4], ['5-9', 2.0, 1.9]]);
+    expect(chartHeader({ kind: 'pyramid' }, data)).toEqual(['연령', '남성(%)', '여성(%)']);
   });
 
   it('builds sorted bar rows', () => {
