@@ -98,6 +98,17 @@ describe('chart and map data', () => {
     expect(chartRows({ kind: 'bar' }, { rows: [{ iso3: 'VNM', name: 'VIETNAM', value: 3 }] }, names)).toEqual([['베트남', 3]]);
   });
 
+  it('builds a climograph with precipitation bars and a temperature line', () => {
+    const data = { station: '서울', months: [1, 2], temperature: [-2.4, 0.4], precipitation: [16.8, 28.2], unit: { temperature: '°C', precipitation: 'mm' } };
+    const option = buildChartOption({ kind: 'climograph' }, data);
+    expect(option.series.map((series) => series.type)).toEqual(['bar', 'line']);
+    expect(option.series[0].data).toEqual([16.8, 28.2]);
+    expect(option.series[1].data).toEqual([-2.4, 0.4]);
+    expect(option.series[1].yAxisIndex).toBe(1);
+    expect(option.xAxis.data).toEqual(['1월', '2월']);
+    expect(chartRows({ kind: 'climograph' }, data)).toEqual([['강수량(mm)', 16.8, 28.2], ['기온(°C)', -2.4, 0.4]]);
+  });
+
   it('builds sorted bar rows', () => {
     const data = { unit: 'USD', rows: [{ name: 'A', value: 1 }, { name: 'B', value: 5 }] };
     expect(chartRows({ kind: 'bar' }, data).map((row) => row[0])).toEqual(['B', 'A']);

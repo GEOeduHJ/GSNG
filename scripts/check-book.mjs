@@ -2,12 +2,11 @@
 // Structure check for the v2 textbook. Exit 1 when any rule fails.
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
-import { assembleBook } from '../src/content-loader/assemble.js';
+import { assembleBook, fullUnitIds } from '../src/content-loader/assemble.js';
 import { validateBook, checkCssFontSizes } from '../src/content-loader/validate.js';
 import { activityTemplateRule } from '../src/content-loader/rules.js';
 
 const ROOT = process.cwd();
-const FULL_UNITS = ['01-01'];
 
 function walk(dir, pattern) {
   let out = [];
@@ -23,6 +22,7 @@ function walk(dir, pattern) {
 
 const files = Object.fromEntries(walk(join(ROOT, 'content'), /\.(ya?ml|md)$/).map((path) => [relative(ROOT, path), readFileSync(path, 'utf8')]));
 const book = assembleBook(files);
+const FULL_UNITS = fullUnitIds(book);
 const errors = validateBook(book, book, { fullUnits: FULL_UNITS, extraRules: [activityTemplateRule] });
 for (const cssPath of walk(join(ROOT, 'src/book'), /\.css$/)) {
   for (const message of checkCssFontSizes(readFileSync(cssPath, 'utf8'))) errors.push(`${relative(ROOT, cssPath)}: ${message}`);

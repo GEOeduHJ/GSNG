@@ -10,6 +10,15 @@ function findText(files, suffix) {
   return key ? files[key] : '';
 }
 
+const SOURCES_DIR = /content\/sources\/[^/]+\.ya?ml$/;
+const MANIFESTS_DIR = /content\/manifests\/[^/]+\.ya?ml$/;
+const PROVENANCE_DIR = /content\/provenance\/[^/]+\.ya?ml$/;
+
+/** Per-unit record files (sorted by path) so parallel work on different units never edits the same file. */
+function yamlFiles(files, pattern) {
+  return Object.keys(files).filter((path) => pattern.test(path)).sort().map((path) => parseYaml(files[path]) ?? {});
+}
+
 function yamlFile(files, suffix, fallback) {
   const text = findText(files, suffix);
   return text ? (parseYaml(text) ?? fallback) : fallback;
@@ -44,8 +53,13 @@ export function assembleBook(files) {
     units: [...units.values()],
     teacher,
     concepts: yamlFile(files, 'content/concepts.yaml', {}).concepts ?? {},
-    sources: yamlFile(files, 'content/sources.yaml', {}).sources ?? {},
-    manifest: yamlFile(files, 'content/data-manifest.yaml', { items: [] }),
-    provenance: yamlFile(files, 'content/image-provenance.yaml', { items: [] }),
+    sources: Object.assign({}, yamlFile(files, 'content/sources.yaml', {}).sources ?? {}, ...yamlFiles(files, SOURCES_DIR).map((data) => data.sources ?? {})),
+    manifest: { items: [...(yamlFile(files, 'content/data-manifest.yaml', { items: [] }).items ?? []), ...yamlFiles(files, MANIFESTS_DIR).flatMap((data) => data.items ?? [])] },
+    provenance: { items: [...(yamlFile(files, 'content/image-provenance.yaml', { items: [] }).items ?? []), ...yamlFiles(files, PROVENANCE_DIR).flatMap((data) => data.items ?? [])] },
   };
+}
+
+/** Units with a unit.yaml are checked in full; the rest only need to be in the table of contents. */
+export function fullUnitIds(book) {
+  return book.units.map((unit) => unit.id).sort();
 }

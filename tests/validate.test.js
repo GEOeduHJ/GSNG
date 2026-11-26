@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { validateBook, checkCssFontSizes } from '../src/content-loader/validate.js';
-import { assembleBook } from '../src/content-loader/assemble.js';
+import { assembleBook, fullUnitIds } from '../src/content-loader/assemble.js';
 import { resolveConceptId } from '../src/content-loader/concepts.js';
 
 const toc = { parts: [{ id: 'part-01', units: [
@@ -141,5 +141,29 @@ describe('assembleBook', () => {
     expect(book.units[0].lessons[1].id).toBe('lesson-01-01-2');
     expect(book.teacher['01-01']).toBe('# 안내');
     expect(book.manifest).toEqual({ items: [] });
+  });
+});
+
+describe('per-unit record files', () => {
+  it('merges content/manifests, content/sources and content/provenance files', () => {
+    const book = assembleBook({
+      'content/book/toc.yaml': 'parts: []',
+      'content/concepts.yaml': 'concepts: {}',
+      'content/sources.yaml': 'sources: { a: { title: A } }',
+      'content/sources/02-01.yaml': 'sources: { b: { title: B } }',
+      'content/data-manifest.yaml': 'items: [{ id: m1, path: /data/x.json }]',
+      'content/manifests/02-01.yaml': 'items: [{ id: m2, path: /data/02-01/y.json }]',
+      'content/image-provenance.yaml': 'items: [{ src: /images/a.webp }]',
+      'content/provenance/02-01.yaml': 'items: [{ src: /images/02-01/b.webp }]',
+    });
+    expect(Object.keys(book.sources).sort()).toEqual(['a', 'b']);
+    expect(book.manifest.items.map((item) => item.id)).toEqual(['m1', 'm2']);
+    expect(book.provenance.items.map((item) => item.src)).toEqual(['/images/a.webp', '/images/02-01/b.webp']);
+  });
+});
+
+describe('fullUnitIds', () => {
+  it('lists every unit that has a unit.yaml', () => {
+    expect(fullUnitIds({ units: [{ id: '02-01' }, { id: '01-01' }] })).toEqual(['01-01', '02-01']);
   });
 });

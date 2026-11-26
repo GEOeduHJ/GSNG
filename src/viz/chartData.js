@@ -35,6 +35,23 @@ export function buildChartOption(config = {}, data = {}, names = {}, { reduced =
     grid: { left: 16, right: 24, top: 48, bottom: 16, containLabel: true },
     tooltip: { trigger: config.kind === 'bar' ? 'item' : 'axis', textStyle: { fontSize: 14 } },
   };
+  if (config.kind === 'climograph') {
+    const units = data.unit ?? {};
+    return {
+      ...common,
+      tooltip: { trigger: 'axis', textStyle: { fontSize: 14 } },
+      legend: { top: 0, textStyle: label },
+      xAxis: { type: 'category', data: monthLabels(data), axisLabel: label },
+      yAxis: [
+        { type: 'value', name: `강수량(${units.precipitation ?? 'mm'})`, nameTextStyle: label, axisLabel: label },
+        { type: 'value', name: `기온(${units.temperature ?? '°C'})`, nameTextStyle: label, axisLabel: label, splitLine: { show: false } },
+      ],
+      series: [
+        { type: 'bar', name: '강수량', data: data.precipitation ?? [], itemStyle: { color: '#345f86' }, barMaxWidth: 18 },
+        { type: 'line', name: '기온', yAxisIndex: 1, data: data.temperature ?? [], itemStyle: { color: '#a2574a' }, lineStyle: { width: 2.5 } },
+      ],
+    };
+  }
   if (config.kind === 'bar') {
     const rows = sortedRows(data, names);
     return {
@@ -54,12 +71,21 @@ export function buildChartOption(config = {}, data = {}, names = {}, { reduced =
   };
 }
 
+function monthLabels(data) {
+  return (data.months ?? []).map((month) => `${month}월`);
+}
+
 export function chartHeader(config = {}, data = {}) {
+  if (config.kind === 'climograph') return ['', ...monthLabels(data)];
   if (config.kind === 'bar') return ['국가·지역', data.unit ?? config.unit ?? '값'];
   return ['', ...limitedSeries(config, data).years];
 }
 
 export function chartRows(config = {}, data = {}, names = {}) {
+  if (config.kind === 'climograph') {
+    const units = data.unit ?? {};
+    return [[`강수량(${units.precipitation ?? 'mm'})`, ...(data.precipitation ?? [])], [`기온(${units.temperature ?? '°C'})`, ...(data.temperature ?? [])]];
+  }
   if (config.kind === 'bar') return sortedRows(data, names).map((row) => [row.name, row.value]);
   return limitedSeries(config, data, names).series.map((series) => [series.name, ...series.values.map((value) => (value == null ? '–' : value))]);
 }
