@@ -4,76 +4,14 @@ import BookReader from './components/BookReader.jsx';
 import CourseHome from './components/CourseHome.jsx';
 import { BOOK_UNITS, LESSON_BY_ID, MIDDLE_UNIT_BY_ID, validateCourseContent } from './content/bookIndex.js';
 import { MODULES, MODULE_BY_CODE } from './modules/index.js';
+import { UNIT01_MODULE_BY_LESSON, validateUnit01Modules } from './lesson-modules/unit-01/index.js';
+import { emptyRecord, readLearningData, writeLearningData, LEGACY_STORAGE_KEY } from './storage/learning-records.js';
 
-const STORAGE_KEY = 'world-citizenship-geography-digital-textbook-v2';
-const LEGACY_STORAGE_KEY = 'world-citizenship-geography-react-v1';
-
-function emptyRecord(moduleCode = 'module') {
-  return {
-    questions: [{ id: `seed-${moduleCode}`, text: '', classification: '', convertedType: '', convertedText: '', selectedVersion: 'original', selected: false }],
-    qftPhase: 0,
-    priorityReason: '',
-    evidencePlan: '',
-    evidenceItems: [],
-    explanationQuestionId: '',
-    claim: '',
-    evidenceSummary: '',
-    reasoning: '',
-    reflection: '',
-    completed: false,
-  };
-}
-
-function normalizeRecord(value = {}, code = 'module') {
-  const record = { ...emptyRecord(code), ...(value || {}) };
-  const questions = Array.isArray(record.questions) ? record.questions : [];
-  return {
-    ...record,
-    questions: questions.map((question) => ({ ...question, selectedVersion: question.selectedVersion || 'original' })),
-    evidenceItems: (Array.isArray(record.evidenceItems) ? record.evidenceItems : []).map((item) => ({
-      ...item,
-      questionId: item.questionId || '',
-    })),
-    explanationQuestionId: record.explanationQuestionId || '',
-  };
-}
-
-function migrateLegacyRecords(value = {}) {
-  const records = {};
-  for (const [code, old] of Object.entries(value || {})) {
-    const record = emptyRecord(code);
-    const questions = Array.isArray(old?.questions) ? old.questions.map((text, index) => ({ text: String(text || ''), index })).filter((item) => item.text.trim()) : [];
-    record.questions = questions.length ? questions.map(({ text, index }) => ({
-      id: `migrated-${code}-${index + 1}`,
-      text,
-      classification: '',
-      convertedType: '',
-      convertedText: '',
-      selectedVersion: 'original',
-      selected: index === Number(old.selectedQuestion),
-    })) : record.questions;
-    record.claim = old?.claim || '';
-    record.evidenceSummary = old?.evidence || '';
-    record.reasoning = old?.reasoning || '';
-    record.completed = Boolean(old?.completed);
-    records[code] = record;
-  }
-  return records;
-}
-
-function readStoredData() {
-  if (typeof window === 'undefined') return { records: {}, readLessons: {} };
+function initialLearningData() {
   try {
-    const stored = JSON.parse(window.localStorage.getItem(STORAGE_KEY) || 'null');
-    if (stored && stored.version === 2) return {
-      records: Object.fromEntries(Object.entries(stored.records && typeof stored.records === 'object' ? stored.records : {}).map(([code, record]) => [code, normalizeRecord(record, code)])),
-      readLessons: stored.readLessons && typeof stored.readLessons === 'object' ? stored.readLessons : {},
-    };
-    const legacy = JSON.parse(window.localStorage.getItem(LEGACY_STORAGE_KEY) || '{}');
-    const migrated = migrateLegacyRecords(legacy);
-    return { records: Object.fromEntries(Object.entries(migrated).map(([code, record]) => [code, normalizeRecord(record, code)])), readLessons: {} };
+    return readLearningData(typeof window === 'undefined' ? null : window.localStorage);
   } catch {
-    return { records: {}, readLessons: {} };
+    return { records: {}, lessonRecords: {}, readLessons: {} };
   }
 }
 
@@ -117,8 +55,9 @@ export default function App() {
   const [activeView, setActiveView] = useState(viewFromHash);
   const [inquiryOpen, setInquiryOpen] = useState(() => Boolean(viewFromHash().openInquiry));
   const [inquiryScrollRequest, setInquiryScrollRequest] = useState(() => (viewFromHash().openInquiry ? 1 : 0));
-  const initialData = useMemo(readStoredData, []);
+  const initialData = useMemo(initialLearningData, []);
   const [records, setRecords] = useState(initialData.records);
+  const [lessonRecords, setLessonRecords] = useState(initialData.lessonRecords);
   const [readLessons, setReadLessons] = useState(initialData.readLessons);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [toast, setToast] = useState('');
@@ -129,17 +68,29 @@ export default function App() {
   const part = lesson ? BOOK_UNITS.find((item) => item.id === lesson.partId) : null;
   const moduleCode = lesson?.moduleCode;
   const module = MODULE_BY_CODE[moduleCode] || null;
+  const lessonModule = lesson ? UNIT01_MODULE_BY_LESSON[lesson.id] || null : null;
+  const storedLessonRecord = lessonModule ? lessonRecords[lesson.id] || {} : {};
   const activeRecord = module ? { ...emptyRecord(module.code), ...(records[module.code] || {}) } : null;
-  const validationProblems = useMemo(validateCourseContent, []);
+  const currentRecord = lessonModule ? { ...emptyRecord(module?.code), ...(storedLessonRecord.qft || {}) } : activeRecord || emptyRecord();
+  const currentActivityRecord = lessonModule ? storedLessonRecord.activities?.[lessonModule.activity.id] || {} : {};
+  const progressRecords = useMemo(() => {
+    const summary = { ...records };
+    for (const item of MODULES) {
+      const lessonStates = item.sectionIds.map((id) => lessonRecords[id]?.qft).filter(Boolean);
+      if (lessonStates.length === item.sectionIds.length && lessonStates.every((state) => state?.completed)) summary[item.code] = { ...(summary[item.code] || emptyRecord(item.code)), completed: true };
+    }
+    return summary;
+  }, [records, lessonRecords]);
+  const validationProblems = useMemo(() => [...validateCourseContent(), ...validateUnit01Modules(Object.values(LESSON_BY_ID))], []);
 
   useEffect(() => {
     try {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ version: 2, records, readLessons }));
+      writeLearningData(window.localStorage, { records, lessonRecords, readLessons });
       setStorageError(false);
     } catch {
       setStorageError(true);
     }
-  }, [records, readLessons]);
+  }, [records, lessonRecords, readLessons]);
 
   useEffect(() => {
     const handleLocation = () => {
@@ -211,9 +162,25 @@ export default function App() {
   function updateRecord(code, changes) {
     if (!code) return;
     setRecords((current) => {
-      const existing = normalizeRecord(current[code], code);
+      const existing = { ...emptyRecord(code), ...(current[code] || {}) };
       const updated = typeof changes === 'function' ? changes(existing) : { ...existing, ...changes };
       return { ...current, [code]: updated };
+    });
+  }
+
+  function updateLessonRecord(lessonId, changes) {
+    setLessonRecords((current) => {
+      const existing = { qft: emptyRecord(lessonId), activities: {}, ...(current[lessonId] || {}) };
+      const updated = typeof changes === 'function' ? changes(existing) : { ...existing, ...changes };
+      return { ...current, [lessonId]: updated };
+    });
+  }
+
+  function updateActivityRecord(lessonId, activityId, changes) {
+    updateLessonRecord(lessonId, (existing) => {
+      const activity = existing.activities?.[activityId] || {};
+      const updated = typeof changes === 'function' ? changes(activity) : { ...activity, ...changes };
+      return { ...existing, activities: { ...(existing.activities || {}), [activityId]: updated } };
     });
   }
 
@@ -228,6 +195,7 @@ export default function App() {
       storage: '현재 브라우저 로컬 기록',
       readLessons,
       records,
+      lessonRecords,
     });
     showToast('이 기기에 저장된 학습 기록을 내려받았습니다.');
   }
@@ -236,12 +204,12 @@ export default function App() {
     const confirmed = window.confirm('이 브라우저에 저장된 모든 읽기·탐구 기록을 지울까요?');
     if (!confirmed) return;
     setRecords({});
+    setLessonRecords({});
     setReadLessons({});
     try { window.localStorage.removeItem(LEGACY_STORAGE_KEY); } catch { setStorageError(true); }
     showToast('현재 브라우저의 학습 기록을 지웠습니다.');
   }
 
-  const currentRecord = activeRecord || emptyRecord();
   return (
     <>
       <a className="skip-link" href="#main-content">본문으로 건너뛰기</a>
@@ -249,7 +217,7 @@ export default function App() {
         <BookNavigation
           units={BOOK_UNITS}
           modules={MODULES}
-          records={records}
+          records={progressRecords}
           readLessons={readLessons}
           activeView={activeView}
           onHome={openHome}
@@ -271,20 +239,24 @@ export default function App() {
 
           <main id="main-content" className="page-content" tabIndex="-1">
             {validationProblems.length > 0 && <div className="content-warning" role="status">일부 콘텐츠 연결을 확인해야 합니다.</div>}
-            {activeView.type === 'home' && <CourseHome units={BOOK_UNITS} modules={MODULES} readLessons={readLessons} records={records} onSelectLesson={openLesson} onOpenInquiry={openInquiry} />}
+            {activeView.type === 'home' && <CourseHome units={BOOK_UNITS} modules={MODULES} readLessons={readLessons} records={progressRecords} onSelectLesson={openLesson} onOpenInquiry={openInquiry} />}
             {lesson && module && unit && part && <BookReader
               lesson={lesson}
               part={part}
               unit={unit}
               module={module}
+              lessonModule={lessonModule}
               record={currentRecord}
+              activityRecord={currentActivityRecord}
+              legacyRecord={lessonModule ? records[module.code] || null : null}
               inquiryOpen={inquiryOpen}
               inquiryScrollRequest={inquiryScrollRequest}
               read={Boolean(readLessons[lesson.id])}
               onRead={markLessonRead}
               onOpenInquiry={openInquiry}
               onToggleInquiry={toggleInquiry}
-              onChangeInquiry={(changes) => updateRecord(module.code, changes)}
+              onChangeInquiry={(changes) => lessonModule ? updateLessonRecord(lesson.id, (current) => ({ ...current, qft: { ...current.qft, ...changes } })) : updateRecord(module.code, changes)}
+              onChangeActivity={(changes) => lessonModule && updateActivityRecord(lesson.id, lessonModule.activity.id, changes)}
               onSelectLesson={openLesson}
             />}
             {storageError && <div className="storage-warning" role="status"><strong>브라우저 저장을 사용할 수 없습니다.</strong><span>읽기·탐구 화면은 계속 쓸 수 있습니다. 현재 기록을 저장하려면 JSON 파일로 내려받으세요.</span></div>}

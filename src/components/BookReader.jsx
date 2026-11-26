@@ -4,7 +4,7 @@ import SourceReferences from './SourceReferences.jsx';
 import QFTFlow from './QFTFlow.jsx';
 import { getNextLesson, LESSONS } from '../content/bookIndex.js';
 
-export default function BookReader({ lesson, part, unit, module, record, inquiryOpen, inquiryScrollRequest, read, onRead, onOpenInquiry, onToggleInquiry, onChangeInquiry, onSelectLesson }) {
+export default function BookReader({ lesson, part, unit, module, lessonModule, record, activityRecord, legacyRecord, inquiryOpen, inquiryScrollRequest, read, onRead, onOpenInquiry, onToggleInquiry, onChangeInquiry, onChangeActivity, onSelectLesson }) {
   const index = LESSONS.findIndex((item) => item.id === lesson.id);
   const previous = getNextLesson(lesson.id, -1);
   const next = getNextLesson(lesson.id, 1);
@@ -12,6 +12,7 @@ export default function BookReader({ lesson, part, unit, module, record, inquiry
   const progress = useMemo(() => Math.round(((index + 1) / LESSONS.length) * 100), [index]);
   const inquiryRef = useRef(null);
   const readerHeadingRef = useRef(null);
+  const qftFocusMode = Boolean(lessonModule && inquiryOpen);
 
   useEffect(() => {
     if (inquiryScrollRequest) inquiryRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -22,22 +23,27 @@ export default function BookReader({ lesson, part, unit, module, record, inquiry
   }
 
   function returnToTextbook() {
+    if (qftFocusMode) {
+      onToggleInquiry();
+      window.setTimeout(() => readerHeadingRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 0);
+      return;
+    }
     readerHeadingRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   return (
-    <article className="reader-page">
+    <article className={`reader-page${qftFocusMode ? ' is-qft-focus-mode' : ''}`}>
       <div className="reader-breadcrumb"><span>{part.numeral} · {part.title}</span><span aria-hidden="true">/</span><span>{unit.title}</span><span aria-hidden="true">/</span><span>학습 절 {unitIndex + 1}</span></div>
       <header ref={readerHeadingRef} className="reader-heading">
         <div className="reader-meta"><span className="reading-progress-label">{String(index + 1).padStart(2, '0')} / {LESSONS.length} 학습 절</span><span className="meta-divider" /><span>{module.code}</span><span className="meta-divider" /><span>{module.time}</span></div>
-        <h1>{lesson.title}</h1>
-        <p className="reader-lead">{lesson.lead}</p>
+        <h1>{qftFocusMode ? '질문 먼저 만들기' : lesson.title}</h1>
+        <p className="reader-lead">{qftFocusMode ? '아래의 중립 초점 자료를 보고 질문을 먼저 기록합니다. 디지털 활동은 자료 탐구 단계에서 열립니다.' : lesson.lead}</p>
         <div className="reader-progress" role="progressbar" aria-label="전체 읽기 위치" aria-valuemin="0" aria-valuemax="100" aria-valuenow={progress}><span style={{ width: `${progress}%` }} /></div>
       </header>
 
-      {inquiryOpen && <div className="reader-inquiry-return"><span>질문 탐구와 작성 중인 기록이 이어져 있습니다.</span><button type="button" onClick={returnToInquiry}>질문 탐구로 돌아가기 <span aria-hidden="true">↓</span></button></div>}
+      {inquiryOpen && <div className="reader-inquiry-return"><span>질문 탐구와 작성 중인 기록이 이어져 있습니다.</span><button type="button" onClick={qftFocusMode ? onToggleInquiry : returnToInquiry}>{qftFocusMode ? '교과서 본문으로 돌아가기' : '질문 탐구로 돌아가기'} <span aria-hidden="true">{qftFocusMode ? '↑' : '↓'}</span></button></div>}
 
-      <div className="reader-layout">
+      <div className="reader-layout" hidden={qftFocusMode}>
         <div className="reader-main">
           <section className="reading-section" aria-labelledby="reading-title">
             <div className="section-kicker"><span className="section-kicker-number">{String(unitIndex + 1).padStart(2, '0')}</span><div><span className="eyebrow">핵심 내용 읽기</span><h2 id="reading-title">장소와 관계를 이해하기</h2></div></div>
@@ -49,7 +55,7 @@ export default function BookReader({ lesson, part, unit, module, record, inquiry
             <dl className="key-term-list">{lesson.keyTerms.map(({ term, definition }) => <div className="key-term-row" key={term}><dt>{term}</dt><dd>{definition}</dd></div>)}</dl>
           </section>}
 
-          {lesson.visualization && <section className="interactive-section" aria-labelledby="visual-tool-title">
+          {lesson.visualization && !lessonModule && <section className="interactive-section" aria-labelledby="visual-tool-title">
             <div className="section-kicker"><span className="section-kicker-number">탐색</span><div><span className="eyebrow">디지털 자료 도구</span><h2 id="visual-tool-title">자료를 직접 살펴보기</h2></div></div>
             <LessonVisualization lesson={lesson} module={module} />
           </section>}
@@ -78,7 +84,7 @@ export default function BookReader({ lesson, part, unit, module, record, inquiry
         </div>
 
         <aside className="reader-aside" aria-label="학습 도움 정보">
-          <section className="aside-module-card"><span className="eyebrow">이 절에서 이어지는 질문 탐구</span><p className="aside-module-code">{module.code}</p><h2>{module.title}</h2><p>{module.goal}</p><button type="button" className="secondary-button" onClick={() => onOpenInquiry(module.code)}>{inquiryOpen ? '질문 탐구로 이동' : '질문 탐구 열기'} <span aria-hidden="true">↗</span></button></section>
+          <section className="aside-module-card"><span className="eyebrow">이 절에서 이어지는 질문 탐구</span><p className="aside-module-code">{module.code}</p><h2>{lessonModule?.activity.title || module.title}</h2><p>{lessonModule ? '먼저 이 절의 자료를 보고 질문을 만든 뒤, 자료 탐구 단계에서 디지털 모듈을 활용합니다.' : module.goal}</p><button type="button" className="secondary-button" onClick={() => onOpenInquiry(module.code)}>{inquiryOpen ? '질문 탐구로 이동' : lessonModule ? 'QFT와 디지털 활동 시작' : '질문 탐구 열기'} <span aria-hidden="true">↗</span></button></section>
           <section className="aside-reading-card"><span className="eyebrow">이 절의 위치</span><strong>{unit.title}</strong><p>{unitIndex + 1} / {unit.lessons.length} 절</p><div className="mini-progress"><span style={{ width: `${((unitIndex + 1) / unit.lessons.length) * 100}%` }} /></div><small>관련 학습 절 {module.sectionIds.length}개가 하나의 성취기준 탐구로 연결됩니다.</small></section>
           <section className="aside-reading-card"><span className="eyebrow">사용하는 디지털 도구</span><ul className="tool-list">{module.digitalTools.map((tool) => <li key={tool}>{tool}</li>)}</ul></section>
           <section className="aside-reading-card"><span className="eyebrow">학습 목표</span><p>{module.standardText}</p><small>성취기준 원문은 교육과정 문서에 근거합니다.</small></section>
@@ -87,14 +93,14 @@ export default function BookReader({ lesson, part, unit, module, record, inquiry
 
       <section ref={inquiryRef} id={`inline-inquiry-${module.code}`} className={`inline-inquiry-section${inquiryOpen ? ' is-open' : ''}`} aria-labelledby={`inline-inquiry-title-${module.code}`}>
         <div className="inline-inquiry-heading">
-          <div><span className="eyebrow">교과서 속 질문 탐구</span><p className="aside-module-code">{module.code}</p><h2 id={`inline-inquiry-title-${module.code}`}>{module.title}</h2><p>{module.goal}</p></div>
+          <div><span className="eyebrow">교과서 속 질문 탐구</span><p className="aside-module-code">{module.code}</p><h2 id={`inline-inquiry-title-${module.code}`}>{lessonModule?.activity.title || module.title}</h2><p>{lessonModule ? '먼저 이 절의 자료를 보고 질문을 만든 뒤, 자료 탐구 단계에서 디지털 모듈을 활용합니다.' : module.goal}</p></div>
           <div className="inline-inquiry-controls">
             {inquiryOpen && <button type="button" className="quiet-button" onClick={returnToTextbook}>교과서 본문으로 ↑</button>}
             <button type="button" className="secondary-button" aria-expanded={inquiryOpen} aria-controls={`inline-inquiry-content-${module.code}`} onClick={onToggleInquiry}>{inquiryOpen ? '탐구 접기' : '탐구 펼치기'}</button>
           </div>
         </div>
         <div id={`inline-inquiry-content-${module.code}`} className="inline-inquiry-content" hidden={!inquiryOpen}>
-          {inquiryOpen && <QFTFlow module={module} record={record} onChange={onChangeInquiry} onSelectLesson={onSelectLesson} />}
+          {inquiryOpen && <QFTFlow module={module} lessonModule={lessonModule} activityRecord={activityRecord} legacyRecord={legacyRecord} record={record} onChange={onChangeInquiry} onChangeActivity={onChangeActivity} onSelectLesson={onSelectLesson} />}
         </div>
         {!inquiryOpen && <p className="inline-inquiry-prompt">이 절의 내용을 바탕으로 질문을 만들고 자료를 탐구해 보세요. 탐구를 펼치면 작성한 내용이 이 브라우저에 저장됩니다.</p>}
       </section>

@@ -3,6 +3,7 @@ import { LESSON_BY_ID } from '../content/bookIndex.js';
 import { resolveSources } from '../content/sources.js';
 import LessonVisualization from './visualizations/LessonVisualization.jsx';
 import CaseStudyGallery from './CaseStudyGallery.jsx';
+import LessonActivity from './lesson-modules/unit-01/LessonActivity.jsx';
 
 const QUESTION_QUALITY_RUBRIC = [
   { criterion: '지리적 초점', emerging: '장소나 현상을 아직 구체적으로 좁히지 못함', developing: '장소·규모·분포 중 한 요소를 특정함', strong: '장소와 규모를 정하고 공간 관계·분포·변화를 함께 질문함' },
@@ -31,6 +32,49 @@ function countQuestions(questions = []) {
   return questions.filter((question) => typeof question.text === 'string' && question.text.trim()).length;
 }
 
+function lessonMaxAccessibleStep(record, questions) {
+  const answered = questions.filter((question) => question.text?.trim());
+  if (!answered.length) return 0;
+  let maximum = 1;
+
+  const improved = answered.some((question) =>
+    ['열린', '닫힌'].includes(question.classification)
+    && ['열린', '닫힌'].includes(question.convertedType)
+    && question.convertedText?.trim(),
+  );
+  if (!improved) return maximum;
+  maximum = 2;
+
+  const selected = questions.filter((question) => question.selected && questionText(question));
+  if (!selected.length || String(record.priorityReason || '').trim().length < 4) return maximum;
+  maximum = 3;
+  if (String(record.evidencePlan || '').trim().length < 4) return maximum;
+  maximum = 4;
+
+  const linkedEvidence = (record.evidenceItems || []).some((item) =>
+    selected.some((question) => question.id === item.questionId)
+    && String(item.observation || '').trim().length >= 4,
+  );
+  if (!linkedEvidence) return maximum;
+  maximum = 5;
+
+  const explanationReady = selected.some((question) => question.id === record.explanationQuestionId)
+    && [record.claim, record.evidenceSummary, record.reasoning].every((value) => String(value || '').trim().length >= 4);
+  return explanationReady ? 6 : maximum;
+}
+
+function lockedStepMessage(index) {
+  return [
+    '',
+    '먼저 질문을 하나 이상 작성하세요.',
+    '질문 하나를 유형으로 분류하고 다른 유형으로 바꿔 적으세요.',
+    '탐구 질문을 고르고 선택 이유를 적으세요.',
+    '자료 탐구 계획을 작성하세요.',
+    '선택한 질문에 연결된 관찰 근거를 기록하세요.',
+    '중심 질문과 주장·근거·지리적 추론을 작성하세요.',
+  ][index] || '앞 단계의 활동을 마친 뒤 이동할 수 있습니다.';
+}
+
 function Field({ label, value, onChange, hint, rows = 4, name }) {
   return <label className="qft-field">
     <span>{label}</span>
@@ -44,11 +88,11 @@ function LessonLinks({ module, onSelectLesson }) {
   return <div className="related-lessons"><span className="eyebrow">읽을 자료 고르기</span><p>교과서 절을 선택하면 본문으로 이동합니다. 질문 탐구와 작성 기록은 열린 채로 이어집니다.</p><div className="related-lesson-list">{lessons.map((lesson) => <button type="button" key={lesson.id} onClick={() => onSelectLesson(lesson.id, { preserveInquiry: true })}><span>{lesson.unitTitle}</span><strong>{lesson.title}</strong><i aria-hidden="true">↗</i></button>)}</div></div>;
 }
 
-function FocusStep({ module, lesson }) {
+function FocusStep({ module, lesson, lessonModule }) {
   return <div className="qft-focus-step">
-    <div className="qft-focus-copy"><span className="eyebrow">질문 초점 · 판단을 미루고 관찰</span><h3>{module.qft.focusTitle}</h3><p>{module.qft.focusText}</p><small>{module.qft.teacherPrompt}</small></div>
-    {lesson && <div className="qft-focus-visual"><LessonVisualization lesson={lesson} module={module} showCaseStudies={false} /></div>}
-    <div className="qft-ground-rules"><strong>질문 만들기 약속</strong><ul><li>질문을 말하거나 적을 때 평가하지 않습니다.</li><li>먼저 가능한 한 많은 질문을 만들고 답을 찾는 일은 잠시 미룹니다.</li><li>질문을 바꾸어도 원래 질문을 지우지 않습니다.</li></ul></div>
+    <div className="qft-focus-copy"><span className="eyebrow">질문 초점 · 판단을 미루고 관찰</span><h3>{lessonModule?.questionFocus.title || module.qft.focusTitle}</h3><p>{lessonModule?.questionFocus.stimulus || module.qft.focusText}</p><small>{module.qft.teacherPrompt}</small></div>
+    {lessonModule ? <div className="qft-focus-neutral"><span>관찰 초점</span><strong>{lessonModule.activity.title}</strong><p>학생 질문의 예시나 정답은 표시하지 않습니다. 제시된 자료에서 궁금한 점을 먼저 기록하세요.</p></div> : lesson && <div className="qft-focus-visual"><LessonVisualization lesson={lesson} module={module} showCaseStudies={false} /></div>}
+    <div className="qft-ground-rules"><strong>질문 만들기 약속</strong><ul><li>가능한 한 많은 질문을 만듭니다.</li><li>만드는 동안 토론·평가·답 찾기를 멈춥니다.</li><li>질문을 말한 표현 그대로 기록합니다.</li><li>진술문은 질문으로 바꿉니다.</li></ul></div>
   </div>;
 }
 
@@ -125,17 +169,50 @@ function PlanInquiry({ module, questions, plan, onPlanChange, onSelectLesson }) 
   </div>;
 }
 
-function EvidenceInquiry({ items, onChange, questions }) {
+function EvidenceInquiry({ items, onChange, onRecordChange, onChangeActivity, questions, record, lessonModule, activityRecord }) {
   const selectedQuestions = questions.filter((question) => question.selected && questionText(question));
+  const artifact = lessonModule ? lessonModule.buildArtifact(activityRecord || {}) : null;
+  const artifactQuestionId = record.activityQuestionId || selectedQuestions[0]?.id || '';
+  const linkedActivityQuestion = selectedQuestions.find((question) => question.id === artifactQuestionId);
+  const activityEvidenceId = lessonModule ? `${lessonModule.lessonId}:${lessonModule.activity.id}` : '';
+  const existingActivityEvidence = items.find((item) => item.activityId === activityEvidenceId && item.questionId === linkedActivityQuestion?.id);
   function update(id, patch) { onChange(items.map((item) => item.id === id ? { ...item, ...patch } : item)); }
   function add() { onChange([...items, { id: globalThis.crypto?.randomUUID?.() || `e-${Date.now()}-${Math.random().toString(16).slice(2)}`, source: '', observation: '', limitation: '', questionId: selectedQuestions[0]?.id || '' }]); }
+  function importActivityArtifact() {
+    if (!artifact || !linkedActivityQuestion) return;
+    const note = String(activityRecord?.observation || '').trim();
+    const sourceLinks = [...(lessonModule.activity.sourceLinks || [])];
+    const customUrl = String(activityRecord?.sourceUrl || '').trim();
+    if (customUrl) {
+      try {
+        const parsed = new URL(customUrl);
+        if (['http:', 'https:'].includes(parsed.protocol)) sourceLinks.push({ label: activityRecord.sourceTitle || '학생이 입력한 자료', url: parsed.href });
+      } catch { /* Keep an invalid URL as typed text only; never turn it into a clickable link. */ }
+    }
+    const uniqueSourceLinks = [...new Map(sourceLinks.map((source) => [source.url, source])).values()];
+    const updatedItem = {
+      id: existingActivityEvidence?.id || globalThis.crypto?.randomUUID?.() || `activity-e-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+      questionId: linkedActivityQuestion.id,
+      source: `교과서 활동 결과 · ${artifact.label}`,
+      sourceLinks: uniqueSourceLinks,
+      observation: `${artifact.summary}${note ? `\n학생 관찰: ${note}` : ''}`,
+      limitation: artifact.limitation,
+      activityId: activityEvidenceId,
+    };
+    onChange(existingActivityEvidence ? items.map((item) => item.id === existingActivityEvidence.id ? updatedItem : item) : [...items, updatedItem]);
+  }
   return <div className="qft-step-content">
     <p className="qft-step-intro">자료에서 직접 관찰한 내용과 해석을 구분해 기록합니다. 자료가 보여 주지 않는 것도 함께 적습니다.</p>
     <SelectedQuestions questions={questions} />
+    {lessonModule && <LessonActivity lessonModule={lessonModule} record={activityRecord} onChange={onChangeActivity} questions={questions} />}
+    {lessonModule && <section className="activity-evidence-import" aria-labelledby="activity-evidence-title"><div><span className="eyebrow">이 절의 디지털 모듈에서 가져오기</span><strong id="activity-evidence-title">{artifact.label}</strong><p>{artifact.summary}</p><small>한계 · {artifact.limitation}</small></div>
+      <label>연결할 우선 질문<select value={artifactQuestionId} onChange={(event) => onRecordChange({ activityQuestionId: event.target.value })}><option value="">질문 선택</option>{selectedQuestions.map((question) => <option value={question.id} key={question.id}>{questionText(question)}</option>)}</select></label>
+      <button type="button" className="secondary-button" onClick={importActivityArtifact} disabled={!linkedActivityQuestion}>{existingActivityEvidence ? '기존 활동 근거 갱신' : '선택한 질문의 근거로 가져오기'}</button><small className="activity-import-note">같은 활동 결과를 같은 질문에 다시 가져오면 기존 기록과 출처 링크를 갱신합니다.</small>
+    </section>}
     <div className="evidence-item-list">{items.map((item, index) => <article className="evidence-item" key={item.id}>
       <div className="evidence-item-heading"><span>근거 {String(index + 1).padStart(2, '0')}</span>{items.length > 1 && <button type="button" className="quiet-button" onClick={() => onChange(items.filter((entry) => entry.id !== item.id))}>삭제</button>}</div>
       <label>연결할 질문<select value={item.questionId || ''} onChange={(event) => update(item.id, { questionId: event.target.value })}><option value="">질문 선택</option>{selectedQuestions.map((question) => <option value={question.id} key={question.id}>{questionText(question)}</option>)}</select></label>
-      <label>자료 이름<input value={item.source} onChange={(event) => update(item.id, { source: event.target.value })} placeholder="자료의 제목과 출처" /></label>
+      <label>자료 이름<input value={item.source} onChange={(event) => update(item.id, { source: event.target.value })} placeholder="자료의 제목과 출처" /></label>{item.sourceLinks?.length > 0 && <ul className="evidence-source-links">{item.sourceLinks.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.label} ↗</a></li>)}</ul>}
       <label>자료에서 관찰한 것<textarea rows="2" value={item.observation} onChange={(event) => update(item.id, { observation: event.target.value })} placeholder="분포, 차이, 관계, 변화 등" /></label>
       <label>자료의 한계<textarea rows="2" value={item.limitation} onChange={(event) => update(item.id, { limitation: event.target.value })} placeholder="자료가 답하지 못하거나 빠뜨린 점" /></label>
     </article>)}</div>
@@ -177,21 +254,41 @@ function ReflectInquiry({ reflection, onReflectionChange, record, onComplete }) 
   </div>;
 }
 
-export default function QFTFlow({ module, record, onChange, onComplete, onSelectLesson }) {
+export default function QFTFlow({ module, lessonModule = null, activityRecord = {}, legacyRecord = null, record, onChange, onChangeActivity, onSelectLesson }) {
   const [message, setMessage] = useState('');
+  const flowModule = lessonModule ? {
+    ...module,
+    title: lessonModule.activity.title,
+    sectionIds: [lessonModule.lessonId],
+    aiActivity: null,
+    qft: {
+      ...module.qft,
+      focusTitle: lessonModule.questionFocus.title,
+      focusText: lessonModule.questionFocus.stimulus,
+      focusVisual: lessonModule.lessonId,
+      phases: module.qft.phases.map((phase, index) => ({
+        ...phase,
+        minutes: lessonModule.qftPhaseMinutes?.[index] ?? phase.minutes,
+      })),
+    },
+  } : module;
   const questions = record.questions || [];
   const answered = countQuestions(questions);
-  const stepIndex = Math.min(Math.max(Number(record.qftPhase) || 0, 0), module.qft.phases.length - 1);
-  const activePhase = module.qft.phases[stepIndex];
-  const focusLesson = LESSON_BY_ID[module.qft.focusVisual];
-  const steps = module.qft.phases;
-  const caseStudies = module.sectionIds.flatMap((lessonId) => (LESSON_BY_ID[lessonId]?.caseStudies || []).map((study) => ({ ...study, lessonId })));
+  const maxAccessibleStep = lessonModule ? lessonMaxAccessibleStep(record, questions) : flowModule.qft.phases.length - 1;
+  const stepIndex = Math.min(Math.max(Number(record.qftPhase) || 0, 0), maxAccessibleStep);
+  const activePhase = flowModule.qft.phases[stepIndex];
+  const focusLesson = LESSON_BY_ID[flowModule.qft.focusVisual];
+  const steps = flowModule.qft.phases;
+  const caseStudies = flowModule.sectionIds.flatMap((lessonId) => (LESSON_BY_ID[lessonId]?.caseStudies || []).map((study) => ({ ...study, lessonId })));
 
   function patch(patchValue) { onChange(patchValue); }
   function updateQuestion(id, changes) { patch({ questions: questions.map((question) => question.id === id ? { ...question, ...changes } : question) }); }
   function addQuestion() { patch({ questions: [...questions, createQuestion()] }); }
   function removeQuestion(id) { patch({ questions: questions.filter((question) => question.id !== id) }); }
-  function changeStep(index) { patch({ qftPhase: index }); setMessage(''); }
+  function changeStep(index) {
+    if (lessonModule && index > maxAccessibleStep) { setMessage(lockedStepMessage(index)); return; }
+    patch({ qftPhase: index }); setMessage('');
+  }
 
   function markComplete() {
     const hasChosenQuestion = questions.some((question) => question.selected && question.text.trim());
@@ -217,8 +314,8 @@ export default function QFTFlow({ module, record, onChange, onComplete, onSelect
     if (stepIndex === 0) return <GenerateQuestions questions={questions} updateQuestion={updateQuestion} addQuestion={addQuestion} removeQuestion={removeQuestion} />;
     if (stepIndex === 1) return <ImproveQuestions questions={questions} updateQuestion={updateQuestion} />;
     if (stepIndex === 2) return <PrioritizeQuestions questions={questions} updateQuestion={updateQuestion} reason={record.priorityReason} onReasonChange={(value) => patch({ priorityReason: value })} />;
-    if (stepIndex === 3) return <PlanInquiry module={module} questions={questions} plan={record.evidencePlan} onPlanChange={(value) => patch({ evidencePlan: value })} onSelectLesson={onSelectLesson} />;
-    if (stepIndex === 4) return <EvidenceInquiry items={record.evidenceItems || []} onChange={(value) => patch({ evidenceItems: value })} questions={questions} />;
+    if (stepIndex === 3) return <PlanInquiry module={flowModule} questions={questions} plan={record.evidencePlan} onPlanChange={(value) => patch({ evidencePlan: value })} onSelectLesson={onSelectLesson} />;
+    if (stepIndex === 4) return <EvidenceInquiry items={record.evidenceItems || []} onChange={(value) => patch({ evidenceItems: value })} onRecordChange={patch} onChangeActivity={onChangeActivity} questions={questions} record={record} lessonModule={lessonModule} activityRecord={activityRecord} />;
     if (stepIndex === 5) return <ExplainInquiry record={record} onChange={patch} questions={questions} />;
     return <ReflectInquiry reflection={record.reflection} onReflectionChange={(value) => patch({ reflection: value })} record={record} onComplete={markComplete} />;
   };
@@ -229,18 +326,18 @@ export default function QFTFlow({ module, record, onChange, onComplete, onSelect
         <div><span className="eyebrow" id="standard-banner-title">교육과정 성취기준</span><strong>{module.code}</strong></div><p>{module.standardText}</p>
       </section>
 
-      <FocusStep module={module} lesson={focusLesson} />
-      {caseStudies.length > 0 && <CaseStudyGallery caseStudies={caseStudies} showInquiryPrompts={stepIndex > 0} />}
+      <FocusStep module={flowModule} lesson={focusLesson} lessonModule={lessonModule} />
+      {caseStudies.length > 0 && (!lessonModule || stepIndex > 0) && <CaseStudyGallery caseStudies={caseStudies} showInquiryPrompts={stepIndex > 0} />}
 
       <section className="qft-workspace" aria-labelledby="qft-step-title">
         <div className="qft-workspace-top">
-          <div><span className="eyebrow">Question Formulation Technique · QFT</span><h2 id="qft-step-title">질문에서 근거 있는 설명까지</h2></div>
+          <div><span className="eyebrow">Question Formulation Technique · QFT</span><h2 id="qft-step-title">질문에서 근거 있는 설명까지</h2>{lessonModule && <small className="qft-duration-note">단계 합계 {steps.reduce((total, step) => total + step.minutes, 0)}분 권장 · 디지털 활동 포함, 교사 조정</small>}</div>
           <div className="qft-count"><strong>{answered}</strong><span>내 질문</span></div>
         </div>
         <nav className="qft-step-nav" aria-label="질문 탐구 단계">
-          {steps.map((step, index) => <button type="button" key={step.id} className={`qft-step-tab${index === stepIndex ? ' is-active' : ''}${index < stepIndex ? ' is-past' : ''}`} aria-current={index === stepIndex ? 'step' : undefined} onClick={() => changeStep(index)}>
+          {steps.map((step, index) => { const locked = Boolean(lessonModule && index > maxAccessibleStep); return <button type="button" key={step.id} className={`qft-step-tab${index === stepIndex ? ' is-active' : ''}${index < stepIndex ? ' is-past' : ''}${locked ? ' is-locked' : ''}`} aria-current={index === stepIndex ? 'step' : undefined} aria-disabled={locked || undefined} onClick={() => changeStep(index)} title={locked ? lockedStepMessage(index) : undefined} >
             <span>{String(index + 1).padStart(2, '0')}</span><strong>{step.title}</strong><small>{step.minutes}분</small>
-          </button>)}
+          </button>; })}
         </nav>
         <div className="qft-active-step">
           <div className="qft-active-heading"><div><span className="eyebrow">단계 {String(stepIndex + 1).padStart(2, '0')} · {activePhase.minutes}분</span><h3>{activePhase.title}</h3></div><p>{activePhase.instructions}</p></div>
@@ -256,14 +353,22 @@ export default function QFTFlow({ module, record, onChange, onComplete, onSelect
         </div>
       </section>
 
-      {module.aiActivity && <section className="optional-ai-card" aria-labelledby="optional-ai-title">
+      {module.aiActivity && !lessonModule && <section className="optional-ai-card" aria-labelledby="optional-ai-title">
         <div><span className="eyebrow">선택 도구 · 필수 아님</span><h2 id="optional-ai-title">{module.aiActivity.tool}로 산출물 다듬기</h2><p>{module.aiActivity.purpose}</p><small>{module.aiActivity.conditions}</small></div>
         <a className="secondary-button" href={module.aiActivity.tool === 'Suno' ? 'https://suno.com/' : 'https://gemini.google.com/'} target="_blank" rel="noreferrer">외부 서비스 열기 <span aria-hidden="true">↗</span></a>
       </section>}
 
-      <TeacherGuide module={module} />
+      {legacyRecord && (!lessonModule || stepIndex > 0) && <LegacyRecord module={module} record={legacyRecord} />}
+      {(!lessonModule || stepIndex > 0) && <TeacherGuide module={module} />}
     </div>
   );
+}
+
+function LegacyRecord({ module, record }) {
+  const questions = (record.questions || []).filter((item) => typeof item.text === 'string' && item.text.trim());
+  const hasContent = questions.length || record.claim || record.evidenceSummary || record.reasoning || record.reflection;
+  if (!hasContent) return null;
+  return <details className="legacy-inquiry-record"><summary><span><span className="eyebrow">이전 공통 기록 · 읽기 전용</span><strong>{module.code}에 저장했던 기록 보기</strong></span><span>절별 기록과 분리 보관</span></summary><div><p>이전 기록은 보존했으며 아래 9개 학습 절의 기록으로 옮기지 않았습니다.</p><ol>{questions.map((question) => <li key={question.id}>{question.text}</li>)}</ol>{record.claim && <p><strong>주장:</strong> {record.claim}</p>}{record.evidenceSummary && <p><strong>근거:</strong> {record.evidenceSummary}</p>}{record.reasoning && <p><strong>추론:</strong> {record.reasoning}</p>}{record.reflection && <p><strong>성찰:</strong> {record.reflection}</p>}</div></details>;
 }
 
 function TeacherGuide({ module }) {
