@@ -1,0 +1,41 @@
+id: '02-01'
+standardCode: 12세지02-01
+title: 세계의 기후와 인간 생활
+goal: 기후 요소와 기후 요인을 구분하고, 기후의 지역 차이와 생활 및 적응 방안을 자료의 범위에 맞게 설명할 수 있다.
+concepts: [climate, climate-region, climate-adaptation, human-environment-interaction]
+opening:
+  intro: |
+    climate(기후)는 한 지역에서 오랜 기간 반복되어 나타나는 기온과 강수 등의 평균적 특징이다. 하루의 날씨와 달리 여러 해의 계절 흐름을 살펴 파악한다.
+
+    기후는 위도, 육지와 바다의 분포, 해발 고도, 해류, 대기 대순환이 함께 작용해 나타난다. 사람들은 지역의 조건에 맞추어 집과 농사, 물 이용, 옷차림을 조정해 왔다. 이 단원에서는 실제 기후 자료에서 확인한 내용과 생활에 대한 추론을 구분하고, 한 기후형 안에도 다양한 삶이 있음을 살펴본다.
+  illustration:
+    src: /images/02-01/opening.webp
+    alt: 나무 그늘의 집, 단열 벽과 따뜻한 옷차림, 건조한 땅의 빗물 저장과 정원을 잇는 세 생활 장면.
+  focus:
+    kind: map
+    step:
+      id: focus
+      type: map
+      data: /data/02-01/climate-city-points.geojson
+      source: u0201-climate-city-points
+      caption: 선정 도시의 쾨펜–가이거 기후형, 1991–2020년 분류 자료
+      alt: 선정 도시의 위치와 쾨펜–가이거 기후형을 점과 색으로 나타낸 지도다.
+      config: { kind: points }
+      concepts: [climate-region]
+closing:
+  summary: |
+    기온과 강수 같은 기후 요소는 위도, 바다와 대륙의 분포, 고도, 해류와 대기 순환 등 여러 기후 요인의 영향을 함께 받는다. 기후형은 계절 패턴을 비교하는 데 도움이 되지만, 대표점 몇 곳의 분류만으로 넓은 지역 전체나 주민의 생활을 설명할 수는 없다.
+
+    기후는 농사 일정과 주거 환경, 물과 에너지 이용에 조건을 만든다. 사람들의 선택은 토양과 지형, 기술, 자원 접근성, 소득과 문화에도 영향을 받는다. 적응 방안을 평가할 때에는 기후 자료가 보여 주는 필요와 비용·에너지·환경·주민 생활에 관한 추가 근거를 함께 살펴야 한다.
+  bridge: 다음 중단원에서는 기후와 함께 지표의 높낮이와 모양을 만드는 지형이 인간 생활에 어떤 조건을 만드는지 살펴본다.
+  transfer:
+    prompt: 누크의 기후 그래프를 읽고 계절에 따른 생활 대응 방안을 제안하시오. 제안의 근거가 되는 기후 요소와 판단에 더 필요한 지역 자료를 함께 쓰시오.
+    step:
+      id: transfer
+      type: chart
+      data: /data/02-01/climograph-nuuk.json
+      source: u0201-climograph-nuuk
+      caption: 누크 월평균 기온·강수량, 1991–2020년 ERA5 재분석 격자값
+      alt: 누크의 월평균 기온은 선, 월평균 강수량은 막대로 나타낸 기후 그래프다.
+      config: { kind: climograph }
+      concepts: [climate, climate-adaptation, human-environment-interaction]

@@ -1,0 +1,81 @@
+sources:
+  noaa-climate-classification:
+    title: How do scientists classify different types of climate?
+    organization: NOAA Climate.gov
+    url: https://prod-01-asg-www-climate.woc.noaa.gov/maps-data/climate-data-primer/how-do-scientists-classify-different-types-climate
+    sourceDate: 2021-09-22
+    checkedAt: '2026-11-27'
+    licenseStatus: 자료는 내장하지 않음. 개별 문장·그림의 재사용 조건은 별도 확인 필요.
+    reuseBasis: 기후 분류와 위도·고도·수역·산지·해류·대기 순환 요인 설명을 확인하는 참고 링크이며 페이지의 문장과 그림은 복제하지 않음.
+    verificationStatus: NOAA 설명에서 기후 요인과 기후 분류의 쓰임을 확인했다. 두 도시의 비교만으로 요인별 인과를 분리할 수 있다고 서술하지 않았다.
+    usage: 참고 링크입니다. 웹페이지의 문장이나 그림은 복제하지 않았습니다.
+  noaa-climate-factors:
+    title: "Student Activity Sheet #1: Factors that Influence Climates"
+    organization: NOAA Global Monitoring Laboratory
+    url: https://gml.noaa.gov/infodata/lesson_plans/Factors%20that%20Affect%20Climate.pdf
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 자료는 내장하지 않음. PDF 문장·표·그림의 재사용 조건은 별도 확인 필요.
+    reuseBasis: 기후 요소에 영향을 주는 위도·대륙과 수역의 거리·고도·산지·해류 요인을 확인하는 참고 링크이며 표와 문장은 복제하지 않음.
+    verificationStatus: NOAA 자료에서 위도, 육지·바다의 분포, 해발 고도, 산지와 해류가 기온·강수에 영향을 줄 수 있음을 확인했다. 본문은 여러 요인의 상호 작용과 두 도시 비교의 한계를 함께 설명했다.
+    usage: 참고 링크입니다. PDF의 문장과 표는 복제하지 않았습니다.
+  beck-2023-koppen-geiger:
+    title: High-resolution (1 km) Köppen-Geiger maps for 1901–2099 based on constrained CMIP6 projections
+    organization: Scientific Data (Beck et al.)
+    url: https://doi.org/10.1038/s41597-023-02549-6
+    sourceDate: 2023
+    checkedAt: '2026-11-27'
+    licenseStatus: 논문과 기후형 지도 CC BY 4.0. 수업의 도시 대표점 자료는 별도 manifest의 가공·출처 표기를 따름.
+    reuseBasis: 기후형 분류 지도와 연구의 기준 기간을 확인하고 서지정보를 제시함. 논문 본문은 복제하지 않음.
+    verificationStatus: Scientific Data의 논문 정보와 1991–2020년 역사 분류 자료가 제공됨을 확인했다. manifest에 기록된 도시 좌표의 기후형을 설명하는 데 사용했다.
+    usage: 논문과 지도를 재사용하지 않고 참고 출처로 연결했습니다.
+  fao-climate-crop-growth:
+    title: Climate and Crop Growth
+    organization: Food and Agriculture Organization of the United Nations (FAO)
+    url: https://www.fao.org/4/s2022e/s2022e06.htm
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 자료는 내장하지 않음. FAO 통계 데이터베이스 약관과 개별 자료 조건은 별도 확인 필요.
+    reuseBasis: 강수 외에도 기온·햇빛·토양이 작물 생육에 관련된다는 설명을 확인하는 참고 링크이며 표와 문장은 복제하지 않음.
+    verificationStatus: FAO 자료에서 강수와 함께 기온·햇빛·토양 조건이 작물 생육에 관련됨을 확인했다. 특정 국가의 재배 방식으로 일반화하지 않았다.
+    usage: 참고 링크입니다. 웹페이지의 문장과 표는 복제하지 않았습니다.
+  fao-irrigated-crop-calendars:
+    title: Irrigated crop calendars
+    organization: Food and Agriculture Organization of the United Nations (FAO AQUASTAT)
+    url: https://www.fao.org/aquastat/en/data-analysis/irrig-water-use/irrigated-crop-calendars/index.html
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 자료는 내장하지 않음. FAO 통계 데이터베이스 약관과 개별 자료 조건은 별도 확인 필요.
+    reuseBasis: 강수와 작물 생육 시기, 관개가 물 공급 제약에 미치는 역할을 확인하는 참고 링크이며 달력이나 수치는 복제하지 않음.
+    verificationStatus: FAO AQUASTAT 설명에서 충분한 강수가 빗물 농업의 생육 시기와 관련되고 관개가 물 이용 제약을 바꿀 수 있음을 확인했다. 실제 작물 달력은 본문에서 제시하지 않았다.
+    usage: 참고 링크입니다. 웹페이지의 달력과 표는 복제하지 않았습니다.
+  fao-water-stress-indicator:
+    title: SDG 6 – Indicators of water use efficiency and water stress
+    organization: Food and Agriculture Organization of the United Nations (FAO)
+    url: https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/642-water-stress/sdg-6-indicators-of-water-use-efficiency-and-water-stress/
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 자료는 내장하지 않음. 지표 설명과 데이터베이스별 이용 조건은 별도 확인 필요.
+    reuseBasis: 물 스트레스 지표의 분자·분모와 환경 유량 고려를 확인하는 참고 링크이며 원자료 표는 복제하지 않음.
+    verificationStatus: 지표가 주요 부문의 담수 취수량과 환경 유량을 고려한 재생 가능 담수 자원의 비율임을 확인했다. 이 지표를 주민의 물 접근성 비율로 해석하지 않았다.
+    usage: 참고 링크입니다. 지표 설명을 새 문장으로 요약했습니다.
+  world-bank-irrigated-land:
+    title: Agricultural irrigated land (% of total agricultural land)
+    organization: World Bank (FAOSTAT data)
+    url: https://data.worldbank.org/indicator/AG.LND.IRIG.AG.ZS
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: World Bank 지표 페이지는 CC BY 4.0을 표시하며 FAO 데이터베이스 약관도 적용됨.
+    reuseBasis: 지표 명칭과 분모를 확인하는 참고 링크. 값은 manifest의 정적 자료를 사용하고 원표를 복제하지 않음.
+    verificationStatus: World Bank 지표가 전체 농업용 토지 중 관개 토지의 비율이며 원자료가 FAOSTAT임을 확인했다. 관개 토지 비율을 실제 취수량으로 해석하지 않았다.
+    usage: 값의 출처와 단위·기준 연도는 자료 manifest를 따릅니다.
+  doe-energy-saver-guide-2022:
+    title: "Energy Saver: Tips on Saving Money and Energy in Your Home"
+    organization: U.S. Department of Energy
+    url: https://www.energy.gov/sites/default/files/2022-08/energy-saver-guide-2022.pdf
+    sourceDate: 2022
+    checkedAt: '2026-11-27'
+    licenseStatus: 자료는 내장하지 않음. 안내서의 문장·그림 재사용 조건은 별도 확인 필요.
+    reuseBasis: 주택 단열이 열 흐름과 냉난방 에너지 수요에 관련된다는 일반 설명을 확인하는 참고 링크이며 안내서의 수치와 도표는 복제하지 않음.
+    verificationStatus: 미국 에너지부 안내서에서 단열과 열 흐름·에너지 수요의 관계를 확인했다. 미국 내 비용 절감량을 다른 지역의 추정값으로 사용하지 않았다.
+    usage: 참고 링크입니다. 특정 지역의 비용이나 절감량을 이 자료만으로 산정하지 않았습니다.
