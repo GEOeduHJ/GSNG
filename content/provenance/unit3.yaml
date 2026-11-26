@@ -1,0 +1,110 @@
+items:
+  - src: /images/03-01/opening.webp
+    prompt: |-
+      Use case: illustration-story
+      Asset type: opening illustration for a high-school digital textbook, unit 03-01 “World population issues and migration”
+      Primary request: In one calm, unlocated neighborhood courtyard, show a newly moved-in neighbor arriving with an ordinary unmarked household box and a small potted plant, welcomed by neighbors already living there. Include people across child, adult, and older-adult age groups. Older neighbors act with agency and the newcomers arrive as capable people carrying their own belongings. The scene should evoke population change and migration as ordinary shared life, with mutual curiosity and welcome.
+      Scene/backdrop: A simple contemporary shared courtyard and modest unidentifiable homes, a few leafy plants, a broad accessible path. No architecture associated with a particular country or culture.
+      Subject: A small group with varied skin tones, genders, ages, body types, and abilities, interacting naturally at equal standing. One adult carries a plain blank box; another brings a potted plant; neighbors greet them. An older adult is actively helping place the plant; children and adults participate naturally.
+      Style/medium: Restrained editorial textbook illustration in soft gouache and colored-pencil texture, simple legible shapes, subtle paper grain, never photorealistic or glossy.
+      Composition/framing: Wide 3:2 landscape, one coherent scene with generous paper-colored negative space, clear welcoming interaction at a glance, no panel borders.
+      Lighting/mood: Gentle diffused daylight, warm, calm, dignified.
+      Color palette: Background near #fbf8f1; muted green accents around #2f6f5e; warm off-white, light gray, and dark warm gray-brown neutrals. No saturated primary or fluorescent colors.
+      Text (verbatim): None. Absolutely no text, letters, pseudo-writing, numerals, signs, symbols, labels, or readable screens anywhere.
+      Constraints: No maps, globes, routes, borders, flags, national symbols, real places, landmarks, famous people, logos, brands, labels, or watermarks. The courtyard must be fictional and unlocatable.
+      Avoid: Depicting migrants as victims or threats; poverty, crisis, or forced displacement; cultural or religious markers; stereotypes about any group; one group represented by a single costume or action; text-like marks on boxes or objects; caricature; clutter; saturated colors.
+    model: 'OpenAI image_gen built-in tool (underlying model not exposed)'
+    createdAt: '2026-11-27'
+    usedIn: '03-01 opening'
+    alt: '새 이웃이 무지 상자와 화분을 들고 도착하고, 여러 세대의 주민들이 공동 마당에서 함께 맞이한다.'
+  - src: /images/03-01/community-care.webp
+    prompt: |-
+      Use case: illustration-story
+      Asset type: concept illustration for a high-school digital textbook, unit 03-01, changing everyday life and community care as age structure changes
+      Primary request: Show an ordinary shared neighborhood room where people of several generations organize everyday care together. An older adult actively prepares vegetables and decides what to serve; a younger adult carries a pot to the shared table; another older neighbor seated comfortably joins in setting places; a child helps water a small plant. Their roles are reciprocal and everyone participates with agency, suggesting that communities can adapt daily spaces and care practices as age structures change.
+      Scene/backdrop: A modest, accessible, fictional neighborhood common room with a broad doorway, simple handrail, comfortable chairs, a shared table, and a few plants. No recognizable cultural or national architecture.
+      Subject: A small group with varied skin tones, genders, ages, body types, and abilities. Include children, adults, and older adults interacting as neighbors rather than a single stereotyped family. No one is helpless or isolated.
+      Style/medium: Restrained editorial textbook illustration in soft gouache and colored-pencil texture, simple readable shapes, subtle paper grain, not photorealistic or glossy.
+      Composition/framing: Wide 3:2 horizontal, one clear cooperative scene, care activities visible at a glance, generous paper-colored negative space, no panel borders.
+      Lighting/mood: Gentle diffused daylight, calm, dignified, warm and practical.
+      Color palette: Background near #fbf8f1; muted green accents around #2f6f5e; warm off-white, light gray, and dark warm gray-brown neutrals only. No saturated primary or fluorescent colors.
+      Text (verbatim): None. Absolutely no text, letters, pseudo-writing, numerals, signs, symbols, labels, or readable screens anywhere.
+      Constraints: No maps, globes, routes, borders, flags, national symbols, real places, landmarks, famous people, logos, brands, or watermarks. Clothing, furnishings, and food must not identify a particular culture.
+      Avoid: Older people depicted only as dependent recipients; children or women assigned care work by stereotype; a single group represented by a distinctive outfit or action; pity, crisis, poverty, caricature, clutter, commercial or institutional branding, saturated colors.
+    model: 'OpenAI image_gen built-in tool (underlying model not exposed)'
+    createdAt: '2026-11-27'
+    usedIn: '03-01 lesson 2'
+    alt: '여러 세대의 이웃들이 접근하기 쉬운 공동 공간에서 음식을 준비하고 상차림과 식물 돌봄을 나눈다.'
+  - src: /images/03-02/opening.webp
+    prompt: |-
+      Use case: illustration-story
+      Asset type: opening illustration for a high-school digital textbook, unit 03-02 “World food resources and food problems”
+      Primary request: Show one clear, calm flow from seed to meal: at the left a person plants seeds and young shoots grow; nearby another person harvests vegetables and grain; in the middle people carry plain unmarked crates on a small handcart toward a modest open market table; at the right several people prepare and share a simple meal. Make production, transport, market exchange, and eating legible as connected parts of one food system.
+      Scene/backdrop: A fictional, unlocated garden and shared market courtyard flowing into an outdoor dining area, with only sparse neutral buildings and plants. No recognizable farm or architectural tradition.
+      Subject: A small group of people with varied skin tones, genders, ages, body types, and abilities participating as growers, carriers, market sellers and buyers, and cooks. Each acts with agency; ordinary clothing and unmarked tools and containers.
+      Style/medium: Restrained editorial textbook illustration in soft gouache and colored-pencil texture, simple legible forms, subtle paper grain, not photorealistic, not glossy.
+      Composition/framing: Wide 3:2 horizontal landscape, one coherent left-to-right progression with no panel borders or arrows, generous paper-colored negative space, the same kinds of crops visibly connect planting, harvest, market, and shared table.
+      Lighting/mood: Gentle diffused daylight, thoughtful, welcoming, matter-of-fact.
+      Color palette: Background near #fbf8f1; muted green accents around #2f6f5e; warm off-white, light gray, and dark warm gray-brown neutrals; natural food colors restrained. No saturated primary or fluorescent colors.
+      Text (verbatim): None. Absolutely no text, letters, pseudo-writing, numerals, signs, symbols, labels, packaging, or readable screens anywhere.
+      Constraints: No maps, globes, routes, borders, flags, national symbols, real places, landmarks, famous people, logos, brands, labels, or watermarks. All objects and the market remain unmarked and fictional.
+      Avoid: Empty plates, hunger, scarcity, poverty, charity framing, a person shown as helpless, cultural or religious markers, country-specific foods or dress, stereotypes, advertising, text-like marks on containers, caricature, clutter, saturated colors.
+    model: 'OpenAI image_gen built-in tool (underlying model not exposed)'
+    createdAt: '2026-11-27'
+    usedIn: '03-02 opening'
+    alt: '씨앗을 심고 곡식과 채소를 수확해 시장으로 나른 뒤, 주민들이 음식을 준비해 함께 먹는다.'
+  - src: /images/03-02/local-food-sharing.webp
+    prompt: |-
+      Use case: illustration-story
+      Asset type: concept illustration for a high-school digital textbook, unit 03-02, local food production and reciprocal community sharing
+      Primary request: In a fictional neighborhood garden, show people growing food locally and exchanging what they have grown through a shared produce table. Several people tend raised garden beds, harvest vegetables, and bring baskets to the table; others choose vegetables while adding seedlings or another basket of produce in return. Make the exchange mutual and dignified, not charity, and show local production as one practical way a community can strengthen food access.
+      Scene/backdrop: A modest community garden and simple shared table in an unlocated neighborhood courtyard. Broad accessible paths, raised beds, a few plants, no recognizable architecture or farm landscape.
+      Subject: A small group with varied skin tones, genders, ages, body types, and abilities participating as growers, harvesters, and neighbors exchanging produce. Everyone contributes and chooses actively. Include ordinary contemporary clothing and plain baskets.
+      Style/medium: Restrained editorial textbook illustration in soft gouache and colored-pencil texture, simple readable forms, subtle paper grain, not photorealistic or glossy.
+      Composition/framing: Wide 3:2 horizontal, one coherent scene with raised beds and the produce-sharing table clearly connected, generous paper-colored negative space, no panels, labels, arrows, or diagram marks.
+      Lighting/mood: Gentle diffused daylight, cooperative, calm and practical.
+      Color palette: Background near #fbf8f1; muted green accents around #2f6f5e; warm off-white, light gray, and dark warm gray-brown neutrals; natural vegetables in restrained low-saturation colors. No saturated primary or fluorescent colors.
+      Text (verbatim): None. Absolutely no text, letters, pseudo-writing, numerals, signs, symbols, labels, packaging, or readable screens anywhere.
+      Constraints: No maps, globes, routes, borders, flags, national symbols, real places, landmarks, famous people, logos, brands, or watermarks. Nothing should identify a particular culture.
+      Avoid: Hunger, scarcity, poverty, charity framing, recipients singled out as helpless, religious or cultural markers, stereotyped clothing or roles, empty plates, caricature, commercial branding, clutter, saturated colors.
+    model: 'OpenAI image_gen built-in tool (underlying model not exposed)'
+    createdAt: '2026-11-27'
+    usedIn: '03-02 lesson 3'
+    alt: '이웃들이 공동 텃밭을 가꾸고 수확한 채소와 모종을 서로 나눈다.'
+  - src: /images/03-03/opening.webp
+    prompt: |-
+      Use case: illustration-story
+      Asset type: opening illustration for a high-school digital textbook, unit 03-03 “Global economic system and spatial inequality”
+      Primary request: Show how one simple unbranded desk lamp connects people working in different places: a designer explores its form with a physical model; workers make separate plain components; other workers assemble the lamp in a clean, safe workshop; and a shopkeeper and customer examine the finished lamp at a simple shelf. Make design, component production, assembly, and sale clear as related stages of one value chain, while treating all participants with equal dignity.
+      Scene/backdrop: One coherent wide scene that gently transitions between a quiet design table, a small component workbench, an assembly table, and a modest retail shelf. Spaces are generic and fictional, not locatable and not tied to a culture.
+      Subject: Adults with varied skin tones, genders, body types, and abilities, wearing ordinary neutral contemporary clothing, actively doing skilled work and making choices. Show the same plain desk lamp and its visible parts at different stages. Keep work areas orderly, safe, and unbranded.
+      Style/medium: Restrained editorial textbook illustration in soft gouache and colored-pencil texture, simple legible shapes, subtle paper grain, not photorealistic or glossy.
+      Composition/framing: Wide 3:2 landscape, four related work moments in one continuous panorama with no panel borders or labels, generous paper-colored negative space. A few soft muted-green abstract curves and dots may loosely connect objects and stations but must not resemble geographic routes.
+      Lighting/mood: Gentle diffused daylight, calm, observant, collaborative.
+      Color palette: Background near #fbf8f1; muted green accents around #2f6f5e; warm off-white, light gray, and dark warm gray-brown neutrals only. No saturated primary or fluorescent colors.
+      Text (verbatim): None. Absolutely no text, letters, pseudo-writing, numerals, signs, labels, logos, brands, watermarks, symbols, or readable screens anywhere. Do not put writing on paper, products, tools, boxes, or shelves.
+      Constraints: No maps, globes, borders, routes, flags, national symbols, real places, landmarks, famous people, or recognizable companies. Every lamp part, package, and device is plain and unmarked.
+      Avoid: Unsafe or exploitative factory conditions, helpless workers, a boss dominating others, cultural stereotypes, caricature, promotional advertising, glossy 3D, photorealism, clutter, saturated colors.
+    model: 'OpenAI image_gen built-in tool (underlying model not exposed)'
+    createdAt: '2026-11-27'
+    usedIn: '03-03 opening'
+    alt: '표식 없는 책상용 조명의 설계·부품 제작·조립·판매 단계에서 여러 사람이 각자의 일을 이어 간다.'
+  - src: /images/03-03/fair-cooperation.webp
+    prompt: |-
+      Use case: illustration-story
+      Asset type: concept illustration for a high-school digital textbook, unit 03-03, fair cooperation among participants in a global value chain
+      Primary request: Show people involved in different stages of making and selling a simple unbranded desk lamp meeting as equal partners around a shared worktable. A materials supplier, a component maker, an assembler, and a shopkeeper each bring a plain sample or tool; together they examine the same finished lamp and components, exchange ideas, and make room for each participant’s input. The scene should suggest cooperation and shared decision-making in a value chain, not charity or a single powerful buyer directing everyone.
+      Scene/backdrop: A generic, unlocated shared workshop with a large accessible table and separate small work surfaces visible in the background, suggesting different work roles without showing a map or specific place.
+      Subject: A small group of adults with varied skin tones, genders, body types, and abilities, seated or standing at equal eye level. Each person contributes actively. One participant uses a wheelchair naturally at the table. A few plain lamp parts and one finished plain desk lamp are the only central objects.
+      Style/medium: Restrained editorial textbook illustration in soft gouache and colored-pencil texture, simple readable forms, subtle paper grain, not photorealistic or glossy.
+      Composition/framing: Wide 3:2 horizontal, one clear cooperative scene, balanced attention across all participants, generous paper-colored negative space. No panel borders, labels, arrows, scales, or decorative icons.
+      Lighting/mood: Gentle diffused daylight, thoughtful, respectful, practical and collaborative.
+      Color palette: Background near #fbf8f1; muted green accents around #2f6f5e; warm off-white, light gray, and dark warm gray-brown neutrals only. No saturated primary or fluorescent colors.
+      Text (verbatim): None. Absolutely no text, letters, pseudo-writing, numerals, signs, labels, symbols, logos, brands, watermarks, or readable screens anywhere. Any paper must be blank.
+      Constraints: No maps, globes, routes, borders, flags, national symbols, real places, landmarks, famous people, certification marks, corporate identities, or unmarked goods that resemble a known product.
+      Avoid: A boss towering over workers, unequal or coercive exchange, charity framing, unsafe working conditions, stereotypes, culture-specific clothing, caricature, commercial advertising, clutter, saturated colors.
+      Final edit: Removed the paper and pencil from the worktable, restoring a plain surface; preserved people, poses, wheelchair, lamp, components, workshop, lighting, and composition.
+    model: 'OpenAI image_gen built-in tool (underlying model not exposed)'
+    createdAt: '2026-11-27'
+    usedIn: '03-03 lesson 3'
+    alt: '가치사슬의 여러 참여자가 표식 없는 조명 부품과 완성품을 함께 살펴보며 의견을 나눈다.'
