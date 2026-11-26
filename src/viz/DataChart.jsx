@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { buildChartOption, chartHeader, chartRows } from './chartData.js';
 import { useJson } from './useJson.js';
+import { BASE_MAP_URL } from './mapData.js';
 
 let echartsPromise;
 function loadEcharts() {
@@ -28,9 +29,11 @@ export function ValueTable({ header, rows }) {
 
 export default function DataChart({ url, config, alt, fallback, onInteract }) {
   const { status, data } = useJson(url);
+  const base = useJson(BASE_MAP_URL);
   const containerRef = useRef(null);
   const [renderFailed, setRenderFailed] = useState(false);
   const payload = data?.[0];
+  const names = useMemo(() => Object.fromEntries((base.data?.[0]?.features ?? []).map((f) => [f.properties.iso_a3, f.properties.name_ko || f.properties.name])), [base.data]);
 
   useEffect(() => {
     if (status !== 'ready' || !containerRef.current) return undefined;
@@ -41,7 +44,7 @@ export default function DataChart({ url, config, alt, fallback, onInteract }) {
       if (disposed || !containerRef.current) return;
       try {
         chart = echarts.init(containerRef.current, null, { renderer: 'canvas' });
-        chart.setOption(buildChartOption(config, payload));
+        chart.setOption(buildChartOption(config, payload, names));
         chart.on('click', () => onInteract?.());
         chart.on('legendselectchanged', () => onInteract?.());
         if (typeof ResizeObserver !== 'undefined') {
@@ -53,13 +56,13 @@ export default function DataChart({ url, config, alt, fallback, onInteract }) {
       }
     }).catch(() => setRenderFailed(true));
     return () => { disposed = true; observer?.disconnect(); chart?.dispose(); };
-  }, [status, payload, config, onInteract]);
+  }, [status, payload, config, onInteract, names]);
 
   if (status === 'error') return fallback;
   return (
     <>
       {renderFailed ? fallback : <div ref={containerRef} className="figure-canvas" role="img" aria-label={alt} />}
-      {payload && <ValueTable header={chartHeader(config, payload)} rows={chartRows(config, payload)} />}
+      {payload && <ValueTable header={chartHeader(config, payload)} rows={chartRows(config, payload, names)} />}
     </>
   );
 }

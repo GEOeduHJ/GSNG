@@ -83,6 +83,21 @@ describe('chart and map data', () => {
     expect(option.xAxis.axisLabel.fontSize).toBeGreaterThanOrEqual(14);
   });
 
+  it('limits line charts to config.maxYear', () => {
+    const data = { years: [2023, 2024, 2025], series: [{ name: 'World', iso3: 'WLD', values: [1, 2, 3] }] };
+    const option = buildChartOption({ kind: 'line', maxYear: 2024 }, data);
+    expect(option.xAxis.data).toEqual([2023, 2024]);
+    expect(option.series[0].data).toEqual([1, 2]);
+    expect(chartRows({ kind: 'line', maxYear: 2024 }, data)[0]).toEqual(['세계', 1, 2]);
+  });
+
+  it('labels series and rows in Korean by iso3 when names are given', () => {
+    const names = { KOR: '대한민국', VNM: '베트남' };
+    const line = buildChartOption({ kind: 'line' }, { years: [2024], series: [{ name: 'Korea, Rep.', iso3: 'KOR', values: [1] }, { name: 'World', iso3: 'WLD', values: [2] }] }, names);
+    expect(line.series.map((series) => series.name)).toEqual(['대한민국', '세계']);
+    expect(chartRows({ kind: 'bar' }, { rows: [{ iso3: 'VNM', name: 'VIETNAM', value: 3 }] }, names)).toEqual([['베트남', 3]]);
+  });
+
   it('builds sorted bar rows', () => {
     const data = { unit: 'USD', rows: [{ name: 'A', value: 1 }, { name: 'B', value: 5 }] };
     expect(chartRows({ kind: 'bar' }, data).map((row) => row[0])).toEqual(['B', 'A']);
