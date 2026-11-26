@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from 'react';
 import BookNavigation from './components/BookNavigation.jsx';
 import BookReader from './components/BookReader.jsx';
 import CourseHome from './components/CourseHome.jsx';
-import QFTFlow from './components/QFTFlow.jsx';
 import { BOOK_UNITS, LESSON_BY_ID, MIDDLE_UNIT_BY_ID, validateCourseContent } from './content/bookIndex.js';
 import { MODULES, MODULE_BY_CODE } from './modules/index.js';
 
@@ -85,15 +84,22 @@ function viewFromHash() {
   if (!hash || hash === 'home') return { type: 'home' };
   const [type, id] = hash.split('/');
   if (type === 'lesson' && LESSON_BY_ID[id]) return { type, id };
-  if (type === 'module' && MODULE_BY_CODE[id]) return { type, code: id };
-  if (MODULE_BY_CODE[hash]) return { type: 'module', code: hash };
+  if (type === 'module' && MODULE_BY_CODE[id]) {
+    const module = MODULE_BY_CODE[id];
+    const lesson = LESSON_BY_ID[module.qft?.focusVisual] || LESSON_BY_ID[module.sectionIds?.[0]];
+    if (lesson) return { type: 'lesson', id: lesson.id, openInquiry: true };
+  }
+  if (MODULE_BY_CODE[hash]) {
+    const module = MODULE_BY_CODE[hash];
+    const lesson = LESSON_BY_ID[module.qft?.focusVisual] || LESSON_BY_ID[module.sectionIds?.[0]];
+    if (lesson) return { type: 'lesson', id: lesson.id, openInquiry: true };
+  }
   if (LESSON_BY_ID[hash]) return { type: 'lesson', id: hash };
   return { type: 'home' };
 }
 
 function routeHash(view) {
   if (view.type === 'lesson') return `#lesson/${encodeURIComponent(view.id)}`;
-  if (view.type === 'module') return `#module/${encodeURIComponent(view.code)}`;
   return '#home';
 }
 
@@ -109,6 +115,8 @@ function downloadJson(filename, payload) {
 
 export default function App() {
   const [activeView, setActiveView] = useState(viewFromHash);
+  const [inquiryOpen, setInquiryOpen] = useState(() => Boolean(viewFromHash().openInquiry));
+  const [inquiryScrollRequest, setInquiryScrollRequest] = useState(() => (viewFromHash().openInquiry ? 1 : 0));
   const initialData = useMemo(readStoredData, []);
   const [records, setRecords] = useState(initialData.records);
   const [readLessons, setReadLessons] = useState(initialData.readLessons);
@@ -119,10 +127,9 @@ export default function App() {
   const lesson = activeView.type === 'lesson' ? LESSON_BY_ID[activeView.id] : null;
   const unit = lesson ? MIDDLE_UNIT_BY_ID[lesson.unitId] : null;
   const part = lesson ? BOOK_UNITS.find((item) => item.id === lesson.partId) : null;
-  const moduleCode = activeView.type === 'module' ? activeView.code : lesson?.moduleCode;
+  const moduleCode = lesson?.moduleCode;
   const module = MODULE_BY_CODE[moduleCode] || null;
   const activeRecord = module ? { ...emptyRecord(module.code), ...(records[module.code] || {}) } : null;
-  const generatedQuestionCount = activeRecord?.questions?.filter((question) => question?.text?.trim()).length || 0;
   const validationProblems = useMemo(validateCourseContent, []);
 
   useEffect(() => {
@@ -135,7 +142,11 @@ export default function App() {
   }, [records, readLessons]);
 
   useEffect(() => {
-    const handleLocation = () => setActiveView(viewFromHash());
+    const handleLocation = () => {
+      const nextView = viewFromHash();
+      setActiveView(nextView);
+      setInquiryOpen(Boolean(window.history.state?.inquiryOpen ?? nextView.openInquiry));
+    };
     window.addEventListener('popstate', handleLocation);
     window.addEventListener('hashchange', handleLocation);
     return () => {
@@ -145,9 +156,9 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const pageTitle = lesson?.title || module?.title || '과목 안내';
+    const pageTitle = lesson?.title || '과목 안내';
     document.title = `${pageTitle} · 세계시민과 지리`;
-  }, [lesson?.title, module?.title]);
+  }, [lesson?.title]);
 
   useEffect(() => {
     document.body.classList.toggle('menu-open', sidebarOpen);
@@ -159,19 +170,42 @@ export default function App() {
     window.setTimeout(() => setToast(''), 3200);
   }
 
-  function navigate(view) {
+  function navigate(view, { openInquiry: nextInquiryOpen = inquiryOpen, scrollToInquiry = false } = {}) {
     setActiveView(view);
-    window.history.pushState({ view }, '', routeHash(view));
+    setInquiryOpen(nextInquiryOpen);
+    setInquiryScrollRequest((current) => (scrollToInquiry ? current + 1 : 0));
+    window.history.pushState({ view, inquiryOpen: nextInquiryOpen }, '', routeHash(view));
     setSidebarOpen(false);
     window.scrollTo({ top: 0, behavior: 'auto' });
   }
 
-  function openHome() { navigate({ type: 'home' }); }
-  function openLesson(id) {
-    if (LESSON_BY_ID[id]) navigate({ type: 'lesson', id });
+  function openHome() { navigate({ type: 'home' }, { openInquiry: false }); }
+  function openLesson(id, options = {}) {
+    const targetLesson = LESSON_BY_ID[id];
+    if (!targetLesson) return;
+    const preserveInquiry = options.preserveInquiry ?? (inquiryOpen && targetLesson.moduleCode === lesson?.moduleCode);
+    navigate({ type: 'lesson', id }, { openInquiry: preserveInquiry });
   }
-  function openModule(code) {
-    if (MODULE_BY_CODE[code]) navigate({ type: 'module', code });
+  function openInquiry(code) {
+    const targetModule = MODULE_BY_CODE[code];
+    if (!targetModule) return;
+    const targetLesson = LESSON_BY_ID[targetModule.qft?.focusVisual] || LESSON_BY_ID[targetModule.sectionIds?.[0]];
+    if (!targetLesson) return;
+
+    if (lesson?.moduleCode === code) {
+      setInquiryOpen(true);
+      setInquiryScrollRequest((current) => current + 1);
+      setSidebarOpen(false);
+      return;
+    }
+
+    navigate({ type: 'lesson', id: targetLesson.id }, { openInquiry: true, scrollToInquiry: true });
+  }
+
+  function toggleInquiry() {
+    const nextOpen = !inquiryOpen;
+    setInquiryOpen(nextOpen);
+    if (nextOpen) setInquiryScrollRequest((current) => current + 1);
   }
 
   function updateRecord(code, changes) {
@@ -208,8 +242,6 @@ export default function App() {
   }
 
   const currentRecord = activeRecord || emptyRecord();
-  const isQftRoute = activeView.type === 'module';
-
   return (
     <>
       <a className="skip-link" href="#main-content">본문으로 건너뛰기</a>
@@ -220,11 +252,9 @@ export default function App() {
           records={records}
           readLessons={readLessons}
           activeView={activeView}
-          qftMode={isQftRoute}
-          questionCount={generatedQuestionCount}
           onHome={openHome}
           onSelectLesson={openLesson}
-          onSelectModule={openModule}
+          onOpenInquiry={openInquiry}
           onClose={() => setSidebarOpen(false)}
         />
         {sidebarOpen && <button className="sidebar-scrim" type="button" aria-label="목차 닫기" onClick={() => setSidebarOpen(false)} />}
@@ -232,7 +262,7 @@ export default function App() {
         <div className="main-column">
           <header className="topbar">
             <button type="button" className="mobile-menu-button" aria-expanded={sidebarOpen} onClick={() => setSidebarOpen((value) => !value)}><span aria-hidden="true">☰</span> 목차</button>
-            <div className="topbar-path"><span>세계시민과 지리</span><span aria-hidden="true">/</span><strong>{lesson?.unitTitle || (module ? '질문 탐구' : '과목 안내')}</strong></div>
+            <div className="topbar-path"><span>세계시민과 지리</span><span aria-hidden="true">/</span><strong>{lesson?.unitTitle || '과목 안내'}</strong></div>
             <div className="topbar-actions">
               <button type="button" className="quiet-button export-button" onClick={exportRecords}>기록 내보내기</button>
               <button type="button" className="quiet-button clear-button" onClick={clearRecords}>기록 지우기</button>
@@ -241,9 +271,22 @@ export default function App() {
 
           <main id="main-content" className="page-content" tabIndex="-1">
             {validationProblems.length > 0 && <div className="content-warning" role="status">일부 콘텐츠 연결을 확인해야 합니다.</div>}
-            {activeView.type === 'home' && <CourseHome units={BOOK_UNITS} modules={MODULES} readLessons={readLessons} records={records} onSelectLesson={openLesson} onSelectModule={openModule} />}
-            {lesson && module && unit && part && <BookReader lesson={lesson} part={part} unit={unit} module={module} read={Boolean(readLessons[lesson.id])} onRead={markLessonRead} onSelectModule={openModule} onSelectLesson={openLesson} />}
-            {isQftRoute && module && <QFTFlow module={module} record={currentRecord} onChange={(changes) => updateRecord(module.code, changes)} onSelectLesson={openLesson} />}
+            {activeView.type === 'home' && <CourseHome units={BOOK_UNITS} modules={MODULES} readLessons={readLessons} records={records} onSelectLesson={openLesson} onOpenInquiry={openInquiry} />}
+            {lesson && module && unit && part && <BookReader
+              lesson={lesson}
+              part={part}
+              unit={unit}
+              module={module}
+              record={currentRecord}
+              inquiryOpen={inquiryOpen}
+              inquiryScrollRequest={inquiryScrollRequest}
+              read={Boolean(readLessons[lesson.id])}
+              onRead={markLessonRead}
+              onOpenInquiry={openInquiry}
+              onToggleInquiry={toggleInquiry}
+              onChangeInquiry={(changes) => updateRecord(module.code, changes)}
+              onSelectLesson={openLesson}
+            />}
             {storageError && <div className="storage-warning" role="status"><strong>브라우저 저장을 사용할 수 없습니다.</strong><span>읽기·탐구 화면은 계속 쓸 수 있습니다. 현재 기록을 저장하려면 JSON 파일로 내려받으세요.</span></div>}
             <footer className="global-footer">
               <div><span className="footer-mark" aria-hidden="true">지</span><p><strong>세계시민과 지리</strong><small>웹용으로 독립 집필한 학습 콘텐츠</small></p></div>

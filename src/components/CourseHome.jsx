@@ -6,7 +6,7 @@ const learningSteps = [
   { number: '03', title: '근거로 설명하기', copy: '자료를 비교하고 주장·근거·추론을 연결합니다.' },
 ];
 
-export default function CourseHome({ units, modules, readLessons, records, onSelectLesson, onSelectModule }) {
+export default function CourseHome({ units, modules, readLessons, records, onSelectLesson, onOpenInquiry }) {
   const readCount = Object.values(readLessons).filter(Boolean).length;
   const completeCount = modules.filter((module) => records[module.code]?.completed).length;
   const firstLesson = units[0]?.units[0]?.lessons[0];
@@ -20,13 +20,13 @@ export default function CourseHome({ units, modules, readLessons, records, onSel
           <p className="hero-intro">장소와 사람의 관계를 읽고, 스스로 만든 질문을 지도·자료와 함께 탐구하는 웹 교과서입니다.</p>
           <div className="hero-actions">
             <button type="button" className="primary-button" onClick={() => firstLesson && onSelectLesson(firstLesson.id)}>첫 단원 읽기 <span aria-hidden="true">→</span></button>
-            <button type="button" className="text-button" onClick={() => onSelectModule(modules[0]?.code)}>질문 탐구 시작</button>
+            <button type="button" className="text-button" onClick={() => onOpenInquiry(modules[0]?.code)}>교과서에서 질문 탐구</button>
           </div>
           <div className="hero-counts" aria-label="교과서 구성">
             <div><strong>{COURSE_COUNTS.parts}</strong><span>대단원</span></div>
             <div><strong>{COURSE_COUNTS.middleUnits}</strong><span>중단원</span></div>
             <div><strong>{COURSE_COUNTS.lessons}</strong><span>학습 절</span></div>
-            <div><strong>{COURSE_COUNTS.standards}</strong><span>탐구 모듈</span></div>
+            <div><strong>{COURSE_COUNTS.standards}</strong><span>성취기준</span></div>
           </div>
         </div>
         <div className="atlas-illustration" aria-hidden="true">
@@ -57,7 +57,7 @@ export default function CourseHome({ units, modules, readLessons, records, onSel
       </section>
 
       <section className="unit-overview" aria-labelledby="units-title">
-        <div className="section-title-group unit-title-row"><div><span className="eyebrow">교과서 목차</span><h2 id="units-title">네 개의 세계를 따라</h2></div><p>각 중단원에는 성취기준별 질문 탐구가 연결되어 있습니다.</p></div>
+        <div className="section-title-group unit-title-row"><div><span className="eyebrow">교과서 목차</span><h2 id="units-title">네 개의 세계를 따라</h2></div><p>각 중단원의 질문 탐구는 해당 교과서 절 안에서 이어집니다.</p></div>
         <div className="part-grid">
           {units.map((part) => <article className="part-card" key={part.id}>
             <div className="part-card-top"><span className="part-card-numeral">{part.numeral}</span><span>{part.units.length}개 중단원</span></div>
@@ -66,7 +66,7 @@ export default function CourseHome({ units, modules, readLessons, records, onSel
             <div className="part-card-units">
               {part.units.map((unit) => <div className="part-unit-row" key={unit.id}>
                 <button type="button" className="part-unit-link" onClick={() => onSelectLesson(unit.lessons[0]?.id)}><span>{unit.title}</span><small>{unit.lessons.length}개 절</small></button>
-                <button type="button" className="part-unit-qft" onClick={() => onSelectModule(unit.moduleCode)} aria-label={`${unit.title} 질문 탐구 열기`}>탐구 <span aria-hidden="true">↗</span></button>
+                <button type="button" className="part-unit-qft" onClick={() => onOpenInquiry(unit.moduleCode)} aria-label={`교과서 본문에서 ${unit.title} 질문 탐구 열기`}>탐구 <span aria-hidden="true">↗</span></button>
               </div>)}
             </div>
             <div className="part-card-footer"><span>읽은 절</span><strong>{part.units.flatMap((unit) => unit.lessons).filter((lesson) => readLessons[lesson.id]).length} / {part.units.reduce((sum, unit) => sum + unit.lessons.length, 0)}</strong></div>

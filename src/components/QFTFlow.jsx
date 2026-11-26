@@ -41,7 +41,7 @@ function Field({ label, value, onChange, hint, rows = 4, name }) {
 
 function LessonLinks({ module, onSelectLesson }) {
   const lessons = module.sectionIds.map((id) => LESSON_BY_ID[id]).filter(Boolean);
-  return <div className="related-lessons"><span className="eyebrow">읽을 자료 고르기</span><p>질문을 조사하는 데 필요한 학습 절과 공공 자료를 선택하세요. 모든 절을 다 읽지 않아도 됩니다.</p><div className="related-lesson-list">{lessons.map((lesson) => <button type="button" key={lesson.id} onClick={() => onSelectLesson(lesson.id)}><span>{lesson.unitTitle}</span><strong>{lesson.title}</strong><i aria-hidden="true">↗</i></button>)}</div></div>;
+  return <div className="related-lessons"><span className="eyebrow">읽을 자료 고르기</span><p>교과서 절을 선택하면 본문으로 이동합니다. 질문 탐구와 작성 기록은 열린 채로 이어집니다.</p><div className="related-lesson-list">{lessons.map((lesson) => <button type="button" key={lesson.id} onClick={() => onSelectLesson(lesson.id, { preserveInquiry: true })}><span>{lesson.unitTitle}</span><strong>{lesson.title}</strong><i aria-hidden="true">↗</i></button>)}</div></div>;
 }
 
 function FocusStep({ module, lesson }) {
@@ -225,13 +225,6 @@ export default function QFTFlow({ module, record, onChange, onComplete, onSelect
 
   return (
     <div className="qft-page">
-      <header className="qft-page-heading">
-        <div className="reader-breadcrumb"><span>{module.group}</span><span aria-hidden="true">/</span><span>성취기준별 질문 탐구</span></div>
-        <div className="module-title-meta"><span>{module.moduleId}</span><span>{module.time} 수업 흐름</span></div>
-        <h1>{module.title}</h1>
-        <p>{module.goal}</p>
-      </header>
-
       <section className="standard-banner" aria-labelledby="standard-banner-title">
         <div><span className="eyebrow" id="standard-banner-title">교육과정 성취기준</span><strong>{module.code}</strong></div><p>{module.standardText}</p>
       </section>
