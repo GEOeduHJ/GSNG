@@ -1,0 +1,156 @@
+items:
+  - id: u0301-population-density
+    path: /data/03-01/population-density-map-2024.json
+    title: 국가별 인구 밀도, 2024년
+    organization: World Bank, World Development Indicators (WDI)
+    url: https://data.worldbank.org/indicator/EN.POP.DNST
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      World Bank, World Development Indicators, CC BY 4.0. Modified: selected 2024 values and
+      ISO3 country codes for a choropleth map.
+    script: scripts/data/03-01/world_bank.py
+    unit: persons per sq. km of land area
+    year: 2024
+    summary: >-
+      2024년 인구 밀도는 대한민국 530.2363명/km², 인도 488.0064명/km², 미국 37.1694명/km²이다.
+      217개 국가·경제 코드 가운데 214개에 값이 있고, 나머지는 원자료 결측으로 null이다.
+
+  - id: u0301-population-top10
+    path: /data/03-01/population-top10-2024.json
+    title: 인구 상위 10개국, 2024년
+    organization: World Bank, World Development Indicators (WDI)
+    url: https://data.worldbank.org/indicator/SP.POP.TOTL
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      World Bank, World Development Indicators, CC BY 4.0. Modified: selected the ten largest
+      country values for 2024 and translated country names into Korean.
+    script: scripts/data/03-01/world_bank.py
+    unit: persons
+    year: 2024
+    summary: >-
+      2024년 인도 1,450,935,791명, 중국 1,408,975,000명, 미국 340,003,797명이다.
+      세계·지역 합계는 제외하고 국가별 값만 순위화했다.
+
+  - id: u0301-age-65plus
+    path: /data/03-01/age-65plus-map-2024.json
+    title: 국가별 65세 이상 인구 비율, 2024년
+    organization: World Bank, World Development Indicators (WDI)
+    url: https://data.worldbank.org/indicator/SP.POP.65UP.TO.ZS
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      World Bank, World Development Indicators, CC BY 4.0. Modified: selected 2024 values and
+      ISO3 country codes for a choropleth map.
+    script: scripts/data/03-01/world_bank.py
+    unit: '% of total population'
+    year: 2024
+    summary: >-
+      2024년 65세 이상 인구 비율은 일본 29.7808%, 대한민국 19.2735%, 우간다 2.1886%이다.
+      217개 국가·경제 코드에 값이 있다.
+
+  - id: u0301-population-pyramid-kor
+    path: /data/03-01/pyramid-kor-2024.json
+    title: 대한민국 인구 피라미드, 2024년 추계
+    organization: United Nations, Department of Economic and Social Affairs, Population Division
+    url: https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/CSV_FILES/WPP2024_PopulationByAge5GroupSex_Medium.csv.gz
+    retrievedAt: '2026-11-27'
+    license: CC BY 3.0 IGO
+    attribution: >-
+      United Nations, Department of Economic and Social Affairs, Population Division (2024),
+      World Population Prospects 2024, CC BY 3.0 IGO. Modified: grouped ages into five-year
+      bands and converted each sex-age count to a percentage of total population.
+    script: scripts/data/03-01/wpp2024_pyramids.py
+    unit: '% of total population'
+    year: 2024
+    summary: >-
+      WPP 2024 중위 시나리오 추계에서 0–4세 남아는 전체 인구의 1.273273%, 여아는 1.206607%,
+      65–69세 남성은 3.269634%이다. 모든 성별·연령 값은 2024년 전체 인구 대비 비율이다.
+
+  - id: u0301-population-pyramid-jpn
+    path: /data/03-01/pyramid-jpn-2024.json
+    title: 일본 인구 피라미드, 2024년 추계
+    organization: United Nations, Department of Economic and Social Affairs, Population Division
+    url: https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/CSV_FILES/WPP2024_PopulationByAge5GroupSex_Medium.csv.gz
+    retrievedAt: '2026-11-27'
+    license: CC BY 3.0 IGO
+    attribution: >-
+      United Nations, Department of Economic and Social Affairs, Population Division (2024),
+      World Population Prospects 2024, CC BY 3.0 IGO. Modified: grouped ages into five-year
+      bands and converted each sex-age count to a percentage of total population.
+    script: scripts/data/03-01/wpp2024_pyramids.py
+    unit: '% of total population'
+    year: 2024
+    summary: >-
+      WPP 2024 중위 시나리오 추계에서 0–4세 남아는 전체 인구의 1.661035%, 여아는 1.581985%,
+      65–69세 남성은 2.918167%이다. 모든 성별·연령 값은 2024년 전체 인구 대비 비율이다.
+
+  - id: u0301-population-pyramid-uga
+    path: /data/03-01/pyramid-uga-2024.json
+    title: 우간다 인구 피라미드, 2024년 추계
+    organization: United Nations, Department of Economic and Social Affairs, Population Division
+    url: https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/CSV_FILES/WPP2024_PopulationByAge5GroupSex_Medium.csv.gz
+    retrievedAt: '2026-11-27'
+    license: CC BY 3.0 IGO
+    attribution: >-
+      United Nations, Department of Economic and Social Affairs, Population Division (2024),
+      World Population Prospects 2024, CC BY 3.0 IGO. Modified: grouped ages into five-year
+      bands and converted each sex-age count to a percentage of total population.
+    script: scripts/data/03-01/wpp2024_pyramids.py
+    unit: '% of total population'
+    year: 2024
+    summary: >-
+      WPP 2024 중위 시나리오 추계에서 0–4세 남아는 전체 인구의 8.150162%, 여아는 7.979667%,
+      65–69세 남성은 0.386683%이다. 모든 성별·연령 값은 2024년 전체 인구 대비 비율이다.
+
+  - id: u0301-fertility-rate-series
+    path: /data/03-01/fertility-rate-series-1960-2024.json
+    title: 대한민국·일본·우간다·세계 합계 출산율, 1960–2024년
+    organization: World Bank, World Development Indicators (WDI)
+    url: https://data.worldbank.org/indicator/SP.DYN.TFRT.IN
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      World Bank, World Development Indicators, CC BY 4.0. Modified: selected annual values for
+      the Republic of Korea, Japan, Uganda and the World from 1960–2024.
+    script: scripts/data/03-01/world_bank.py
+    unit: births per woman
+    year: 2024
+    summary: >-
+      대한민국 합계 출산율은 1960년 5.994명, 2024년 0.748명이며, 2024년 세계는 2.188명,
+      우간다는 4.165명이다. 네 계열 모두 1960–2024년 65개 연도 값이 있다.
+
+  - id: u0301-international-migrant-share
+    path: /data/03-01/international-migrant-share-map-2024.json
+    title: 국가별 국제 이주민 비율, 2024년
+    organization: World Bank, World Development Indicators (WDI), source data from UN DESA
+    url: https://data.worldbank.org/indicator/SM.POP.TOTL.ZS
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      World Bank, World Development Indicators, based on UN DESA International Migrant Stock,
+      CC BY 4.0. Modified: selected 2024 values and ISO3 country codes for a choropleth map.
+    script: scripts/data/03-01/world_bank.py
+    unit: '% of total population'
+    year: 2024
+    summary: >-
+      2024년 국제 이주민 비율은 아랍에미리트 74.0%, 미국 15.2%, 대한민국 3.5%이다.
+      이는 현재 거주 인구의 이주민 비율이지 연간 이동 인원이나 이주 이유를 나타내지 않는다.
+
+  - id: u0301-personal-remittances-gdp
+    path: /data/03-01/personal-remittances-gdp-map-2024.json
+    title: 국가별 개인 송금 수입의 GDP 대비 비율, 2024년
+    organization: World Bank, World Development Indicators (WDI)
+    url: https://data.worldbank.org/indicator/BX.TRF.PWKR.DT.GD.ZS
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      World Bank, World Development Indicators, CC BY 4.0. Modified: selected 2024 values and
+      ISO3 country codes for a choropleth map.
+    script: scripts/data/03-01/world_bank.py
+    unit: '% of GDP'
+    year: 2024
+    summary: >-
+      2024년 개인 송금 수입의 GDP 대비 비율은 타지키스탄 47.1531%, 통가 39.4086%, 필리핀
+      8.7247%이다. 217개 국가·경제 코드 중 162개에 값이 있고, 결측 55개는 null이다.
