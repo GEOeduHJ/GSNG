@@ -1,0 +1,131 @@
+sources:
+  fao-food-balances:
+    sourceDate: '2023'
+    checkedAt: '2026-11-27'
+    licenseStatus: '자료 통계의 라이선스와 출처 표기는 자료 manifest를 따름. FAO 웹페이지의 원문·이미지는 재배포하지 않음.'
+    reuseBasis: 'FAOSTAT Food Balances의 식품 공급 열량 지표와 국가 단위 공급량 해석 한계를 확인하는 공식 출처.'
+    verificationStatus: 'FAOSTAT Food Balances의 2010–2023년 시계열 범위와 1인당 식품 공급 열량 단위를 확인했다. 실제 섭취량의 한계는 FAO 식품수급표 안내서를 별도로 참고한다.'
+    title: 'Food Balances (FBS)'
+    organization: Food and Agriculture Organization of the United Nations (FAO)
+    url: 'https://www.fao.org/faostat/en/#data/FBS'
+    usage: 참고 링크입니다. 개별 표·이미지·데이터를 재배포하려면 제공기관의 해당 자료 이용 조건을 별도로 확인해야 합니다.
+  fao-food-balances-handbook:
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 원문 페이지 링크만 제공. 원문·이미지 재사용 조건은 별도 확인 필요.
+    reuseBasis: '1인당 식품 공급 통계의 정의와 실제 소비량으로 볼 수 없는 한계를 설명하는 FAO 자료.'
+    verificationStatus: 'FAO 식품수급표 안내서에서 1인당 공급량은 전체 인구가 이용할 수 있는 평균량이며 개인별 실제 섭취와 다를 수 있다고 확인했다.'
+    title: 'Food Balance Sheets: A Handbook, Chapter 2'
+    organization: Food and Agriculture Organization of the United Nations (FAO)
+    url: 'https://www.fao.org/4/X9892E/X9892e02.htm'
+    usage: 참고 링크입니다. 개별 표·이미지·데이터를 재배포하려면 제공기관의 해당 자료 이용 조건을 별도로 확인해야 합니다.
+  fao-agroecological-zoning:
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 원문 페이지 링크만 제공. 원문·이미지 재사용 조건은 별도 확인 필요.
+    reuseBasis: '토지 평가에서 표면·토양·기후 등 환경 조건을 고려한다는 FAO 설명을 확인하는 공식 자료.'
+    verificationStatus: 'FAO의 농업생태구역 자료에서 작물 생산과 토지의 표면·토양·기후 조건의 관계를 확인했다. 개별 국가의 작물 비중 원인을 설명하는 자료로 사용하지 않는다.'
+    title: 'Agro-ecological zoning'
+    organization: Food and Agriculture Organization of the United Nations (FAO)
+    url: 'https://www.fao.org/4/w2962e/w2962e-07.htm'
+    usage: 참고 링크입니다. 개별 표·이미지·데이터를 재배포하려면 제공기관의 해당 자료 이용 조건을 별도로 확인해야 합니다.
+  fao-food-choices:
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 원문 페이지 링크만 제공. 원문·이미지 재사용 조건은 별도 확인 필요.
+    reuseBasis: '문화와 종교를 포함한 여러 요인이 식품 선택에 영향을 줄 수 있다는 FAO 설명을 확인하는 공식 자료.'
+    verificationStatus: 'FAO의 식생활 안내에서 시간, 관습, 문화·종교, 취향과 조리 기술 등 다양한 식품 선택 요인을 확인했다. 특정 국가나 집단 전체의 선택을 단정하는 근거로 사용하지 않는다.'
+    title: 'The ABCs of healthy diets'
+    organization: Food and Agriculture Organization of the United Nations (FAO)
+    url: 'https://www.fao.org/newsroom/story/The-ABCs-of-healthy-diets/'
+    usage: 참고 링크입니다. 개별 표·이미지·데이터를 재배포하려면 제공기관의 해당 자료 이용 조건을 별도로 확인해야 합니다.
+  unesco-intangible-convention:
+    sourceDate: '2003-10-17'
+    checkedAt: '2026-11-27'
+    licenseStatus: 원문 페이지 링크만 제공. 협약문·이미지 재사용 조건은 별도 확인 필요.
+    reuseBasis: '무형문화유산의 정의, 보존 활동, 교육과 공동체 참여에 관한 UNESCO 협약 원문.'
+    verificationStatus: '협약 제2조의 공동체 전승·재창조와 보존 활동의 범위, 제14조의 교육, 제15조의 공동체 참여 원칙을 확인했다.'
+    title: 'Text of the Convention for the Safeguarding of the Intangible Cultural Heritage'
+    organization: UNESCO Intangible Cultural Heritage
+    url: 'https://ich.unesco.org/en/convention'
+    usage: 참고 링크입니다. 개별 표·이미지·데이터를 재배포하려면 제공기관의 해당 자료 이용 조건을 별도로 확인해야 합니다.
+  unesco-intangible-list:
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: '등재 사실 링크만 제공. UNESCO 페이지의 문장·사진·영상은 재사용하지 않음.'
+    reuseBasis: '대표목록의 등재 사실과 종목 정보를 대조하는 공식 목록.'
+    verificationStatus: 'manifest와 README에 수록된 축제·의례 이름 및 UNESCO 대표목록 자료의 범위를 대조했다. 선택된 15종목은 전체 목록의 통계가 아니다.'
+    title: 'Browse the Lists of Intangible Cultural Heritage'
+    organization: UNESCO Intangible Cultural Heritage
+    url: 'https://ich.unesco.org/en/lists'
+    usage: 참고 링크입니다. 개별 표·이미지·데이터를 재배포하려면 제공기관의 해당 자료 이용 조건을 별도로 확인해야 합니다.
+  unesco-2008-masterpieces:
+    sourceDate: '2008'
+    checkedAt: '2026-11-27'
+    licenseStatus: 원문 페이지 링크만 제공. UNESCO 목록 사실만 확인하며 원문·이미지는 재배포하지 않음.
+    reuseBasis: '이전 걸작 선포 요소의 대표목록 통합 시점을 확인하는 UNESCO 공식 설명.'
+    verificationStatus: '2001–2005년에 걸작으로 선포된 90개 요소가 2008년 대표목록에 통합되었다는 UNESCO 설명을 확인했다.'
+    title: 'Proclamation of the Masterpieces of the Oral and Intangible Heritage of Humanity (2001–2005)'
+    organization: UNESCO Intangible Cultural Heritage
+    url: 'https://ich.unesco.org/en/safeguarding-ich-00103'
+    usage: 참고 링크입니다. 개별 표·이미지·데이터를 재배포하려면 제공기관의 해당 자료 이용 조건을 별도로 확인해야 합니다.
+  unesco-gangneung-danoje:
+    sourceDate: '2008'
+    checkedAt: '2026-11-27'
+    licenseStatus: 원문 페이지 링크만 제공. UNESCO 등재 사실과 설명만 확인하며 사진·영상은 재사용하지 않음.
+    reuseBasis: '강릉단오제의 지역·의례와 변화에 관한 공식 등재 설명.'
+    verificationStatus: 'UNESCO 항목에서 강릉단오제의 대표 장소, 복합적 의례, 문화 표준화와 대중매체 보도에 따른 일부 전통 요소의 손실에 관한 설명을 확인했다.'
+    title: 'Gangneung Danoje festival'
+    organization: UNESCO Intangible Cultural Heritage
+    url: 'https://ich.unesco.org/en/RL/gangneung-danoje-festival-00114'
+    usage: 참고 링크입니다. 개별 표·이미지·데이터를 재배포하려면 제공기관의 해당 자료 이용 조건을 별도로 확인해야 합니다.
+  unesco-mangal-shobhajatra:
+    sourceDate: '2016'
+    checkedAt: '2026-11-27'
+    licenseStatus: 원문 페이지 링크만 제공. UNESCO 등재 사실과 설명만 확인하며 사진·영상은 재사용하지 않음.
+    reuseBasis: '방글라데시 새해 행렬의 시기와 공동체적 의미를 확인하는 공식 등재 설명.'
+    verificationStatus: 'UNESCO 항목에서 망갈 쇼바자트라가 파헬라 바이샤크 새해를 기념하는 공개 행렬임을 확인했다.'
+    title: 'Mangal Shobhajatra on Pahela Baishakh'
+    organization: UNESCO Intangible Cultural Heritage
+    url: 'https://ich.unesco.org/en/RL/mangal-shobhajatra-on-pahela-baishakh-01091'
+    usage: 참고 링크입니다. 개별 표·이미지·데이터를 재배포하려면 제공기관의 해당 자료 이용 조건을 별도로 확인해야 합니다.
+  unesco-saint-blaise:
+    sourceDate: '2009'
+    checkedAt: '2026-11-27'
+    licenseStatus: 원문 페이지 링크만 제공. UNESCO 등재 사실과 설명만 확인하며 사진·영상은 재사용하지 않음.
+    reuseBasis: '두브로브니크의 성 블라시오 축제와 수호 성인 의례를 확인하는 공식 등재 설명.'
+    verificationStatus: 'UNESCO 항목에서 성 블라시오 축제가 도시의 수호 성인을 기리는 행렬과 의례를 포함함을 확인했다.'
+    title: 'Festivity of Saint Blaise, the patron of Dubrovnik'
+    organization: UNESCO Intangible Cultural Heritage
+    url: 'https://ich.unesco.org/en/RL/festivity-of-saint-blaise-the-patron-of-dubrovnik-00232'
+    usage: 참고 링크입니다. 개별 표·이미지·데이터를 재배포하려면 제공기관의 해당 자료 이용 조건을 별도로 확인해야 합니다.
+  unesco-el-callao:
+    sourceDate: '2016'
+    checkedAt: '2026-11-27'
+    licenseStatus: 원문 페이지 링크만 제공. UNESCO 등재 사실과 설명만 확인하며 사진·영상은 재사용하지 않음.
+    reuseBasis: '엘 칼라오 카니발의 역사 기억과 문화 정체성에 관한 공식 등재 설명.'
+    verificationStatus: 'UNESCO 항목에서 카니발이 카리브해 프랑스어권 섬의 해방 기념과 연결되고, 지역의 역사와 정체성을 나타낸다는 설명을 확인했다.'
+    title: 'Carnival of El Callao, a festive representation of a memory and cultural identity'
+    organization: UNESCO Intangible Cultural Heritage
+    url: 'https://ich.unesco.org/en/RL/carnival-of-el-callao-a-festive-representation-of-a-memory-and-cultural-identity-01198'
+    usage: 참고 링크입니다. 개별 표·이미지·데이터를 재배포하려면 제공기관의 해당 자료 이용 조건을 별도로 확인해야 합니다.
+  unesco-argungu:
+    sourceDate: '2016'
+    checkedAt: '2026-11-27'
+    licenseStatus: 원문 페이지 링크만 제공. UNESCO 등재 사실과 설명만 확인하며 사진·영상은 재사용하지 않음.
+    reuseBasis: '아르군구 축제의 강·어업 활동과 지식 전승을 확인하는 공식 등재 설명.'
+    verificationStatus: 'UNESCO 항목에서 손낚시·카누 경주와 강 수질·어족 관련 지식의 전승에 관한 설명을 확인했다.'
+    title: 'Argungu international fishing and cultural festival'
+    organization: UNESCO Intangible Cultural Heritage
+    url: 'https://ich.unesco.org/en/RL/argungu-international-fishing-and-cultural-festival-00901'
+    usage: 참고 링크입니다. 개별 표·이미지·데이터를 재배포하려면 제공기관의 해당 자료 이용 조건을 별도로 확인해야 합니다.
+  unesco-ganggangsullae:
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 원문 페이지 링크만 제공. UNESCO 등재 사실과 설명만 확인하며 사진·영상은 재사용하지 않음.
+    reuseBasis: '강강술래를 수업에서 다루지 않은 축제·계절 사례로 적용하는 공식 등재 설명.'
+    verificationStatus: 'UNESCO 항목에서 강강술래를 한국 추석 무렵 행하는 계절적 수확·다산 의례로 설명하는 내용을 확인했다.'
+    title: 'Ganggangsullae'
+    organization: UNESCO Intangible Cultural Heritage
+    url: 'https://ich.unesco.org/en/RL/ganggangsullae-00188'
+    usage: 참고 링크입니다. 개별 표·이미지·데이터를 재배포하려면 제공기관의 해당 자료 이용 조건을 별도로 확인해야 합니다.
