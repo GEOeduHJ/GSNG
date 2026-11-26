@@ -213,7 +213,7 @@ export default {
           ],
           activity: {
             title: '사건 배경을 공간과 시간으로 정리하기',
-            steps: ['교사가 안전성과 출처를 확인한 분쟁 사례 자료를 선택합니다.', '자료에서 확인된 장소·시점·행위자를 표시하고, 주장과 사실을 다른 색으로 구분합니다.', '설명에 필요한 역사·국제 정세 맥락과 아직 확인되지 않은 내용을 기록합니다.'],
+            steps: ['키프로스의 UNFICYP 완충지대와 골란의 UNDOF를 사례로 골라 공식 임무단 자료에서 설치 시점·공간 범위·주요 임무를 찾습니다.', '각 자료가 기록한 사실과 유엔 임무단의 설명 관점을 구분하고, 두 사례의 국제 정세 맥락을 비교합니다.', '공식 임무 설명만으로 알 수 없는 당사자·주민의 경험과 역사적 맥락을 추가 조사 항목으로 기록합니다.'],
             deliverable: '출처와 불확실성을 표시한 분쟁 맥락 지도·시간선',
           },
           visualization: {
@@ -223,7 +223,29 @@ export default {
             dataStatus: 'schematic',
             textAlternative: '장소, 시점, 행위자, 쟁점을 연결하되 어느 주장이 확인된 사실인지 따로 표시하는 모식 관계도입니다.',
           },
-          sourceIds: ['ucdp', 'un-peacebuilding'],
+          caseStudies: [
+            {
+              id: 'cyprus-unficyp-buffer-zone',
+              title: '키프로스 완충지대와 UNFICYP',
+              place: '키프로스 섬',
+              period: '1974년 이후 유엔 평화유지 임무',
+              summary: 'UNFICYP 공식 자료는 1974년 이후 운영된 완충지대와 정전 감시 임무의 공간적 범위를 소개합니다. 경계와 완충 공간이 주민 이동과 일상에 어떤 조건을 만드는지, 임무단 자료가 설명하는 범위를 넘어서는 질문도 함께 세워 보세요.',
+              inquiryPrompt: '완충지대는 어떤 공간을 관리하며, 정전 감시와 정치적 해결은 어떻게 다른 과제일까요?',
+              sourceIds: ['unficyp-buffer-zone'],
+              perspectiveNote: '유엔 임무단의 공식 설명입니다. 키프로스의 역사와 당사자별 입장은 별도 자료를 통해 비교해야 합니다.'
+            },
+            {
+              id: 'golan-undof',
+              title: '골란 지역의 UNDOF 정전 감시 임무',
+              place: '골란 지역 · 이스라엘과 시리아 사이',
+              period: '1974년 설치',
+              summary: '유엔 평화유지 공식 사실표는 1974년 설치된 UNDOF의 정전 감시와 분리 협정 관련 임무를 설명합니다. 임무가 정한 공간과 역할을 확인하고, 평화유지 활동이 다루는 문제와 다루지 않는 문제를 구분해 보세요.',
+              inquiryPrompt: '정전 감시 임무가 맡는 공간·역할은 무엇이며, 이를 통해 분쟁의 어떤 측면을 이해할 수 있을까요?',
+              sourceIds: ['undof-factsheet'],
+              perspectiveNote: '유엔의 임무·사실 자료입니다. 분쟁의 전체 역사와 당사자별 해석을 대표하지 않습니다.'
+            },
+          ],
+          sourceIds: ['ucdp', 'un-peacebuilding', 'unficyp-buffer-zone', 'undof-factsheet'],
         },
         {
           id: 'lesson-04-03-02',

@@ -150,7 +150,7 @@ export default {
             deliverable: '지형 형성 과정을 설명하는 주석 단면도'
           },
           visualization: {
-            type: 'layer-map',
+            type: 'terrain-model',
             title: '판의 움직임과 지형 형성 모형',
             description: '판의 접근·발산·엇갈림 방향을 바꾸어 지형 형성의 개념적 결과를 관찰합니다.',
             dataStatus: 'schematic',
@@ -227,7 +227,7 @@ export default {
           ],
           activity: {
             title: '지형 이용 대안 비교',
-            steps: ['가상의 산지 관광 개발 제안과 보전 제안을 각각 읽습니다.', '접근성·재해·생태·주민 생계 기준으로 예상 영향을 표에 정리합니다.', '자료의 부족한 점을 적고 보완 조사 방법을 제안합니다.'],
+            steps: ['사가르마타 국립공원 사례에서 UNESCO가 제시한 방문 압력·수용력·폐기물·시설 관리 쟁점을 원문에서 찾습니다.', '관광·지역 생활·보전 관점에서 서로 다른 영향을 표에 정리하고 결정문이 다루지 않는 관점을 표시합니다.', '자료의 부족한 점을 적고 지속가능한 이용을 판단할 보완 조사 방법을 제안합니다.'],
             deliverable: '다양한 관점을 반영한 지형 이용 권고안'
           },
           visualization: {
@@ -237,7 +237,17 @@ export default {
             dataStatus: 'schematic',
             textAlternative: '가상의 대안 비교표를 함께 제공하며, 특정 실제 산지의 개발 결정을 나타내지 않습니다.'
           },
-          sourceIds: ['usgs-tectonics', 'nasa-worldview']
+          caseStudies: [{
+            id: 'sagarmatha-tourism-conservation',
+            title: '사가르마타 국립공원의 관광과 보전 관리',
+            place: '네팔 · 사가르마타 국립공원',
+            period: 'UNESCO 세계유산위원회 2025년 결정문',
+            summary: 'UNESCO 결정문은 방문 압력과 수용력 계획, 폐기물 관리, 호텔 개발과 공원 관리 계획 등을 보전 관리 쟁점으로 다룹니다. 관광 이용과 자연유산 보전이 만나는 지점을 실제 등재지 사례로 분석할 수 있습니다.',
+            inquiryPrompt: '관광 접근과 생계의 이익, 장기 보전의 필요를 어떤 자료와 기준으로 함께 판단할 수 있을까요?',
+            sourceIds: ['unesco-sagarmatha', 'unesco-sagarmatha-decision-2025'],
+            perspectiveNote: '세계유산위원회의 공식 보전 기록입니다. 지역 주민·노동자·관광업 종사자의 경험은 별도 자료로 보완해야 합니다.'
+          }],
+          sourceIds: ['usgs-tectonics', 'unesco-sagarmatha-decision-2025']
         }
       ],
       project: {
@@ -371,7 +381,17 @@ export default {
             dataStatus: 'schematic',
             textAlternative: '모식 흐름도와 단계별 설명표를 제공합니다. 실제 국가 간 교역량이나 특정 상품의 공급망을 표현하지 않습니다.'
           },
-          sourceIds: ['wmo-climate', 'nasa-worldview']
+          caseStudies: [{
+            id: 'mediterranean-diet-living-heritage',
+            title: '지중해 식생활의 공동체 지식과 실천',
+            place: '키프로스·크로아티아·스페인·그리스·이탈리아·모로코·포르투갈 공동 등재',
+            period: 'UNESCO 무형문화유산 대표목록 · 2013년 등재',
+            summary: 'UNESCO는 지중해 식생활을 여러 참여 공동체가 이어 가는 지식·실천의 유산으로 소개합니다. 특정 메뉴 하나로 환원하기보다 생산·조리·나눔과 장소별 차이를 탐구해 보세요.',
+            inquiryPrompt: '기후와 농산물은 식생활에 어떤 조건을 주며, 공동체의 역사·교류·실천은 그 관계를 어떻게 바꾸어 왔을까요?',
+            sourceIds: ['unesco-mediterranean-diet', 'fao-faostat'],
+            perspectiveNote: '유네스코 등재 설명은 공동체 대표자가 제출한 유산 설명을 포함합니다. 한 지역 전체의 식생활을 단일 사례로 일반화하지 마세요.'
+          }],
+          sourceIds: ['fao-faostat', 'unesco-mediterranean-diet']
         },
         {
           id: 'lesson-02-04-02',

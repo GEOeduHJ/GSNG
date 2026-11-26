@@ -42,6 +42,8 @@ Each source record keeps `sourceDate`, `checkedAt`, `licenseStatus`, `reuseBasis
 
 Each lesson needs at least two substantial, independently written paragraphs, two or more terms, a student action, a visual/data interpretation, and one or more source IDs. Use `dataStatus: 'schematic'` for original teaching diagrams and invented demonstration values. Do not imply those are measured observations. If a public dataset has not been embedded and checked, link to it instead of presenting invented observations as actual data.
 
+For a real case, add a `caseStudies` array to the relevant lesson. Each case should have a place, period when known, independently written summary, inquiry prompt, source IDs, and a concise note about the source perspective or limits. Link primary or institutional sources directly to the case card. A source link is a starting point, not a claim-level citation; check the relevant passage, date, coverage, and reuse terms before publishing a data-backed claim or asset.
+
 Keep IDs stable and unique. Middle unit IDs are `unit-<part>-<unit>`; lesson IDs are `lesson-<part>-<unit>-<lesson>`. The unit's `moduleCode` must match exactly one achievement-standard module in `src/modules/`.
 
 ## Standard module shape

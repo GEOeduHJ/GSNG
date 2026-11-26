@@ -298,13 +298,13 @@ const unit01 = {
             { term: '불확실성', definition: '자료의 오차·누락·갱신 차이 때문에 결론에 남는 확인되지 않은 부분.' }
           ],
           activity: {
-            title: '가상 시설 입지 대안 비교하기',
+            title: '실제 GIS 사례에서 자료와 결정의 연결 추적하기',
             steps: [
-              '가상의 공공시설 위치를 정하기 위해 이용 인구, 접근 경로, 위험 구역 중 필요한 레이어를 선택한다.',
-              '각 레이어가 선택에 주는 도움과 놓치는 조건을 한 가지씩 기록한다.',
-              '대안 두 곳을 비교하고 추가로 확인해야 할 자료와 결정 기준을 설명한다.'
+              'GFDRR의 네팔 매핑 사례 보고서를 읽고, OpenStreetMap을 이용한 매핑에 참여한 주체와 사업의 시점을 기록한다.',
+              '원문이 구체적으로 밝히는 지도 자료의 종류와 재난 대응·복구에서 활용된 범위를 표에 옮긴다. 보고서가 밝히지 않은 세부사항은 추정하지 말고 “자료에 제시되지 않음”으로 표시한다.',
+              '주체 → 공간자료 → 대응·복구 의사결정의 관계도를 그리고, 판단을 확인하려면 어떤 추가 원자료나 주민 관점이 필요한지 제안한다.'
             ],
-            deliverable: '대안 비교 지도와 자료 한계를 포함한 의사결정 메모'
+            deliverable: '사례 보고서의 근거가 표시된 GIS 활용 과정도와 추가 확인 자료 목록'
           },
           visualization: {
             type: 'gis-case',
@@ -313,7 +313,17 @@ const unit01 = {
             dataStatus: 'schematic',
             textAlternative: '문제와 장소 정하기에서 자료 검토, 대안 비교, 근거 설명으로 이어지는 순환형 절차도.'
           },
-          sourceIds: ['qgis-docs', 'world-bank-indicators']
+          caseStudies: [{
+            id: 'nepal-open-mapping-recovery',
+            title: '네팔 지진 대응·복구를 위한 지역 매핑',
+            place: '네팔 · 카트만두 사례',
+            period: '2015년 지진 이후 · 2016년 사례 보고',
+            summary: 'GFDRR가 소개한 Open Cities 사례는 OpenStreetMap 기반의 지역 공간정보 구축이 재난 대응과 복구를 지원하는 데 어떻게 쓰일 수 있는지 보여줍니다. 지도에 추가한 자료의 종류와 실제 의사결정에 쓰인 범위를 원문에서 확인해 보세요.',
+            inquiryPrompt: '재난 대응에서 어떤 공간정보가 우선 필요하며, 지도에 표시되지 않은 장소·주민은 어떤 영향을 받을까요?',
+            sourceIds: ['gfdrr-nepal-osm'],
+            perspectiveNote: '재난위험경감 기관의 사례 소개입니다. 성과나 지역 주민의 경험을 평가할 때는 원문 근거와 다른 자료를 함께 확인하세요.'
+          }],
+          sourceIds: ['qgis-docs', 'world-bank-indicators', 'gfdrr-nepal-osm']
         }
       ],
       project: {

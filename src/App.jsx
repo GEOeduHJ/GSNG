@@ -11,16 +11,31 @@ const LEGACY_STORAGE_KEY = 'world-citizenship-geography-react-v1';
 
 function emptyRecord(moduleCode = 'module') {
   return {
-    questions: [{ id: `seed-${moduleCode}`, text: '', classification: '', convertedType: '', convertedText: '', selected: false }],
+    questions: [{ id: `seed-${moduleCode}`, text: '', classification: '', convertedType: '', convertedText: '', selectedVersion: 'original', selected: false }],
     qftPhase: 0,
     priorityReason: '',
     evidencePlan: '',
     evidenceItems: [],
+    explanationQuestionId: '',
     claim: '',
     evidenceSummary: '',
     reasoning: '',
     reflection: '',
     completed: false,
+  };
+}
+
+function normalizeRecord(value = {}, code = 'module') {
+  const record = { ...emptyRecord(code), ...(value || {}) };
+  const questions = Array.isArray(record.questions) ? record.questions : [];
+  return {
+    ...record,
+    questions: questions.map((question) => ({ ...question, selectedVersion: question.selectedVersion || 'original' })),
+    evidenceItems: (Array.isArray(record.evidenceItems) ? record.evidenceItems : []).map((item) => ({
+      ...item,
+      questionId: item.questionId || '',
+    })),
+    explanationQuestionId: record.explanationQuestionId || '',
   };
 }
 
@@ -35,6 +50,7 @@ function migrateLegacyRecords(value = {}) {
       classification: '',
       convertedType: '',
       convertedText: '',
+      selectedVersion: 'original',
       selected: index === Number(old.selectedQuestion),
     })) : record.questions;
     record.claim = old?.claim || '';
@@ -51,11 +67,12 @@ function readStoredData() {
   try {
     const stored = JSON.parse(window.localStorage.getItem(STORAGE_KEY) || 'null');
     if (stored && stored.version === 2) return {
-      records: stored.records && typeof stored.records === 'object' ? stored.records : {},
+      records: Object.fromEntries(Object.entries(stored.records && typeof stored.records === 'object' ? stored.records : {}).map(([code, record]) => [code, normalizeRecord(record, code)])),
       readLessons: stored.readLessons && typeof stored.readLessons === 'object' ? stored.readLessons : {},
     };
     const legacy = JSON.parse(window.localStorage.getItem(LEGACY_STORAGE_KEY) || '{}');
-    return { records: migrateLegacyRecords(legacy), readLessons: {} };
+    const migrated = migrateLegacyRecords(legacy);
+    return { records: Object.fromEntries(Object.entries(migrated).map(([code, record]) => [code, normalizeRecord(record, code)])), readLessons: {} };
   } catch {
     return { records: {}, readLessons: {} };
   }
@@ -160,7 +177,7 @@ export default function App() {
   function updateRecord(code, changes) {
     if (!code) return;
     setRecords((current) => {
-      const existing = { ...emptyRecord(code), ...(current[code] || {}) };
+      const existing = normalizeRecord(current[code], code);
       const updated = typeof changes === 'function' ? changes(existing) : { ...existing, ...changes };
       return { ...current, [code]: updated };
     });

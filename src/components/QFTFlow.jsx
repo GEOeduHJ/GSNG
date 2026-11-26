@@ -2,9 +2,29 @@ import { useState } from 'react';
 import { LESSON_BY_ID } from '../content/bookIndex.js';
 import { resolveSources } from '../content/sources.js';
 import LessonVisualization from './visualizations/LessonVisualization.jsx';
+import CaseStudyGallery from './CaseStudyGallery.jsx';
+
+const QUESTION_QUALITY_RUBRIC = [
+  { criterion: '지리적 초점', emerging: '장소나 현상을 아직 구체적으로 좁히지 못함', developing: '장소·규모·분포 중 한 요소를 특정함', strong: '장소와 규모를 정하고 공간 관계·분포·변화를 함께 질문함' },
+  { criterion: '성취기준과의 연결', emerging: '질문과 이번 성취기준의 관련성이 불분명함', developing: '주제는 연결되지만 성취기준의 핵심 개념이 일부 드러남', strong: '성취기준의 개념·사고·수행을 직접 탐구하도록 구성함' },
+  { criterion: '자료로 탐구 가능성', emerging: '어떤 자료가 필요한지 판단하기 어려움', developing: '자료 종류를 제안했으나 범위·시점·비교 기준을 더 정해야 함', strong: '접근 가능한 출처와 비교 기준을 정하고 자료의 한계도 확인할 수 있음' },
+  { criterion: '설명으로의 확장', emerging: '단답형 사실 확인에 머무름', developing: '이유나 변화 한 가지를 탐구함', strong: '장소·규모·행위자 간 관계를 설명하고 대안이나 관점 비교로 확장함' },
+];
 
 function createQuestion() {
-  return { id: globalThis.crypto?.randomUUID?.() || `q-${Date.now()}-${Math.random().toString(16).slice(2)}`, text: '', classification: '', convertedType: '', convertedText: '', selected: false };
+  return { id: globalThis.crypto?.randomUUID?.() || `q-${Date.now()}-${Math.random().toString(16).slice(2)}`, text: '', classification: '', convertedType: '', convertedText: '', selectedVersion: 'original', selected: false };
+}
+
+function questionText(question) {
+  return question.selectedVersion === 'converted' && question.convertedText?.trim() ? question.convertedText.trim() : question.text.trim();
+}
+
+function SelectedQuestions({ questions, label = '탐구 질문' }) {
+  const selected = questions.filter((question) => question.selected && questionText(question));
+  return <section className="selected-question-summary" aria-label="선택한 탐구 질문">
+    <span className="eyebrow">{label}</span>
+    {selected.length ? <ol>{selected.map((question, index) => <li key={question.id}><span>{String(index + 1).padStart(2, '0')}</span><p>{questionText(question)}</p></li>)}</ol> : <p className="empty-step-note">먼저 우선화 단계에서 탐구할 질문을 선택하세요.</p>}
+  </section>;
 }
 
 function countQuestions(questions = []) {
@@ -27,7 +47,7 @@ function LessonLinks({ module, onSelectLesson }) {
 function FocusStep({ module, lesson }) {
   return <div className="qft-focus-step">
     <div className="qft-focus-copy"><span className="eyebrow">질문 초점 · 판단을 미루고 관찰</span><h3>{module.qft.focusTitle}</h3><p>{module.qft.focusText}</p><small>{module.qft.teacherPrompt}</small></div>
-    {lesson && <div className="qft-focus-visual"><LessonVisualization lesson={lesson} module={module} /></div>}
+    {lesson && <div className="qft-focus-visual"><LessonVisualization lesson={lesson} module={module} showCaseStudies={false} /></div>}
     <div className="qft-ground-rules"><strong>질문 만들기 약속</strong><ul><li>질문을 말하거나 적을 때 평가하지 않습니다.</li><li>먼저 가능한 한 많은 질문을 만들고 답을 찾는 일은 잠시 미룹니다.</li><li>질문을 바꾸어도 원래 질문을 지우지 않습니다.</li></ul></div>
   </div>;
 }
@@ -79,33 +99,42 @@ function PrioritizeQuestions({ questions, updateQuestion, reason, onReasonChange
   const answered = questions.filter((question) => question.text.trim());
   return <div className="qft-step-content">
     <p className="qft-step-intro">탐구할 질문을 하나 이상 고릅니다. 질문을 선택한 이유와 필요한 자료를 함께 생각합니다.</p>
-    <div className="prioritize-list">{answered.map((question, index) => <label className={`priority-choice${question.selected ? ' is-selected' : ''}`} key={question.id}>
-      <input type="checkbox" checked={Boolean(question.selected)} onChange={(event) => updateQuestion(question.id, { selected: event.target.checked })} />
-      <span className="priority-index">{String(index + 1).padStart(2, '0')}</span><span>{question.text}</span>
-    </label>)}</div>
+    <div className="prioritize-list">{answered.map((question, index) => <article className={`priority-choice${question.selected ? ' is-selected' : ''}`} key={question.id}>
+      <label className="priority-select"><input type="checkbox" checked={Boolean(question.selected)} onChange={(event) => updateQuestion(question.id, { selected: event.target.checked })} />
+        <span className="priority-index">{String(index + 1).padStart(2, '0')}</span><span>{question.text}</span>
+      </label>
+      {question.convertedText?.trim() && <fieldset className="priority-version"><legend>탐구할 문장으로 사용</legend>
+        <label><input type="radio" name={`version-${question.id}`} checked={(question.selectedVersion || 'original') === 'original'} onChange={() => updateQuestion(question.id, { selectedVersion: 'original' })} /><span>처음 질문</span></label>
+        <label><input type="radio" name={`version-${question.id}`} checked={question.selectedVersion === 'converted'} onChange={() => updateQuestion(question.id, { selectedVersion: 'converted' })} /><span>바꾼 질문: {question.convertedText}</span></label>
+      </fieldset>}
+    </article>)}</div>
     {!answered.length && <p className="empty-step-note">질문을 만든 뒤 탐구할 질문을 선택할 수 있습니다.</p>}
     <Field label="이 질문을 고른 이유" value={reason} onChange={onReasonChange} hint="성취기준과 자료, 조사 가능성을 생각해 적어보세요." rows={3} />
   </div>;
 }
 
-function PlanInquiry({ module, plan, onPlanChange, onSelectLesson }) {
+function PlanInquiry({ module, questions, plan, onPlanChange, onSelectLesson }) {
   const sources = [...new Set(module.sectionIds.flatMap((id) => LESSON_BY_ID[id]?.sourceIds || []))];
   const sourceLinks = resolveSources(sources);
   return <div className="qft-step-content">
     <p className="qft-step-intro">선택한 질문에 답하는 데 필요한 자료와 비교 기준을 계획합니다. 자료의 생산기관·시점·공간 단위를 확인하세요.</p>
+    <SelectedQuestions questions={questions} />
     <LessonLinks module={module} onSelectLesson={onSelectLesson} />
     <Field label="어떤 자료를 찾아볼까요?" value={plan} onChange={onPlanChange} hint="예: 두 장소의 기후 그래프를 같은 기간과 단위로 비교하기" rows={4} />
-    <div className="source-shortlist"><span className="eyebrow">연결된 공공 출처</span><ul>{sourceLinks.slice(0, 6).map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.organization} · {source.title}<span aria-hidden="true">↗</span></a></li>)}</ul><small>개별 데이터의 이용 조건과 시점을 확인한 뒤 사용하세요.</small></div>
+    <div className="source-shortlist"><span className="eyebrow">참고 출처 시작점</span><ul>{sourceLinks.slice(0, 6).map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.organization} · {source.title}<span aria-hidden="true">↗</span></a></li>)}</ul><small>이 목록은 추가 조사용 링크입니다. 주장의 직접 근거로 쓰기 전 원문에서 해당 내용·시점·범위를 확인하세요. 개별 자료의 이용 조건도 별도로 확인합니다.</small></div>
   </div>;
 }
 
-function EvidenceInquiry({ items, onChange }) {
+function EvidenceInquiry({ items, onChange, questions }) {
+  const selectedQuestions = questions.filter((question) => question.selected && questionText(question));
   function update(id, patch) { onChange(items.map((item) => item.id === id ? { ...item, ...patch } : item)); }
-  function add() { onChange([...items, { id: globalThis.crypto?.randomUUID?.() || `e-${Date.now()}-${Math.random().toString(16).slice(2)}`, source: '', observation: '', limitation: '' }]); }
+  function add() { onChange([...items, { id: globalThis.crypto?.randomUUID?.() || `e-${Date.now()}-${Math.random().toString(16).slice(2)}`, source: '', observation: '', limitation: '', questionId: selectedQuestions[0]?.id || '' }]); }
   return <div className="qft-step-content">
     <p className="qft-step-intro">자료에서 직접 관찰한 내용과 해석을 구분해 기록합니다. 자료가 보여 주지 않는 것도 함께 적습니다.</p>
+    <SelectedQuestions questions={questions} />
     <div className="evidence-item-list">{items.map((item, index) => <article className="evidence-item" key={item.id}>
       <div className="evidence-item-heading"><span>근거 {String(index + 1).padStart(2, '0')}</span>{items.length > 1 && <button type="button" className="quiet-button" onClick={() => onChange(items.filter((entry) => entry.id !== item.id))}>삭제</button>}</div>
+      <label>연결할 질문<select value={item.questionId || ''} onChange={(event) => update(item.id, { questionId: event.target.value })}><option value="">질문 선택</option>{selectedQuestions.map((question) => <option value={question.id} key={question.id}>{questionText(question)}</option>)}</select></label>
       <label>자료 이름<input value={item.source} onChange={(event) => update(item.id, { source: event.target.value })} placeholder="자료의 제목과 출처" /></label>
       <label>자료에서 관찰한 것<textarea rows="2" value={item.observation} onChange={(event) => update(item.id, { observation: event.target.value })} placeholder="분포, 차이, 관계, 변화 등" /></label>
       <label>자료의 한계<textarea rows="2" value={item.limitation} onChange={(event) => update(item.id, { limitation: event.target.value })} placeholder="자료가 답하지 못하거나 빠뜨린 점" /></label>
@@ -114,7 +143,8 @@ function EvidenceInquiry({ items, onChange }) {
   </div>;
 }
 
-function ExplainInquiry({ record, onChange }) {
+function ExplainInquiry({ record, onChange, questions }) {
+  const selectedQuestions = questions.filter((question) => question.selected && questionText(question));
   const fields = [
     ['claim', '나의 주장', '선택한 질문에 대한 현재의 설명을 적습니다.'],
     ['evidenceSummary', '자료에서 찾은 근거', '자료 이름·시점·공간 범위와 관찰한 내용을 적습니다.'],
@@ -122,6 +152,13 @@ function ExplainInquiry({ record, onChange }) {
   ];
   return <div className="qft-step-content">
     <p className="qft-step-intro">세 가지를 한 문장으로 합치지 말고 따로 작성하면, 주장이 어떤 증거와 지리적 설명에 기대는지 살펴보기 쉽습니다.</p>
+    <SelectedQuestions questions={questions} label="설명으로 답할 탐구 질문" />
+    <label className="qft-field">이번 설명의 중심 질문
+      <select value={record.explanationQuestionId || ''} onChange={(event) => onChange({ explanationQuestionId: event.target.value })}>
+        <option value="">질문 선택</option>{selectedQuestions.map((question) => <option value={question.id} key={question.id}>{questionText(question)}</option>)}
+      </select>
+      <small>아래 주장·근거·추론을 이 질문에 대한 답으로 작성합니다.</small>
+    </label>
     <div className="explanation-editor">{fields.map(([key, label, hint]) => <Field key={key} name={key} label={label} value={record[key]} onChange={(value) => onChange({ [key]: value })} hint={hint} rows={4} />)}</div>
   </div>;
 }
@@ -148,6 +185,7 @@ export default function QFTFlow({ module, record, onChange, onComplete, onSelect
   const activePhase = module.qft.phases[stepIndex];
   const focusLesson = LESSON_BY_ID[module.qft.focusVisual];
   const steps = module.qft.phases;
+  const caseStudies = module.sectionIds.flatMap((lessonId) => (LESSON_BY_ID[lessonId]?.caseStudies || []).map((study) => ({ ...study, lessonId })));
 
   function patch(patchValue) { onChange(patchValue); }
   function updateQuestion(id, changes) { patch({ questions: questions.map((question) => question.id === id ? { ...question, ...changes } : question) }); }
@@ -159,6 +197,12 @@ export default function QFTFlow({ module, record, onChange, onComplete, onSelect
     const hasChosenQuestion = questions.some((question) => question.selected && question.text.trim());
     if (!answered || !hasChosenQuestion) {
       setMessage('질문을 기록하고 탐구할 질문을 하나 이상 선택한 뒤 마무리할 수 있습니다.');
+      return;
+    }
+    const explanationQuestion = questions.find((question) => question.id === record.explanationQuestionId && question.selected && questionText(question));
+    const linkedEvidence = (record.evidenceItems || []).some((item) => item.questionId === record.explanationQuestionId && String(item.observation || '').trim().length >= 4);
+    if (!explanationQuestion || !linkedEvidence) {
+      setMessage('중심 질문을 선택하고, 그 질문에 연결된 관찰 근거를 하나 이상 기록하세요.');
       return;
     }
     if (![record.claim, record.evidenceSummary, record.reasoning, record.reflection].every((value) => String(value || '').trim().length >= 4)) {
@@ -173,9 +217,9 @@ export default function QFTFlow({ module, record, onChange, onComplete, onSelect
     if (stepIndex === 0) return <GenerateQuestions questions={questions} updateQuestion={updateQuestion} addQuestion={addQuestion} removeQuestion={removeQuestion} />;
     if (stepIndex === 1) return <ImproveQuestions questions={questions} updateQuestion={updateQuestion} />;
     if (stepIndex === 2) return <PrioritizeQuestions questions={questions} updateQuestion={updateQuestion} reason={record.priorityReason} onReasonChange={(value) => patch({ priorityReason: value })} />;
-    if (stepIndex === 3) return <PlanInquiry module={module} plan={record.evidencePlan} onPlanChange={(value) => patch({ evidencePlan: value })} onSelectLesson={onSelectLesson} />;
-    if (stepIndex === 4) return <EvidenceInquiry items={record.evidenceItems || []} onChange={(value) => patch({ evidenceItems: value })} />;
-    if (stepIndex === 5) return <ExplainInquiry record={record} onChange={patch} />;
+    if (stepIndex === 3) return <PlanInquiry module={module} questions={questions} plan={record.evidencePlan} onPlanChange={(value) => patch({ evidencePlan: value })} onSelectLesson={onSelectLesson} />;
+    if (stepIndex === 4) return <EvidenceInquiry items={record.evidenceItems || []} onChange={(value) => patch({ evidenceItems: value })} questions={questions} />;
+    if (stepIndex === 5) return <ExplainInquiry record={record} onChange={patch} questions={questions} />;
     return <ReflectInquiry reflection={record.reflection} onReflectionChange={(value) => patch({ reflection: value })} record={record} onComplete={markComplete} />;
   };
 
@@ -193,6 +237,7 @@ export default function QFTFlow({ module, record, onChange, onComplete, onSelect
       </section>
 
       <FocusStep module={module} lesson={focusLesson} />
+      {caseStudies.length > 0 && <CaseStudyGallery caseStudies={caseStudies} showInquiryPrompts={stepIndex > 0} />}
 
       <section className="qft-workspace" aria-labelledby="qft-step-title">
         <div className="qft-workspace-top">
@@ -237,7 +282,16 @@ function TeacherGuide({ module }) {
       <ol className="teacher-sequence">{guide.sequence.map((item) => <li key={item.stage}><div><strong>{item.stage}</strong><small>{item.minutes}분</small></div><p>{item.support}</p></li>)}</ol>
       <div className="teacher-checks"><strong>관찰할 점</strong><ul>{guide.checks.map((item) => <li key={item}>{item}</li>)}</ul></div>
       {module.rubric?.length > 0 && <div className="teacher-rubric"><strong>성취기준 평가 관점</strong><ul>{module.rubric.map((item) => <li key={item}>{item}</li>)}</ul></div>}
+      <QuestionQualityRubric />
       <p className="non-grading-note">질문 생성·변환의 과정과 교과 성취를 구분해 피드백합니다. 플랫폼은 질문이나 답안을 자동 평가하지 않습니다.</p>
     </div>
+  </details>;
+}
+
+function QuestionQualityRubric() {
+  return <details className="teacher-rubric question-quality-rubric">
+    <summary><strong>교사용 질문 질 피드백 관점</strong><span>열어 보기</span></summary>
+    <p>비검증 형성 피드백 초안입니다. 학생 질문을 자동 채점하거나 연구용 측정 도구로 사용하지 않습니다. 성취기준 평가 관점과 별도로 참고하세요. 이 공개 시제품은 교사·학생 역할별 접근 제한을 제공하지 않으므로, 수업 중 제시 시점은 교사가 정합니다.</p>
+    <div className="question-rubric-table-wrap"><table className="question-rubric-table"><thead><tr><th>관점</th><th>더 다듬을 수 있음</th><th>발전 중</th><th>탐구로 이어짐</th></tr></thead><tbody>{QUESTION_QUALITY_RUBRIC.map((row) => <tr key={row.criterion}><th scope="row">{row.criterion}</th><td>{row.emerging}</td><td>{row.developing}</td><td>{row.strong}</td></tr>)}</tbody></table></div>
   </details>;
 }

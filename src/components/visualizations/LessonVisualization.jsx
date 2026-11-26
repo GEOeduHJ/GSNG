@@ -1,5 +1,6 @@
 import ModuleVisualization from './ModuleVisualization.jsx';
 import TerrainConceptModel from './TerrainConceptModel.jsx';
+import CaseStudyGallery from '../CaseStudyGallery.jsx';
 
 const TYPE_ALIASES = {
   'flow-map': 'flow-map',
@@ -22,9 +23,10 @@ const TYPE_ALIASES = {
   peace: 'peace',
 };
 
-export default function LessonVisualization({ lesson, module }) {
+export default function LessonVisualization({ lesson, module, showCaseStudies = true }) {
   const type = TYPE_ALIASES[lesson.visualization?.type];
-  if (type === 'terrain-model') return <TerrainConceptModel />;
+  const lessonCaseStudies = lesson.caseStudies || [];
+  if (type === 'terrain-model') return <><TerrainConceptModel />{showCaseStudies && lessonCaseStudies.length > 0 && <CaseStudyGallery caseStudies={lessonCaseStudies} />}</>;
 
   const moduleVisualization = {
     ...module,
@@ -40,6 +42,7 @@ export default function LessonVisualization({ lesson, module }) {
     <div className="lesson-tool-wrap">
       <ModuleVisualization module={moduleVisualization} />
       <p className="visual-source-note">{lesson.visualization?.textAlternative}</p>
+      {showCaseStudies && lessonCaseStudies.length > 0 && <CaseStudyGallery caseStudies={lessonCaseStudies} />}
     </div>
   );
 }

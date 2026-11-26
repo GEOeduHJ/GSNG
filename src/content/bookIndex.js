@@ -62,6 +62,7 @@ export function validateCourseContent() {
     if (!lesson.body || lesson.body.length < 2) problems.push(`설명 본문 누락: ${lesson.id}`);
     if (!lesson.sourceIds?.length) problems.push(`출처 누락: ${lesson.id}`);
     for (const sourceId of lesson.sourceIds || []) if (!SOURCES[sourceId]) problems.push(`출처 ID 없음: ${lesson.id} → ${sourceId}`);
+    for (const study of lesson.caseStudies || []) for (const sourceId of study.sourceIds || []) if (!SOURCES[sourceId]) problems.push(`사례 출처 ID 없음: ${lesson.id}/${study.id} → ${sourceId}`);
     if (!MODULE_BY_CODE[lesson.moduleCode]) problems.push(`성취기준 모듈 없음: ${lesson.moduleCode}`);
   }
   for (const module of MODULES) {

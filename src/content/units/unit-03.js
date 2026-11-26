@@ -172,9 +172,9 @@ export default {
             { term: '분배 정의', definition: '자원과 기회, 비용과 혜택이 누구에게 어떻게 돌아가는지 살피는 관점.' }
           ],
           activity: {
-            title: '지역 조건에 맞는 대응 조합 만들기',
-            steps: ['가상의 지역 상황에서 식량 접근 문제와 영향을 받는 사람을 정한다.', '생산·유통·소득·영양 영역의 대응을 조합한다.', '조합의 기대 효과와 새롭게 생길 수 있는 부담을 각각 적는다.'],
-            deliverable: '근거와 예상 부작용을 포함한 식량 대응 제안'
+            title: '두 국가의 식량 안정 전략과 공개 지표 비교',
+            steps: ['대한민국 국가식량계획과 일본의 2025년 식량·농업·농촌 기본계획에서 국내 생산, 수입·비축, 식량 접근, 지속가능성 관련 전략을 찾아 공통 기준으로 표에 정리한다.', 'FAOSTAT의 Crops and livestock products 자료에서 `Rice, paddy`의 `Production` 지표를 선택해 대한민국과 일본의 2019–2023년 수량(tonnes)을 같은 축에 비교한다. 접속 시 두 국가의 항목·단위·연도 범위를 확인하고, 계획 발표연도와 통계 기간이 다름을 기록한다.', '각국의 전략이 지역 조건에 따라 왜 다를 수 있는지 설명하고, 정책 목표·통계 패턴·실제 정책 성과를 구분한다.'],
+            deliverable: '두 국가 정책 전략과 동일 기준 FAOSTAT 지표를 연결한 비교표 및 자료 한계 메모'
           },
           visualization: {
             type: 'food-systems',
@@ -183,7 +183,29 @@ export default {
             dataStatus: 'schematic',
             textAlternative: '생산·저장·운송·접근·소비 단계에 각각 다른 정책 대응이 연결된 도식입니다.'
           },
-          sourceIds: ['fao-faostat', 'wfp-food', 'world-bank-indicators']
+          caseStudies: [
+            {
+              id: 'republic-of-korea-national-food-plan',
+              title: '대한민국 국가식량계획과 안정적 식량체계',
+              place: '대한민국',
+              period: 'UN Food Systems Summit 국가 경로 문서 · 2021년 9월 17일 제출',
+              summary: '대한민국 국가식량계획은 생산과 소비, 공급망, 기후·환경을 함께 다루는 정책 계획 사례입니다. 일본 계획과 공통 범주로 읽고 FAOSTAT 품목별 지표와 연결하되, 계획의 목표를 달성된 성과로 간주하지 않습니다.',
+              inquiryPrompt: '식량 공급의 안정성과 식량 접근을 어떤 정책 범주로 다루며, 통계는 그 전략의 배경을 어디까지 보여 줄까요?',
+              sourceIds: ['fao-korea-national-food-plan', 'fao-faostat'],
+              perspectiveNote: '대한민국 정부가 제출한 정책 문서와 국제 통계 포털입니다. 계획 이행이나 효과를 판단하려면 별도 성과 자료가 필요합니다.'
+            },
+            {
+              id: 'japan-basic-food-agriculture-plan-2025',
+              title: '일본의 2025년 식량·농업·농촌 기본계획',
+              place: '일본',
+              period: '일본 정부 2025년 기본계획',
+              summary: '일본 농림수산성의 영어 요약은 국내 식량 공급, 식량 안보, 자급 관련 목표, 수입·비축, 식량 접근과 지속가능한 식량체계를 계획의 정책 범주로 제시합니다. 한국 계획과 같은 범주를 찾아 비교하고, 정책 문서가 보여 주는 목표와 실제 결과를 구분하세요.',
+              inquiryPrompt: '두 나라가 공통으로 다루는 식량 안정 과제와 정책 우선순위가 달라지는 지점은 무엇이며, 그 차이를 설명하려면 어떤 공간 자료가 필요할까요?',
+              sourceIds: ['maff-japan-basic-plan-2025', 'fao-faostat'],
+              perspectiveNote: '일본 정부 부처의 정책 요약입니다. 국가 정책의 성과 평가나 다른 이해관계자의 관점은 별도 자료로 보완해야 합니다.'
+            },
+          ],
+          sourceIds: ['fao-faostat', 'wfp-food', 'world-bank-indicators', 'fao-korea-national-food-plan', 'maff-japan-basic-plan-2025']
         }
       ],
       project: {
