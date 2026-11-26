@@ -5,11 +5,11 @@ import { resolveConceptId } from '../../content-loader/concepts.js';
 import { routes } from '../router.js';
 import DataStage from './DataStage.jsx';
 import { stageIndexFor } from './stages.js';
-import { useActiveStep } from './useActiveStep.js';
+import { READING_BAND, useActiveStep } from './useActiveStep.js';
 import LessonQuestions from '../qft/LessonQuestions.jsx';
 import LessonActivity from '../../activities/LessonActivity.jsx';
 
-/** True while any of the given elements is on screen (work zone: scroll linking pauses). */
+/** True while any of the given elements crosses the reading line (work zone: scroll linking pauses). */
 function useAnyVisible(refs) {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
@@ -20,7 +20,7 @@ function useAnyVisible(refs) {
         if (entry.isIntersecting) seen.add(entry.target); else seen.delete(entry.target);
       }
       setVisible(seen.size > 0);
-    });
+    }, { rootMargin: READING_BAND });
     for (const ref of refs) if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, [refs]);

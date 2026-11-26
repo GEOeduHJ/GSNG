@@ -1,5 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
+/** The reading line: a band 40–50% down the viewport. */
+export const READING_BAND = '-40% 0px -50% 0px';
+
 /** Which paragraph is being read. Scroll-driven unless pinned or disabled. */
 export function useActiveStep(paragraphRefs, { enabled = true } = {}) {
   const [active, setActive] = useState(0);
@@ -17,7 +20,7 @@ export function useActiveStep(paragraphRefs, { enabled = true } = {}) {
         const index = paragraphRefs.findIndex((ref) => ref.current === entry.target);
         if (index >= 0) setActive(index);
       }
-    }, { rootMargin: '-40% 0px -50% 0px' });
+    }, { rootMargin: READING_BAND });
     for (const ref of paragraphRefs) if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, [paragraphRefs]);

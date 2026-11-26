@@ -1,11 +1,10 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import 'maplibre-gl/dist/maplibre-gl.css';
-import './styles.css';
-import App from './App.jsx';
+import App from './book/App.jsx';
+import { getBook } from './content-loader/loadBook.js';
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <App book={getBook()} />
   </React.StrictMode>,
 );

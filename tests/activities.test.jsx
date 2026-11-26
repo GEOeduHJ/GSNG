@@ -12,7 +12,7 @@ import { makeBook, memoryStorage } from './fixtures/book.js';
 
 class FakeObserver {
   static instances = [];
-  constructor(callback) { this.callback = callback; FakeObserver.instances.push(this); this.targets = []; }
+  constructor(callback, options) { this.callback = callback; this.options = options; FakeObserver.instances.push(this); this.targets = []; }
   observe(target) { this.targets.push(target); }
   unobserve() {}
   disconnect() {}
@@ -60,6 +60,14 @@ describe('lesson questions and evidence', () => {
     renderLesson(3, { ...emptyUnitRecord('01-01'), questions: [question()] });
     expect(screen.getByText(/이 절과 직접 이어진 개념의 질문은 없습니다/)).toBeTruthy();
     expect(screen.getByLabelText('무역은 왜 늘었을까')).toBeTruthy();
+  });
+
+  it('pauses linking only when the work zone reaches the reading line', () => {
+    const { container } = renderLesson(1, { ...emptyUnitRecord('01-01'), questions: [question()] });
+    const activity = container.querySelector('.activity');
+    const zoneObserver = FakeObserver.instances.find((observer) => observer.targets.includes(activity));
+    const paragraphObserver = FakeObserver.instances.find((observer) => observer.targets.some((target) => target.tagName === 'P'));
+    expect(zoneObserver.options?.rootMargin).toBe(paragraphObserver.options.rootMargin);
   });
 
   it('stops scroll linking while the activity is on screen', () => {

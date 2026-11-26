@@ -11,7 +11,35 @@ npm run dev
 
 Vite가 출력하는 주소를 브라우저에서 엽니다. `index.html`을 파일 탐색기에서 바로 열면 React 모듈과 MapLibre worker가 작동하지 않습니다. 배포용 정적 파일은 `npm run build`로 `dist/`에 생성합니다.
 
-## 콘텐츠 구조
+## v2 교과서 (브랜치 `redesign/v2`)
+
+`src/main.jsx`는 v2 교과서(`src/book/App.jsx`)를 띄웁니다. v1 코드(`src/App.jsx`, `src/components/`, `src/modules/`, `src/content/units/`)는 연구자 검토 전까지 지우지 않고 남겨 두었으며, 빌드에는 포함되지 않습니다.
+
+- 설계: `docs/superpowers/specs/2026-11-26-textbook-v2-redesign-design.md`
+- 구현 계획: `docs/superpowers/plans/2026-11-26-textbook-v2-skeleton-pilot.md`
+
+```sh
+npm test            # Vitest 단위·화면 테스트
+npm run check:book  # 구조 검사(절 문단 4~6, 문단–자료 대응, 개념·출처·자료·삽화 기록, 14px 미만 글씨 금지)
+npm run dev
+```
+
+| 경로 | 내용 |
+| --- | --- |
+| `content/book/toc.yaml` | 4 대단원·13 중단원·41 절 차례 |
+| `content/book/<중단원>/unit.yaml` | 여는 펼침면(질문 초점)·닫는 펼침면(전이 과제) |
+| `content/book/<중단원>/lesson-N.md` | 절 본문(머리말: 문단별 자료 단계, 핵심 낱말, 활동, 출처) |
+| `content/book/<중단원>/teacher.md` | 교사용 안내(`#/teacher/<중단원>`에서만 보임) |
+| `content/concepts.yaml` | 개념 사전(공개한 ID는 바꾸지 않고 `aliases`로만 변경) |
+| `content/sources.yaml`, `content/data-manifest.yaml`, `content/image-provenance.yaml` | 출처·자료·삽화 기록 |
+| `public/data/`, `scripts/data/` | 실제 공개 자료의 정적 산출물과 가공 스크립트 |
+| `src/book/` | 차례, 펼침면, 스크롤 연동 절 지면, 중단원 QFT 여는 쪽·닫는 쪽 |
+| `src/activities/` | 절 활동 템플릿(`layer-compare`, `evidence-sort`, `decision-matrix`, `civic-hearing`) |
+| `src/teacher/` | 교사용 결과 파일 모아보기와 수업 안내 |
+| `src/storage/` | 학생 기록(브라우저 localStorage, v4)과 결과 파일(`gsng-unit-result` v1) |
+
+## v1 콘텐츠 구조 (참고용)
+
 
 - `src/content/units/unit-01.js` … `unit-04.js`: 대단원별 학습 절 원고, 핵심 개념, 활동, 시각화, 실제 사례와 출처 ID
 - `src/content/bookIndex.js`: 4개 대단원·13개 중단원·41개 학습 절을 라우트와 성취기준에 연결
