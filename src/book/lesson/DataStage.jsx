@@ -32,8 +32,8 @@ export default function DataStage({ step, manifest, onInteract, motion = 'auto' 
     </div>
   );
   let body = fallback;
-  if (step.type === 'chart' && step.data) body = <DataChart url={step.data} config={step.config} alt={step.alt} fallback={fallback} onInteract={onInteract} />;
-  if (step.type === 'map' && step.data) body = <DataMap url={step.data} config={step.config} alt={step.alt} fallback={fallback} onInteract={onInteract} />;
+  if (step.type === 'chart' && step.data) body = <DataChart url={step.data} config={step.config} alt={step.alt} fallback={fallback} onInteract={onInteract} reduced={motion === 'none'} />;
+  if (step.type === 'map' && step.data) body = <DataMap url={step.data} config={step.config} alt={step.alt} fallback={fallback} onInteract={onInteract} reduced={motion === 'none'} />;
   if (step.type === 'image' && step.data) body = <img className="figure-image" src={step.data} alt={step.alt} />;
   return (
     <div className="stage" data-motion={motion} data-step={step.id}>

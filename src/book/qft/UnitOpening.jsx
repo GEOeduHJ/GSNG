@@ -22,8 +22,9 @@ export function maxOpeningStage(record) {
   return stage;
 }
 
+/** Earlier-unit questions and the external AI link open only after the student finishes producing questions. */
 export function canShowCarryOver(record) {
-  return (record.questions ?? []).some(filled);
+  return Boolean(record.stageTimes?.produce) && (record.questions ?? []).some(filled);
 }
 
 const stageReady = {

@@ -1,4 +1,5 @@
-import { createContext, useCallback, useContext, useMemo, useRef, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { STORAGE_KEY_V4 } from '../storage/unitRecords.js';
 import { createStore, emptyUnitRecord } from '../storage/unitRecords.js';
 
 const BookContext = createContext(null);
@@ -16,7 +17,20 @@ export function BookProvider({ book, storage, children }) {
     const next = { ...unitsRef.current, [unitId]: nextRecord };
     unitsRef.current = next;
     setUnits(next);
-    if (!store.save(next)) setStorageAvailable(false);
+    if (!store.save(next, unitId)) setStorageAvailable(false);
+  }, [store]);
+
+  // Another tab wrote records: take them in so this tab doesn't save stale data over them.
+  useEffect(() => {
+    const onStorage = (event) => {
+      if (event.key && event.key !== STORAGE_KEY_V4) return;
+      const loaded = store.load();
+      if (!loaded.available) return;
+      unitsRef.current = loaded.units;
+      setUnits(loaded.units);
+    };
+    window.addEventListener('storage', onStorage);
+    return () => window.removeEventListener('storage', onStorage);
   }, [store]);
 
   const value = useMemo(() => ({ book, units, updateUnit, storageAvailable }), [book, units, updateUnit, storageAvailable]);

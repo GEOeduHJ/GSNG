@@ -42,3 +42,17 @@ export function legendLabels(breaks) {
   const f = formatNumber;
   return [`${f(breaks[0])} 미만`, ...breaks.slice(1).map((value, index) => `${f(breaks[index])}–${f(value)}`), `${f(breaks.at(-1))} 이상`];
 }
+
+/** MapLibre constructor options; reduced motion removes label/tile fades. */
+export function mapOptions(config = {}, { reduced = false } = {}) {
+  return {
+    center: config.center ?? [20, 20],
+    zoom: config.zoom ?? 0.6,
+    minZoom: 0.3,
+    maxZoom: 6,
+    attributionControl: false,
+    dragRotate: false,
+    pitchWithRotate: false,
+    fadeDuration: reduced ? 0 : 300,
+  };
+}

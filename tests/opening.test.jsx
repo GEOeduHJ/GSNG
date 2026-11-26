@@ -86,7 +86,7 @@ describe('UnitOpening', () => {
     expect(screen.getByRole('link', { name: /절 1/ }).getAttribute('href')).toBe('#/u/01-01/l/1');
   });
 
-  it('reveals carried-over questions and the external AI link only after a first question', () => {
+  it('reveals carried-over questions and the external AI link only after question production', () => {
     const previous = { ...emptyUnitRecord('01-01'), questions: [{ id: 'p1', text: '지난 질문', classification: '', convertedType: '', convertedText: '', selectedVersion: 'original', selected: true, conceptTags: [] }] };
     const storage = memoryStorage({ [STORAGE_KEY_V4]: JSON.stringify({ version: 4, units: { '01-01': previous } }) });
     renderOpening({ storage, book: bookWithSecondUnit(), unitIndex: 1 });
@@ -94,16 +94,20 @@ describe('UnitOpening', () => {
     expect(screen.queryByRole('link', { name: /외부 AI/ })).toBeNull();
     fireEvent.click(screen.getByRole('button', { name: '선생님 안내에 따라 시작' }));
     fireEvent.change(screen.getByLabelText('질문 1'), { target: { value: '새 질문' } });
+    expect(screen.queryByText('지난 질문')).toBeNull();
+    fireEvent.click(screen.getByRole('button', { name: '다음 단계' }));
     expect(screen.getByText('지난 질문')).toBeTruthy();
     expect(screen.getByRole('link', { name: /외부 AI/ })).toBeTruthy();
   });
 });
 
 describe('stage rules', () => {
-  it('canShowCarryOver needs a non-empty question', () => {
+  it('canShowCarryOver needs finished production and a non-empty question', () => {
+    const done = { stageTimes: { produce: 't' } };
     expect(canShowCarryOver(emptyUnitRecord('01-01'))).toBe(false);
-    expect(canShowCarryOver({ ...emptyUnitRecord('01-01'), questions: [{ text: ' ' }] })).toBe(false);
-    expect(canShowCarryOver({ ...emptyUnitRecord('01-01'), questions: [{ text: 'a' }] })).toBe(true);
+    expect(canShowCarryOver({ ...emptyUnitRecord('01-01'), questions: [{ text: 'a' }] })).toBe(false);
+    expect(canShowCarryOver({ ...emptyUnitRecord('01-01'), ...done, questions: [{ text: ' ' }] })).toBe(false);
+    expect(canShowCarryOver({ ...emptyUnitRecord('01-01'), ...done, questions: [{ text: 'a' }] })).toBe(true);
   });
 
   it('maxOpeningStage follows completed stage times', () => {

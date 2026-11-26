@@ -27,14 +27,19 @@ export function ValueTable({ header, rows }) {
   );
 }
 
-export default function DataChart({ url, config, alt, fallback, onInteract }) {
+export default function DataChart({ url, config, alt, fallback, onInteract, reduced = false }) {
   const { status, data } = useJson(url);
   const base = useJson(BASE_MAP_URL);
   const containerRef = useRef(null);
+  const chartRef = useRef(null);
+  const interactRef = useRef(onInteract);
+  interactRef.current = onInteract;
   const [renderFailed, setRenderFailed] = useState(false);
+  const [ready, setReady] = useState(false);
   const payload = data?.[0];
   const names = useMemo(() => Object.fromEntries((base.data?.[0]?.features ?? []).map((f) => [f.properties.iso_a3, f.properties.name_ko || f.properties.name])), [base.data]);
 
+  // Create the chart once per data file; later prop changes only update its option.
   useEffect(() => {
     if (status !== 'ready' || !containerRef.current) return undefined;
     let chart;
@@ -44,19 +49,25 @@ export default function DataChart({ url, config, alt, fallback, onInteract }) {
       if (disposed || !containerRef.current) return;
       try {
         chart = echarts.init(containerRef.current, null, { renderer: 'canvas' });
-        chart.setOption(buildChartOption(config, payload, names));
-        chart.on('click', () => onInteract?.());
-        chart.on('legendselectchanged', () => onInteract?.());
+        chart.on('click', () => interactRef.current?.());
+        chart.on('legendselectchanged', () => interactRef.current?.());
         if (typeof ResizeObserver !== 'undefined') {
           observer = new ResizeObserver(() => chart.resize());
           observer.observe(containerRef.current);
         }
+        chartRef.current = chart;
+        setReady(true);
       } catch {
         setRenderFailed(true);
       }
     }).catch(() => setRenderFailed(true));
-    return () => { disposed = true; observer?.disconnect(); chart?.dispose(); };
-  }, [status, payload, config, onInteract, names]);
+    return () => { disposed = true; observer?.disconnect(); chart?.dispose(); chartRef.current = null; setReady(false); };
+  }, [status, payload]);
+
+  useEffect(() => {
+    if (!ready || !chartRef.current) return;
+    try { chartRef.current.setOption(buildChartOption(config, payload, names, { reduced }), true); } catch { setRenderFailed(true); }
+  }, [ready, config, payload, names, reduced]);
 
   if (status === 'error') return fallback;
   return (

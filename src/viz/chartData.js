@@ -24,11 +24,12 @@ function limitedSeries(config, data, names) {
   };
 }
 
-export function buildChartOption(config = {}, data = {}, names = {}) {
+export function buildChartOption(config = {}, data = {}, names = {}, { reduced = false } = {}) {
   const unit = config.unit ?? data.unit ?? '';
   const common = {
     color: PALETTE,
     textStyle: { fontFamily: FONT, fontSize: 14 },
+    animation: !reduced,
     animationDuration: 250,
     aria: { enabled: true, decal: { show: true } },
     grid: { left: 16, right: 24, top: 48, bottom: 16, containLabel: true },

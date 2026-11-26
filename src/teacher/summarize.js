@@ -58,6 +58,7 @@ export const SKIP_REASONS = {
   'not-json': '읽을 수 없는 파일',
   'wrong-schema': '이 교과서의 결과 파일이 아님',
   'unsupported-version': '지원하지 않는 파일 버전',
+  'bad-shape': '내용 형식이 맞지 않는 파일',
   'other-unit': '다른 중단원의 파일',
   'duplicate-older': '같은 학생의 더 최근 파일이 있음',
 };

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { BASE_MAP_URL, MAP_COLORS, NO_DATA_COLOR, classBreaks, joinValues, legendLabels, topValues } from './mapData.js';
+import { BASE_MAP_URL, MAP_COLORS, NO_DATA_COLOR, classBreaks, joinValues, legendLabels, mapOptions, topValues } from './mapData.js';
 import { useJson } from './useJson.js';
 import { ValueTable } from './DataChart.jsx';
 
@@ -36,9 +36,11 @@ function Legend({ breaks, unit }) {
 }
 
 /** config.kind: 'choropleth' (url → {year, unit, values: {ISO3: n}}) or 'points' (url → GeoJSON points). */
-export default function DataMap({ url, config = {}, alt, fallback, onInteract }) {
+export default function DataMap({ url, config = {}, alt, fallback, onInteract, reduced = false }) {
   const { status, data } = useJson(BASE_MAP_URL, url);
   const containerRef = useRef(null);
+  const interactRef = useRef(onInteract);
+  interactRef.current = onInteract;
   const [renderFailed, setRenderFailed] = useState(false);
   const [base, payload] = data ?? [];
   const points = config.kind === 'points';
@@ -52,13 +54,10 @@ export default function DataMap({ url, config = {}, alt, fallback, onInteract })
     loadMaplibre().then((maplibre) => {
       if (disposed || !containerRef.current) return;
       try {
-        map = new maplibre.Map({
-          container: containerRef.current, style: emptyStyle, center: config.center ?? [20, 20], zoom: config.zoom ?? 0.6,
-          minZoom: 0.3, maxZoom: 6, attributionControl: false, dragRotate: false, pitchWithRotate: false,
-        });
+        map = new maplibre.Map({ container: containerRef.current, style: emptyStyle, ...mapOptions(config, { reduced }) });
         map.addControl(new maplibre.NavigationControl({ showCompass: false }), 'top-right');
-        map.on('dragstart', () => onInteract?.());
-        map.on('zoomstart', (event) => { if (event.originalEvent) onInteract?.(); });
+        map.on('dragstart', () => interactRef.current?.());
+        map.on('zoomstart', (event) => { if (event.originalEvent) interactRef.current?.(); });
         map.on('load', () => {
           const countries = points ? base : joinValues(base, payload.values);
           map.addSource('countries', { type: 'geojson', data: countries });
@@ -75,7 +74,7 @@ export default function DataMap({ url, config = {}, alt, fallback, onInteract })
       }
     }).catch(() => setRenderFailed(true));
     return () => { disposed = true; map?.remove(); };
-  }, [status, base, payload, breaks, points, config, onInteract]);
+  }, [status, base, payload, breaks, points, config, reduced]);
 
   if (status === 'error') return fallback;
   const rows = payload && !points ? topValues(payload.values, names) : [];

@@ -3,6 +3,7 @@ import { routes, useRoute } from './router.js';
 import TableOfContents from './TableOfContents.jsx';
 import HelpPage from './HelpPage.jsx';
 import { pageFor } from './pages.jsx';
+import ErrorBoundary from './ErrorBoundary.jsx';
 import './book.css';
 
 function defaultStorage() {
@@ -22,7 +23,7 @@ function Screen() {
   if (route.name === 'teacher') return <Page unitId={route.unitId} />;
   const unit = book.units.find((item) => item.id === route.unitId);
   if (!unit || !Page) return <NotReady />;
-  return <Page unit={unit} route={route} />;
+  return <Page key={`${route.name}-${route.unitId}-${route.index ?? ''}`} unit={unit} route={route} />;
 }
 
 export default function App({ book, storage = defaultStorage() }) {
@@ -33,7 +34,7 @@ export default function App({ book, storage = defaultStorage() }) {
           <a className="book-name" href={routes.toc()}>세계시민과 지리</a>
           <nav aria-label="책 탐색"><a href={routes.toc()}>차례</a><a href={routes.help()}>도움말</a></nav>
         </header>
-        <main className="book-main"><Screen /></main>
+        <main className="book-main"><ErrorBoundary><Screen /></ErrorBoundary></main>
       </div>
     </BookProvider>
   );

@@ -27,7 +27,8 @@ const LessonQuestions = forwardRef(function LessonQuestions({ unit, lesson, curr
   const [questionId, setQuestionId] = useState('');
   const [stepChoice, setStepChoice] = useState('');
   const [note, setNote] = useState('');
-  const stepId = stepChoice || currentStepId || dataSteps[0]?.id || '';
+  const validChoice = dataSteps.some((step) => step.id === stepChoice) ? stepChoice : '';
+  const stepId = validChoice || currentStepId || dataSteps[0]?.id || '';
   const chosen = shown.some((question) => question.id === questionId) ? questionId : '';
   const canAttach = Boolean(chosen) && note.trim().length >= 4;
   const attached = record.evidence.filter((item) => item.lessonId === lesson.id);
