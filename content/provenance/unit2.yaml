@@ -1,0 +1,130 @@
+items:
+  - src: /images/02-01/opening.webp
+    prompt: |-
+      Use case: illustration-story
+      Asset type: opening illustration for a high-school digital textbook, unit 02-01 “World climates and human life”
+      Primary request: Show how everyday life responds to different climates in one calm, continuous wide scene: a breezy shaded home with leafy shade; a snug, well-insulated home where people wear warm layers; and careful water storage beside a garden on dry ground. Three readable moments flow together without panel borders, each showing people actively adapting to their surroundings. Do not portray one place as primitive, deficient, or dangerous.
+      Scene/backdrop: An invented, unlocated landscape with gentle transitions between leafy, temperate, cooler, and dry conditions. No recognizable region or architecture. Sparse, quiet background.
+      Subject: A few people of varied skin tones, ages, body types, and genders going about ordinary life in each setting. Simple homes with shade and cross-breeze, visible insulated walls/roof only through a subtle architectural section, and a plain rainwater tank or covered water store beside a few cultivated plants.
+      Style/medium: Restrained editorial textbook illustration with soft gouache and colored-pencil texture, simple legible shapes, very subtle paper grain. Match a calm, thoughtful schoolbook image.
+      Composition/framing: Wide 3:2 landscape, three connected everyday moments in one coherent scene, generous open paper-colored space, clear at a glance. Keep people and useful climate-response details readable.
+      Lighting/mood: Gentle diffused light, calm and matter-of-fact.
+      Color palette: Background near #fbf8f1; muted greens around #2f6f5e for accents; warm off-white, light gray, and dark warm gray-brown neutrals only. No saturated primary or fluorescent colors.
+      Text (verbatim): None. Absolutely no text, letters, pseudo-writing, numerals, signs, symbols, or readable screens anywhere.
+      Constraints: No maps, globes, borders, flags, country symbols, real places, famous people, logos, labels, brands, or watermarks. Architecture must not identify a specific culture or location.
+      Avoid: Any writing-like marks, signage, text on objects or screens, flags, map-like shapes or routes, national/cultural stereotypes, poverty or disaster imagery, fear, caricature, photorealism, glossy 3D, clutter, oversaturated color.
+    model: 'OpenAI image_gen built-in tool (underlying model not exposed)'
+    createdAt: '2026-11-26'
+    usedIn: '02-01 opening'
+    alt: '나무 그늘의 집, 단열 벽과 따뜻한 옷차림, 건조한 땅의 빗물 저장과 정원을 잇는 세 생활 장면.'
+  - src: /images/02-01/climate-adaptation.webp
+    prompt: |-
+      Use case: illustration-story
+      Asset type: concept illustration for a high-school digital textbook, unit 02-01, ways people respond to climate
+      Primary request: Clarify three everyday climate-response techniques in one calm, coherent scene: deep shade and a breezy veranda; insulation visible as simple neutral layers in a small roof-and-wall cutaway; and rainwater caught from a roof gutter and stored in a covered tank for a modest garden. Make each practical feature immediately legible without labels or technical diagram markings.
+      Scene/backdrop: One invented, unlocated home and garden in a dry, sunny setting with a few shrubs. It must not resemble a recognizable region or architectural tradition.
+      Subject: A family or neighbors of varied ages, skin tones, body types, and genders using the shaded sitting area and caring for plants; a restrained architectural section reveals insulation; a simple gutter and plain tank reveal water storage.
+      Style/medium: Restrained editorial textbook illustration in soft gouache and colored-pencil texture, simple legible shapes, very subtle paper grain.
+      Composition/framing: Wide 3:2 horizontal, one clear house scene with three practical features visible, generous empty background, no panels, labels, arrows, or cutaway callouts.
+      Lighting/mood: Soft sunlight and calm everyday activity, practical rather than promotional.
+      Color palette: Paper background near #fbf8f1, muted greens around #2f6f5e, warm off-white, light gray, and dark warm gray-brown neutrals only.
+      Text (verbatim): None. No writing, letters, pseudo-writing, numerals, signage, symbols, or readable screens.
+      Constraints: No maps, globes, borders, flags, country symbols, real places, famous people, logos, labels, brands, or watermarks. Home should not signal a specific culture.
+      Avoid: Technical blueprints, diagrams with text, arrows, map-like shapes, stereotypes, danger, disaster, poverty, caricature, photorealism, glossy 3D, clutter, saturated colors.
+    model: 'OpenAI image_gen built-in tool (underlying model not exposed)'
+    createdAt: '2026-11-26'
+    usedIn: '02-01 lesson 4'
+    alt: '그늘막과 단열층, 빗물 저장 탱크를 활용해 집과 정원을 돌보는 사람들.'
+  - src: /images/02-02/opening.webp
+    prompt: |-
+      Use case: illustration-story
+      Asset type: opening illustration for a high-school digital textbook, unit 02-02 “World landforms and human life”
+      Primary request: Show mountain, plain, and coastal landforms together with ordinary ways people live in them: small-scale terraced cultivation on a gentle hillside, daily work and movement across an open river plain, and a modest settlement beside a calm coast. The landforms and activities should be easy to compare at a glance.
+      Scene/backdrop: One invented, continuous panoramic landscape with gently connected mountain slopes, broad flat plain, river, and coast. No recognizable country, landmark, or real terrain profile. Keep background quiet.
+      Subject: A few diverse people of different ages, skin tones, body types, and genders engaged in ordinary activities in each setting. Neutral contemporary clothing. Modest homes and cultivated land that do not point to any one culture.
+      Style/medium: Restrained editorial textbook illustration in soft gouache and colored-pencil texture, simple readable shapes, very subtle paper grain.
+      Composition/framing: Wide 3:2 landscape; mountain, plain, and coast occupy distinct but connected parts of a single scene, ample open space, no panel borders.
+      Lighting/mood: Soft diffused daylight, calm and observant.
+      Color palette: Paper-like background near #fbf8f1, low-saturation greens around #2f6f5e, warm off-white, light gray, and dark warm gray-brown neutrals only.
+      Text (verbatim): None. No text, letters, pseudo-writing, numerals, signs, or readable screens.
+      Constraints: Entirely fictional, non-locatable landforms and architecture. No maps, globes, boundaries, flags, national symbols, famous people, landmarks, logos, labels, brands, or watermarks.
+      Avoid: Map-like composition, specific cultural clothing or tools, stereotypes, hardship, danger, disaster, caricature, photorealism, glossy 3D, clutter, saturated colors.
+    model: 'OpenAI image_gen built-in tool (underlying model not exposed)'
+    createdAt: '2026-11-26'
+    usedIn: '02-02 opening'
+    alt: '계단식 밭과 강이 흐르는 평야, 해안 마을에서 사람들이 농사와 일상을 이어간다.'
+  - src: /images/02-02/sustainable-tourism.webp
+    prompt: |-
+      Use case: illustration-story
+      Asset type: concept illustration for a high-school digital textbook, unit 02-02, sustainable use of landforms
+      Primary request: In an invented mountain landscape, show visitors enjoying the scenery while people care for the environment and local life. A small group follows a clear, narrow trail or simple boardwalk; nearby, a few community members and visitors work together to tend native plants and restore a worn patch. The scene should communicate that tourism and conservation can coexist through careful use, without suggesting the mountain is a real place.
+      Scene/backdrop: A generic mountain valley and slopes with meadow, stream, and sparse trees. No distinctive summit, shrine, recognizable architecture, or real landmark.
+      Subject: A few visitors walking and observing quietly, and several other people of varied ages, skin tones, body types, and genders planting or caring for the landscape. Everyone wears ordinary neutral outdoor clothing with no cultural or professional uniform.
+      Style/medium: Restrained editorial textbook illustration, soft gouache and colored-pencil texture, legible forms, very subtle paper grain.
+      Composition/framing: Wide 3:2, one coherent landscape. The trail and small restoration activity are clear at a glance; no signs or visual labels, ample negative space, not overcrowded.
+      Lighting/mood: Gentle diffused daylight, thoughtful and collaborative.
+      Color palette: Paper background near #fbf8f1, muted greens around #2f6f5e, restrained warm off-white, light gray, and dark warm gray-brown neutrals only.
+      Text (verbatim): None. No text, letters, pseudo-writing, numerals, signs, or readable screens.
+      Constraints: The mountain and all buildings must be fictional and unlocatable. No maps, globes, borders, flags, national symbols, real sites, famous people, logos, labels, or watermarks.
+      Avoid: Stereotyped local dress, exoticizing any group, tourists as a threatening crowd, damaged landscape, danger, poverty, disaster, caricature, photorealism, glossy 3D, clutter, saturated colors.
+    model: 'OpenAI image_gen built-in tool (underlying model not exposed)'
+    createdAt: '2026-11-26'
+    usedIn: '02-02 lesson 4'
+    alt: '산골 방문객들이 정해진 길을 걷고, 다른 사람들이 함께 묘목을 심어 경관을 돌본다.'
+  - src: /images/02-03/opening.webp
+    prompt: |-
+      Use case: illustration-story
+      Asset type: opening illustration for a high-school digital textbook, unit 02-03 “World religions and human life”
+      Primary request: Respectfully evoke everyday practices that can carry meaning across different religious traditions: quiet personal reflection, a small communal gathering, and neighborly care or sharing food. Give each ordinary moment equal visual weight in a calm, unlocated neighborhood scene. People from varied backgrounds participate as individuals, not as representatives of a single group. Keep the traditions intentionally unnamed and avoid visual shorthand.
+      Scene/backdrop: A contemporary, ordinary shared courtyard and simple community room with a table, a few plants, and an open, quiet corner. No recognizable sacred building or location.
+      Subject: Several people with varied skin tones, ages, genders, body types, and abilities. Some sit quietly in reflection, others share conversation or food, and others help one another. Ordinary contemporary clothing; no distinctive ritual attire or accessories.
+      Style/medium: Restrained editorial textbook illustration, soft gouache and colored-pencil texture, simple readable forms, very subtle paper grain.
+      Composition/framing: Wide 3:2; three gentle everyday moments in one connected scene, balanced equally, open space, no panels.
+      Lighting/mood: Soft diffused light, dignified, warm, quiet, and welcoming.
+      Color palette: Paper background near #fbf8f1, muted greens around #2f6f5e, warm off-white, light gray, and dark warm gray-brown neutrals only.
+      Text (verbatim): None. Absolutely no text, letters, pseudo-writing, numerals, signs, or readable screens.
+      Constraints: No actual sacred sites, religious buildings, named traditions, doctrine, or claims that one image represents a whole religion. No religious symbols of any kind: no crosses, crescents, stars, wheels, statues, prayer beads, altars, or icon-like objects. No national symbols, maps, flags, famous people, logos, labels, or watermarks.
+      Avoid: Exoticizing or ranking traditions, one group defined by one outfit or action, ritual costume, iconography, stereotypes, caricature, photorealism, glossy 3D, clutter, saturated colors.
+      Final edit: Replaced the single light-colored head covering on one seated person with ordinary natural dark hair to avoid visually assigning one religious marker to one person; preserved the rest of the scene.
+    model: 'OpenAI image_gen built-in tool (underlying model not exposed)'
+    createdAt: '2026-11-26'
+    usedIn: '02-03 opening'
+    alt: '서로 다른 연령과 배경의 사람들이 고요히 성찰하고, 식탁에서 대화하며 음식을 나눈다.'
+  - src: /images/02-04/opening.webp
+    prompt: |-
+      Use case: illustration-story
+      Asset type: opening illustration for a high-school digital textbook, unit 02-04 “World foods and festivals”
+      Primary request: Show people sharing food and a small community celebration in an inclusive everyday scene. People prepare, pass, and enjoy a table of varied dishes made from grains, beans, vegetables, fruit, and baked foods. The gathering feels festive through warm conversation and shared preparation, not through national or cultural symbols.
+      Scene/backdrop: An invented neighborhood courtyard or shared outdoor table, with a few plants and simple neutral decorations. No recognizable country or place.
+      Subject: People of varied skin tones, ages, genders, body types, and abilities cooking together, serving one another, talking, and celebrating. Everyone wears ordinary contemporary clothing with no distinctive cultural costume.
+      Style/medium: Restrained editorial textbook illustration in soft gouache and colored-pencil texture, simple readable forms, very subtle paper grain.
+      Composition/framing: Wide 3:2 landscape, one clear communal meal scene, food and interactions easy to see, generous paper-colored space.
+      Lighting/mood: Gentle diffused daylight, welcoming and joyful without spectacle.
+      Color palette: Paper background near #fbf8f1, muted greens around #2f6f5e, warm off-white, light gray, and dark warm gray-brown neutrals only; food colors remain subdued and natural.
+      Text (verbatim): None. No text, letters, pseudo-writing, numerals, signs, or readable screens.
+      Constraints: No flags, national symbols, maps, real places, landmarks, logos, brands, labels, watermarks, or costumes associated with one culture. No dish or decoration should imply a particular country.
+      Avoid: Exoticizing food, cultural or national stereotypes, caricature, stage spectacle, commercial advertising, photorealism, glossy 3D, clutter, saturated colors.
+      Final edit: Removed the string of decorative triangular pennants from the upper background; kept the shared meal scene and remaining composition.
+    model: 'OpenAI image_gen built-in tool (underlying model not exposed)'
+    createdAt: '2026-11-26'
+    usedIn: '02-04 opening'
+    alt: '다양한 사람들이 함께 음식을 준비하고 여러 음식을 나누며 작은 축하 모임을 즐긴다.'
+  - src: /images/02-04/food-exchange.webp
+    prompt: |-
+      Use case: illustration-story
+      Asset type: concept illustration for a high-school digital textbook, unit 02-04, how food ingredients and cooking practices travel and change
+      Primary request: Show ingredients being shared and adapted into food through exchange: varied produce, grains, beans, and a few small jars of unmarked seasonings are passed among several cooks, combined at a shared worktable, and prepared as subtly different dishes for people to share. Make the process of ingredients and cooking ideas meeting and changing clear, without assigning a cuisine or route to any one culture.
+      Scene/backdrop: A simple invented shared kitchen and courtyard table, not tied to a region. Any sense of connection comes from a few soft abstract green curves and dots that do not form a map or route.
+      Subject: Diverse people of varied ages, skin tones, genders, body types, and abilities taking part in choosing, passing, preparing, and sharing ingredients. Neutral contemporary clothing and plain unmarked utensils.
+      Style/medium: Restrained editorial textbook illustration in soft gouache and colored-pencil texture, simple legible shapes, very subtle paper grain.
+      Composition/framing: Wide 3:2 landscape with one coherent left-to-right flow of ingredients into cooking and shared dishes, generous open space, no panel borders, diagram labels, or arrows.
+      Lighting/mood: Gentle diffused light, curious and collaborative.
+      Color palette: Paper background near #fbf8f1, muted greens around #2f6f5e, warm off-white, light gray, and dark warm gray-brown neutrals; restrained natural food colors only.
+      Text (verbatim): None. No text, letters, pseudo-writing, numerals, signs, labels, or readable screens.
+      Constraints: Abstract decorative curves only, never geographic routes. No maps, globes, borders, flags, national symbols, country-specific landmarks, famous people, logos, brands, packaging text, or watermarks.
+      Avoid: Fixed cultural categories, exoticizing any cuisine, stereotyped dress or roles, specific national dishes, caricature, photorealism, glossy 3D, clutter, saturated colors.
+      Final edit: Replaced the single light head covering on one seated cook near the center-left with ordinary dark hair to avoid visually assigning one religious marker to one person; preserved the rest of the scene.
+    model: 'OpenAI image_gen built-in tool (underlying model not exposed)'
+    createdAt: '2026-11-26'
+    usedIn: '02-04 lesson 1'
+    alt: '여러 사람이 재료와 향신료를 건네며 함께 조리하고, 변화한 음식을 나눈다.'
