@@ -99,3 +99,83 @@ sources:
     reuseBasis: 대피 장소의 시설 유형과 위치를 담은 자료다. 전달용 지도는 시설명·유형·좌표만 사용한다.
     verificationStatus: 자료 매니페스트와 01-03의 데이터 README에서 대피 장소 위치·유형을 확인했다. 수용 인원·이동 시간·주변 인구는 자료에 없음을 전이 과제에 반영했다.
     usage: 위치 분포를 읽는 전이 과제에 사용하며, 실제 대피 계획으로 안내하지 않는다.
+  rcep-membership-01-02:
+    title: Regional Comprehensive Economic Partnership Overview
+    organization: New Zealand Ministry of Foreign Affairs and Trade
+    url: https://www.mfat.govt.nz/en/trade/free-trade-agreements/free-trade-agreements-in-force/regional-comprehensive-economic-partnership-rcep/rcep-overview
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: MFAT 웹사이트 콘텐츠 CC BY 4.0. 출처와 수정 사항을 표시했다.
+    reuseBasis: RCEP 15개 참여국과 인도의 협상 이탈 여부를 공식 회원국 목록과 대조했다. 110m 바탕 지도의 ISO3 코드에 참여 여부를 연결했다.
+    verificationStatus: 2026-11-27 확인 시 회원국 목록은 아세안 10개국과 호주·중국·일본·대한민국·뉴질랜드를 포함한다. 인도는 참여국 목록에 없다. 싱가포르는 데이터에 포함되나 사용한 단순화 지형에서 개별 도형이 빠져 있다.
+    usage: 참여 여부만 1/0으로 표현했다. MFAT가 설명하는 협정의 목적과 효과를 독립적인 성과 평가처럼 사용하지 않았다.
+  scotland-governance-preference-2025:
+    title: 'Scottish Social Attitudes Survey 2025: Core module — Attitudes towards government and Parliament'
+    organization: Scottish Government
+    url: https://www.gov.scot/publications/scottish-social-attitudes-survey-2025-core-module/pages/5/
+    sourceDate: '2026-06-17'
+    checkedAt: '2026-11-27'
+    licenseStatus: Open Government Licence v3.0; © Crown copyright 2026.
+    reuseBasis: 표 4의 '누가 가장 큰 영향력을 가져야 하는가' 응답을 국가·지역 의사결정 수준 비교를 위한 막대 자료로 변환했다.
+    verificationStatus: 스코틀랜드 정부 67%, 영국 정부 16%, 지방 의회 13%, 유럽 연합 1%를 확인했다. 응답 기준 표본 수는 1,549명이다. 이 질문은 독립 찬반 투표가 아니다.
+    usage: 네 개 공개 응답 범주만 사용하며 보고서의 범주 전체를 재현한다고 표현하지 않는다. 현재 설문과 2014년 주민투표의 질문·시점·대상을 구분했다.
+  eu-euro-area-01-02:
+    title: The euro
+    organization: Council of the European Union and European Council
+    url: https://www.consilium.europa.eu/en/topics/the-euro/
+    sourceDate: '2026-08-18'
+    checkedAt: '2026-11-27'
+    licenseStatus: 통계·공개 자료는 출처 표시 조건으로 재사용 가능. 개별 저작권 고지와 변경 사실을 함께 표시했다.
+    reuseBasis: 현재 유로 지역 회원과 각 나라의 도입 연도를 확인해 2026년 기준 국가 지도 자료로 가공했다.
+    verificationStatus: 2026년 현재 유로 지역은 21개 EU 회원국이다. 불가리아는 2026년 도입했다. 유로 사용 여부와 EU 회원 여부를 구분했다.
+    usage: Council 공식 안내의 회원국·도입 연도만 독립 문장과 가공 지도에 사용했다.
+  eurostat-intra-eu-trade-01-02:
+    title: EU trade since 1988 by SITC (ext_lt_intratrd)
+    organization: Eurostat
+    url: https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_lt_intratrd?format=JSON&lang=en&freq=A&indic_et=MIO_EXP_VAL&sitc06=TOTAL&partner=EU27_2020&geo=EU27_2020
+    sourceDate: '2026-11-13'
+    checkedAt: '2026-11-27'
+    licenseStatus: Eurostat 통계자료는 출처를 표시하면 재사용 가능. 수정·가공 사실을 표시했다.
+    reuseBasis: EU27_2020의 EU 역내 상대국 대상 총 재화 수출(MIO_EXP_VAL) 연간 자료를 2002–2025년 선그래프로 정리했다.
+    verificationStatus: API 응답의 기준 단위는 백만 유로이며 2002년, 2020년, 2025년 값을 원자료와 대조했다. EU27_2020은 2020년 기준 27개국 고정 조합이다. 명목 금액의 증가는 물가 변화와 물량 변화를 분리하지 않는다.
+    usage: 데이터의 필터·단위·2020년 고정 집계 기준을 manifest와 산출 JSON에 기록했다. 시계열만으로 통화 도입의 인과 효과를 주장하지 않는다.
+  eurostat-eu27-2020-code:
+    title: Tutorial — Country codes and protocol order
+    organization: Eurostat
+    url: https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/4904.pdf
+    sourceDate: '2026-06-11'
+    checkedAt: '2026-11-27'
+    licenseStatus: 참고 링크만 사용. Eurostat 코드 정의를 설명하는 도표나 문장을 복제하지 않음.
+    reuseBasis: EU27_2020 집계 코드가 2020년부터의 EU 27개 회원국 조합을 뜻하는지 확인했다.
+    verificationStatus: Eurostat 코드 안내는 EU27_2020을 기준 기간의 27개국 조합으로 구분한다. 따라서 과거 연도에도 당시 회원국 구성을 따르는 이동 집계로 해석하지 않았다.
+    usage: 역내 수출 시계열의 구성 기준을 설명하는 방법론 참고 자료다.
+  nato-members-01-02:
+    title: NATO member countries
+    organization: North Atlantic Treaty Organization
+    url: https://www.nato.int/en/about-us/organization/nato-member-countries
+    sourceDate: '2024-03-11'
+    checkedAt: '2026-11-27'
+    licenseStatus: 참고 링크만 사용. NATO 페이지의 문장과 지도를 복제하지 않음.
+    reuseBasis: 핀란드와 스웨덴의 NATO 가입 연도를 공식 회원국 목록에서 확인했다.
+    verificationStatus: 공식 목록은 핀란드 2023년, 스웨덴 2024년 가입으로 기록한다.
+    usage: 안보 협력 관계 변화의 간단한 문장 사례로만 사용한다.
+  barbados-republic-01-02:
+    title: President
+    organization: Government of Barbados
+    url: https://www.gov.bb/Government/president
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 참고 링크만 사용. 페이지의 문장과 이미지를 복제하지 않음.
+    reuseBasis: 바베이도스가 공화국으로 전환한 시점과 초대 대통령 취임 사실을 공식 정부 페이지에서 확인했다.
+    verificationStatus: 정부 페이지는 2021년 11월 30일 초대 대통령 취임을 기록한다.
+    usage: 국가 제도 변화의 사례로 한 문장에 사용한다. 공화국 전환을 독립과 동일한 사건으로 설명하지 않는다.
+  bangsamoro-autonomy-01-02:
+    title: About Us — Bangsamoro Parliament
+    organization: Bangsamoro Parliament
+    url: https://parliament.bangsamoro.gov.ph/about-us/
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 참고 링크만 사용. 사이트의 문장·법률 설명을 복제하지 않음.
+    reuseBasis: 방사모로 자치 정부와 의회가 필리핀 헌정·국가 체계 안에서 운영되는 방식을 확인했다.
+    verificationStatus: 의회 공식 설명은 자치가 필리핀으로부터의 분리를 뜻하지 않는다고 밝히고, Bangsamoro Organic Law가 자치 정부 구조를 정한다고 설명한다.
+    usage: 독립·분리와 국가 내부 자치의 차이를 설명하는 사례로 사용한다. 방사모로 주민 전체의 단일한 관점으로 일반화하지 않는다.

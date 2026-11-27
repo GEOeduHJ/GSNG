@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" role="img" aria-labelledby="description">
+  <desc id="description">환경과 관계의 변화, 국가와 지역의 선택, 제도와 경계의 조정, 지역성의 변화가 순환하고 새로운 관계가 다음 선택에 영향을 준다.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5f766c"/>
+    </marker>
+  </defs>
+  <rect width="960" height="560" rx="28" fill="#f7f5ef"/>
+  <g fill="none" stroke="#5f766c" stroke-width="3" marker-end="url(#arrow)">
+    <path d="M565 126 C650 130 706 172 744 225"/>
+    <path d="M770 305 C744 385 675 432 586 445"/>
+    <path d="M374 445 C286 430 222 384 190 324"/>
+    <path d="M190 228 C222 151 287 119 376 115"/>
+    <path d="M476 178 C476 222 476 274 476 313" stroke-dasharray="7 8"/>
+    <path d="M574 371 C634 341 676 319 723 295" stroke-dasharray="7 8"/>
+  </g>
+  <g font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="20" text-anchor="middle" fill="#24312c">
+    <rect x="356" y="72" width="240" height="108" rx="20" fill="#dce7ef" stroke="#6f8fa6" stroke-width="2"/>
+    <text x="476" y="116"><tspan x="476">환경·관계의</tspan><tspan x="476" dy="29">변화</tspan></text>
+    <rect x="650" y="218" width="250" height="108" rx="20" fill="#f0e4ce" stroke="#b18b52" stroke-width="2"/>
+    <text x="775" y="262"><tspan x="775">국가와 지역의</tspan><tspan x="775" dy="29">선택</tspan></text>
+    <rect x="358" y="388" width="240" height="108" rx="20" fill="#e9e1ef" stroke="#987cab" stroke-width="2"/>
+    <text x="478" y="432"><tspan x="478">제도·경계의</tspan><tspan x="478" dy="29">조정</tspan></text>
+    <rect x="60" y="218" width="250" height="108" rx="20" fill="#dce9e3" stroke="#6f9585" stroke-width="2"/>
+    <text x="185" y="262"><tspan x="185">지역성의</tspan><tspan x="185" dy="29">변화</tspan></text>
+    <rect x="391" y="249" width="170" height="84" rx="42" fill="#fff" stroke="#81958a" stroke-width="2"/>
+    <text x="476" y="284"><tspan x="476">연결과</tspan><tspan x="476" dy="25">경험의 누적</tspan></text>
+    <text x="476" y="535" font-size="16" fill="#59655f">변화는 여러 공간 규모에서 이어지고 다음 대응에 영향을 줌</text>
+  </g>
+</svg>

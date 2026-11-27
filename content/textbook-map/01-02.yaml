@@ -1,0 +1,109 @@
+unit: '01-02'
+requestedTextbookPages: [22, 33]
+auditedUnitPages: [20, 31]
+unitOpeningPages: [20, 21]
+unitClosingPages: [31, 31]
+followingUnitOpeningPages: [32, 33]
+boundaryNote: >-
+  제공된 교과서 PDF에서 01-02 중단원 도입은 20–21쪽, 소절 학습 목표는 22·25·28쪽,
+  중단원 마무리는 31쪽에 있다. 요청된 22–33쪽은 실제 01-02 도입 두 쪽을 건너뛰고
+  다음 중단원 도입 32–33쪽을 포함한다. 모듈은 확인된 세 학습 목표와 31쪽 정리를
+  기준으로 작성했다. 32–33쪽은 다음 중단원 '지리 정보와 지리정보기술' 도입이라
+  01-02 내용에 합치지 않았다.
+lessons:
+  - index: 1
+    textbookPages: [22, 24]
+    goalGist: 지역과 지역성을 설명하고 국가 간 지역 협력체가 생기는 배경과 통합 범위를 자료로 살핀다.
+    topics:
+      - title: 지역과 지역성
+        concepts: [지역, 지역성, 자연·문화·경제 기준, 범위와 규모]
+        textbookMaterials: [세계 문화권 지도, 지역 구분의 기준]
+        ourData: [u0102-rcep-membership-map]
+      - title: 지역 협력체와 경제 블록의 형성
+        concepts: [안보·외교 협력, 경제적 이익, 교역과 공통 규칙]
+        textbookMaterials: [세계 경제 블록 분포 지도, 경제 협력 목적]
+        ourData: [u0102-rcep-membership-map, u0102-eu-membership-count]
+      - title: 협력 범위와 통합 수준의 차이
+        concepts: [RCEP, IPEF, EU, 참여국 분포, 회원국 변화]
+        textbookMaterials: [RCEP·IPEF 비교 표, 경제 블록별 회원국 지도]
+        ourData: [u0102-rcep-membership-map, u0102-eu-accession-year, u0102-eu-membership-count]
+  - index: 2
+    textbookPages: [25, 27]
+    goalGist: 지역 분리의 복합적 원인과 독립·협력체 탈퇴 등 여러 사례를 살펴 요구와 공간 규모의 관계를 설명한다.
+    topics:
+      - title: 지역 분리 요구의 배경
+        concepts: [문화적 차이, 역사 경험, 중앙·지역 관계, 권한과 경제적 격차]
+        textbookMaterials: [아프리카 문화·민족 경계 자료, 지역 분리의 복합적 배경]
+        ourData: ['개념도:regional-separation-drivers-schematic']
+      - title: 분리·독립과 자치 확대
+        concepts: [국가 내 분리·독립, 지역 협력체 탈퇴, 국가 내부 자치]
+        textbookMaterials: [카탈루냐, 카메룬·암바조니아, 민다나오, 서파푸아 사례]
+        ourData: ['설명 사례:bangsamoro-autonomy-01-02', u0102-scotland-referendum-council-points]
+      - title: 투표 결과·지역 분포·현재 선호
+        concepts: [주민투표, 지역별 차이, 현재 여론, 자료의 시점과 질문]
+        textbookMaterials: [사례 지도의 공간 분포와 지역별 설명 자료]
+        ourData: [u0102-scotland-referendum-council-points, u0102-scotland-referendum-national-result, u0102-scotland-governance-preference-2025]
+  - index: 3
+    textbookPages: [28, 30]
+    goalGist: 통합·분리와 제도 변화가 지역을 재구성하는 사례를 살펴 지역 변화를 읽고 대응하는 의미를 이해한다.
+    topics:
+      - title: 지역 변화와 능동적 대응
+        concepts: [지역의 역동성, 지역성의 변화, 경제·안보 관계]
+        textbookMaterials: [핀란드의 안보 협력 변화, 인도의 RCEP 불참 결정]
+        ourData: [u0102-eu-membership-count, u0102-rcep-membership-map]
+      - title: 공동 화폐와 경제적 결속
+        concepts: [EU, 유로, 통합 수준, 공동 제도]
+        textbookMaterials: [EU 공용 화폐 자료, 경제 블록 공용 화폐 도안 활동]
+        ourData: [u0102-euro-area-accession-year, u0102-intra-eu-exports]
+      - title: 국가 제도와 지역 관계의 변화
+        concepts: [국가 제도, 협력 범위, 교역 관계, 변화의 시점]
+        textbookMaterials: [바베이도스 공화국 전환, 지역 변화에 관한 종합 활동]
+        ourData: [u0102-intra-eu-exports, '개념도:regional-dynamics-cycle-schematic']
+dataJudgement:
+  existingEnoughTopics:
+    - lesson: 1
+      topic: EU 확대와 회원국 수의 변화
+      data: [u0102-eu-accession-year, u0102-eu-membership-count]
+    - lesson: 2
+      topic: 2014년 스코틀랜드 독립 주민투표의 전국·지역 분포
+      data: [u0102-scotland-referendum-council-points, u0102-scotland-referendum-national-result]
+  newRealDataTopics:
+    - lesson: 1
+      topic: 2026년 RCEP 참여 범위
+      data: [u0102-rcep-membership-map]
+    - lesson: 2
+      topic: 2025년 스코틀랜드 의사결정 영향력 선호
+      data: [u0102-scotland-governance-preference-2025]
+    - lesson: 3
+      topic: 현재 유로 지역 회원국과 공용 화폐 도입 연도
+      data: [u0102-euro-area-accession-year]
+    - lesson: 3
+      topic: 2020년 기준 EU27_2020 고정 집계의 역내 총 재화 수출 시계열
+      data: [u0102-intra-eu-exports]
+  conceptualDiagramTopics:
+    - lesson: 2
+      topic: 정체성·역사·권한·경제 관계가 지역 요구와 변화 방식에 함께 작용하는 관계
+      data: ['개념도:regional-separation-drivers-schematic']
+    - lesson: 3
+      topic: 조건·연결·제도 변화와 지역성 및 다음 대응의 순환
+      data: ['개념도:regional-dynamics-cycle-schematic']
+  unusedExistingData:
+    - path: /data/01-02/urbanization-rate-series.json
+      source: u0102-urbanization-rate
+      reason: 이전 원고의 도시화 주제로, pp.22–33의 01-02 소절 주제와 맞지 않아 새 모듈에서 연결하지 않았다.
+    - path: /data/01-02/largest-city-urban-share-series.json
+      source: u0102-largest-city-urban-share
+      reason: 이전 원고의 대도시 인구 비중 자료로, 이 모듈에서는 사용하지 않는다.
+  lessonDataCounts:
+    - lesson: 1
+      realDataCount: 3
+      conceptualDiagramCount: 0
+      totalMaterialCount: 3
+    - lesson: 2
+      realDataCount: 3
+      conceptualDiagramCount: 1
+      totalMaterialCount: 4
+    - lesson: 3
+      realDataCount: 3
+      conceptualDiagramCount: 1
+      totalMaterialCount: 4

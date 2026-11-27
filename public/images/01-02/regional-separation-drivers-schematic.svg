@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" role="img" aria-labelledby="description">
+  <desc id="description">지역의 요구에 정체성, 역사, 권한과 대표성, 경제 관계가 함께 영향을 주며, 선택과 협상에 따라 관계의 유지·조정·자치 확대·독립과 제도 이탈로 이어질 수 있다.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6c756f"/>
+    </marker>
+  </defs>
+  <rect width="960" height="560" rx="28" fill="#f7f5ef"/>
+  <g fill="none" stroke="#6c756f" stroke-width="2.5" marker-end="url(#arrow)">
+    <path d="M230 135 C300 135 330 195 385 225"/>
+    <path d="M730 135 C660 135 630 195 575 225"/>
+    <path d="M230 300 L355 300"/>
+    <path d="M730 300 L605 300"/>
+    <path d="M480 355 C480 390 165 386 165 425"/>
+    <path d="M480 355 L480 425"/>
+    <path d="M480 355 C480 390 795 386 795 425"/>
+  </g>
+  <g font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-size="20" text-anchor="middle" fill="#24312c">
+    <rect x="60" y="82" width="220" height="104" rx="18" fill="#dce9e3" stroke="#6f9585" stroke-width="2"/>
+    <text x="170" y="143">정체성·문화</text>
+    <rect x="680" y="82" width="220" height="104" rx="18" fill="#e9e1ef" stroke="#987cab" stroke-width="2"/>
+    <text x="790" y="143">역사적 경험</text>
+    <rect x="60" y="248" width="220" height="104" rx="18" fill="#f0e4ce" stroke="#b18b52" stroke-width="2"/>
+    <text x="170" y="291"><tspan x="170">권한과</tspan><tspan x="170" dy="28">대표성</tspan></text>
+    <rect x="680" y="248" width="220" height="104" rx="18" fill="#dce7ef" stroke="#6f8fa6" stroke-width="2"/>
+    <text x="790" y="291"><tspan x="790">경제적</tspan><tspan x="790" dy="28">관계</tspan></text>
+    <rect x="340" y="207" width="280" height="148" rx="24" fill="#fff" stroke="#58746a" stroke-width="3"/>
+    <text x="480" y="268"><tspan x="480">지역의 다양한</tspan><tspan x="480" dy="30">요구와 선택</tspan></text>
+    <rect x="55" y="425" width="220" height="78" rx="16" fill="#f1eee6" stroke="#b3aa97" stroke-width="2"/>
+    <text x="165" y="472">관계 유지</text>
+    <rect x="370" y="425" width="220" height="78" rx="16" fill="#e4eee8" stroke="#78a08c" stroke-width="2"/>
+    <text x="480" y="472">권한 조정·자치 확대</text>
+    <rect x="685" y="425" width="220" height="78" rx="16" fill="#eee5e7" stroke="#ad7e89" stroke-width="2"/>
+    <text x="795" y="472">독립·제도 이탈</text>
+    <text x="480" y="535" font-size="16" fill="#59655f">배경은 서로 영향을 주며 결과는 선택과 협상에 따라 달라짐</text>
+  </g>
+</svg>

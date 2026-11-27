@@ -18,6 +18,8 @@ EU_COUNTRIES_URL = (
     "facts-and-figures-european-union_en"
 )
 EU_REUSE_URL = "https://european-union.europa.eu/legal-notice_en"
+EURO_AREA_URL = "https://www.consilium.europa.eu/en/topics/the-euro/"
+EURO_AREA_REUSE_URL = "https://www.consilium.europa.eu/en/legal-notice/"
 
 ROOT = Path(__file__).resolve().parents[3]
 OUT_DIR = ROOT / "public/data/01-02"
@@ -55,6 +57,33 @@ ACCESSION_YEAR_BY_ISO3 = {
     "SVK": 2004,
     "SVN": 2004,
     "SWE": 1995,
+}
+
+# Current euro area members and their year of euro adoption, including Bulgaria
+# from 1 January 2026. This is an institutional membership snapshot, not the
+# year the country joined the EU.
+EURO_ADOPTION_YEAR_BY_ISO3 = {
+    "AUT": 1999,
+    "BEL": 1999,
+    "BGR": 2026,
+    "CYP": 2008,
+    "DEU": 1999,
+    "ESP": 1999,
+    "EST": 2011,
+    "FIN": 1999,
+    "FRA": 1999,
+    "GRC": 2001,
+    "HRV": 2023,
+    "IRL": 1999,
+    "ITA": 1999,
+    "LTU": 2015,
+    "LUX": 1999,
+    "LVA": 2014,
+    "MLT": 2008,
+    "NLD": 1999,
+    "PRT": 1999,
+    "SVK": 2009,
+    "SVN": 2007,
 }
 
 # Annual values are membership counts at the end of each calendar year.
@@ -117,13 +146,25 @@ def build_membership_series() -> dict:
     }
 
 
+def build_euro_area_map() -> dict:
+    if len(EURO_ADOPTION_YEAR_BY_ISO3) != 21:
+        raise ValueError("Expected 21 euro area members in the 2026 snapshot")
+    return {
+        "year": SNAPSHOT_YEAR,
+        "unit": "euro adoption year",
+        "values": dict(sorted(EURO_ADOPTION_YEAR_BY_ISO3.items())),
+    }
+
+
 def build() -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     write_json(OUT_DIR / "eu-accession-year-map.json", build_accession_map())
     write_json(OUT_DIR / "eu-membership-count-series.json", build_membership_series())
+    write_json(OUT_DIR / "euro-area-accession-year-map.json", build_euro_area_map())
     print(
         f"retrievedAt={RETRIEVED_AT}; snapshotYear={SNAPSHOT_YEAR}; "
-        f"sources={EU_HISTORY_URL}, {EU_ENLARGEMENT_URL}, {EU_COUNTRIES_URL}, {EU_REUSE_URL}"
+        f"sources={EU_HISTORY_URL}, {EU_ENLARGEMENT_URL}, {EU_COUNTRIES_URL}, "
+        f"{EU_REUSE_URL}, {EURO_AREA_URL}, {EURO_AREA_REUSE_URL}"
     )
 
 

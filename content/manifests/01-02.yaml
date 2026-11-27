@@ -109,3 +109,76 @@ items:
       2025년 도시 인구 중 최대 도시 인구 비율은 대한민국 23.9%, 일본 32.5%,
       독일 5.2%, 방글라데시 42.2%다. 국가별 도시권 경계가 달라 수도권 인구
       비중과 동일한 지표로 해석하지 않는다.
+  - id: u0102-rcep-membership-map
+    path: /data/01-02/rcep-membership-map.json
+    title: RCEP 참여국 현황, 2026
+    organization: New Zealand Ministry of Foreign Affairs and Trade
+    url: https://www.mfat.govt.nz/en/trade/free-trade-agreements/free-trade-agreements-in-force/regional-comprehensive-economic-partnership-rcep/rcep-overview
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0 (MFAT website content)
+    attribution: >-
+      New Zealand Ministry of Foreign Affairs and Trade, RCEP Overview, CC BY 4.0.
+      Modified: joined the official list of 15 parties to ISO alpha-3 codes and
+      assigned member=1 or non-member=0. Singapore is retained in the data but
+      has no separate geometry in the generalized 110m base map.
+    script: scripts/data/01-02/rcep_membership.py
+    unit: 참여 여부(참여=1, 비참여=0)
+    year: 2026
+    summary: >-
+      RCEP 당사국은 15개국이다. 대한민국과 뉴질랜드는 1, 인도는 0이다.
+      기본 지도는 174개 유효 ISO3 지형을 담고, 자료는 싱가포르를 포함한
+      ISO3 값 175개를 제공한다. 싱가포르는 기본 지형에서 별도 도형으로 보이지 않는다.
+  - id: u0102-scotland-governance-preference-2025
+    path: /data/01-02/scotland-governance-preference-2025.json
+    title: 스코틀랜드 운영 영향력의 선호 주체, 2025
+    organization: Scottish Government
+    url: https://www.gov.scot/publications/scottish-social-attitudes-survey-2025-core-module/pages/5/
+    retrievedAt: '2026-11-27'
+    license: Open Government Licence v3.0
+    attribution: >-
+      Scottish Government, Scottish Social Attitudes Survey 2025: Core module,
+      Table 4, OGL v3.0. Modified: retained the four published responses to
+      who ought to have the most influence over how Scotland is run.
+    script: scripts/data/01-02/scotland_governance.py
+    unit: 응답 비율(%)
+    year: 2025
+    summary: >-
+      스코틀랜드 정부 67%, 영국 정부 16%, 지방 의회 13%, 유럽 연합 1%다.
+      표본의 비가중 기준은 1,549명이며, 설문 질문은 2014년 독립 주민투표와 다르다.
+  - id: u0102-euro-area-accession-year
+    path: /data/01-02/euro-area-accession-year-map.json
+    title: 현재 유로 지역 회원국의 공용 화폐 도입 연도
+    organization: Council of the European Union and European Council
+    url: https://www.consilium.europa.eu/en/topics/the-euro/
+    retrievedAt: '2026-11-27'
+    license: 공식 통계·자료 재사용 허가, 출처 표시 및 가공 사실 표시
+    attribution: >-
+      Council of the European Union, The euro. Modified: selected the current
+      21 euro area members and mapped each published euro introduction year to
+      ISO alpha-3 codes. Other EU members are not represented as euro area members.
+    script: scripts/data/01-02/eu_integration.py
+    unit: 유로 도입 연도
+    year: 2026
+    summary: >-
+      2026년 유로 지역 회원국은 21개국이다. 오스트리아는 1999년,
+      크로아티아는 2023년, 불가리아는 2026년 도입했다.
+  - id: u0102-intra-eu-exports
+    path: /data/01-02/intra-eu-exports-series.json
+    title: EU27_2020 집계 기준 역내 재화 수출, 2002–2025
+    organization: Eurostat
+    url: https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_lt_intratrd?format=JSON&lang=en&freq=A&indic_et=MIO_EXP_VAL&sitc06=TOTAL&partner=EU27_2020&geo=EU27_2020
+    retrievedAt: '2026-11-27'
+    license: 출처 표시 조건으로 통계 재사용 허가
+    attribution: >-
+      Eurostat, EU trade since 1988 by SITC, ext_lt_intratrd. Filtered to annual
+      total goods exports by EU27_2020 to EU27_2020, 2002–2025. The aggregate
+      represents 27 EU Member States as of 2020. Modified: shaped the API values
+      as one annual time series; values are nominal million euro.
+    script: scripts/data/01-02/eurostat_trade.py
+    unit: 백만 유로
+    year: 2025
+    summary: >-
+      연간 자료 24개를 포함한다. EU27_2020은 2020년 기준 27개국 집계다.
+      2002년 1,499,867.3백만 유로,
+      2020년 2,856,338.4백만 유로, 2025년 4,150,750.3백만 유로다.
+      명목 금액은 물가 변화를 포함하므로 실질 교역량이나 원인을 단독으로 나타내지 않는다.
