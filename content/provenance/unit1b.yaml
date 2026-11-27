@@ -1,0 +1,55 @@
+items:
+  - src: /images/01-02/opening.webp
+    prompt: |-
+      Use case: illustration-story
+      Asset type: opening illustration for a Korean high-school digital geography textbook, unit 01-02 “The dynamics of regional change”
+      Primary request: Show two neighboring everyday communities becoming more connected through a simple bridge and rail link. In one calm, continuous scene, residents cross between the two sides for ordinary daily life while a small group of neighbors gathers in a shared public courtyard to listen to one another and discuss their community. Convey regional change through everyday exchange and participation, without depicting a political meeting or conflict.
+      Scene/backdrop: A completely invented, unlocatable contemporary neighborhood on both sides of a narrow calm stream. Similar modest homes, a few trees, and a small shared green space. A plain pedestrian-and-bicycle bridge and a separate simple rail bridge connect the neighborhoods; a small unmarked train passes quietly. Both sides feel like one continuous shared place, with no boundary or barrier.
+      Subject: A few neighbors of varied skin tones, ages, genders, body types, and abilities taking part naturally. In the foreground, four or five residents sit and stand at equal eye level around a plain round table, listening and exchanging views; include one wheelchair user as an ordinary participant. A few others walk or cycle across the bridge carrying everyday bags. Ordinary individually varied contemporary clothing, no uniforms or distinctive cultural dress.
+      Style/medium: Restrained editorial textbook illustration in soft gouache and colored-pencil texture, simple readable shapes, very subtle paper grain, not photorealistic or glossy.
+      Composition/framing: Wide 3:2 landscape, one coherent panoramic neighborhood scene. The bridge and rail link are clearly visible behind the neighborhood conversation. Place the scene primarily across the lower half, with generous quiet paper-colored space above. No panel borders or decorative diagram elements.
+      Lighting/mood: Gentle diffused daylight, calm, observant, collaborative.
+      Color palette: Background near #fbf8f1; muted greens around #2f6f5e; warm off-white, light gray, and dark warm gray-brown neutrals. No saturated primary or fluorescent colors.
+      Text (verbatim): None. Absolutely no text, letters, pseudo-writing, numerals, signs, labels, logos, brands, watermarks, symbols, or readable screens anywhere. Any paper and objects must be blank and unmarked.
+      Constraints: No maps, map-like views, globes, routes, borders, flags, national symbols, political slogans, real places, landmarks, famous people, or recognizable companies. Keep the stream and bridges calm and ordinary; the two neighborhoods are adjacent places, not separated groups.
+      Avoid: Soldiers, weapons, violence, ruins, disaster, poverty, migration as spectacle, religious or cultural markers, stereotypes, exoticizing, one group represented by one costume or behavior, caricature, unsafe transport, photorealism, glossy 3D, clutter, oversaturated color, arrows, icon overlays.
+    model: 'OpenAI image_gen built-in tool (underlying model not exposed)'
+    createdAt: '2026-11-27'
+    usedIn: '01-02 opening'
+    alt: '다리와 철도로 이어진 두 동네를 오가는 주민들과 공용 공간에서 의견을 나누는 이웃들.'
+  - src: /images/01-03/opening.webp
+    prompt: |-
+      Use case: illustration-story
+      Asset type: opening illustration for a Korean high-school digital geography textbook, unit 01-03 “Geographic information and geographic information technology”
+      Primary request: Show a small group of high-school students conducting a friendly field survey of an ordinary neighborhood. They compare the real trees, path, and nearby buildings with a tablet photo they have just collected, observing carefully and discussing what they notice. Make the use of digital technology for gathering geographic information clear through the fieldwork itself, without any map.
+      Scene/backdrop: A quiet, completely invented neighborhood pocket green with a simple footpath, a few generic homes set back, shrubs and one broad leafy tree. No recognizable architecture, street layout, or location. Natural ground-level view, not aerial.
+      Subject: Three students with varied skin tones, genders, and body types in individually varied everyday casual clothes and simple unmarked backpacks; no school uniforms or badges. One student holds a plain tablet horizontally as a camera and looks at a screen showing only a small soft image of the same tree and path in front of them; two classmates look between the screen and the real place and discuss their observations. A plain blank notebook may be held closed or open with completely empty pages. Natural, engaged poses.
+      Style/medium: Restrained editorial textbook illustration in soft gouache and colored-pencil texture, simple readable shapes, very subtle paper grain, not photorealistic or glossy.
+      Composition/framing: Wide 3:2 landscape, one coherent scene, students and tablet clearly readable in the lower middle, plenty of quiet paper-colored negative space above. Keep the neighborhood simple and uncluttered.
+      Lighting/mood: Gentle diffused daylight, curious, calm, collaborative.
+      Color palette: Background near #fbf8f1; muted greens around #2f6f5e; warm off-white, light gray, and dark warm gray-brown neutrals only. No saturated primary or fluorescent colors.
+      Text (verbatim): None. Absolutely no text, letters, pseudo-writing, numerals, interface controls, signs, labels, logos, brands, watermarks, symbols, or readable screens anywhere. Tablet screen is an unmarked photograph only, with no interface. Any paper is completely blank.
+      Constraints: No maps, map-like views, maps on screens or paper, globes, routes, borders, flags, national symbols, real places, landmarks, famous people, or recognizable companies. Show the students viewing the place at ground level.
+      Avoid: Political or commercial messaging, cultural or religious markers, stereotypes, exoticizing, one group represented by one costume or behavior, poverty or disaster, unsafe fieldwork, caricature, photorealism, glossy 3D, clutter, oversaturated colors, arrows, icons, diagram overlays.
+    model: 'OpenAI image_gen built-in tool (underlying model not exposed)'
+    createdAt: '2026-11-27'
+    usedIn: '01-03 opening'
+    alt: '학생들이 태블릿에 담긴 나무 사진과 눈앞의 동네 풍경을 비교하며 현장 조사를 한다.'
+  - src: /images/01-03/geographic-data-layers.webp
+    prompt: |-
+      Use case: illustration-story
+      Asset type: concept illustration for a Korean high-school digital geography textbook, unit 01-03, combining geographic information from different sources
+      Primary request: Explain how satellite observation, drone imagery, and field survey contribute different layers of information about one geographic feature. Show three broad, softly overlapping translucent vellum layers around one recurring tree: the upper layer pairs a tiny unmarked satellite with a close observation of green treetop texture; the middle layer pairs a simple quadcopter with an oblique close view of the same tree; the lower layer shows a student researcher at ground level carefully measuring the same tree trunk with a plain measuring tape and tablet. The repeated tree and overlapping image textures clearly communicate that different sources contribute complementary information.
+      Scene/backdrop: A calm, invented green space shown only at ground level where needed. The vellum layers are abstract teaching objects floating against a quiet paper-colored background, not maps or screens. No broad scene viewed from above.
+      Subject: A small plain satellite in space-like open air near the upper observation layer, an unbranded quadcopter near the middle observation layer, and one student in ordinary contemporary clothing beside the tree at the lower layer. All equipment is plain, with no identifying marks.
+      Style/medium: Restrained editorial textbook illustration in soft gouache and colored-pencil texture, simple readable shapes, very subtle paper grain, clear educational concept art, not photorealistic or glossy.
+      Composition/framing: Wide 3:2 landscape. Three wide, gently curved translucent sheets overlap diagonally, not framed panels. Each layer contains one distinct view of the same tree: a leaf-canopy close-up, an oblique tree view, and a ground-level measurement. Keep generous paper-colored negative space; no arrows or connecting lines.
+      Lighting/mood: Gentle diffused daylight, calm, thoughtful, explanatory.
+      Color palette: Background near #fbf8f1; muted greens around #2f6f5e; warm off-white, light gray, and dark warm gray-brown neutrals only. No saturated primary or fluorescent colors.
+      Text (verbatim): None. Absolutely no text, letters, pseudo-writing, numerals, coordinates, labels, logos, brands, watermarks, symbols, grid marks, or readable screens anywhere.
+      Constraints: No maps, map-like views, aerial neighborhood views, roads or paths from above, routes, borders, boundaries, real places, landmarks, famous people, or national symbols. The canopy image is only a close-up texture, not a geographic layout.
+      Avoid: Cartographic diagrams, flat overhead landscapes, UI mockups, icons, arrows, technical clutter, stereotypes, cultural or religious markers, disaster, poverty, caricature, photorealism, glossy 3D, saturated colors.
+    model: 'OpenAI image_gen built-in tool (underlying model not exposed)'
+    createdAt: '2026-11-27'
+    usedIn: '01-03 concept illustration'
+    alt: '위성 관측, 드론 촬영, 현장 측정이 같은 나무에 관한 서로 다른 정보층을 더한다.'
