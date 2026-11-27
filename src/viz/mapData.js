@@ -18,13 +18,32 @@ export function joinValues(geojson, values = {}, below = {}, special = {}) {
   };
 }
 
-/** Quantile cut points (n classes → n-1 breaks), ignoring nulls. */
+function quantileCuts(sorted, classes) {
+  const cuts = [];
+  for (let index = 1; index < classes; index += 1) {
+    cuts.push(sorted[Math.min(sorted.length - 1, Math.floor((index * sorted.length) / classes))]);
+  }
+  return cuts;
+}
+
+/** Strictly increasing values above the minimum (MapLibre 'step' rejects repeated stops). */
+function ascendingAbove(cuts, minimum) {
+  return [...new Set(cuts)].filter((value) => value > minimum).sort((a, b) => a - b);
+}
+
+/**
+ * Quantile cut points (n classes → up to n-1 breaks), ignoring nulls. Breaks are strictly
+ * increasing. When many values tie at the minimum (e.g. zero deaths), the remaining classes
+ * are cut from the values above it so the map keeps useful detail.
+ */
 export function classBreaks(values, classes = 5) {
   const sorted = values.filter((value) => value != null && Number.isFinite(Number(value))).map(Number).sort((a, b) => a - b);
   if (!sorted.length) return [];
-  const breaks = [];
-  for (let index = 1; index < classes; index += 1) {
-    breaks.push(sorted[Math.min(sorted.length - 1, Math.floor((index * sorted.length) / classes))]);
+  const minimum = sorted[0];
+  let breaks = ascendingAbove(quantileCuts(sorted, classes), minimum);
+  if (breaks.length < classes - 2) {
+    const above = sorted.filter((value) => value > minimum);
+    if (above.length >= classes - 1) breaks = ascendingAbove([above[0], ...quantileCuts(above, classes - 1)], minimum);
   }
   return breaks;
 }

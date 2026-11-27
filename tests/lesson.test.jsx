@@ -145,6 +145,21 @@ describe('chart and map data', () => {
   });
 });
 
+describe('class breaks with many identical values', () => {
+  it('returns strictly increasing breaks so the map style stays valid', () => {
+    const values = [...Array(100).fill(0), 5, 10, 50, 100, 500, 1000, 5000, 90000];
+    const breaks = classBreaks(values, 5);
+    expect(breaks.length).toBeGreaterThanOrEqual(3);
+    breaks.forEach((value, index) => { if (index > 0) expect(value).toBeGreaterThan(breaks[index - 1]); });
+    expect(breaks[0]).toBeGreaterThan(0);
+  });
+
+  it('never repeats a break when values tie', () => {
+    const breaks = classBreaks([1, 1, 1, 1, 2, 2, 2, 3, 3, 9], 5);
+    expect(new Set(breaks).size).toBe(breaks.length);
+  });
+});
+
 describe('values below the reporting threshold', () => {
   it('marks below-threshold countries instead of treating them as missing', () => {
     const geo = { type: 'FeatureCollection', features: [{ properties: { iso_a3: 'KOR' } }, { properties: { iso_a3: 'XXX' } }] };
