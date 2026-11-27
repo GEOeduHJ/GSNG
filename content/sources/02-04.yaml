@@ -129,3 +129,53 @@ sources:
     organization: UNESCO Intangible Cultural Heritage
     url: 'https://ich.unesco.org/en/RL/ganggangsullae-00188'
     usage: 참고 링크입니다. 개별 표·이미지·데이터를 재배포하려면 제공기관의 해당 자료 이용 조건을 별도로 확인해야 합니다.
+  unesco-jongmyo:
+    sourceDate: '2008'
+    checkedAt: '2026-11-27'
+    licenseStatus: 원문 페이지 링크만 제공. UNESCO 등재 사실과 설명만 확인하며 사진·영상은 재사용하지 않음.
+    reuseBasis: '종묘 제례와 음악의 의례적 성격 및 대표목록 등재 사실을 확인하는 공식 자료.'
+    verificationStatus: 'UNESCO 공식 항목에서 서울 종묘의 유교 의례가 노래·춤·음악을 포함하며 2008년 대표목록에 등재된 사실을 확인했다.'
+    title: 'Royal ancestral ritual in the Jongmyo shrine and its music'
+    organization: UNESCO Intangible Cultural Heritage
+    url: 'https://ich.unesco.org/en/RL/00016'
+    usage: 참고 링크입니다. 개별 표·이미지·데이터를 재배포하려면 제공기관의 해당 자료 이용 조건을 별도로 확인해야 합니다.
+  unesco-french-gastronomic-meal:
+    sourceDate: '2010'
+    checkedAt: '2026-11-27'
+    licenseStatus: 원문 페이지 링크만 제공. UNESCO 등재 사실과 설명만 확인하며 사진·영상은 재사용하지 않음.
+    reuseBasis: '식사 모임과 지식 전승을 포함한 프랑스 미식 식사의 등재 정보를 확인하는 공식 자료.'
+    verificationStatus: 'UNESCO 공식 목록에서 프랑스 미식 식사의 2010년 등재 사실과 공동체적 식사 관행을 확인했다.'
+    title: 'Gastronomic meal of the French'
+    organization: UNESCO Intangible Cultural Heritage
+    url: 'https://ich.unesco.org/en/lists?RL=00437'
+    usage: 참고 링크입니다. 개별 표·이미지·데이터를 재배포하려면 제공기관의 해당 자료 이용 조건을 별도로 확인해야 합니다.
+  unesco-mexican-cuisine:
+    sourceDate: '2010'
+    checkedAt: '2026-11-27'
+    licenseStatus: 원문 페이지 링크만 제공. UNESCO 등재 사실과 설명만 확인하며 사진·영상은 재사용하지 않음.
+    reuseBasis: '농업·조리·공동체 지식이 이어지는 멕시코 전통 요리 문화의 등재 정보를 확인하는 공식 자료.'
+    verificationStatus: 'UNESCO 공식 목록에서 멕시코 전통 요리 문화의 2010년 등재 사실과 생산·조리·전승을 포괄하는 생활문화 사례임을 확인했다.'
+    title: 'Traditional Mexican cuisine - ancestral, ongoing community culture, the Michoacán paradigm'
+    organization: UNESCO Intangible Cultural Heritage
+    url: 'https://ich.unesco.org/en/lists?RL=00400'
+    usage: 참고 링크입니다. 개별 표·이미지·데이터를 재배포하려면 제공기관의 해당 자료 이용 조건을 별도로 확인해야 합니다.
+  unesco-washoku:
+    sourceDate: '2013'
+    checkedAt: '2026-11-27'
+    licenseStatus: 원문 페이지 링크만 제공. UNESCO 등재 사실과 설명만 확인하며 사진·영상은 재사용하지 않음.
+    reuseBasis: '와쇼쿠의 생산·조리·식사 지식과 공동체 전승에 관한 공식 등재 설명.'
+    verificationStatus: 'UNESCO 공식 항목에서 와쇼쿠가 식품의 생산·가공·준비·소비와 연결된 사회적 실천이며 2013년 대표목록에 등재된 사실을 확인했다.'
+    title: 'Washoku, traditional dietary cultures of the Japanese, notably for the celebration of New Year'
+    organization: UNESCO Intangible Cultural Heritage
+    url: 'https://ich.unesco.org/en/RL/washoku-traditional-dietary-cultures-of-the-japanese-notably-for-the-new-year-00869'
+    usage: 참고 링크입니다. 개별 표·이미지·데이터를 재배포하려면 제공기관의 해당 자료 이용 조건을 별도로 확인해야 합니다.
+  unesco-kimjang:
+    sourceDate: '2013'
+    checkedAt: '2026-11-27'
+    licenseStatus: 원문 페이지 링크만 제공. UNESCO 등재 사실과 설명만 확인하며 사진·영상은 재사용하지 않음.
+    reuseBasis: '김장 공동 실천과 계절성, 가족·이웃 간 전승에 관한 공식 등재 설명.'
+    verificationStatus: 'UNESCO 공식 항목에서 김장의 2013년 대표목록 등재 사실과 공동체가 만들고 나누는 실천임을 확인했다.'
+    title: 'Kimjang, making and sharing kimchi in the Republic of Korea'
+    organization: UNESCO Intangible Cultural Heritage
+    url: 'https://ich.unesco.org/en/RL/kimjang-making-and-sharing-kimchi-in-the-republic-of-korea-00881'
+    usage: 참고 링크입니다. 개별 표·이미지·데이터를 재배포하려면 제공기관의 해당 자료 이용 조건을 별도로 확인해야 합니다.

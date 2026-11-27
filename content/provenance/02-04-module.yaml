@@ -1,0 +1,33 @@
+items:
+  - src: /images/02-04/food-culture-factors.svg
+    prompt: >-
+      손으로 작성한 독자 SVG 개념도. 자연환경, 역사·종교·사회,
+      생산·교류·기술이 공동체의 선택을 거쳐 재료·조리·식사 관습에
+      영향을 주고, 지역의 재해석이 다시 음식 문화를 바꾸는 관계를 표현했다.
+      실제 수치나 특정 집단의 단일한 식문화를 나타내지 않는다.
+    model: 'Codex; hand-authored SVG'
+    createdAt: '2026-11-27'
+    usedIn: '02-04 lesson 1, 음식 문화의 형성과 변화'
+    alt: 자연환경과 사회적 요인, 교류가 공동체의 선택을 거쳐 음식 문화의 여러 모습에 영향을 주는 흐름.
+    basis: 'FAO, Agro-ecological zoning; FAO, The ABCs of healthy diets; content/concepts.yaml food-culture and glocalization.'
+  - src: /images/02-04/festival-place-factors.svg
+    prompt: >-
+      손으로 작성한 독자 SVG 개념도. 자연환경·계절, 역사·믿음·기억,
+      생업·특산물이 공동체 축제와 의례의 배경이 되고, 전승·지역 활력·생활과
+      경관 변화가 함께 나타날 수 있음을 표현했다. 영향은 지역 주민의 참여,
+      결정권, 이익과 부담의 분배를 통해 살펴보도록 구성했다.
+    model: 'Codex; hand-authored SVG'
+    createdAt: '2026-11-27'
+    usedIn: '02-04 lesson 2, 축제의 장소와 영향'
+    alt: 자연환경과 계절, 역사와 믿음, 생업과 특산물이 공동체 축제에 연결되고 지역사회에 여러 영향을 주는 흐름.
+    basis: 'UNESCO Intangible Cultural Heritage, Representative List entries for Gangneung Danoje, Jongmyo ritual, Mangal Shobhajatra, Saint Blaise, El Callao and Argungu.'
+  - src: /images/02-04/community-led-safeguarding.svg
+    prompt: >-
+      손으로 작성한 독자 SVG 개념도. 공동체의 동의와 참여를 바탕으로 문화 실천을
+      기록·연구하고, 배움과 전승, 공동체의 선택과 재창조가 생활의 변화 속에서
+      이어지는 보존 과정을 표현했다. 등재와 기록을 보존의 완료로 나타내지 않았다.
+    model: 'Codex; hand-authored SVG'
+    createdAt: '2026-11-27'
+    usedIn: '02-04 lesson 3, 문화 다양성 보존'
+    alt: 공동체의 동의와 참여를 바탕으로 기록, 배움과 전승, 재창조가 이어지는 무형문화유산 보존 과정.
+    basis: 'UNESCO, Convention for the Safeguarding of the Intangible Cultural Heritage, Articles 2, 14 and 15.'

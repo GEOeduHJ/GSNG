@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" role="img" aria-label="자연환경과 사회적 요인, 교류가 공동체의 선택을 거쳐 음식 문화의 여러 모습에 영향을 주는 흐름">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#42627a"/>
+    </marker>
+    <style>
+      text { font-family: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif; fill: #20313e; }
+      .box { stroke: #42627a; stroke-width: 2; rx: 14; }
+      .flow { stroke: #42627a; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .main { font-size: 21px; font-weight: 700; }
+      .detail { font-size: 17px; }
+    </style>
+  </defs>
+  <rect x="36" y="40" width="276" height="106" class="box" fill="#e8f1f5"/>
+  <text x="174" y="78" text-anchor="middle" class="main">자연환경</text>
+  <text x="174" y="112" text-anchor="middle" class="detail">기후 · 지형 · 토양</text>
+
+  <rect x="362" y="40" width="276" height="106" class="box" fill="#f5eddf"/>
+  <text x="500" y="78" text-anchor="middle" class="main">역사 · 종교 · 사회</text>
+  <text x="500" y="112" text-anchor="middle" class="detail">믿음 · 기억 · 생활 관습</text>
+
+  <rect x="688" y="40" width="276" height="106" class="box" fill="#e7f2e9"/>
+  <text x="826" y="78" text-anchor="middle" class="main">생산 · 교류 · 기술</text>
+  <text x="826" y="112" text-anchor="middle" class="detail">재료와 지식의 이동</text>
+
+  <path d="M174 148 L174 188 L410 220" class="flow"/>
+  <path d="M500 148 L500 184" class="flow"/>
+  <path d="M826 148 L826 188 L590 220" class="flow"/>
+
+  <rect x="325" y="210" width="350" height="76" class="box" fill="#fff5d9"/>
+  <text x="500" y="257" text-anchor="middle" class="main">공동체의 선택과 실천</text>
+
+  <path d="M500 288 L500 330" class="flow"/>
+  <rect x="250" y="336" width="500" height="74" class="box" fill="#f1eaf4"/>
+  <text x="500" y="382" text-anchor="middle" class="main">재료 · 조리 방식 · 식사 관습</text>
+
+  <path d="M750 373 C850 373 880 323 770 274" class="flow"/>
+  <text x="851" y="331" text-anchor="middle" class="detail">지역에 맞게 바꾸고 이어 감</text>
+</svg>

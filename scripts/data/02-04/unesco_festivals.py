@@ -43,7 +43,7 @@ FESTIVALS = [
         "place": "종묘, 서울",
         "geonames_id": 6800593,
         "coordinates": [126.99387, 37.57492],
-        "unesco_url": "https://ich.unesco.org/en/RL/cultural-space-of-jemaa-el-fna-square-00016",
+        "unesco_url": "https://ich.unesco.org/en/RL/00016",
     },
     {
         "name": "푸동·속 사원의 지옹 축제",
@@ -188,6 +188,29 @@ MEDITERRANEAN_DIET_COUNTRIES = {
 }
 MEDITERRANEAN_DIET_URL = "https://ich.unesco.org/en/RL/mediterranean-diet-00884"
 
+# These are four selected national entries, not a complete inventory of food heritage.
+NATIONAL_FOOD_PRACTICES = {
+    "FRA": "프랑스 미식 식사",
+    "MEX": "멕시코 전통 요리 문화",
+    "JPN": "와쇼쿠",
+    "KOR": "김장 문화",
+}
+
+# One primary teaching theme is assigned to each example. UNESCO does not use these
+# categories, and the categories do not claim that a festival has only one meaning.
+FESTIVAL_THEMES = [
+    {
+        "name": "계절·달력",
+        "elements": ["강릉단오제", "파헬라 바이샤흐의 망갈 쇼바자트라"],
+    },
+    {
+        "name": "종교·의례",
+        "elements": ["종묘제례 및 종묘제례악", "두브로브니크의 성 블라시오 축제"],
+    },
+    {"name": "역사·공동체 기억", "elements": ["엘 칼라오 카니발"]},
+    {"name": "생업·환경", "elements": ["아르군구 국제 낚시·문화 축제"]},
+]
+
 
 def write_json(path: Path, payload: dict, compact: bool = False) -> None:
     if compact:
@@ -255,16 +278,69 @@ def build_mediterranean_map() -> None:
     )
 
 
+def build_national_food_practices_map() -> None:
+    base = json.loads(BASE_COUNTRIES.read_text(encoding="utf-8"))
+    iso3s = sorted(
+        feature["properties"]["iso_a3"]
+        for feature in base["features"]
+        if feature["properties"].get("iso_a3")
+    )
+    missing = sorted(set(NATIONAL_FOOD_PRACTICES) - set(iso3s))
+    if missing:
+        raise ValueError(f"Selected UNESCO food-practice countries missing from base map: {missing}")
+    write_json(
+        OUT_DIR / "unesco-national-food-practices-map.json",
+        {
+            "year": None,
+            "period": "2010–2013년 등재 사례",
+            "unit": "선정한 음식 문화 종목의 등재 국가이면 1, 그 밖의 지도 코드는 null",
+            "values": {
+                iso3: 1 if iso3 in NATIONAL_FOOD_PRACTICES else None
+                for iso3 in iso3s
+            },
+        },
+    )
+
+
+def build_festival_theme_counts() -> None:
+    festival_names = {festival["name"] for festival in FESTIVALS}
+    selected_names = {
+        name for theme in FESTIVAL_THEMES for name in theme["elements"]
+    }
+    missing = sorted(selected_names - festival_names)
+    if missing:
+        raise ValueError(f"Festival themes reference unknown items: {missing}")
+    if len(selected_names) != 6:
+        raise ValueError(f"Expected six selected festival items, got {len(selected_names)}")
+    write_json(
+        OUT_DIR / "festival-theme-counts.json",
+        {
+            "year": None,
+            "unit": "개 (선정한 축제·의례 6종목의 중심 주제 분류)",
+            "rows": [
+                {"name": theme["name"], "value": len(theme["elements"])}
+                for theme in FESTIVAL_THEMES
+            ],
+        },
+    )
+
+
 def main() -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     if len(FESTIVALS) != 15:
         raise RuntimeError(f"Expected 15 curated festival/ritual items, got {len(FESTIVALS)}")
     build_festival_points()
     build_mediterranean_map()
+    build_national_food_practices_map()
+    build_festival_theme_counts()
     print(f"Retrieved at: {RETRIEVED_AT}")
     print(f"Built {len(FESTIVALS)} UNESCO festival/ritual points.")
     print("Selected-item counts by inscription year:", dict(sorted(Counter(f['inscribed'] for f in FESTIVALS).items())))
     print(f"Mediterranean diet joint inscription countries: {', '.join(MEDITERRANEAN_DIET_COUNTRIES)}")
+    print(f"Selected national food-practice countries: {', '.join(NATIONAL_FOOD_PRACTICES)}")
+    print("Selected festival primary-theme counts:", {row["name"]: row["value"] for row in [
+        {"name": theme["name"], "value": len(theme["elements"])} for theme in FESTIVAL_THEMES
+    ]})
     print(f"GeoNames license: {GEONAMES_LICENSE_URL}")
     print(f"UNESCO use conditions: {UNESCO_TERMS_URL}")
 

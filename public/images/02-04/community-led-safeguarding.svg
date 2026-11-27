@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" role="img" aria-label="공동체의 동의와 참여를 바탕으로 기록, 배움과 전승, 재창조가 이어지는 무형문화유산 보존 과정">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#42627a"/>
+    </marker>
+    <style>
+      text { font-family: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif; fill: #20313e; }
+      .box { stroke: #42627a; stroke-width: 2; rx: 16; }
+      .flow { stroke: #42627a; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .main { font-size: 20px; font-weight: 700; }
+      .detail { font-size: 16px; }
+    </style>
+  </defs>
+  <rect x="52" y="76" width="255" height="104" class="box" fill="#e8f1f5"/>
+  <text x="179" y="119" text-anchor="middle" class="main">공동체의 문화 실천</text>
+  <text x="179" y="151" text-anchor="middle" class="detail">지식 · 표현 · 생활 방식</text>
+
+  <rect x="372" y="76" width="255" height="104" class="box" fill="#f5eddf"/>
+  <text x="499" y="119" text-anchor="middle" class="main">기록과 연구</text>
+  <text x="499" y="151" text-anchor="middle" class="detail">동의와 맥락을 담기</text>
+
+  <rect x="692" y="76" width="255" height="104" class="box" fill="#e7f2e9"/>
+  <text x="819" y="119" text-anchor="middle" class="main">배움과 전승</text>
+  <text x="819" y="151" text-anchor="middle" class="detail">세대와 이웃이 함께 익힘</text>
+
+  <path d="M309 128 L363 128" class="flow"/>
+  <path d="M629 128 L683 128" class="flow"/>
+  <path d="M819 184 C819 310 180 310 180 190" class="flow"/>
+
+  <rect x="295" y="258" width="410" height="86" class="box" fill="#fff5d9"/>
+  <text x="500" y="294" text-anchor="middle" class="main">공동체의 선택과 재창조</text>
+  <text x="500" y="323" text-anchor="middle" class="detail">생활의 변화 속에서 이어 가기</text>
+  <path d="M819 184 C819 223 757 257 715 274" class="flow"/>
+  <path d="M295 301 C244 301 205 256 188 190" class="flow"/>
+
+  <rect x="245" y="389" width="510" height="58" class="box" fill="#f1eaf4"/>
+  <text x="500" y="425" text-anchor="middle" class="main">동의 · 참여 · 결정권 · 공정한 이익과 부담</text>
+  <path d="M500 346 L500 381" class="flow"/>
+</svg>

@@ -96,3 +96,39 @@ items:
     unit: countries
     year: 2013
     summary: 2013년 지중해 식생활 종목에 공동 등재된 7개국을 ISO3 코드 및 한국어 이름으로 제시한다.
+  - id: festival-theme-counts
+    path: /data/02-04/festival-theme-counts.json
+    title: 선정한 축제·의례 6종목의 중심 주제
+    organization: UNESCO Intangible Cultural Heritage; thematic classification by the author
+    url: https://ich.unesco.org/en/lists
+    relatedUrls:
+      - https://ich.unesco.org/en/RL/gangneung-danoje-festival-00114
+      - https://ich.unesco.org/en/RL/00016
+      - https://ich.unesco.org/en/RL/mangal-shobhajatra-on-pahela-baishakh-01091
+      - https://ich.unesco.org/en/RL/festivity-of-saint-blaise-the-patron-of-dubrovnik-00232
+      - https://ich.unesco.org/en/RL/carnival-of-el-callao-a-festive-representation-of-a-memory-and-cultural-identity-01198
+      - https://ich.unesco.org/en/RL/argungu-international-fishing-and-cultural-festival-00901
+    retrievedAt: '2026-11-27'
+    license: UNESCO listing facts only; no page text or media reproduced; theme labels are an editorial classification
+    attribution: 'UNESCO Intangible Cultural Heritage, selected Representative List facts; accessed 2026-11-27. Theme categories are an editorial classification.'
+    script: scripts/data/02-04/unesco_festivals.py
+    unit: '개 (선정한 축제·의례 6종목의 중심 주제 분류)'
+    year: null
+    summary: 계절·달력 2개, 종교·의례 2개, 역사·공동체 기억 1개, 생업·환경 1개 사례를 집계했다. UNESCO 공식 분류나 전체 목록 통계가 아니다.
+  - id: unesco-national-food-practices-map
+    path: /data/02-04/unesco-national-food-practices-map.json
+    title: 선정한 국가별 유네스코 음식 문화 등재 사례
+    organization: UNESCO Intangible Cultural Heritage
+    url: https://ich.unesco.org/en/lists?term%5B%5D=vocabulary_thesaurus-10
+    relatedUrls:
+      - https://ich.unesco.org/en/lists?RL=00437
+      - https://ich.unesco.org/en/lists?RL=00400
+      - https://ich.unesco.org/en/RL/washoku-traditional-dietary-cultures-of-the-japanese-notably-for-the-new-year-00869
+      - https://ich.unesco.org/en/RL/kimjang-making-and-sharing-kimchi-in-the-republic-of-korea-00881
+    retrievedAt: '2026-11-27'
+    license: UNESCO listing facts only; no page text or media reproduced
+    attribution: 'UNESCO Intangible Cultural Heritage, selected Representative List facts; accessed 2026-11-27.'
+    script: scripts/data/02-04/unesco_festivals.py
+    unit: '선정한 종목의 등재 국가이면 1, 표본에 포함되지 않은 지도 국가는 null'
+    year: null
+    summary: 프랑스·멕시코·일본·대한민국의 국가별 음식 문화 종목 4개를 선택해 표시했다. 다른 국가의 null은 해당 국가에 음식 문화 유산이 없다는 뜻이 아니라 이 자료가 네 사례만 선정했음을 나타낸다.

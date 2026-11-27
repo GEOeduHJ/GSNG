@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" role="img" aria-label="자연환경과 계절, 역사와 믿음, 생업과 특산물이 공동체 축제에 연결되고 지역사회에 여러 영향을 주는 흐름">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#42627a"/>
+    </marker>
+    <style>
+      text { font-family: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif; fill: #20313e; }
+      .box { stroke: #42627a; stroke-width: 2; rx: 14; }
+      .flow { stroke: #42627a; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .main { font-size: 20px; font-weight: 700; }
+      .detail { font-size: 16px; }
+    </style>
+  </defs>
+  <rect x="34" y="42" width="278" height="106" class="box" fill="#e8f1f5"/>
+  <text x="173" y="80" text-anchor="middle" class="main">자연환경 · 계절</text>
+  <text x="173" y="115" text-anchor="middle" class="detail">날씨 · 농사 · 계절의 변화</text>
+
+  <rect x="361" y="42" width="278" height="106" class="box" fill="#f5eddf"/>
+  <text x="500" y="80" text-anchor="middle" class="main">역사 · 믿음 · 기억</text>
+  <text x="500" y="115" text-anchor="middle" class="detail">의례 · 공동체의 경험</text>
+
+  <rect x="688" y="42" width="278" height="106" class="box" fill="#e7f2e9"/>
+  <text x="827" y="80" text-anchor="middle" class="main">생업 · 특산물</text>
+  <text x="827" y="115" text-anchor="middle" class="detail">일과 지역의 자원</text>
+
+  <path d="M173 150 L173 190 L400 222" class="flow"/>
+  <path d="M500 150 L500 214" class="flow"/>
+  <path d="M827 150 L827 190 L600 222" class="flow"/>
+
+  <rect x="314" y="218" width="372" height="78" class="box" fill="#fff5d9"/>
+  <text x="500" y="266" text-anchor="middle" class="main">공동체가 이어 가는 축제 · 의례</text>
+
+  <path d="M500 298 L500 333 L170 333 L170 354" class="flow"/>
+  <path d="M500 333 L500 354" class="flow"/>
+  <path d="M500 333 L830 333 L830 354" class="flow"/>
+
+  <rect x="42" y="360" width="256" height="74" class="box" fill="#e7f2e9"/>
+  <text x="170" y="391" text-anchor="middle" class="main">전승 · 공동체 결속</text>
+  <text x="170" y="418" text-anchor="middle" class="detail">지역의 기억을 나눔</text>
+
+  <rect x="372" y="360" width="256" height="74" class="box" fill="#e8f1f5"/>
+  <text x="500" y="391" text-anchor="middle" class="main">지역의 활력</text>
+  <text x="500" y="418" text-anchor="middle" class="detail">방문과 교류의 기회</text>
+
+  <rect x="702" y="360" width="256" height="74" class="box" fill="#f5eddf"/>
+  <text x="830" y="391" text-anchor="middle" class="main">생활과 경관의 변화</text>
+  <text x="830" y="418" text-anchor="middle" class="detail">이익과 부담을 함께 살핌</text>
+
+  <rect x="306" y="452" width="388" height="38" class="box" fill="#f1eaf4"/>
+  <text x="500" y="478" text-anchor="middle" class="detail">지역 주민의 참여와 결정권</text>
+</svg>

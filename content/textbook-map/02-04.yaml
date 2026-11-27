@@ -1,0 +1,92 @@
+unit: '02-04'
+lessons:
+  - index: 1
+    textbookPages: [106, 109]
+    goalGist: 자연환경과 인문환경, 교류가 음식 문화의 차이와 변화에 미치는 영향을 설명한다.
+    topics:
+      - title: 음식 문화와 자연적 요인
+        concepts: [기후·지형·토양, 재료의 생산 조건, 조리 기술, 음식 문화]
+        textbookMaterials: [기후와 지형에 따른 음식 사례, 지역별 음식 자료]
+        ourData: [staple-rice-share-map, staple-wheat-share-map, food-culture-factors-schematic]
+      - title: 음식 문화와 인문적 요인
+        concepts: [종교, 역사, 사회·경제적 배경, 공동체의 선택]
+        textbookMaterials: [종교와 음식 사례, 인접 지역의 음식 비교, 역사적 배경 사례]
+        ourData: [staple-wheat-share-map, staple-share-comparison]
+      - title: 세계화의 영향
+        concepts: [문화 전파, 음식 문화의 융합, 세계지역화]
+        textbookMaterials: [음식 문화의 세계화 사례, 현지화 사례]
+        ourData: [staple-share-comparison, food-culture-factors-schematic]
+  - index: 2
+    textbookPages: [110, 115]
+    goalGist: 자연환경과 인문환경, 지역의 특산물에 기반한 축제를 사례로 파악한다.
+    topics:
+      - title: 축제의 의미와 영향
+        concepts: [지역 문화, 공동체의 가치, 지역 홍보, 지역 경제, 문화·자연경관의 변화]
+        textbookMaterials: [축제가 지역에 미치는 긍정적·부정적 영향 사례]
+        ourData: [festival-place-factors-schematic, festival-theme-counts]
+      - title: 자연환경을 활용한 세계적 축제
+        concepts: [계절, 기후, 낮 길이, 자연환경과 축제 시기]
+        textbookMaterials: [하지·백야·물·눈을 활용한 축제 사례]
+        ourData: [festival-rituals-points, festival-theme-counts]
+      - title: 인문환경을 활용한 세계적 축제
+        concepts: [종교, 전통, 역사 기억, 생업, 공동체 정체성]
+        textbookMaterials: [종교·민속·역사와 연결된 축제 사례]
+        ourData: [festival-rituals-points, festival-theme-counts]
+      - title: 특산물을 활용한 세계적 축제
+        concepts: [지역 자원, 특산물, 지역 홍보, 관광과 지역 경제]
+        textbookMaterials: [특산물을 지역 상징으로 활용한 축제 사례]
+        ourData: [festival-place-factors-schematic, festival-rituals-points]
+  - index: 3
+    textbookPages: [116, 118]
+    goalGist: 국제기구와 지역 공동체의 노력을 살펴 문화 다양성을 보존할 방안을 제안한다.
+    topics:
+      - title: 세계의 문화 보존을 위한 국제적인 노력
+        concepts: [무형문화유산, 국제적 인정, 기록과 교육, 공동체 참여]
+        textbookMaterials: [유네스코와 음식·축제 문화유산 사례]
+        ourData: [mediterranean-diet-countries-map, unesco-national-food-practices-map, festival-rituals-points]
+      - title: 세계화 요소를 받아들이며 지역 문화의 다양성을 지키는 방법
+        concepts: [문화 다양성, 세계지역화, 전승과 변화, 공동체의 결정권]
+        textbookMaterials: [음식 문화의 현지화·융합 사례, 문화 다양성 보존을 위한 실천 과제]
+        ourData: [unesco-national-food-practices-map, festival-place-factors-schematic]
+
+dataJudgement:
+  existingEnoughTopics:
+    - lesson: 1
+      topic: 국가별 식품 공급 열량 구성과 작물 비중 비교
+      data: [staple-rice-share-map, staple-wheat-share-map, staple-share-comparison]
+    - lesson: 2
+      topic: 선정한 유네스코 축제·의례의 대표 장소와 등재 연도
+      data: [festival-rituals-points, festival-inscribed-years]
+    - lesson: 3
+      topic: 지중해 식생활의 다국적 공동 등재와 축제·의례 대표 장소
+      data: [mediterranean-diet-countries-map, festival-rituals-points]
+  newRealDataTopics:
+    - lesson: 2
+      topic: 공식 설명을 바탕으로 선정한 축제·의례 사례의 중심 배경 분류
+      data: [festival-theme-counts]
+    - lesson: 3
+      topic: 선정한 국가별 음식 문화 유산 등재 사례
+      data: [unesco-national-food-practices-map]
+  conceptualDiagramTopics:
+    - lesson: 1
+      topic: 자연환경·인문환경·교류와 공동체 선택이 음식 문화에 미치는 관계
+      data: [food-culture-factors-schematic]
+    - lesson: 2
+      topic: 장소 조건과 공동체 참여가 축제 및 지역사회에 미치는 관계
+      data: [festival-place-factors-schematic]
+    - lesson: 3
+      topic: 공동체의 동의·참여에 기반한 기록·전승·재창조 과정
+      data: [community-led-safeguarding-schematic]
+  lessonDataCounts:
+    - lesson: 1
+      realDataCount: 3
+      conceptualDiagramCount: 1
+      totalMaterialCount: 4
+    - lesson: 2
+      realDataCount: 3
+      conceptualDiagramCount: 1
+      totalMaterialCount: 4
+    - lesson: 3
+      realDataCount: 3
+      conceptualDiagramCount: 1
+      totalMaterialCount: 4
