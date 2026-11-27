@@ -1,52 +1,93 @@
 ---
-title: '세계 곳곳에서 분쟁은 왜 일어날까?'
-goal: 분쟁에 얽힌 여러 요인을 구분하고 사망자 지도와 무력 분쟁 시계열이 보여 주는 범위를 근거로 설명할 수 있다.
+title: '분쟁의 유형과 지정학적 분쟁'
+goal: 분쟁의 유형과 복합적 원인을 설명하고, 서남아시아·시리아·우크라이나 사례에서 지정학적 조건과 갈등의 전개를 파악할 수 있다.
+opener: 냉전이 끝난 뒤에도 분쟁이 이어지는 지역에는 어떤 원인과 지리적 조건이 겹쳐 있을까?
+textbookRef: { pages: [202, 205] }
 steps:
-  - { id: s1, type: text, caption: '', source: '', alt: '' }
-  - id: s2
+  - id: d1
+    type: image
+    schematic: true
+    data: /images/04-03/conflict-factors-schematic.svg
+    label: 분쟁 요인의 상호작용 개념도
+    caption: 여러 갈등 요인이 맞물리는 과정
+    source: ''
+    alt: 권력과 정치 참여, 영토와 경계, 자원과 생계, 정체성과 대표성, 환경과 경제 여건, 국제 관계가 상호작용하는 개념도다.
+    config: {}
+    concepts: [geopolitics, geopolitical-conflict]
+  - id: d2
+    type: chart
+    data: /data/04-03/armed-conflict-types-series-1946-2025.json
+    label: 국가기반 무력 분쟁 유형별 수
+    caption: UCDP 유형별 국가기반 무력 분쟁 수, 1946–2025년
+    source: u0403-armed-conflict-types-series
+    alt: 1946년부터 2025년까지 국가 외부, 국가 간, 국내, 국제화된 국내 무력 분쟁 수를 유형별 선으로 나타낸 그래프다.
+    config: { kind: line, unit: '건' }
+    concepts: [geopolitical-conflict]
+  - id: d3
     type: map
     data: /data/04-03/organized-violence-deaths-country-2025.json
+    label: 조직적 폭력 관련 사망 추정
+    caption: 국가별 조직적 폭력 관련 사망 추정치와 이스라엘·팔레스타인 지역 별도 집계, 2025년
     source: u0403-organized-violence-deaths-2025
-    caption: 국가별 조직적 폭력 관련 사망자 수 추정, 2025년
-    alt: 2025년 국가별 조직적 폭력 관련 사망자 수 추정치를 색으로 나타낸 지도다.
-    config: { kind: choropleth }
+    alt: 2025년 국가별 조직적 폭력 관련 사망 추정치를 색으로 나타내며, UCDP의 이스라엘·팔레스타인 지역 합산값은 별도 영역으로 표시한다.
+    config: { kind: choropleth, unit: '명' }
     concepts: [geopolitical-conflict, geopolitics]
-  - id: s3
+  - id: d4
     type: chart
     data: /data/04-03/armed-conflict-count-series-1946-2025.json
-    source: u0403-armed-conflict-count-series
+    label: 국가기반 무력 분쟁의 연도별 수
     caption: 세계 국가기반 무력 분쟁 수, 1946–2025년
-    alt: 국가 정부가 당사자인 무력 분쟁 수를 1946년부터 2025년까지 연도별 선으로 나타낸 그래프다.
-    config: { kind: line }
-    concepts: [geopolitical-conflict, geopolitics]
-  - { id: s4, type: text, caption: '', source: '', alt: '' }
-  - { id: s5, type: text, caption: '', source: '', alt: '' }
-keyTerms: [geopolitics, geopolitical-conflict]
+    source: u0403-armed-conflict-count-series
+    alt: 한 당사자가 국가 정부인 무력 분쟁의 연도별 고유 기록 수를 선으로 나타낸 그래프다.
+    config: { kind: line, unit: '건' }
+    concepts: [geopolitical-conflict]
+summary:
+  - 냉전 이후에도 내전형 분쟁, 국가 간 분쟁, 국제화된 내전이 이어졌다.
+  - 권력과 정치 참여, 정체성, 분리주의, 종교·종파, 영토, 자원, 국가 간 경쟁이 복합적으로 작용한다.
+  - 서남아시아의 교통로·자원, 시리아 내전의 외부 개입, 우크라이나의 영토 문제는 지정학적 갈등의 사례다.
+  - 전쟁은 민간인의 권리와 생활 기반을 훼손하고 교육·생산·국가 발전을 중단시키거나 늦춘다.
 activity:
   template: evidence-sort
   fictional: false
   config:
-    title: 기관 자료에 나타난 분쟁 맥락 분류
-    instruction: 각 문장은 유엔 또는 유엔 임무의 공식 설명을 요약했다. 문장에 직접 드러난 요인에 연결하고, 분류가 한 사례의 단일 원인을 뜻하지 않음을 고려한다.
-    prompt: 각 설명을 가장 가까운 요인에 분류하고, 한 사례에서 다른 요인도 함께 작용할 수 있는 까닭을 적으시오.
+    title: 분쟁 자료에서 사실과 해석 구분하기
+    instruction: 요인 개념도와 UCDP 유형·피해 자료에서 직접 확인한 내용, 개념을 적용한 해석, 추가로 필요한 지역 근거를 나눈다.
+    prompt: 자료가 뒷받침하는 설명을 분류하고, 분쟁의 원인과 책임을 설명하려면 어떤 지역 자료를 더 살펴야 하는지 적으시오.
     items:
-      - { id: resource-competition, text: 유엔은 자원 경쟁을 분쟁 위험과 연결되는 요인 가운데 하나로 설명한다. }
-      - { id: community-identity, text: 유엔 키프로스 평화유지군(UNFICYP)의 공식 설명은 키프로스에서 그리스계 키프로스 공동체와 튀르키예계 키프로스 공동체 사이의 추가 충돌을 막기 위해 임무가 설치되었다고 밝힌다. }
-      - { id: territory-relations, text: 유엔 골란 고원 관측군(UNDOF)의 공식 설명은 골란 지역에서 이스라엘군과 시리아군의 분리 합의 뒤 임무가 설치되었다고 밝힌다. }
-      - { id: political-exclusion, text: 유엔 평화 구축 지침은 제도적 차별·배제·주변화를 분쟁의 근본 요인으로 다루도록 안내한다. }
+      - { id: type-pattern, text: 유형별 그래프에서 한 해에 여러 유형의 국가기반 무력 분쟁 기록을 확인할 수 있다. }
+      - { id: impact, text: 국가별 사망 추정치는 기록된 피해의 공간적 차이를 비교하는 근거가 된다. }
+      - { id: factors, text: 자원·영토·정치 참여·국제 관계는 한 지역에서 서로 연결될 수 있다. }
+      - { id: attribution, text: 사망 규모만으로 분쟁의 원인이나 책임을 확정할 수 있다. }
     categories:
-      - { id: resources, label: 자원·경제 }
-      - { id: identity, label: 집단 정체성 }
-      - { id: territory-relations, label: 영토·국제 관계 }
-      - { id: political-exclusion, label: 정치·경제적 배제 }
-sourceIds: [ucdp, un-peace-security-prevention, unficyp-factsheet, undof-factsheet, un-sustaining-peace-2017]
+      - { id: direct-evidence, label: 자료에서 직접 확인한 사실 }
+      - { id: interpretation, label: 개념을 적용한 해석 }
+      - { id: more-evidence, label: 지역 자료를 더 살펴야 하는 설명 }
+      - { id: unsupported, label: 이 자료만으로 뒷받침되지 않는 주장 }
+keyTerms: [geopolitics, geopolitical-conflict]
+sourceIds: [ucdp-data-download-center, un-peace-security-prevention, un-sustaining-peace-2017, un-syria-commission-inquiry, fao-syria-drought-2009, undrr-syria-drought-case-study, un-unga-ukraine-68-262, un-unga-ukraine-71-205, un-unga-ukraine-es-11-1]
 ---
-geopolitical conflict(지정학적 분쟁)는 영토·자원·경계·권력 등을 둘러싼 이해가 국제 정세와 얽혀 나타날 수 있다. 자원 접근, 정치·경제적 기회, 집단 정체성, 국가 간 관계 등 여러 조건이 함께 작용한다. 지정학은 장소와 권력의 관계를 살펴 이러한 맥락을 설명하는 관점이다.
+## 분쟁의 유형과 복합적 원인
 
-2025년 지도는 국가 경계 안에서 기록된 조직적 폭력 관련 사망자의 추정치를 보여 준다. 우크라이나는 약 9만 명, 수단은 약 7만 5천 명으로 나타난다. 이 값은 전투 사망만을 세지 않은 웁살라 분쟁자료 프로그램(UCDP)의 가장 적절한 추정치다. 이스라엘·팔레스타인 지역은 UCDP의 단일 집계 단위로 별도 표시한다.
+냉전이 끝난 뒤에도 세계 여러 지역에서 무력 분쟁이 이어졌다. 내전형 분쟁은 한 국가의 정부와 그 국가 안의 반대 세력이 맞서는 갈등이고, 국가 간 분쟁은 두 국가 정부가 서로 무력을 사용하는 갈등이다. 국제화된 내전은 국내 당사자 사이의 갈등에 외국 정부군이 개입한 경우다. 국가 외부 분쟁은 국가 정부가 자국 영토 밖의 비국가 집단과 맞서는 유형이다. 유형별 기록에서 냉전 이후에도 이어진 분쟁과 유형별 변화 시기를 찾아보자. [[d2]]
 
-국가기반 무력 분쟁은 적어도 한 당사자가 국가 정부인 분쟁을 가리킨다. 시계열에서 1946년은 17건, 2000년은 40건, 2025년은 65건이다. 각 연도에 활동한 고유 분쟁 ID의 수이므로 당사자 수나 사망자 수와 구분해 읽는다.
+분쟁에는 권력과 정치 참여를 둘러싼 갈등, 민족 갈등과 분리주의, 종교·종파 갈등, 영토 분쟁, 석유·물·광물 같은 자원 경쟁, 국가 간 세력 경쟁이 함께 작용할 수 있다. 시리아와 우크라이나처럼 정치적 대표성, 영토, 자원, 주변국 관계가 한 지역에서 겹치는 사례도 있다. 개념도에서 권력·경계·자원·정체성·환경·국제 관계가 연결되는 모습을 찾아보자. [[d1]]
 
-기관 자료는 분쟁의 맥락을 서로 다른 각도에서 설명한다. 자원 경쟁, 공동체 사이의 긴장, 영토와 국가 간 합의, 정치·경제적 배제는 모두 살펴볼 요소다. 근거 분류 활동에서는 보고서가 직접 언급한 내용을 연결하고 여러 조건이 겹칠 가능성을 설명한다.
+## 지정학적 분쟁과 지역의 위치
 
-사망자 지도는 피해 규모의 공간 분포를, 시계열은 분쟁 수의 연도별 변화를 보여 준다. 분쟁의 원인과 책임, 지역 주민의 경험을 설명하려면 기관 보고서와 정치·경제 자료, 주민과 공동체의 목소리를 함께 살핀다.
+지정학적 분쟁은 장소의 위치와 영토, 자원, 교통로를 둘러싼 국가 간 세력 관계가 갈등으로 나타난 경우다. 전략적 요충지와 자원 생산 지역에서는 여러 국가의 이해관계가 만나 협력과 경쟁이 함께 나타날 수 있다.
+
+서남아시아는 아시아·유럽·아프리카를 잇는 교차로에 놓여 있다. 지중해와 홍해, 수에즈 운하, 페르시아만의 해상로가 이어지고 원유와 천연가스가 생산되어 지역 안팎 국가들의 이해관계가 겹친다. 분쟁은 아시아·아프리카의 전략적 요충지와 자원 생산 지역에 자주 분포한다. 국가별 사망 추정치는 피해 규모를 나타내며 분쟁의 원인이나 책임을 판정하지 않는다는 점을 염두에 두고, UCDP 지도에서 두 대륙의 피해 분포와 서남아시아·우크라이나의 위치를 찾아 비교해 보자. [[d3]]
+
+## 시리아 내전의 국제화
+
+2011년 시리아에서 시위와 정치적 불안이 이어졌고, 2012년 2월 정부 세력과 여러 반정부 무장 세력의 충돌이 무력 분쟁으로 전개되었다. 유엔 조사위원회는 러시아·미국 등이 참여한 외교 협상과 여러 국가의 당사자 지원, 주변국 출신 무장 행위자의 참전을 기록했다. 이런 외부 개입으로 국내 갈등의 당사자 관계가 국경을 넘어 국제화되었다.
+
+2007–2009년 가뭄은 시리아 북동부의 농업과 농촌 생계에 부담을 더한 환경적 배경 가운데 하나였다. 정치적 갈등과 사회·경제적 압력, 외부 개입이 겹쳐 내전의 전개에 영향을 주었다.
+
+## 러시아와 우크라이나의 전쟁
+
+2014년 러시아는 크림 자치 공화국과 세바스토폴의 병합을 선언했다. 유엔 총회 결의 68/262는 우크라이나의 영토 보전을 재확인하고 해당 주민 투표가 두 지역의 지위 변경 근거가 될 수 없다고 했으며, 결의 71/205는 러시아의 점령과 병합 불인정을 명시했다. 2022년 2월 24일 러시아의 전면 침공이 시작되자 총회 결의 ES-11/1은 러시아 연방의 침략을 강하게 개탄하고 군대의 즉각 철수를 요구했다.
+
+## 분쟁이 인권과 국가 발전에 미치는 영향
+
+무력 분쟁은 사람들의 생명과 안전, 주거·교육·의료 접근을 위협한다. 어린이·여성·노인을 포함한 민간인도 분쟁으로 피해를 겪으며, 안전과 필수 서비스에 대한 보호가 필요하다. 전투가 길어지면 도로·학교·병원 등 기반 시설의 복구가 늦어지고 생산과 교육이 중단되어 국가 발전도 멈추거나 늦어진다. 연도별 국가기반 무력 분쟁 수의 장기 흐름에서 분쟁이 이어진 시기를 찾아 유형별 변화와 비교해 보자. [[d4]]

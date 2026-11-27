@@ -1,4 +1,23 @@
 sources:
+  ucdp-data-download-center:
+    title: UCDP Dataset Download Center and Armed Conflict Dataset Codebook v26.1
+    organization: Uppsala Conflict Data Program (UCDP), Department of Peace and Conflict Research, Uppsala University; Peace Research Institute Oslo (PRIO)
+    url: https://ucdp.uu.se/downloads/
+    relatedUrls:
+      - https://ucdp.uu.se/downloads/ucdpprio/ucdp-prio-acd-261-csv.zip
+      - https://ucdp.uu.se/downloads/ucdpprio/ucdp-prio-acd-261.pdf
+    sourceDate: '2026'
+    checkedAt: '2026-11-27'
+    licenseStatus: >-
+      UCDP 공식 다운로드 센터는 현재 데이터셋을 CC BY 4.0으로 제공하고 각 데이터셋에 해당 인용 문헌을 안내한다.
+    reuseBasis: >-
+      UCDP/PRIO Armed Conflict Dataset v26.1의 국가기반 분쟁 정의, 유형 코드, 기간과 재사용 조건을 확인하는 공식 자료다.
+    verificationStatus: >-
+      공식 다운로드 센터에서 1946–2025년 ACD v26.1과 CC BY 4.0 조건을 확인했다. 공식 codebook에서
+      type_of_conflict의 네 범주와 국내·국가 간·국제화된 국내·국가 외부 유형 정의를 대조했다.
+    usage: >-
+      유형별 연도 자료는 연도 안의 고유 conflict_id를 유형별로 집계했다. 유형은 갈등의 원인이나 책임을
+      판정하는 범주로 사용하지 않는다. 피해 지도는 별도 집계 단위인 이스라엘·팔레스타인 지역을 국가 값에 귀속하지 않는다.
   un-peace-security-prevention:
     title: Preventing conflict, sustaining peace
     organization: United Nations
@@ -99,3 +118,163 @@ sources:
     reuseBasis: 난민과 강제 이주민의 일·생계·경제 참여 및 수용 공동체와의 협력에 관한 공식 안내다.
     verificationStatus: UNHCR 안내가 적절한 일과 경제적 포용, 가족의 생계와 역량, 수용 공동체의 여건을 함께 다룸을 확인했다.
     usage: 강제 이주민의 행위와 생계 참여를 설명하는 데 참고했다. 모든 개인의 경험을 동일하게 일반화하지 않았다.
+  un-syria-commission-inquiry:
+    title: Report of the independent international commission of inquiry on the Syrian Arab Republic
+    organization: United Nations Human Rights Council, Independent International Commission of Inquiry on the Syrian Arab Republic
+    url: https://digitallibrary.un.org/record/789117/files/A_HRC_28_69-EN.pdf
+    sourceDate: '2015'
+    checkedAt: '2026-11-27'
+    licenseStatus: 유엔 보고서의 링크만 제공하며 본문·그림·표는 복제하지 않는다.
+    reuseBasis: 시리아 내전의 초기 전개와 외부 행위자·국가들의 지원 및 협상 참여를 확인하는 유엔 조사위원회 보고서다.
+    verificationStatus: 보고서에서 2011년 불안의 무력 충돌 전개, 여러 국가의 당사자 지원, 러시아·미국의 협상 참여와 주변국 출신 비국가 행위자의 참전을 확인했다. 보고서가 다룬 시기는 2015년 1월까지다.
+    usage: 시리아 내전의 국제화 과정을 설명하는 역사 자료로 사용했다. 특정 집단에 대한 평가나 현재 상황의 설명으로 확대하지 않았다.
+  fao-syria-drought-2009:
+    title: Syria Drought Response Plan 2009
+    organization: Food and Agriculture Organization of the United Nations (FAO)
+    url: https://www.fao.org/fileadmin/user_upload/emergencies/docs/app_syriadrought2009.pdf
+    sourceDate: '2009'
+    checkedAt: '2026-11-27'
+    licenseStatus: FAO 계획서 링크만 제공하며 원문·표·그림은 복제하지 않는다.
+    reuseBasis: 2007–2009년 시리아의 가뭄과 북동부 농업·생계 영향을 확인하는 유엔 식량농업기구 자료다.
+    verificationStatus: FAO가 시리아의 여러 해 가뭄과 북동부 지역 농업 및 생계 피해를 설명함을 확인했다. 가뭄을 시리아 내전의 단일 원인으로 제시하지 않았다.
+    usage: 시리아 내전의 배경에 작용한 환경·생계 조건 가운데 하나로 설명했다.
+  undrr-syria-drought-case-study:
+    title: 'Drought vulnerability in the Arab region: drought in Syria, ten years of scarce water (2000–2010)'
+    organization: United Nations Office for Disaster Risk Reduction, Regional Office for Arab States
+    url: https://www.undrr.org/publication/drought-vulnerability-arab-region-case-study-drought-syria-ten-years-scarce-water-2000
+    sourceDate: '2011'
+    checkedAt: '2026-11-27'
+    licenseStatus: UNDRR 사례 연구의 링크만 제공하며 본문·그림·표는 복제하지 않는다.
+    reuseBasis: 2000–2010년 시리아의 가뭄과 물 부족, 취약성 및 영향을 확인하는 유엔 재난위험경감사무국의 지역 사례 연구다.
+    verificationStatus: 사례 연구가 시리아의 2000–2010년 가뭄 상황을 다룸을 확인했다. 2007–2010년 가뭄을 내전의 단일 원인으로 해석하지 않았다.
+    usage: 시리아 내전 전후에 농촌 생활에 압력을 더한 환경적 배경을 설명하는 데 참고했다.
+  un-unga-ukraine-68-262:
+    title: Territorial integrity of Ukraine, A/RES/68/262
+    organization: United Nations General Assembly
+    url: https://digitallibrary.un.org/record/767883/files/A_RES_68_262-EN.pdf
+    sourceDate: '2014'
+    checkedAt: '2026-11-27'
+    licenseStatus: 유엔 결의문 링크만 제공하며 본문을 복제하지 않는다.
+    reuseBasis: 크림 자치 공화국과 세바스토폴의 2014년 주민 투표에 관한 유엔 총회 기록과 우크라이나의 영토 보전 결의를 확인하는 공식 문서다.
+    verificationStatus: 총회가 우크라이나의 국제적으로 인정된 국경 안 영토 보전을 재확인하고, 주민 투표가 두 지역의 지위 변경 근거가 될 수 없다고 한 내용을 확인했다.
+    usage: 러시아와 우크라이나의 전쟁 사례에서 공식 유엔 기록으로 확인되는 내용을 설명했다.
+  un-unga-ukraine-71-205:
+    title: Situation of human rights in Crimea and Sevastopol, A/RES/71/205
+    organization: United Nations General Assembly
+    url: https://digitallibrary.un.org/record/858544/files/A_RES_71_205-EN.pdf
+    sourceDate: '2016'
+    checkedAt: '2026-11-27'
+    licenseStatus: 유엔 결의문 링크만 제공하며 본문을 복제하지 않는다.
+    reuseBasis: 크림 자치 공화국과 세바스토폴에 관한 유엔 총회 결의를 확인하는 공식 문서다.
+    verificationStatus: 총회가 러시아 연방의 해당 지역 점령을 규탄하고 병합을 인정하지 않는다는 내용을 결의에 명시했음을 확인했다.
+    usage: 2014년 병합 이후 유엔 총회의 공식 입장을 정확한 결의 번호와 함께 설명했다.
+  un-unga-ukraine-es-11-1:
+    title: Aggression against Ukraine, A/RES/ES-11/1
+    organization: United Nations General Assembly
+    url: https://digitallibrary.un.org/record/3965290/files/A_RES_ES-11_1-EN.pdf
+    sourceDate: '2022'
+    checkedAt: '2026-11-27'
+    licenseStatus: 유엔 결의문 링크만 제공하며 본문을 복제하지 않는다.
+    reuseBasis: 2022년 러시아의 우크라이나 전면 침공과 관련한 총회 결의의 공식 문구를 확인하는 자료다.
+    verificationStatus: 총회가 러시아 연방의 침략을 규탄하고 국제적으로 인정된 우크라이나 영토에서 군대의 철수를 요구했음을 확인했다.
+    usage: 전쟁의 시점과 국제적 판단은 총회 결의의 표현에 따라 설명했다.
+  unhcr-1951-refugee-convention:
+    title: The 1951 Refugee Convention
+    organization: United Nations High Commissioner for Refugees (UNHCR)
+    url: https://www.unhcr.org/about-unhcr/overview/1951-refugee-convention
+    sourceDate: '1951'
+    checkedAt: '2026-11-27'
+    licenseStatus: UNHCR 법률 안내 페이지의 링크만 제공하며 본문을 복제하지 않는다.
+    reuseBasis: 1951년 난민 협약의 난민 정의와 국제 보호 체계를 확인하는 공식 안내다.
+    verificationStatus: 협약상 박해의 다섯 사유, 국경 밖에 있을 것, 본국 보호를 받을 수 없거나 원하지 않는다는 정의를 확인했다.
+    usage: 난민의 법적 의미를 설명하는 데 사용했다. 전쟁·경제 사정·재해로 이동한 모든 사람에게 난민 지위가 자동으로 주어진다고 서술하지 않았다.
+  unhcr-internal-displacement-definition:
+    title: 'Refugee Data Finder: Definitions and methodology'
+    organization: United Nations High Commissioner for Refugees (UNHCR)
+    url: https://www.unhcr.org/refugee-statistics/methodology/definition
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: UNHCR 정의 페이지의 링크만 제공하며 본문을 복제하지 않는다.
+    reuseBasis: 국제 난민과 국내 실향민의 국경 이동 범위 및 인구 범주를 확인하는 공식 정의다.
+    verificationStatus: 국내 실향민은 국제적으로 인정된 국경을 넘지 않고 자국 안에서 이동한 사람임을 확인했다.
+    usage: 난민과 국내 실향민의 개념을 구분하는 데 참고했다.
+  unhcr-syria-regional-response:
+    title: Situation Syria Regional Refugee Response
+    organization: United Nations High Commissioner for Refugees (UNHCR)
+    url: https://data.unhcr.org/en/situations/syria
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: UNHCR 상황 페이지의 링크만 제공한다. 본문·지도·통계는 복제하지 않는다.
+    reuseBasis: 시리아에서 인접국으로 이동한 난민과 해당 지역 대응을 확인하는 UNHCR 상황 페이지다.
+    verificationStatus: 시리아에서 튀르키예·레바논·요르단·이라크·이집트 등으로 이동한 난민을 UNHCR이 집계하고 대응함을 확인했다.
+    usage: 시리아 난민의 인접국 이동 사례를 설명하는 데 사용했다.
+  unhcr-venezuela-colombia:
+    title: Colombia country data and operational information
+    organization: United Nations High Commissioner for Refugees (UNHCR)
+    url: https://data.unhcr.org/en/country/col
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: UNHCR 국가 상황 페이지의 링크만 제공한다. 통계·지도·본문은 복제하지 않는다.
+    reuseBasis: 콜롬비아에 거주하는 베네수엘라 출신 난민·이주민의 규모와 관련 지원을 확인하는 공식 상황 자료다.
+    verificationStatus: UNHCR가 콜롬비아 내 베네수엘라 출신 주민을 난민과 이주민 범주로 다루고, 이들이 큰 인구 집단을 이룸을 확인했다.
+    usage: 베네수엘라 출신 사람들의 콜롬비아 이동 사례를 설명했다. 난민과 이주민의 법적 범주를 하나로 간주하지 않았다.
+  un-history-charter-1945:
+    title: United Nations Charter and founding history
+    organization: United Nations
+    url: https://www.un.org/en/about-us/un-charter
+    sourceDate: '1945'
+    checkedAt: '2026-11-27'
+    licenseStatus: UN 공식 안내 페이지의 링크만 제공하며 본문·이미지는 복제하지 않는다.
+    reuseBasis: UN 창설과 헌장 발효 시점, 국제 사법 재판소의 헌장상 지위를 확인하는 공식 자료다.
+    verificationStatus: UN이 1945년 10월 24일 출범했고 국제 사법 재판소가 UN의 주요 사법 기관임을 확인했다.
+    usage: UN 출범 연도와 기관 역할을 설명하는 데 참고했다.
+  un-security-council-role:
+    title: What is the Security Council?
+    organization: United Nations Security Council
+    url: https://main.un.org/securitycouncil/en/content/what-security-council
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 안전 보장 이사회 안내 링크만 제공하며 본문을 복제하지 않는다.
+    reuseBasis: 안전 보장 이사회의 헌장상 평화·안전 임무와 결정을 확인하는 공식 안내다.
+    verificationStatus: 헌장이 안전 보장 이사회에 국제 평화와 안전 유지의 주된 책임을 부여하고 회원국이 결정을 이행하기로 했음을 확인했다.
+    usage: 안전 보장 이사회의 역할을 설명하는 데 참고했다.
+  icj-court-overview:
+    title: The International Court of Justice at a glance
+    organization: International Court of Justice
+    url: https://api.icj-cij.org/sites/default/files/documents/the-court-at-a-glance-en.pdf
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 국제 사법 재판소 안내 문서 링크만 제공하며 본문·그림은 복제하지 않는다.
+    reuseBasis: 국제 사법 재판소의 위치와 국가 간 법적 분쟁·권고적 의견 역할을 확인하는 공식 자료다.
+    verificationStatus: 국제 사법 재판소가 UN의 주요 사법 기관으로 국가 간 법적 분쟁을 다루고 UN 기관에 권고적 의견을 제공함을 확인했다.
+    usage: 국제 사법 재판소의 역할을 설명하는 데 참고했다.
+  un-colombia-final-agreement-2016:
+    title: Final Agreement for Ending the Conflict and Building a Stable and Lasting Peace
+    organization: Government of Colombia and FARC-EP; United Nations Peacemaker
+    url: https://peacemaker.un.org/en/node/9804
+    sourceDate: '2016'
+    checkedAt: '2026-11-27'
+    licenseStatus: 합의문 링크만 제공하며 조항이나 표를 복제하지 않는다.
+    reuseBasis: 콜롬비아 정부와 FARC-EP가 서명한 최종 평화 협정의 이행 과제를 확인하는 공식 원문이다.
+    verificationStatus: 협정에 농촌 개혁, 정치 참여, 무장 해제 및 재통합 과제가 포함되었음을 확인했다.
+    usage: 평화협정 뒤 이어지는 평화 구축의 지역 사례로 사용했다.
+  msf-syria-medical-activities:
+    title: 'Syria: MSF medical and humanitarian aid'
+    organization: Médecins Sans Frontières (MSF)
+    url: https://www.msf.org/syria
+    sourceDate: '2025'
+    checkedAt: '2026-11-27'
+    licenseStatus: MSF 활동 페이지의 링크만 제공하며 본문·사진·지도를 복제하지 않는다.
+    reuseBasis: 시리아의 분쟁 이후 의료·인도 지원 활동을 확인하는 국제 비정부 기구의 공식 자료다.
+    verificationStatus: MSF가 시리아에서 병원·진료소와 이동 진료를 통해 의료 지원을 제공함을 확인했다.
+    usage: 국제 NGO의 지역별 의료 활동 사례를 설명하는 데 사용했다.
+  amnesty-human-rights-campaigns:
+    title: What We Do
+    organization: Amnesty International
+    url: https://www.amnesty.org/en/what-we-do/
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 국제앰네스티 안내 페이지의 링크만 제공하며 본문·이미지를 복제하지 않는다.
+    reuseBasis: 국제 NGO의 인권 조사와 캠페인 활동을 확인하는 공식 안내다.
+    verificationStatus: 국제앰네스티가 조사와 캠페인으로 전 세계 인권 침해 문제를 다룸을 확인했다.
+    usage: 국제 NGO의 인권 활동 사례를 설명하는 데 참고했다.

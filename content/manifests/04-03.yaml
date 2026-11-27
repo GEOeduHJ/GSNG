@@ -33,6 +33,24 @@ items:
       국가기반 무력 분쟁 수는 1946년 17건, 2000년 40건, 2025년 65건이다.
       이 수는 각 연도에 활동한 conflict_id 수이며 분쟁 당사자나 책임을 뜻하지 않는다.
 
+  - id: u0403-armed-conflict-types-series
+    path: /data/04-03/armed-conflict-types-series-1946-2025.json
+    title: 국가기반 무력 분쟁 유형별 수, 1946–2025년
+    organization: Uppsala Conflict Data Program (UCDP), Peace Research Institute Oslo (PRIO)
+    url: https://ucdp.uu.se/downloads/ucdpprio/ucdp-prio-acd-261-csv.zip
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      UCDP/PRIO Armed Conflict Dataset v26.1, CC BY 4.0. Modified: 연도별 고유 conflict_id를
+      type_of_conflict 범주에 따라 집계했다. 유형 정의와 이용 시 인용 문헌은 공식 codebook과
+      다운로드 센터를 따른다.
+    script: scripts/data/04-03/ucdp_conflict_types.py
+    unit: state-based armed conflicts
+    year: 2025
+    summary: >-
+      2025년 유형별 국가기반 분쟁 기록은 국가 간 8건, 국내 35건, 국제화된 국내 22건,
+      국가 외부 0건이다. 네 유형은 UCDP/PRIO v26.1 codebook의 type_of_conflict 구분을 따른다.
+
   - id: u0403-forced-displacement-origin-top10-2025
     path: /data/04-03/forcibly-displaced-origin-top10-2025.json
     title: 출신지별 국외 강제 이주민 상위 10곳, 2025년

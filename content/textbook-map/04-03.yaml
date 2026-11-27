@@ -1,0 +1,91 @@
+unit: '04-03'
+textbookPages: [202, 219]
+closingPage: 211
+lessons:
+  - index: 1
+    textbookPages: [202, 205]
+    goalGist: 분쟁의 유형과 여러 발생 요인을 살피고 지정학적 이해관계가 갈등의 전개와 맺는 관계를 설명한다.
+    topics:
+      - title: 분쟁의 유형과 여러 발생 요인
+        concepts: [분쟁의 유형, 권력과 정치 참여, 영토와 경계, 자원과 생계, 정체성과 대표성, 외부 개입]
+        textbookMaterials: [세계 주요 분쟁 지역 지도, 유형·원인 도식, 지역 사례 설명]
+        ourData: [u0403-armed-conflict-types-series, '개념도:conflict-factors-schematic']
+      - title: 지정학과 지역의 이해관계
+        concepts: [지정학, 전략적 위치, 자원·교통로·영토, 국가 간 관계, 국제 정세]
+        textbookMaterials: [서남아시아 지역도, 지정학적 사례 지도와 설명]
+        ourData: ['개념도:conflict-factors-schematic']
+      - title: 분쟁의 공간 분포와 통계 읽기
+        concepts: [조직적 폭력 관련 사망 추정, 국가기반 무력 분쟁, 별도 집계 지역]
+        textbookMaterials: [분쟁 지역 비교 지도, 국제 갈등 사례]
+        ourData: [u0403-organized-violence-deaths-2025, u0403-armed-conflict-count-series]
+  - index: 2
+    textbookPages: [206, 207]
+    goalGist: 강제 이주가 주민의 삶에 미치는 영향을 이해하고 이동·수용·정착의 조건을 살핀다.
+    topics:
+      - title: 강제 이주와 보호의 범위
+        concepts: [강제 이주, 난민, 국내 실향민, 국제 보호]
+        textbookMaterials: [강제 이주 인구 유형 도표, 연령 구조와 국가별 지도]
+        ourData: [u0403-forced-displacement-origin-top10-2025, u0403-global-forced-displacement-series]
+      - title: 출신지와 수용국의 공간 관계
+        concepts: [출신지, 수용국, 이동의 공간적 양상, 인구 재고]
+        textbookMaterials: [난민 발생국과 수용국 막대그래프, 이동 사례 설명]
+        ourData: [u0403-forced-displacement-origin-top10-2025, u0403-forced-displacement-host-top10-2025]
+      - title: 난민과 수용 지역의 생활
+        concepts: [정착 조건, 교육·보건·생계, 난민의 선택과 참여, 지역 협력]
+        textbookMaterials: [개인의 기록, 수용과 정착 토론]
+        ourData: ['개념도:displacement-agency-schematic']
+  - index: 3
+    textbookPages: [208, 210]
+    goalGist: 국제 사회와 시민의 평화 활동을 이해하고 세계시민의 실천 방안을 제안한다.
+    topics:
+      - title: 국제기구의 평화 활동
+        concepts: [국제 연합, 국제 협력, 평화유지활동, 임무와 원칙]
+        textbookMaterials: [유엔 기구 조직도, 헌장 자료, 평화유지활동 사진]
+        ourData: [u0403-peace-agreements-series, '개념도:peacebuilding-pathway-schematic']
+      - title: 평화협정과 평화 구축
+        concepts: [평화협정, 분쟁 종결, 평화 구축, 지속적인 공존]
+        textbookMaterials: [평화협정 기록 그래프, 분쟁 종결 사례]
+        ourData: [u0403-peace-agreements-series, u0403-conflict-termination-outcomes-series, u0403-armed-conflict-count-series]
+      - title: 시민 단체와 세계시민의 실천
+        concepts: [비정부 기구, 인권 보호, 평화 교육, 기억과 성찰, 세계시민성]
+        textbookMaterials: [시민 단체 활동 사진, 역사·추모 장소 사례, 시민 실천 활동]
+        ourData: ['개념도:peacebuilding-pathway-schematic']
+
+dataJudgement:
+  existingEnoughTopics:
+    - lesson: 1
+      topic: 분쟁 피해와 국가기반 분쟁의 장기 변화
+      data: [u0403-organized-violence-deaths-2025, u0403-armed-conflict-count-series]
+    - lesson: 2
+      topic: 출신지·수용국·세계 총계의 비교
+      data: [u0403-forced-displacement-origin-top10-2025, u0403-forced-displacement-host-top10-2025, u0403-global-forced-displacement-series]
+    - lesson: 3
+      topic: 평화협정과 분쟁 종결 유형의 비교
+      data: [u0403-peace-agreements-series, u0403-conflict-termination-outcomes-series, u0403-armed-conflict-count-series]
+  newRealDataTopics:
+    - lesson: 1
+      topic: 국가기반 무력 분쟁의 유형별 연도 변화
+      data: [u0403-armed-conflict-types-series]
+  conceptualDiagramTopics:
+    - lesson: 1
+      topic: 분쟁 요인의 상호작용
+      data: ['개념도:conflict-factors-schematic']
+    - lesson: 2
+      topic: 난민의 선택·역량과 지역 참여
+      data: ['개념도:displacement-agency-schematic']
+    - lesson: 3
+      topic: 예방에서 포용·회복으로 이어지는 평화 구축
+      data: ['개념도:peacebuilding-pathway-schematic']
+  lessonDataCounts:
+    - lesson: 1
+      realDataCount: 3
+      conceptualDiagramCount: 1
+      totalMaterialCount: 4
+    - lesson: 2
+      realDataCount: 3
+      conceptualDiagramCount: 1
+      totalMaterialCount: 4
+    - lesson: 3
+      realDataCount: 3
+      conceptualDiagramCount: 1
+      totalMaterialCount: 4

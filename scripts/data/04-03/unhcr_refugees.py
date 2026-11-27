@@ -71,6 +71,8 @@ def country_names() -> dict[str, str]:
 def korean_name(code: str, source_name: str, names: dict[str, str]) -> str:
     if code == "PSE":
         return "팔레스타인 지역"
+    if code == "TUR":
+        return "튀르키예"
     return names.get(code, source_name)
 
 

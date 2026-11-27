@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 430" role="img" aria-labelledby="svg-title svg-desc">
+  <title id="svg-title">평화 구축의 흐름</title>
+  <desc id="svg-desc">예방과 대화, 합의와 안전 지원, 권리와 서비스, 포용과 회복이 이어지며 점검과 조정을 통해 다시 연결되는 과정이다.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#55746d" />
+    </marker>
+  </defs>
+  <rect width="1120" height="430" rx="28" fill="#fbf8f1" />
+  <g fill="none" stroke="#55746d" stroke-width="3" marker-end="url(#arrow)">
+    <path d="M 225 120 L 274 120" />
+    <path d="M 435 120 L 484 120" />
+    <path d="M 645 120 L 694 120" />
+    <path d="M 855 120 L 904 120" />
+  </g>
+  <g font-family="'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif" font-size="18" font-weight="600" text-anchor="middle">
+    <rect x="52" y="76" width="176" height="88" rx="18" fill="#e8efeb" stroke="#9db3a9" stroke-width="2" />
+    <text x="140" y="128" fill="#203832">예방·대화</text>
+    <rect x="278" y="76" width="156" height="88" rx="18" fill="#f1e9d9" stroke="#c6b79c" stroke-width="2" />
+    <text x="356" y="128" fill="#40372a">합의·정전</text>
+    <rect x="488" y="76" width="156" height="88" rx="18" fill="#e9edf1" stroke="#aab7c5" stroke-width="2" />
+    <text x="566" y="128" fill="#263642">안전 지원</text>
+    <rect x="698" y="76" width="156" height="88" rx="18" fill="#ecebdc" stroke="#b9b89b" stroke-width="2" />
+    <text x="776" y="128" fill="#3d3b2a">권리·서비스</text>
+    <rect x="908" y="76" width="160" height="88" rx="18" fill="#e9e5f0" stroke="#b3a8c7" stroke-width="2" />
+    <text x="988" y="128" fill="#392f48">포용·회복</text>
+  </g>
+  <path d="M 988 174 C 988 244, 910 276, 816 276 L 304 276 C 210 276, 132 244, 132 174" fill="none" stroke="#78948b" stroke-width="3" marker-end="url(#arrow)" />
+  <rect x="394" y="239" width="332" height="70" rx="18" fill="#d6e4de" stroke="#55746d" stroke-width="2" />
+  <text x="560" y="269" fill="#203832" font-family="'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif" font-size="18" font-weight="600" text-anchor="middle">점검·조정</text>
+  <text x="560" y="294" fill="#36564c" font-family="'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif" font-size="15" text-anchor="middle">지역의 목소리를 반영해 이어 감</text>
+  <path d="M 354 354 L 766 354" stroke="#8d9e94" stroke-width="2" />
+  <path d="M 356 340 L 356 354 M 566 340 L 566 354 M 776 340 L 776 354" stroke="#8d9e94" stroke-width="2" />
+  <rect x="312" y="330" width="496" height="60" rx="16" fill="#f1e9d9" stroke="#c6b79c" stroke-width="2" />
+  <text x="560" y="355" fill="#40372a" font-family="'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif" font-size="17" font-weight="600" text-anchor="middle">평화유지활동은 정해진 임무에 따라 안전과 합의를 지원</text>
+  <text x="560" y="379" fill="#655943" font-family="'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif" font-size="15" text-anchor="middle">과정의 일부를 뒷받침</text>
+</svg>
