@@ -167,3 +167,63 @@ describe('fullUnitIds', () => {
     expect(fullUnitIds({ units: [{ id: '02-01' }, { id: '01-01' }] })).toEqual(['01-01', '02-01']);
   });
 });
+
+describe('module lessons', () => {
+  const linked = (id, path = '/data/01-01/trade.json') => ({ ...chart(id, 'wdi-trade', path), label: `${id} 그래프` });
+  const moduleOverrides = (extra = {}) => ({
+    format: 'module', opener: '생각 열기', summary: ['하나', '둘', '셋'],
+    steps: [linked('m1'), linked('m2'), linked('m3')],
+    sections: [
+      { title: '가', paragraphs: [{ text: '가1', refs: ['m1'] }, { text: '가2', refs: [] }] },
+      { title: '나', paragraphs: [{ text: '나1', refs: ['m2'] }, { text: '나2', refs: ['m3'] }] },
+    ],
+    paragraphs: ['가1', '가2', '나1', '나2'],
+    ...extra,
+  });
+  const errorsFor = (extra) => run(unit({}, moduleOverrides(extra)));
+
+  it('accepts a well-formed module lesson', () => {
+    expect(errorsFor()).toEqual([]);
+  });
+
+  it('reports unknown refs, unlinked steps and missing summary/opener', () => {
+    const base = moduleOverrides();
+    base.sections[0].paragraphs[0].refs = ['nope'];
+    const errors = run(unit({}, { ...base, summary: ['하나'], opener: '' }));
+    expect(errors).toEqual(expect.arrayContaining([
+      expect.stringContaining('unknown data ref: nope'),
+      expect.stringContaining('data step not linked: m1'),
+      expect.stringContaining('summary 1 (need 3-4)'),
+      expect.stringContaining('opener missing'),
+    ]));
+  });
+
+  it('limits topics and data steps and forbids text steps', () => {
+    const errors = errorsFor({ sections: [{ title: '가', paragraphs: [{ text: 'x', refs: ['m1', 'm2', 'm3', 's9'] }] }], steps: [linked('m1'), linked('m2'), linked('m3'), text('s9')] });
+    expect(errors).toEqual(expect.arrayContaining([
+      expect.stringContaining('sections 1 (need 2-5)'),
+      expect.stringContaining('text step in module lesson: s9'),
+    ]));
+    const many = ['m1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7'];
+    const tooMany = errorsFor({ steps: many.map((id) => linked(id)), sections: [{ title: '가', paragraphs: [{ text: 'x', refs: many.slice(0, 4) }] }, { title: '나', paragraphs: [{ text: 'y', refs: many.slice(4) }] }] });
+    expect(tooMany).toEqual(expect.arrayContaining([expect.stringContaining('data steps 7 (need 3-6)')]));
+  });
+
+  it('requires three real (non-schematic) data steps', () => {
+    const diagram = { ...linked('m1'), type: 'image', data: '/images/01-01/opening.webp', source: '', schematic: true };
+    const errors = errorsFor({ steps: [diagram, linked('m2'), linked('m3')] });
+    expect(errors).toEqual(expect.arrayContaining([expect.stringContaining('real data steps 2 (need 3+)')]));
+    expect(errors.some((e) => e.includes('image without provenance'))).toBe(false);
+  });
+
+  it('checks schematic images against provenance', () => {
+    const diagram = { ...linked('m4'), type: 'image', data: '/images/01-01/unknown.svg', source: '', schematic: true };
+    const errors = errorsFor({ steps: [linked('m1'), linked('m2'), linked('m3'), diagram], sections: [{ title: '가', paragraphs: [{ text: 'x', refs: ['m1', 'm4'] }] }, { title: '나', paragraphs: [{ text: 'y', refs: ['m2', 'm3'] }] }] });
+    expect(errors).toEqual(expect.arrayContaining([expect.stringContaining('image without provenance: /images/01-01/unknown.svg')]));
+    expect(errors.some((e) => e.includes('data file not in manifest'))).toBe(false);
+  });
+
+  it('keeps legacy rules for lessons without a format', () => {
+    expect(run(unit())).toEqual([]);
+  });
+});

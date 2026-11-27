@@ -4,6 +4,11 @@ const QUESTION_MARK = /[?？]/;
 
 function checkStep(step, where, refs, errors) {
   if (step.type === 'text') return;
+  if (step.type === 'image' && step.schematic) {
+    const known = (refs.provenance?.items ?? []).some((item) => item.src === step.data);
+    if (!known) errors.push(`${where} step ${step.id}: image without provenance: ${step.data}`);
+    return;
+  }
   const manifestItems = refs.manifest?.items ?? [];
   if (step.source && !manifestItems.some((item) => item.id === step.source)) {
     errors.push(`${where} step ${step.id}: unknown data source: ${step.source}`);
@@ -25,13 +30,45 @@ function checkIllustration(illustration, where, refs, errors) {
   if (!known) errors.push(`${where}: image without provenance: ${illustration.src}`);
 }
 
-function checkLesson(lesson, refs, errors, extraRules) {
-  const where = `${lesson.unitId} lesson ${lesson.index}`;
+function checkLegacyLesson(lesson, where, errors) {
   const count = lesson.paragraphs.length;
   if (count < 4 || count > 6) errors.push(`${where}: paragraphs ${count} (need 4-6)`);
   if (lesson.steps.length !== count) errors.push(`${where}: steps/paragraphs mismatch`);
   const dataSteps = new Set(lesson.steps.filter((step) => step.type !== 'text').map((step) => step.id)).size;
   if (dataSteps < 2 || dataSteps > 4) errors.push(`${where}: data steps ${dataSteps} (need 2-4)`);
+}
+
+/** Module lessons: 2-5 topics, 3-6 linked data steps (3+ real), opener, 3-4 summary points. */
+function checkModuleLesson(lesson, where, errors) {
+  const sections = lesson.sections ?? [];
+  if (sections.length < 2 || sections.length > 5) errors.push(`${where}: sections ${sections.length} (need 2-5)`);
+  for (const step of lesson.steps) {
+    if (step.type === 'text') errors.push(`${where}: text step in module lesson: ${step.id}`);
+  }
+  const data = lesson.steps.filter((step) => step.type !== 'text');
+  if (data.length < 3 || data.length > 6) errors.push(`${where}: data steps ${data.length} (need 3-6)`);
+  const real = data.filter((step) => !step.schematic).length;
+  if (real < 3) errors.push(`${where}: real data steps ${real} (need 3+)`);
+  const dataIds = new Set(data.map((step) => step.id));
+  const linked = new Set();
+  for (const section of sections) {
+    for (const paragraph of section.paragraphs ?? []) {
+      for (const ref of paragraph.refs ?? []) {
+        if (dataIds.has(ref)) linked.add(ref);
+        else errors.push(`${where}: unknown data ref: ${ref}`);
+      }
+    }
+  }
+  for (const id of dataIds) if (!linked.has(id)) errors.push(`${where}: data step not linked: ${id}`);
+  const summary = lesson.summary ?? [];
+  if (summary.length < 3 || summary.length > 4) errors.push(`${where}: summary ${summary.length} (need 3-4)`);
+  if (!String(lesson.opener ?? '').trim()) errors.push(`${where}: opener missing`);
+}
+
+function checkLesson(lesson, refs, errors, extraRules) {
+  const where = `${lesson.unitId} lesson ${lesson.index}`;
+  if (lesson.format === 'module') checkModuleLesson(lesson, where, errors);
+  else checkLegacyLesson(lesson, where, errors);
   checkConcepts(lesson.keyTerms, where, refs, errors);
   for (const step of lesson.steps) {
     checkStep(step, where, refs, errors);
