@@ -54,6 +54,9 @@ summary:
   - 지역화는 지역의 고유한 조건과 자율성을 바탕으로 독자적인 가치를 키우는 과정이다.
   - 지역 브랜드와 지리적 표시제는 지역의 자원·기술·이름을 바깥의 소비자와 연결한다.
   - 세계지역화는 세계적 흐름이 지역의 조건과 주민의 선택을 만나 새롭게 구성되는 과정이다.
+routines:
+  opener: { id: think-puzzle-explore, prompt: "카나리아 제도 관광 숙박일수 자료에서 변화 흐름을 살피고, 지역의 대응에 관해 더 알아볼 점을 적어 보자." }
+  inquiry: { id: options-diamond, prompt: "지역 특산품 알리기와 장소 방문 경험 만들기를 비교해, 지역의 고유성과 주민 참여를 함께 살리는 길을 찾아보자." }
 activity:
   template: decision-matrix
   fictional: true

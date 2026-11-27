@@ -46,6 +46,9 @@ summary:
   - 국가 정책과 기업의 생산·에너지 선택은 환경 부담과 전환의 속도에 영향을 준다.
   - 생태 발자국은 자원 이용의 수요를, 생태 용량은 자연의 생산과 재생 능력을 나타낸다.
   - 생태전환적 삶은 개인의 실천과 공공 기반 시설, 기업·지역의 변화가 이어질 때 넓어진다.
+routines:
+  opener: { id: see-think-me-we, prompt: "생태 발자국과 생태 용량 개념도에서 자원 이용과 재생 능력을 살피고, 생활·지역과의 연결을 생각해 보자." }
+  inquiry: { id: circles-of-action, prompt: "생태전환을 위해 나와 주변, 학교와 지역, 세계를 향해 할 수 있는 일을 나누어 제안해 보자." }
 activity:
   template: decision-matrix
   fictional: false

@@ -45,6 +45,9 @@ summary:
   - 지리적 문제를 탐색할 때는 문제의 범위와 필요한 위치·속성 자료를 먼저 정한다.
   - GIS는 서로 다른 공간 자료를 겹쳐 분포와 관계를 살피도록 돕는다.
   - 공공 시설 입지를 판단하려면 위치뿐 아니라 접근성·인구·위험·수용력·비용과 주민 의견을 함께 살펴야 한다.
+routines:
+  opener: { id: think-puzzle-explore, prompt: "대전 서구 대피 장소 자료에서 시설과 정류장의 위치를 살피고, 접근성과 안전에 관해 더 확인할 점을 적어 보자." }
+  inquiry: { id: claim-support-question, prompt: "대피 장소 입지를 정류장과의 거리, 시설 유형 자료로 설명하고, 뒷받침할 근거와 아직 확인할 점을 정리해 보자." }
 activity:
   template: evidence-sort
   fictional: false

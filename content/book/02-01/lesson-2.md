@@ -46,6 +46,9 @@ summary:
   - 적도 수렴대의 계절 이동과 계절풍은 열대의 우기·건기를 만든다.
   - 열대 우림 주민은 고상 가옥·급경사 지붕과 다양한 농업으로 잦은 비에 대응한다.
   - 몬순 아시아의 벼농사, 사바나의 목축과 사파리 관광은 계절 강수와 초원 환경에 연결된다.
+routines:
+  opener: { id: see-think-wonder, prompt: "열대 강수 계절성 개념도에서 우기와 건기의 차이를 살피고, 생활에 미치는 영향에 관해 궁금한 점을 적어 보자." }
+  inquiry: { id: step-inside, prompt: "열대 우림의 고상 가옥과 몬순 농업 사례에서 주민의 처지와 생활 조건을 살피고, 지역별 차이도 함께 짚어 보자." }
 activity:
   template: evidence-sort
   fictional: false

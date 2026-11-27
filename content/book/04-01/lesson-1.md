@@ -45,6 +45,9 @@ summary:
   - 화석 연료는 오랜 지질 과정으로 만들어져 빠르게 보충되지 않으며, 재생 에너지는 자연 과정에서 다시 얻을 수 있다.
   - 에너지원 구성은 산업·교통·기술과 사회의 필요가 달라지면서 함께 변한다.
   - 1인당 에너지 공급량은 한 나라의 총공급량을 인구수로 나눈 평균이며, 국가와 시기에 따라 다르게 나타난다.
+routines:
+  opener: { id: see-think-wonder, prompt: "세계 에너지원 구성 변화 자료에서 달라진 흐름을 살피고, 변화의 까닭과 미래에 관해 궁금한 점을 적어 보자." }
+  inquiry: { id: projecting-across-time, prompt: "세계 에너지원 구성의 과거·현재 흐름을 비교하고, 기술·산업·생활 변화가 앞으로 미칠 영향을 전망해 보자." }
 activity:
   template: layer-compare
   fictional: false

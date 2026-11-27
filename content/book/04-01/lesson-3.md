@@ -54,6 +54,9 @@ summary:
   - 수력·풍력·태양광·바이오에너지·지열·해양에너지는 서로 다른 자연 조건과 설비를 이용한다.
   - 재생 에너지의 입지는 자원 조건뿐 아니라 전력망, 생태계, 주민 생활과 함께 살펴야 한다.
   - 지속가능한 생산은 다양한 에너지원과 저장·공급 시설, 효율적인 이용을 연결한다.
+routines:
+  opener: { id: compass-points, prompt: "재생 에너지의 입지 조건 자료에서 자연 조건과 주민 생활을 함께 살피고, 기대·우려·추가 정보와 입장을 적어 보자." }
+  inquiry: { id: options-diamond, prompt: "태양광과 풍력 설비의 입지를 비교해, 자원 활용과 생태계·주민 영향을 함께 고려한 방안을 구상해 보자." }
 activity:
   template: decision-matrix
   fictional: true

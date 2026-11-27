@@ -54,6 +54,9 @@ summary:
   - 힌두교에는 다르마·카르마·윤회·해탈에 관한 다양한 사상이 있으며, 유대교는 유일신 신앙과 토라, 유대 공동체의 역사와 연결된다.
   - 성당·교회, 모스크, 사찰·탑, 힌두교 사원, 시너고그는 대표적인 종교 경관이다.
   - 예루살렘·메카·메디나·바라나시·부다가야는 서로 다른 종교 전통의 성지 또는 순례지다.
+routines:
+  opener: { id: see-think-wonder, prompt: "종교 대표 도시 지도에서 예루살렘·메카·바라나시·부다가야의 위치를 찾고, 성지가 그곳에 자리한 까닭에 관해 궁금한 점을 적어 보자." }
+  inquiry: { id: same-different-connect-engage, prompt: "성당·모스크·사찰·힌두교 사원 경관 사례를 비교해 공통점과 차이를 찾고, 각 장소의 의미와 전통을 연결해 보자." }
 activity:
   template: evidence-sort
   fictional: false

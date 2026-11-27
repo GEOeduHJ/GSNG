@@ -45,6 +45,9 @@ summary:
   - 음식 문화는 자연환경과 역사·종교, 생산·교류 방식, 공동체의 선택이 함께 만들어 간다.
   - 식품 공급 열량의 비중은 국가별 공급 구성을 비교하는 지표다.
   - 사람과 재료, 조리 지식이 이동하면 지역 공동체의 선택에 따라 음식 문화가 새롭게 바뀐다.
+routines:
+  opener: { id: see-think-me-we, prompt: "음식 문화의 형성과 변화 자료에서 환경·역사·교류의 연결을 살피고, 일상과 지역·세계의 관계를 생각해 보자." }
+  inquiry: { id: same-different-connect-engage, prompt: "쌀·밀 공급 열량 비중이 다른 지역을 비교해 음식문화의 공통점·차이를 찾고, 생산·교류와 연결해 보자." }
 activity:
   template: layer-compare
   fictional: false

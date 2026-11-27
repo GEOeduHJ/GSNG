@@ -36,6 +36,9 @@ summary:
   - 국제기구와 NGO는 지역사회·정부와 협력해 교육·보건·기반 시설과 제도 역량을 지원한다.
   - 공정무역은 생산자에게 더 투명한 거래 조건과 가격·프리미엄 기준을 제공한다.
   - 기업의 공급망 책임과 윤리적 소비는 생산자의 노동·환경 조건을 개선하는 데 기여할 수 있다.
+routines:
+  opener: { id: compass-points, prompt: "국가별 공적개발원조 수원 비율 자료에서 국제 협력의 흐름을 살피고, 기대·우려·추가 정보와 제안을 적어 보자." }
+  inquiry: { id: take-a-stand, prompt: "공정 무역과 윤리적 소비가 불균등 완화에 할 수 있는 역할을 근거로 밝히고, 다른 입장도 함께 살펴보자." }
 activity:
   template: civic-hearing
   fictional: true

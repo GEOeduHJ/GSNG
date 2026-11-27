@@ -64,6 +64,9 @@ summary:
   - 크리스트교·이슬람교·불교는 보편 종교, 힌두교·유대교 등은 민족 종교로 분류하기도 한다.
   - 선교·식민 지배·정복·상인 교역·이주와 후원은 종교의 전파 경로에 작용했다.
   - 오늘날 종교 분포는 지역마다 다르며, 2010년과 2020년 사이 종교 범주별 인구 비율도 서로 다른 방향으로 변했다.
+routines:
+  opener: { id: see-think-wonder, prompt: "종교 전파 개념도에서 이동 경로와 현재 분포의 연결을 살피고, 더 확인할 점을 적어 보자." }
+  inquiry: { id: think-puzzle-explore, prompt: "종교 전파 개념도와 현재 분포 자료를 함께 살펴, 역사적 경로와 지역별 분포의 관계를 탐색해 보자." }
 activity:
   template: layer-compare
   fictional: false

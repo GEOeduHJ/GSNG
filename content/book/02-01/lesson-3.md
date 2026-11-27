@@ -45,6 +45,9 @@ summary:
   - 지중해성 기후는 여름이 덥고 건조하며 겨울은 온난하고 습윤해 올리브·포도·코르크참나무 재배와 연결된다.
   - 지중해 연안의 흰 벽과 작은 창은 여름의 강한 햇빛과 열을 줄이는 주거 방식이다.
   - 온대 계절풍 지역은 여름에 고온 다우하며, 몬순 아시아에서는 벼농사가 발달한다.
+routines:
+  opener: { id: see-think-wonder, prompt: "아테네 기후 그래프에서 강수가 집중되는 계절을 살피고, 온대 안의 기후 차이에 관한 궁금한 점을 적어 보자." }
+  inquiry: { id: same-different-connect-engage, prompt: "서안 해양성·지중해성·온대 계절풍 기후의 강수와 생활을 비교해 공통점·차이·연결을 찾아보자." }
 activity:
   template: evidence-sort
   fictional: false

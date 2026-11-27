@@ -63,6 +63,9 @@ summary:
   - 냉대의 타이가에는 침엽수림과 임업이 발달하며 야쿠츠크는 기온의 연교차가 크다.
   - 한대에는 툰드라와 빙설 경관이 나타나고, 영구 동토층의 건축과 북극권 생업은 기후·사회 변화에 맞춰 바뀐다.
   - 기후 적응은 물·주거·생업을 지역의 환경과 기술, 주민의 선택에 맞게 조정하는 과정이다.
+routines:
+  opener: { id: compass-points, prompt: "국가별 물 스트레스 자료에서 물 이용의 걱정과 적응 가능성을 살피고, 판단에 필요한 정보를 적어 보자." }
+  inquiry: { id: options-diamond, prompt: "건조 지역의 관개 확대와 물 절약 방안을 비교해, 장점과 한계를 살리고 줄일 선택을 구상해 보자." }
 activity:
   template: decision-matrix
   fictional: false

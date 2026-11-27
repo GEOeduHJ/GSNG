@@ -45,6 +45,9 @@ summary:
   - 관광 자원은 접근·안전·지역 서비스와 연결되어 방문 활동과 지역 경제를 이끈다.
   - 국가 단위 관광객 도착과 한 장소의 방문객 기록은 서로 다른 공간 규모의 활동을 설명한다.
   - 산악 관광은 지역의 생계 기회와 경관·생태계 관리 과제를 함께 만든다.
+routines:
+  opener: { id: see-think-wonder, prompt: "사가르마타 방문객 변화 그래프에서 방문객이 크게 늘어난 시기를 찾고, 관광이 지역에 준 변화에 관해 궁금한 점을 적어 보자." }
+  inquiry: { id: beauty-and-truth, prompt: "사가르마타의 아름다운 경관과 관광이 생태계·주민 생활에 미치는 영향을 함께 살펴보자." }
 activity:
   template: layer-compare
   fictional: false

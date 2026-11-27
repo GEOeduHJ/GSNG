@@ -63,6 +63,9 @@ function checkModuleLesson(lesson, where, errors) {
   const summary = lesson.summary ?? [];
   if (summary.length < 3 || summary.length > 4) errors.push(`${where}: summary ${summary.length} (need 3-4)`);
   if (!String(lesson.opener ?? '').trim()) errors.push(`${where}: opener missing`);
+  for (const slot of ['opener', 'inquiry']) {
+    if (!lesson.routines?.[slot]?.id) errors.push(`${where}: routines missing: ${slot}`);
+  }
 }
 
 function checkLessonRoutines(lesson, where, refs, errors) {

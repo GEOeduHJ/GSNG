@@ -46,6 +46,9 @@ summary:
   - 생산·유통 손실, 식품 폐기, 시장 구조는 지역의 식량 접근 조건과 연결된다.
   - 기후·경제·정치적 충격은 생산과 교역, 가구의 구매력에 서로 다른 경로로 작용한다.
   - 국가·세계 평균은 전체 흐름을 보여 주며, 지역과 가구의 차이는 추가 자료로 살펴야 한다.
+routines:
+  opener: { id: think-puzzle-explore, prompt: "식량 안보의 네 차원 자료에서 먹거리를 얻기 어려워지는 조건을 살피고, 더 알아볼 질문과 자료를 정해 보자." }
+  inquiry: { id: claim-support-question, prompt: "영양 부족 비율과 곡물 수입 의존도 자료로 식량 접근 문제를 주장하고, 근거와 더 확인할 질문을 정리해 보자." }
 activity:
   template: evidence-sort
   fictional: false

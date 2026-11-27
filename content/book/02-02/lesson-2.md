@@ -63,6 +63,9 @@ summary:
   - 신기 습곡 산지는 판의 충돌대에 길게 이어지고 지진·화산 활동과 관련된다.
   - 평야·하천·산지의 지형 조건은 정착, 농업, 자원 이용, 교통과 재해 대응에 영향을 준다.
   - 저지대의 생활은 국가별 지형·인구 분포와 방재 시설, 토지 이용을 함께 살펴 설명한다.
+routines:
+  opener: { id: see-think-wonder, prompt: "세계 주요 지형 지역 자료에서 평야·산지와 인구 분포를 살피고, 생활 조건의 차이에 관해 궁금한 점을 적어 보자." }
+  inquiry: { id: parts-people-interactions, prompt: "저지대 사례에서 지형·주민·산업·방재 시설이 어떻게 영향을 주고받는지 연결해 보자." }
 activity:
   template: layer-compare
   fictional: false

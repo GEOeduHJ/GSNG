@@ -14,6 +14,10 @@ const refs = {
   sources: { 'unctad-trade': { title: 'Trade' } },
   manifest: { items: [{ id: 'wdi-trade', path: '/data/01-01/trade.json' }, { id: 'wdi-net', path: '/data/01-01/net.json' }] },
   provenance: { items: [{ src: '/images/01-01/opening.webp' }] },
+  routines: { source: {}, items: {
+    'see-think-wonder': { id: 'see-think-wonder', steps: [{ id: 'a' }, { id: 'b' }] },
+    'claim-support-question': { id: 'claim-support-question', steps: [{ id: 'a' }, { id: 'b' }] },
+  } },
 };
 
 const text = (id) => ({ id, type: 'text', caption: '', source: '', alt: '', config: {}, schematic: false, concepts: [] });
@@ -179,12 +183,18 @@ describe('module lessons', () => {
       { title: '나', paragraphs: [{ text: '나1', refs: ['m2'] }, { text: '나2', refs: ['m3'] }] },
     ],
     paragraphs: ['가1', '가2', '나1', '나2'],
+    routines: { opener: { id: 'see-think-wonder', prompt: '열기' }, inquiry: { id: 'claim-support-question', prompt: '탐구' } },
     ...extra,
   });
   const errorsFor = (extra) => run(unit({}, moduleOverrides(extra)));
 
   it('accepts a well-formed module lesson', () => {
     expect(errorsFor()).toEqual([]);
+  });
+
+  it('requires opener and inquiry routines on module lessons', () => {
+    expect(errorsFor({ routines: { opener: { id: 'see-think-wonder', prompt: '열기' } } })).toEqual(expect.arrayContaining([expect.stringContaining('routines missing: inquiry')]));
+    expect(errorsFor({ routines: {} })).toEqual(expect.arrayContaining([expect.stringContaining('routines missing: opener')]));
   });
 
   it('reports unknown refs, unlinked steps and missing summary/opener', () => {

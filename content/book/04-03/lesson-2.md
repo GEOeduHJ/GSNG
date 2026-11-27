@@ -46,6 +46,9 @@ summary:
   - 정치·사회적 불안과 경제 기반의 약화, 자연재해는 강제 이주를 일으킬 수 있다.
   - 시리아 난민은 튀르키예 등 인접국으로, 베네수엘라 출신 난민·이주민은 콜롬비아 등으로 이동했다.
   - 교육·법적 지위·일자리·주거 지원은 난민의 선택과 지역 참여를 바탕으로 마련된다.
+routines:
+  opener: { id: see-think-wonder, prompt: "세계 강제 이주민 총계의 변화 자료를 살펴, 이동 뒤 안전과 생활에 관해 궁금한 점을 적어 보자." }
+  inquiry: { id: step-in-step-out-step-back, prompt: "난민과 수용 지역 주민의 처지를 각각 살피고, 정착 지원 자료에 비추어 내 관점의 한계도 돌아보자." }
 activity:
   template: layer-compare
   fictional: false

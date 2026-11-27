@@ -46,6 +46,9 @@ summary:
   - 권력과 정치 참여, 정체성, 분리주의, 종교·종파, 영토, 자원, 국가 간 경쟁이 복합적으로 작용한다.
   - 서남아시아의 교통로·자원, 시리아 내전의 외부 개입, 우크라이나의 영토 문제는 지정학적 갈등의 사례다.
   - 전쟁은 민간인의 권리와 생활 기반을 훼손하고 교육·생산·국가 발전을 중단시키거나 늦춘다.
+routines:
+  opener: { id: think-puzzle-explore, prompt: "분쟁 요인의 상호작용 개념도에서 정치·영토·자원 조건의 연결을 살피고, 더 확인할 근거와 질문을 적어 보자." }
+  inquiry: { id: claim-support-question, prompt: "분쟁의 유형과 원인 설명을 UN 정의·통계 자료와 대조해 근거를 확인하고, 검증할 점을 질문으로 남겨 보자." }
 activity:
   template: evidence-sort
   fictional: false

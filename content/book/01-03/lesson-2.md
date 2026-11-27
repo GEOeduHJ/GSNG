@@ -36,6 +36,9 @@ summary:
   - 시민은 사진에 위치를 붙이거나 온라인 지도를 보완해 지역 정보를 함께 만들고 나눌 수 있다.
   - 재난 지도는 관측 자료와 지역의 지식을 연결해 대응 계획을 세우도록 돕는다.
   - 참여자 수와 지도 정보만으로 현장 피해나 구호의 결과를 확정할 수 없으며 다른 자료와 확인이 필요하다.
+routines:
+  opener: { id: see-think-me-we, prompt: "대전 서구 버스 정류장 위치 자료에서 정류장과 이동 경로의 관계를 보고, 일상과 지역의 연결을 생각해 보자." }
+  inquiry: { id: think-feel-care, prompt: "위치 기반 서비스와 커뮤니티 매핑에서 정보 생산자·이용자·지역 주민이 무엇을 느끼고 소중히 여길지 살펴보자." }
 activity:
   template: layer-compare
   fictional: false

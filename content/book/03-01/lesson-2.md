@@ -73,6 +73,9 @@ summary:
   - 인구 변천은 출생률과 사망률이 모두 높은 단계에서 모두 낮은 단계로 옮겨 가는 과정이다.
   - 출생률이 높은 개발 도상국은 유소년층 비율이, 평균 수명이 긴 선진국은 노년층 비율이 높다.
   - 선진국은 저출산·고령화, 개발 도상국은 빠른 인구 증가에 따른 문제를 겪으며 지역 조건에 맞는 대책을 마련한다.
+routines:
+  opener: { id: see-think-wonder, prompt: "대한민국 인구 피라미드 자료에서 연령대별 모양을 살피고, 인구 구조의 변화에 관해 궁금한 점을 적어 보자." }
+  inquiry: { id: claim-support-question, prompt: "대한민국·우간다 인구 피라미드와 부양비 자료로 인구 문제에 관한 주장을 세우고, 근거와 확인할 점을 정리해 보자." }
 activity:
   template: evidence-sort
   fictional: false

@@ -46,6 +46,9 @@ summary:
   - 국제 이주는 대체로 일자리와 소득 기회가 적은 지역에서 많은 지역으로 향한다.
   - 순이동은 일정 기간의 유입과 유출의 차이이고, 국제 이주민 비율은 현재 주민 가운데 이주민의 몫이다.
   - 이주는 유출 지역에 송금과 인력 유출을, 유입 지역에 노동력 확보와 문화 다양성, 갈등 조정의 과제를 가져온다.
+routines:
+  opener: { id: see-think-wonder, prompt: "이주 동인 개념도에서 배출·흡인 요인을 살피고, 출발지·도착지 변화에 관해 궁금한 점을 적어 보자." }
+  inquiry: { id: step-in-step-out-step-back, prompt: "이주민과 출발지·도착지 주민의 처지를 구분해 살피고, 자료에 비추어 내 시선의 한계도 돌아보자." }
 activity:
   template: civic-hearing
   fictional: true

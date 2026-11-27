@@ -45,6 +45,9 @@ summary:
   - 축제는 자연환경과 계절, 역사·종교, 생업과 공동체 기억이 장소와 만나 형성된다.
   - 한 축제에는 여러 의미가 겹칠 수 있으며, 사례와 출처를 살펴 맥락을 이해한다.
   - 축제는 교류와 지역 활력을 만들 수 있고, 주민의 참여와 결정권에 따라 영향이 달라진다.
+routines:
+  opener: { id: see-think-wonder, prompt: "축제와 장소의 관계 자료에서 자연환경·역사·공동체의 연결을 살피고, 더 알고 싶은 점을 적어 보자." }
+  inquiry: { id: unveiling-stories, prompt: "축제 사례의 중심 주제와 장소 자료에서 드러난 이야기와 빠진 목소리를 찾아, 세계적 흐름과의 연결을 살펴보자." }
 activity:
   template: evidence-sort
   fictional: false

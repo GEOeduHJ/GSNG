@@ -46,6 +46,9 @@ summary:
   - 원격 탐사와 GNSS는 지리 정보의 관측·위치 파악에 쓰이고 GIS는 위치에 연결된 자료를 저장·분석·표현한다.
   - 위치 기반 서비스는 사람이나 사물의 위치를 지도·경로·시설 정보와 연결해 필요한 정보를 제공한다.
   - 디지털 트윈과 GeoAI는 공간 자료를 시각화하고 도시의 조건과 대안을 살피는 데 활용된다.
+routines:
+  opener: { id: see-think-wonder, prompt: "지리정보기술의 자료 흐름 자료에서 수집·분석·표현의 관계를 살피고, 더 알고 싶은 점을 적어 보자." }
+  inquiry: { id: parts-purposes-complexities, prompt: "원격 탐사·GNSS·GIS가 자료를 모으고 분석하는 역할을 나누어, 각 기술의 쓰임과 복잡한 점을 살펴보자." }
 activity:
   template: evidence-sort
   fictional: false

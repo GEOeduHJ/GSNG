@@ -45,6 +45,9 @@ summary:
   - 환경 문제는 지역에서 지구 전체까지 여러 공간 규모에 걸쳐 나타나며, 원인 지역과 영향 지역이 다를 수 있다.
   - 기후 변화와 물 부족, 사막화와 열대림 파괴는 기후 조건과 자원 이용이 맞물려 생태계와 생활에 영향을 준다.
   - 대기 오염 물질과 해양 쓰레기는 대기와 물의 흐름을 따라 이동해 여러 지역에 영향을 준다.
+routines:
+  opener: { id: see-think-wonder, prompt: "환경 문제의 공간 규모 개념도에서 원인 지역과 영향 지역의 연결을 살피고, 더 확인할 점을 적어 보자." }
+  inquiry: { id: projecting-across-distance, prompt: "초미세먼지와 해양 쓰레기 사례에서 발생 지역·영향 지역을 살피고, 먼 지역 사이의 흐름을 연결해 보자." }
 activity:
   template: evidence-sort
   fictional: false

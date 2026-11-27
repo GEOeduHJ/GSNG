@@ -54,6 +54,9 @@ summary:
   - 에너지원은 생산지와 소비지를 잇는 교역·운송망을 따라 이동한다.
   - 교통·산업·건물 등 부문마다 주로 쓰는 에너지원이 다르고, 1인당 공급량에도 지역 차이가 있다.
   - 화석 연료 이용은 온실가스와 대기 오염 문제를 키울 수 있어 효율 향상과 공급 다변화가 필요하다.
+routines:
+  opener: { id: think-puzzle-explore, prompt: "국가별 에너지 순수입 자료에서 생산지와 소비지의 관계를 살피고, 더 알아볼 점을 정해 보자." }
+  inquiry: { id: claim-support-question, prompt: "화석 연료 생산지와 국가별 에너지 순수입 자료로 에너지 안보 주장을 세우고, 근거와 더 확인할 점을 질문해 보자." }
 activity:
   template: evidence-sort
   fictional: false

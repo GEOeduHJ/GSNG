@@ -36,6 +36,9 @@ summary:
   - 식량 주권은 농민과 농촌 주민 등이 식량·농업 체계를 결정하는 권리와 관점을 강조한다.
   - 국내 생산, 교역, 비축, 손실 감소와 식량 접근 지원을 함께 검토할 수 있다.
   - 방안은 안정성·비용·환경·참여자에게 돌아갈 이익과 부담을 기준으로 평가한다.
+routines:
+  opener: { id: compass-points, prompt: "대한민국 식량·곡물 자급률 자료에서 국내 생산과 공급의 관계를 살피고, 기대·우려·필요 정보와 입장을 적어 보자." }
+  inquiry: { id: circles-of-action, prompt: "식량 문제를 줄이기 위해 나와 주변, 학교와 지역, 세계를 향해 할 수 있는 실천을 나누어 보자." }
 activity:
   template: decision-matrix
   fictional: false

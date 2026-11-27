@@ -36,6 +36,9 @@ summary:
   - 본사·연구소·공장은 자본과 정보, 전문 인력, 노동력과 시장에 대한 접근성을 고려해 입지를 정한다.
   - 세계지역화는 세계적 상품과 운영 방식을 지역의 식문화와 수요에 맞추는 과정이다.
   - 외국인 직접 투자는 기업 활동과 자본이 국경을 넘어 이동하는 흐름이다.
+routines:
+  opener: { id: see-think-me-we, prompt: "국가별 1인당 국내총생산 분포 자료에서 기업 활동의 지역 차이를 살피고, 내가 쓰는 상품과 연결해 생각해 보자." }
+  inquiry: { id: projecting-across-distance, prompt: "우리 지역에서 쓰는 상품의 본사·생산지·판매지를 살펴, 멀리 떨어진 지역 사이의 연결을 설명해 보자." }
 activity:
   template: evidence-sort
   fictional: false

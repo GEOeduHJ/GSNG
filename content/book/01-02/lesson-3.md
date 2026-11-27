@@ -45,6 +45,9 @@ summary:
   - 지역은 협력·분리, 제도와 사람의 관계가 달라지면서 여러 공간 규모에서 다시 구성된다.
   - 회원국 수, 통화 도입, 교역 관계는 지역의 결속과 변화를 서로 다른 방식으로 보여 준다.
   - 변화의 배경과 영향이 여러 집단에 다르게 닿으므로, 자료를 읽고 대응을 준비하려면 관점과 규모를 함께 살펴야 한다.
+routines:
+  opener: { id: projecting-across-time, prompt: "유럽 공동체·EU 회원국 수 자료에서 협력체 변화를 짚고, 과거·현재·앞으로의 관계를 연결해 보자." }
+  inquiry: { id: compass-points, prompt: "협력체 가입과 제도 조정에서 기대·우려·추가 정보와 대응 제안을 나누어 살펴보자." }
 activity:
   template: decision-matrix
   fictional: true

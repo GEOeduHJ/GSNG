@@ -45,6 +45,9 @@ summary:
   - 무형문화유산은 공동체가 이어 가고 새롭게 만들어 가는 지식과 표현, 실천이다.
   - 국제적 인정은 문화 실천을 알리고 대화를 넓히는 계기가 될 수 있다.
   - 기록과 교육, 공동체의 결정권과 지속적인 참여가 문화 전승의 바탕이 된다.
+routines:
+  opener: { id: compass-points, prompt: "공동체가 주도하는 보존 과정 자료에서 참여와 결정권을 살피고, 기대·우려·추가 정보와 제안을 정리해 보자." }
+  inquiry: { id: values-identities-actions, prompt: "지역 음식·축제 보존 사례에서 공동체의 가치와 정체성, 이를 이어 가는 행동을 찾아보자." }
 activity:
   template: decision-matrix
   fictional: false

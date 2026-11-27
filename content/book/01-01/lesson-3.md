@@ -45,6 +45,9 @@ summary:
   - 다중 스케일 관점은 세계·국가·지역·개인 규모의 힘과 행위자가 서로 영향을 주는 방식을 함께 살핀다.
   - 관계적 사고는 한 장소의 선택이 다른 장소의 사람과 환경에 이어지는 연결을 추적한다.
   - 세계시민성은 영향을 받는 사람의 관점과 결정 권한을 살피고 공동 문제 해결에 참여하는 태도다.
+routines:
+  opener: { id: compass-points, prompt: "공간 규모 사이의 관계 자료에서 개인의 선택과 다른 장소의 연결을 보고, 기대·우려·질문을 정리해 보자." }
+  inquiry: { id: step-in-step-out-step-back, prompt: "의류 생산지 주민과 소비자의 처지를 함께 살피고, 자료로 알기 어려운 점과 내 관점의 한계를 돌아보자." }
 activity:
   template: civic-hearing
   fictional: true

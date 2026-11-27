@@ -55,6 +55,9 @@ summary:
   - 국가별 1인당 GDP와 극빈율은 세계 경제의 소득 격차를 서로 다른 측면에서 보여 준다.
   - 식민 지배의 유산과 1차 산품 수출 의존은 국가의 산업 구조와 교역 조건에 영향을 준다.
   - 교육·기반 시설 격차와 기술·자본의 집중은 고부가가치 산업의 입지를 좌우한다.
+routines:
+  opener: { id: see-think-wonder, prompt: "글로벌 가치사슬 개념도에서 설계·생산·판매의 위치를 따라가며, 지역별 몫의 차이에 관해 궁금한 점을 적어 보자." }
+  inquiry: { id: ways-things-can-be-complex, prompt: "가치사슬·식민 역사·교육·기반 시설·기술·자본이 공간적 불균등에 얽히는 양상을 여러 관점과 시간에 따라 정리해 보자." }
 activity:
   template: layer-compare
   fictional: false

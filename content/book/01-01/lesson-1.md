@@ -44,6 +44,9 @@ summary:
   - 세계화는 상품·정보·사람·자본의 국경 간 이동으로 장소 사이의 연결을 넓힌다.
   - 교통·통신의 발달은 교류를 빠르게 하고 여러 공간 규모의 주체를 이어 준다.
   - 경제·문화의 세계적 흐름은 지역에 기회와 과제를 함께 만들며, 그 영향은 장소마다 다르게 나타난다.
+routines:
+  opener: { id: see-think-wonder, prompt: "국가별 무역 비중 지도에서 무역 연결이 큰 지역을 살피고, 눈에 띈 점과 궁금한 점을 적어 보자." }
+  inquiry: { id: three-whys, prompt: "세계화의 영향이 나의 일상, 우리 지역, 세계에 왜 중요한지 세 규모로 나누어 생각해 보자." }
 activity:
   template: layer-compare
   fictional: false

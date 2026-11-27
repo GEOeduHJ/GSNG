@@ -72,6 +72,9 @@ summary:
   - 식량 체계는 생산에서 소비까지 여러 활동과 주체를 연결한다.
   - 작물별 생산지는 생육 조건과 농업 기술, 소비 수요가 함께 작용해 다르게 나타난다.
   - 생산량·수출량·수입 의존도는 서로 다른 공급 관계를 보여 주는 지표다.
+routines:
+  opener: { id: see-think-wonder, prompt: "식량 체계 개념도에서 생산·유통·소비의 연결을 보고, 한 식품이 우리 지역과 세계를 잇는 방식을 생각해 보자." }
+  inquiry: { id: parts-people-interactions, prompt: "쌀·밀·옥수수의 생산지와 교역 자료에서 생산자·유통 주체·소비자가 어떻게 영향을 주고받는지 연결해 보자." }
 activity:
   template: layer-compare
   fictional: false

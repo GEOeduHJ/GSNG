@@ -55,6 +55,9 @@ summary:
   - 사구의 식생·모래·접근 경로를 관리하면 해안 이용과 자연 과정의 회복을 함께 고려할 수 있다.
   - 보호 지역 지정, 방문 관리, 복원과 주민 참여는 장소의 조건에 맞추어 조정해야 한다.
   - 지속가능한 이용은 영향을 관찰하고 의견을 모아 관리 기준을 다시 살피는 과정이다.
+routines:
+  opener: { id: compass-points, prompt: "국가별 육상 보호 지역 비율 자료에서 보전과 이용의 균형을 살피고, 기대·우려·추가 정보와 제안을 적어 보자." }
+  inquiry: { id: tug-of-war, prompt: "사가르마타 국립공원에서 관광 개발과 생태 보전 사이의 이유를 양쪽에서 살피고, 판단에 필요한 질문을 남겨 보자." }
 activity:
   template: decision-matrix
   fictional: false

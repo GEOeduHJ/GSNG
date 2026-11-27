@@ -55,6 +55,9 @@ summary:
   - 태양 에너지의 위도별 차이와 대기 대순환은 세계 기온·강수 분포의 큰 틀을 만든다.
   - 산지의 바람받이에는 비가 많이 내리고, 산맥 뒤편의 비그늘은 건조하다.
   - 쾨펜은 기온과 강수 기준으로 기후를 열대(A)·건조(B)·온대(C)·냉대(D)·한대(E)로 구분한다.
+routines:
+  opener: { id: see-think-wonder, prompt: "기후 요인의 작용 자료에서 위도·해륙·지형과 기후의 관계를 살피고, 궁금한 점을 적어 보자." }
+  inquiry: { id: what-makes-you-say-that, prompt: "서울·런던·야쿠츠크 기후 그래프의 차이를 위도·해륙·지형 자료와 연결해 설명하고 근거를 짚어 보자." }
 activity:
   template: layer-compare
   fictional: false

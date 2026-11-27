@@ -35,6 +35,9 @@ summary:
   - 인구는 기후·지형 같은 자연환경과 농업 생산력·산업·교통 같은 사회·경제적 조건의 영향을 받아 고르지 않게 분포한다.
   - 계절풍 아시아와 서부 유럽·북아메리카 동부에는 인구가 밀집하고, 극지방·사막·높은 산지에는 인구가 희박하다.
   - 인구 밀도는 면적에 견준 인구이고, 총인구는 한 나라 인구의 전체 규모다.
+routines:
+  opener: { id: see-think-wonder, prompt: "국가별 인구 밀도 자료에서 인구가 집중되거나 희박한 지역을 살피고, 분포의 까닭에 관해 궁금한 점을 적어 보자." }
+  inquiry: { id: what-makes-you-say-that, prompt: "인구 밀집·희박 지역을 기후·지형·산업·교통 조건과 연결해 설명하고, 판단 근거를 자료에서 찾아보자." }
 activity:
   template: layer-compare
   fictional: false

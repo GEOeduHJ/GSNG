@@ -45,6 +45,9 @@ summary:
   - 지역 분리와 자치 요구에는 정체성, 역사적 경험, 권한 배분, 경제 관계 등 여러 배경이 함께 작용할 수 있다.
   - 분리·독립과 한 국가 안에서의 자치 확대는 정치적 관계를 바꾸는 서로 다른 방식이다.
   - 투표 결과와 현재의 영향력 선호는 서로 다른 질문에 대한 자료이므로 각각의 시점과 대상을 구분해 읽는다.
+routines:
+  opener: { id: see-think-wonder, prompt: "스코틀랜드 구역별 주민투표 자료에서 결과의 지역 차이를 살피고, 자료만으로 알기 어려운 점을 적어 보자." }
+  inquiry: { id: circle-of-viewpoints, prompt: "분리·독립과 자치 확대를 둘러싼 여러 주민의 관점에서 중요한 점과 남는 질문을 정리해 보자." }
 activity:
   template: layer-compare
   fictional: false

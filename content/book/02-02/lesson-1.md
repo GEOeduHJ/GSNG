@@ -35,6 +35,9 @@ summary:
   - 대지형은 지구 내부의 힘이 지각을 움직이고 오랜 시간 지형을 빚은 결과다.
   - 수렴·발산·변환 경계에서는 판이 움직이는 방식에 따라 산맥·해령·지구대와 지진이 다르게 나타난다.
   - 지진과 화산은 판 경계 부근에 집중되지만 판 내부의 화산 활동도 지형 형성에 참여한다.
+routines:
+  opener: { id: think-puzzle-explore, prompt: "세계 판 경계 대표 위치 자료에서 판의 경계와 주변 지형을 살피고, 지진·화산 분포에 관해 궁금한 점을 적어 보자." }
+  inquiry: { id: what-makes-you-say-that, prompt: "판 경계 유형과 지진·화산 분포를 대조해, 판의 움직임이 지형 형성과 이어진다는 근거를 설명해 보자." }
 activity:
   template: evidence-sort
   fictional: false

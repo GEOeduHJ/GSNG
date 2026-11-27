@@ -46,6 +46,9 @@ summary:
   - 키프로스의 UNFICYP는 정전선 감독과 완충 지대 유지, 인도적 활동을 수행한다.
   - 콜롬비아 평화 협정처럼 합의 뒤에는 정치 참여와 사회 재통합, 공공 서비스 등 평화 구축 과제가 이어진다.
   - 국제 NGO와 세계시민은 의료·인권 활동, 정보 확인, 연대와 문화 다양성 존중으로 평화에 참여한다.
+routines:
+  opener: { id: compass-points, prompt: "평화 구축의 흐름 자료에서 합의 뒤 이어지는 과제를 살피고, 기대·우려·추가 정보와 실천 제안을 정리해 보자." }
+  inquiry: { id: circles-of-action, prompt: "평화와 정의를 위해 나와 주변, 학교와 지역, 세계를 향해 할 수 있는 일을 국제기구와 NGO의 활동을 참고해 나누어 보자." }
 activity:
   template: decision-matrix
   fictional: false

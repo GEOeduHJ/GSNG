@@ -35,6 +35,9 @@ summary:
   - 지역은 어떤 자연·문화·경제 관계를 기준으로 보느냐에 따라 범위와 지역성이 다르게 나타난다.
   - 지역 통합은 국가와 지역이 공통 과제를 다루려고 협력과 규칙을 만드는 과정이다.
   - 협력체마다 참여 범위와 제도 결속의 수준이 다르며, 이익과 조정 과정도 여러 주체에게 다르게 나타난다.
+routines:
+  opener: { id: think-puzzle-explore, prompt: "RCEP 참여 국가 자료에서 협력체의 범위를 살피고, 함께 규칙을 만드는 이유에 관해 궁금한 점을 적어 보자." }
+  inquiry: { id: claim-support-question, prompt: "EU와 RCEP가 지역 통합을 추진한 이유를 주장으로 세우고, 자료 근거와 더 확인할 질문을 붙여 보자." }
 activity:
   template: evidence-sort
   fictional: false
