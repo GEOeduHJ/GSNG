@@ -1,0 +1,549 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.09814,
+          57.14369
+        ]
+      },
+      "properties": {
+        "name": "Aberdeen City",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 41.4,
+        "turnout": 81.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.37736,
+          57.28446
+        ]
+      },
+      "properties": {
+        "name": "Aberdeenshire",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 39.6,
+        "turnout": 87.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.89001,
+          56.64382
+        ]
+      },
+      "properties": {
+        "name": "Angus",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 43.7,
+        "turnout": 85.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.43206,
+          56.03796
+        ]
+      },
+      "properties": {
+        "name": "Argyll and Bute",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 41.5,
+        "turnout": 88.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.78997,
+          56.11586
+        ]
+      },
+      "properties": {
+        "name": "Clackmannanshire",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 46.2,
+        "turnout": 88.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.61139,
+          55.06959
+        ]
+      },
+      "properties": {
+        "name": "Dumfries and Galloway",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 34.3,
+        "turnout": 87.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.97489,
+          56.46913
+        ]
+      },
+      "properties": {
+        "name": "Dundee City",
+        "category": "찬성 우세",
+        "color": "#2E7184",
+        "yes_share": 57.3,
+        "turnout": 78.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.49581,
+          55.61171
+        ]
+      },
+      "properties": {
+        "name": "East Ayrshire",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 47.2,
+        "turnout": 84.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.15262,
+          55.93933
+        ]
+      },
+      "properties": {
+        "name": "East Dunbartonshire",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 38.8,
+        "turnout": 91.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.78332,
+          55.95612
+        ]
+      },
+      "properties": {
+        "name": "East Lothian",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 38.3,
+        "turnout": 87.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.29488,
+          55.80373
+        ]
+      },
+      "properties": {
+        "name": "East Renfrewshire",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 36.8,
+        "turnout": 90.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.19648,
+          55.95206
+        ]
+      },
+      "properties": {
+        "name": "Edinburgh, City of",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 38.9,
+        "turnout": 84.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -6.38649,
+          58.20925
+        ]
+      },
+      "properties": {
+        "name": "Eilean Siar",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 46.6,
+        "turnout": 86.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.78535,
+          56.0021
+        ]
+      },
+      "properties": {
+        "name": "Falkirk",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 46.5,
+        "turnout": 88.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.17316,
+          56.19514
+        ]
+      },
+      "properties": {
+        "name": "Fife",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 45.0,
+        "turnout": 84.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.25763,
+          55.86515
+        ]
+      },
+      "properties": {
+        "name": "Glasgow City",
+        "category": "찬성 우세",
+        "color": "#2E7184",
+        "yes_share": 53.5,
+        "turnout": 75.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.22398,
+          57.47908
+        ]
+      },
+      "properties": {
+        "name": "Highland",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 47.1,
+        "turnout": 87.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.76121,
+          55.94838
+        ]
+      },
+      "properties": {
+        "name": "Inverclyde",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 49.9,
+        "turnout": 87.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.06806,
+          55.89317
+        ]
+      },
+      "properties": {
+        "name": "Midlothian",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 43.7,
+        "turnout": 86.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.31843,
+          57.64947
+        ]
+      },
+      "properties": {
+        "name": "Moray",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 42.4,
+        "turnout": 85.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.65508,
+          55.6194
+        ]
+      },
+      "properties": {
+        "name": "North Ayrshire",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 49.0,
+        "turnout": 84.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.99187,
+          55.78924
+        ]
+      },
+      "properties": {
+        "name": "North Lanarkshire",
+        "category": "찬성 우세",
+        "color": "#2E7184",
+        "yes_share": 51.1,
+        "turnout": 84.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.95873,
+          58.98479
+        ]
+      },
+      "properties": {
+        "name": "Orkney Islands",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 32.8,
+        "turnout": 83.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.43139,
+          56.39522
+        ]
+      },
+      "properties": {
+        "name": "Perth and Kinross",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 39.8,
+        "turnout": 86.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.43254,
+          55.83173
+        ]
+      },
+      "properties": {
+        "name": "Renfrewshire",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 47.2,
+        "turnout": 87.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.66874,
+          55.57887
+        ]
+      },
+      "properties": {
+        "name": "Scottish Borders",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 33.4,
+        "turnout": 87.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.14427,
+          60.15339
+        ]
+      },
+      "properties": {
+        "name": "Shetland Islands",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 36.3,
+        "turnout": 84.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.63393,
+          55.46273
+        ]
+      },
+      "properties": {
+        "name": "South Ayrshire",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 42.1,
+        "turnout": 86.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.03333,
+          55.76667
+        ]
+      },
+      "properties": {
+        "name": "South Lanarkshire",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 45.3,
+        "turnout": 85.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.93682,
+          56.11903
+        ]
+      },
+      "properties": {
+        "name": "Stirling",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 40.2,
+        "turnout": 90.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.57061,
+          55.94433
+        ]
+      },
+      "properties": {
+        "name": "West Dunbartonshire",
+        "category": "찬성 우세",
+        "color": "#2E7184",
+        "yes_share": 54.0,
+        "turnout": 87.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.52261,
+          55.90288
+        ]
+      },
+      "properties": {
+        "name": "West Lothian",
+        "category": "반대 우세",
+        "color": "#C07D3E",
+        "yes_share": 44.8,
+        "turnout": 86.2
+      }
+    }
+  ]
+}

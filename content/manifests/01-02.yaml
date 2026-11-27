@@ -1,0 +1,111 @@
+items:
+  - id: u0102-eu-accession-year
+    path: /data/01-02/eu-accession-year-map.json
+    title: EU 회원국의 EEC·EU 가입 연도
+    organization: European Union
+    url: https://european-union.europa.eu/principles-countries-history/eu-enlargement_en
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0 (European Union website content)
+    attribution: >-
+      European Union, EU enlargement history, CC BY 4.0. Modified: selected the
+      current 27 EU members; founding members are dated to EEC participation
+      in 1958; the United Kingdom is omitted from the current-member map after
+      withdrawal in 2020.
+    script: scripts/data/01-02/eu_integration.py
+    unit: EEC 또는 EU 가입 연도
+    year: 2026
+    summary: >-
+      현재 EU 회원국은 27개이며 프랑스는 1958년 EEC 창립 회원국, 아일랜드는
+      1973년 가입, 크로아티아는 2013년 가입이다. 영국은 1973년에 가입해
+      2020년에 탈퇴했으므로 현재 회원국 단계 구분도에서는 별도 주석으로 다룬다.
+  - id: u0102-eu-membership-count
+    path: /data/01-02/eu-membership-count-series.json
+    title: EEC·EU 회원국 수 변화, 1958–2026
+    organization: European Union
+    url: https://european-union.europa.eu/principles-countries-history/history-eu_en
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0 (European Union website content)
+    attribution: >-
+      European Union, EU history and enlargement history, CC BY 4.0. Modified:
+      annual year-end membership counts were derived from published accession
+      and withdrawal dates; the United Kingdom's 2020 withdrawal is included.
+    script: scripts/data/01-02/eu_integration.py
+    unit: 연도 말 회원국 수(개국)
+    year: 2026
+    summary: >-
+      1973년 말 회원국은 9개, 2004년 말 25개, 2013년 말 28개였다.
+      영국 탈퇴를 반영한 2020년 말과 2026년 말 회원국 수는 27개다.
+  - id: u0102-scotland-referendum-council-points
+    path: /data/01-02/scotland-referendum-council-points.geojson
+    title: 스코틀랜드 독립 주민투표 지방 의회 구역별 결과, 2014년
+    organization: House of Commons Library · GeoNames
+    url: https://researchbriefings.files.parliament.uk/documents/CBP-7529/CBP-7529.pdf
+    retrievedAt: '2026-11-27'
+    license: Open Parliament Licence v3.0 (vote data); CC BY (GeoNames coordinates)
+    attribution: >-
+      Contains Parliamentary information licensed under the Open Parliament
+      Licence v3.0. Vote data: House of Commons Library, CBP-7529, Table 33.
+      Coordinates: GeoNames.org, CC BY. Modified: selected council vote results,
+      assigned representative settlement coordinates and categorized areas by
+      Yes/No vote counts.
+    script: scripts/data/01-02/scotland_referendum.py
+    unit: yes_share (% of Yes and No votes); turnout (% of electorate); WGS84 decimal degrees
+    year: 2014
+    summary: >-
+      32개 지방 의회 구역별 찬성 비율과 투표율을 나타낸다. Aberdeen City는
+      찬성 비율 41.4%, 투표율 81.7%이고, Glasgow City는 각각 53.5%, 75.0%다.
+      점은 대표 정착지 위치이며 행정구역 경계나 면적 중심점이 아니다.
+  - id: u0102-scotland-referendum-national-result
+    path: /data/01-02/scotland-referendum-national-result.json
+    title: 스코틀랜드 독립 주민투표 전국 결과, 2014년
+    organization: House of Commons Library
+    url: https://researchbriefings.files.parliament.uk/documents/CBP-7529/CBP-7529.pdf
+    retrievedAt: '2026-11-27'
+    license: Open Parliament Licence v3.0
+    attribution: >-
+      Contains Parliamentary information licensed under the Open Parliament
+      Licence v3.0. Based on House of Commons Library CBP-7529, Table 33.
+      Modified: Yes/No percentages are shown to one decimal place using valid
+      Yes and No votes as the denominator; rejected ballots are excluded.
+    script: scripts/data/01-02/scotland_referendum.py
+    unit: 유효 찬성·반대 투표 중 득표 비율(%)
+    year: 2014
+    summary: >-
+      전국 유효 투표 중 찬성은 44.7%, 반대는 55.3%다. 유효표 3,619,915표를
+      분모로 계산했으며 무효 3,429표는 두 막대의 비율에서 제외했다.
+  - id: u0102-urbanization-rate
+    path: /data/01-02/urbanization-rate-series.json
+    title: 세계·대한민국·일본·독일·방글라데시 도시화율, 1960–2025
+    organization: World Bank World Development Indicators · United Nations Population Division
+    url: 'https://api.worldbank.org/v2/country/all/indicator/SP.URB.TOTL.IN.ZS?format=json&per_page=20000&date=1960:2025'
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0 (World Bank WDI)
+    attribution: >-
+      World Bank, World Development Indicators, SP.URB.TOTL.IN.ZS; source:
+      United Nations Population Division, World Urbanization Prospects, CC BY 4.0.
+      Modified: selected WLD, KOR, JPN, DEU and BGD; missing observations are null.
+    script: scripts/data/01-02/world_bank.py
+    unit: 총인구 중 도시 인구 비율(%)
+    year: 2025
+    summary: >-
+      2025년 도시화율은 세계 57.8%, 대한민국 81.2%, 일본 92.3%, 독일 82.1%,
+      방글라데시 33.2%다. 원자료는 국가별 도시 정의를 사용하며 2025년 값은
+      최신 연도 추정치 또는 잠정치일 수 있다.
+  - id: u0102-largest-city-urban-share
+    path: /data/01-02/largest-city-urban-share-series.json
+    title: 도시 인구 중 최대 도시 인구 비율, 1960–2025
+    organization: World Bank World Development Indicators · United Nations Population Division
+    url: 'https://api.worldbank.org/v2/country/all/indicator/EN.URB.LCTY.UR.ZS?format=json&per_page=20000&date=1960:2025'
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0 (World Bank WDI)
+    attribution: >-
+      World Bank, World Development Indicators, EN.URB.LCTY.UR.ZS; source:
+      United Nations Population Division, World Urbanization Prospects 2018,
+      CC BY 4.0. Modified: selected KOR, JPN, DEU and BGD; missing observations are null.
+    script: scripts/data/01-02/world_bank.py
+    unit: 도시 인구 중 최대 도시 인구 비율(%)
+    year: 2025
+    summary: >-
+      2025년 도시 인구 중 최대 도시 인구 비율은 대한민국 23.9%, 일본 32.5%,
+      독일 5.2%, 방글라데시 42.2%다. 국가별 도시권 경계가 달라 수도권 인구
+      비중과 동일한 지표로 해석하지 않는다.

@@ -1,0 +1,14 @@
+{
+  "year": 2014,
+  "unit": "% of valid Yes/No votes",
+  "rows": [
+    {
+      "name": "찬성",
+      "value": 44.7
+    },
+    {
+      "name": "반대",
+      "value": 55.3
+    }
+  ]
+}
