@@ -2,8 +2,9 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 
 const initSpy = vi.fn();
+const useSpy = vi.fn();
 vi.mock('echarts/core', () => ({
-  use: () => {},
+  use: (...args) => useSpy(...args),
   init: (...args) => { initSpy(...args); return { setOption() {}, on() {}, resize() {}, dispose() {} }; },
 }));
 
@@ -20,6 +21,16 @@ import { summarizeResults } from '../src/teacher/summarize.js';
 import { makeBook, memoryStorage } from './fixtures/book.js';
 
 afterEach(() => { vi.unstubAllGlobals(); delete window.matchMedia; initSpy.mockClear(); window.location.hash = ''; });
+
+describe('projection shading', () => {
+  it('registers the mark-area component used for projection periods', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => ({ years: [2020], series: [{ name: 'A', values: [1] }] }) })));
+    render(<DataChart url="/data/ma.json" config={{ kind: 'line', projectionFrom: 2020 }} alt="a" fallback={null} />);
+    await waitFor(() => expect(useSpy).toHaveBeenCalled());
+    const { MarkAreaComponent } = await import('echarts/components');
+    expect(useSpy.mock.calls.flatMap(([list]) => list)).toContain(MarkAreaComponent);
+  });
+});
 
 describe('C1: charts survive parent re-renders', () => {
   it('does not re-create the chart when onInteract changes identity', async () => {

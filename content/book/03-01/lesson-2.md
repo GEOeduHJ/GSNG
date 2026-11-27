@@ -11,7 +11,7 @@ steps:
     caption: 세계 총인구, 1950–2023년 추계·2024–2100년 중위 전망
     source: u0301-wpp-world-population
     alt: 1950년부터 2023년까지의 추계와 2024년부터 2100년까지의 중위 전망으로 세계 총인구 흐름을 나타낸 선 그래프다. 7월 1일 기준 계열이다.
-    config: { kind: line, maxYear: 2100 }
+    config: { kind: line, maxYear: 2100, projectionFrom: 2024 }
     concepts: [population-structure]
   - id: d2
     type: chart

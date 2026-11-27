@@ -8,7 +8,7 @@ function loadEcharts() {
   echartsPromise ??= Promise.all([
     import('echarts/core'), import('echarts/charts'), import('echarts/components'), import('echarts/renderers'),
   ]).then(([core, charts, components, renderers]) => {
-    core.use([charts.BarChart, charts.LineChart, components.AriaComponent, components.GridComponent, components.LegendComponent, components.TooltipComponent, renderers.CanvasRenderer]);
+    core.use([charts.BarChart, charts.LineChart, components.AriaComponent, components.GridComponent, components.LegendComponent, components.MarkAreaComponent, components.TooltipComponent, renderers.CanvasRenderer]);
     return core;
   });
   return echartsPromise;

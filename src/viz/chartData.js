@@ -93,7 +93,26 @@ export function buildChartOption(config = {}, data = {}, names = {}, { reduced =
     legend: { top: 0, textStyle: label },
     xAxis: { type: 'category', data: years, axisLabel: label },
     yAxis: { type: 'value', name: unit, nameTextStyle: label, axisLabel: valueLabel },
-    series: series.map((item) => ({ type: 'line', name: item.name, data: item.values, showSymbol: false, connectNulls: false, lineStyle: { width: 2.5 } })),
+    series: series.map((item, index) => ({
+      type: 'line', name: item.name, data: item.values, showSymbol: false, connectNulls: false, lineStyle: { width: 2.5 },
+      ...(index === 0 ? projectionArea(config, years) : {}),
+    })),
+  };
+}
+
+/** Shade years from config.projectionFrom to the end, labelled 중위 전망, so projections never read as observations. */
+function projectionArea(config, years) {
+  if (config.projectionFrom == null || !years.length) return {};
+  const from = years.find((year) => Number(year) >= Number(config.projectionFrom));
+  if (from == null) return {};
+  return {
+    markArea: {
+      silent: true,
+      itemStyle: { color: 'rgba(138, 90, 43, 0.10)' },
+      label: { show: true, position: 'insideTop', fontSize: 14, color: '#5c3d1d' },
+      // category axes read numbers as indexes, so name the categories as strings
+      data: [[{ name: '중위 전망', xAxis: String(from) }, { xAxis: String(years.at(-1)) }]],
+    },
   };
 }
 

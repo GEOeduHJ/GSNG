@@ -61,7 +61,7 @@ export default function LessonReading({ unit, lesson, wide, selectedId, onSelect
                     <div className="data-buttons">
                       {steps.map((step) => {
                         const key = `${si}-${pi}-${step.id}`;
-                        return <DataButton key={key} step={step} wide={wide} pressed={selectedId === step.id} expanded={open.has(key)} onClick={() => (wide ? onSelect(step.id) : toggle(key))} />;
+                        return <DataButton key={key} step={step} wide={wide} pressed={selectedId === step.id} expanded={open.has(key)} onClick={() => { onSelect(step.id); if (!wide) toggle(key); }} />;
                       })}
                     </div>
                   )}

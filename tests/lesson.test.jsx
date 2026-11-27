@@ -31,6 +31,14 @@ afterEach(() => {
 });
 
 describe('chart and map data', () => {
+  it('shades the projection period of a line chart when projectionFrom is set', () => {
+    const data = { years: [2022, 2023, 2024, 2025], series: [{ name: '세계', values: [1, 2, 3, 4] }] };
+    const area = buildChartOption({ kind: 'line', projectionFrom: 2024 }, data).series[0].markArea;
+    expect(area.data[0][0]).toMatchObject({ name: '중위 전망', xAxis: '2024' });
+    expect(area.data[0][1]).toMatchObject({ xAxis: '2025' });
+    expect(buildChartOption({ kind: 'line' }, data).series[0].markArea).toBeUndefined();
+  });
+
   it('builds a line option from series data with 14px axis labels', () => {
     const option = buildChartOption({ kind: 'line', unit: '%' }, { unit: '%', years: [2000, 2001], series: [{ name: '세계', values: [40, null] }] });
     expect(option.series[0]).toMatchObject({ type: 'line', name: '세계', data: [40, null] });
@@ -331,6 +339,14 @@ describe('내 질문과 이 절', () => {
   it('shows old evidence whose stepId no longer exists as a note only', () => {
     renderWith({ ...emptyUnitRecord('01-01'), evidence: [{ id: 'e1', questionId: 'q1', lessonId: 'lesson-01-01-2', stepId: 'gone', note: '옛 메모' }] });
     expect(screen.getByText('옛 메모')).toBeTruthy();
+  });
+  it('defaults the evidence source to the data opened on narrow screens', () => {
+    vi.stubGlobal('fetch', vi.fn(() => Promise.reject(new Error('offline'))));
+    setMedia({ wide: false });
+    const book = makeBook();
+    render(<BookProvider book={book} storage={memoryStorage()}><LessonSpread unit={book.units[0]} route={{ name: 'lesson', unitId: '01-01', index: 2 }} /></BookProvider>);
+    fireEvent.click(screen.getByRole('button', { name: /자료 보기.*l2s3/ }));
+    expect(screen.getByLabelText('어느 자료에서').value).toBe('l2s3');
   });
   it('defaults the evidence source to the data being viewed', () => {
     renderWith(emptyUnitRecord('01-01'));
