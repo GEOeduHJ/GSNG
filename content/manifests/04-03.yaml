@@ -1,0 +1,122 @@
+items:
+  - id: u0403-organized-violence-deaths-2025
+    path: /data/04-03/organized-violence-deaths-country-2025.json
+    title: 국가별 조직적 폭력 관련 사망자 수, 2025년
+    organization: Uppsala Conflict Data Program (UCDP)
+    url: https://ucdp.uu.se/downloads/organizedviolencecy/organizedviolencecy-261-csv.zip
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      UCDP Country-Year Dataset on Organized Violence within Country Borders v26.1, CC BY 4.0.
+      Modified: 2025년 국가별 best-estimate 합계를 기존 ISO3 지도에 연결했다. UCDP의 'Israel' 단위는 이스라엘·팔레스타인 지역 합산으로 별도 표시했다. 행위자별 정보는 포함하지 않는다.
+    script: scripts/data/04-03/ucdp_conflicts.py
+    unit: persons (best estimate)
+    year: 2025
+    summary: >-
+      2025년 UCDP 조직적 폭력 관련 사망 best estimate는 우크라이나 90,345명, 수단 75,174명이다.
+      UCDP는 이스라엘과 팔레스타인 지역을 하나의 단위로 집계하며 그 합계는 14,563명이다(지도에서 별도 색으로 표시).
+      국가·연도 합계이며 가해 주체나 개별 사건 정보는 포함하지 않는다.
+
+  - id: u0403-armed-conflict-count-series
+    path: /data/04-03/armed-conflict-count-series-1946-2025.json
+    title: 세계 국가기반 무력 분쟁 수, 1946–2025년
+    organization: Uppsala Conflict Data Program (UCDP), Peace Research Institute Oslo (PRIO)
+    url: https://ucdp.uu.se/downloads/ucdpprio/ucdp-prio-acd-261-csv.zip
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      UCDP/PRIO Armed Conflict Dataset v26.1, CC BY 4.0. Modified: 연도별 고유 conflict_id 수를 계산했다.
+    script: scripts/data/04-03/ucdp_conflicts.py
+    unit: state-based armed conflicts
+    year: 2025
+    summary: >-
+      국가기반 무력 분쟁 수는 1946년 17건, 2000년 40건, 2025년 65건이다.
+      이 수는 각 연도에 활동한 conflict_id 수이며 분쟁 당사자나 책임을 뜻하지 않는다.
+
+  - id: u0403-forced-displacement-origin-top10-2025
+    path: /data/04-03/forcibly-displaced-origin-top10-2025.json
+    title: 출신지별 국외 강제 이주민 상위 10곳, 2025년
+    organization: United Nations High Commissioner for Refugees (UNHCR), Refugee Data Finder
+    url: https://api-data.unhcr.org/api/v0/data/PopStatsOfficial
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      UNHCR Refugee Data Finder, PopStatsOfficial, CC BY 4.0. Modified: 2025년 12월 REF_UNHCR,
+      REF_UNRWA, OIP, ASY 유형을 출신지별로 합산해 상위 10곳을 선정하고 이름을 한국어로 표시했다.
+      UNHCR의 승인이나 보증을 뜻하지 않는다.
+    script: scripts/data/04-03/unhcr_refugees.py
+    unit: persons
+    year: 2025
+    summary: >-
+      2025년 출신지별 합계는 베네수엘라 7,640,872명, 팔레스타인 지역 6,029,831명,
+      우크라이나 5,250,714명이다. 난민·비호신청자·국제보호 필요 인구 유형을 합한 값이다.
+
+  - id: u0403-forced-displacement-host-top10-2025
+    path: /data/04-03/forcibly-displaced-host-top10-2025.json
+    title: 수용국별 국외 강제 이주민 상위 10개국, 2025년
+    organization: United Nations High Commissioner for Refugees (UNHCR), Refugee Data Finder
+    url: https://api-data.unhcr.org/api/v0/data/PopStatsOfficial
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      UNHCR Refugee Data Finder, PopStatsOfficial, CC BY 4.0. Modified: 2025년 12월 REF_UNHCR,
+      REF_UNRWA, OIP, ASY 유형을 수용국별로 합산해 상위 10개국을 선정하고 이름을 한국어로 표시했다.
+      UNHCR의 승인이나 보증을 뜻하지 않는다.
+    script: scripts/data/04-03/unhcr_refugees.py
+    unit: persons
+    year: 2025
+    summary: >-
+      2025년 수용국별 합계는 미국 4,176,592명, 독일 2,952,694명, 요르단 2,842,473명이다.
+      난민·비호신청자·국제보호 필요 인구 유형을 합한 값이다.
+
+  - id: u0403-global-forced-displacement-series
+    path: /data/04-03/global-forcibly-displaced-series-2006-2025.json
+    title: 세계 강제 이주민 수, 2006–2025년
+    organization: United Nations High Commissioner for Refugees (UNHCR), Refugee Data Finder
+    url: https://www.unhcr.org/figures-at-a-glance
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      UNHCR Refugee Data Finder, global forced-displacement indicator, CC BY 4.0. Modified: 2006–2025년
+      공개 시계열을 원자료의 0.01 million persons 정밀도로 옮겼다. UNHCR이 공표한 중복 조정 총계를 사용했다.
+      UNHCR의 승인이나 보증을 뜻하지 않는다.
+    script: scripts/data/04-03/unhcr_refugees.py
+    unit: million persons
+    year: 2025
+    summary: >-
+      UNHCR이 공개한 강제 이주민 총수는 2018년 72.56 million, 2024년 123.25 million,
+      2025년 117.83 million이다. 원자료의 표시 정밀도에 맞춘 값이다.
+
+  - id: u0403-peace-agreements-series
+    path: /data/04-03/peace-agreements-by-year-1975-2021.json
+    title: 평화협정 기록 수, 1975–2021년
+    organization: Uppsala Conflict Data Program (UCDP)
+    url: https://ucdp.uu.se/downloads/peace/ucdp-peace-agreements-222.xlsx
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      UCDP Peace Agreement Dataset v22.2, CC BY 4.0. Modified: 연도별 협정 기록 수를 계산했다.
+      Pettersson, Högbladh & Öberg (2019), Journal of Peace Research 56(4).
+    script: scripts/data/04-03/ucdp_peace_process.py
+    unit: peace agreement records
+    year: 2021
+    summary: >-
+      UCDP 평화협정 기록 수는 1992년 14건, 2000년 9건, 2021년 2건이다.
+      기록 수는 서명된 협정의 건수이며 평화가 지속됐는지를 직접 나타내지는 않는다.
+
+  - id: u0403-conflict-termination-outcomes-series
+    path: /data/04-03/conflict-termination-outcomes-series-1946-2023.json
+    title: 무력 분쟁 종결 방식, 1946–2023년
+    organization: Uppsala Conflict Data Program (UCDP)
+    url: https://ucdp.uu.se/downloads/monadterm/UCDPConflictTerminationDataset_v4_2024_Conflict.csv
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      UCDP Conflict Termination Dataset v4-2024, CC BY 4.0. Modified: episode 종료 연도별로 결과를 집계하고
+      승리 방향 구분을 하나의 무력 승리 범주로 합쳤다. Kreutz (2010), Journal of Peace Research 47(2).
+    script: scripts/data/04-03/ucdp_peace_process.py
+    unit: conflict episodes
+    year: 2023
+    summary: >-
+      종결 결과 기록은 1946년에 평화협정 1건, 2000년에 낮은 무력 활동 3건, 2023년에 낮은 무력 활동 4건이다.
+      이 자료에는 평화협정·휴전뿐 아니라 무력 승리 등 평화와 다른 종결 방식도 포함된다.

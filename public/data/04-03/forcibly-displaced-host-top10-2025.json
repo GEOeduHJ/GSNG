@@ -1,0 +1,55 @@
+{
+  "year": 2025,
+  "unit": "persons",
+  "rows": [
+    {
+      "iso3": "USA",
+      "name": "미국",
+      "value": 4176592
+    },
+    {
+      "iso3": "DEU",
+      "name": "독일",
+      "value": 2952694
+    },
+    {
+      "iso3": "JOR",
+      "name": "요르단",
+      "value": 2842473
+    },
+    {
+      "iso3": "COL",
+      "name": "콜롬비아",
+      "value": 2829663
+    },
+    {
+      "iso3": "TUR",
+      "name": "터키",
+      "value": 2492911
+    },
+    {
+      "name": "팔레스타인 지역",
+      "value": 2484580
+    },
+    {
+      "iso3": "UGA",
+      "name": "우간다",
+      "value": 1971968
+    },
+    {
+      "iso3": "PER",
+      "name": "페루",
+      "value": 1661572
+    },
+    {
+      "iso3": "IRN",
+      "name": "이란",
+      "value": 1650014
+    },
+    {
+      "iso3": "TCD",
+      "name": "차드",
+      "value": 1511634
+    }
+  ]
+}
