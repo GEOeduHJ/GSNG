@@ -69,6 +69,46 @@ sources:
     reuseBasis: ODA의 제공 주체, 주된 목적, 수원 대상과 보조성 기준을 확인했다.
     verificationStatus: ODA는 공공기관이 제공하며 개발과 복지를 주된 목적으로 하는 보조적 지원이라고 서술했다. 수원액 자료를 원조 효과로 확대 해석하지 않았다.
     usage: ODA의 범위와 수원액 자료가 의미하는 바를 설명하는 참고 자료다.
+  oecd-korea-development-partner:
+    title: From emerging donor to global development partner
+    organization: OECD
+    url: https://www.oecd.org/en/publications/korean-focus-areas_f91f3b75-en/from-emerging-donor-to-global-development-partner_66044045-en.html
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: OECD 안내 페이지 링크만 제공하며 문장·그림은 복제하지 않음.
+    reuseBasis: 대한민국이 전후 원조 수원국에서 개발 협력국으로 변화한 역사와 OECD 개발원조위원회 가입 연도를 확인했다.
+    verificationStatus: 대한민국의 OECD DAC 가입 시점이 2010년임을 OECD 자료에서 확인했다.
+    usage: 한국의 원조 수원국에서 공여국·개발 협력국으로의 전환을 설명하는 참고 자료다.
+  samsung-vietnam-spatial-division:
+    title: Samsung's manufacturing and R&D footprint in Vietnam
+    organization: Samsung Newsroom Vietnam
+    url: https://news.samsung.com/vn/overview
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 기업 안내 페이지 링크만 제공하며 사진·문장은 복제하지 않음.
+    reuseBasis: 베트남 내 모바일 기기 생산 거점과 하노이 연구개발, 호찌민시 판매·마케팅 기능의 지역 배치를 확인했다.
+    verificationStatus: 삼성전자 공개 안내에서 북부 박닌성·타이응우옌성의 생산, 하노이 R&D, 호찌민시 판매·마케팅 기능을 확인했다.
+    usage: 초국적 기업의 기능별 입지 사례로 사용한다. 개별 공장의 생산량이나 고용 수치는 인용하지 않았다.
+  mcdonalds-korea-bulgogi:
+    title: 불고기 버거
+    organization: McDonald's Korea
+    url: https://www.mcdonalds.co.kr/kor/menu/detail/840/3/15
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 제품 안내 페이지 링크만 제공하며 제품 이미지·문장은 복제하지 않음.
+    reuseBasis: 한국 메뉴에서 불고기 소스와 한국 한정 메뉴 설명을 확인했다.
+    verificationStatus: 맥도날드 한국의 공식 메뉴 안내가 불고기 버거를 한국의 맛을 반영한 메뉴로 소개함을 확인했다.
+    usage: 세계지역화의 식문화 적응 사례로 사용한다. 가격·영양 성분처럼 변동 가능한 정보는 인용하지 않았다.
+  undp-civil-society-laos:
+    title: Civil Society Support Programme
+    organization: United Nations Development Programme (UNDP)
+    url: https://www.undp.org/laopdr/projects/civil-society-support-programme
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 사업 안내 페이지 링크만 제공하며 사진·문장은 복제하지 않음.
+    reuseBasis: 라오스에서 정부·시민사회·지역사회·개발 파트너가 지역 서비스와 개발 과제를 위해 협력하는 사례를 확인했다.
+    verificationStatus: UNDP 사업 안내에서 시민사회 조직의 역량과 지역 참여, 공공서비스 개선 및 빈곤 완화 협력을 확인했다.
+    usage: 국제기구와 비정부기구의 개발 협력 사례로 사용한다. 특정 사업의 성과를 정량적으로 주장하지 않았다.
   wto-trade-principles:
     title: 'Understanding the WTO: Principles of the trading system'
     organization: World Trade Organization (WTO)
@@ -89,6 +129,16 @@ sources:
     reuseBasis: 적용 상품의 거래 투명성, 최저가격 또는 시장가격, 생산자 프리미엄에 관한 자사 표준 안내를 확인했다.
     verificationStatus: Fairtrade 기준이 해당 표준 적용 범위 안에서 거래 조건과 가격·프리미엄 원칙을 설정함을 확인했다. 특정 제품의 실제 성과나 모든 생산자의 상황을 보증한다고 쓰지 않았다.
     usage: 인증 기준을 설명하는 참고 자료다. 제품별 실제 공급 경로·가격·성과는 별도로 확인한다.
+  fairtrade-minimum-price-premium:
+    title: Fairtrade Minimum Price and Premium Information
+    organization: Fairtrade International
+    url: https://www.fairtrade.net/en/why-fairtrade/how-we-do-it/standards/fairtrade-minimum-price-and-premium-information.html
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 표준 안내 페이지 링크만 제공하며 가격표·문장은 복제하지 않음.
+    reuseBasis: 공정무역 적용 상품의 최저가격과 생산자 조직에 지급되는 프리미엄 원칙을 확인했다.
+    verificationStatus: 커피·카카오를 포함한 상품별 기준이 최저가격·프리미엄을 정하며, 적용 조건이 상품과 거래 관계에 따라 달라짐을 확인했다.
+    usage: 공정무역의 거래 원리를 설명하는 참고 자료다. 제품별 실제 가격과 성과는 별도로 확인한다.
   oecd-guidelines-mne-2023:
     title: OECD Guidelines for Multinational Enterprises on Responsible Business Conduct
     organization: OECD
