@@ -1,0 +1,41 @@
+id: '04-01'
+standardCode: 12세지04-01
+title: 세계의 에너지 자원
+goal: 에너지원의 생산·공급 구조와 재생 에너지의 입지 조건을 자료로 살펴보고, 에너지 전환 방안을 여러 기준으로 평가할 수 있다.
+concepts: [energy-system, renewable-energy, energy-transition, interdependence, spatial-inequality, sustainable-use]
+opening:
+  intro: |
+    energy system(에너지 체계)은 에너지를 얻고 쓰는 과정이 연결된 구조다. 자원의 채굴·수집부터 발전·운송·공급·소비까지 이어진다. 가정과 교통, 산업의 에너지는 여러 지역의 생산과 공급을 거친다. 이런 연결은 장소 사이의 interdependence(상호의존) 관계를 만든다. 에너지원의 비중과 생산 장소는 시기와 지역에 따라 달라진다.
+
+    이 중단원에서는 세계와 대한민국이라는 서로 다른 scale(공간 규모)의 에너지원 구성, 자원 생산과 순수입, 재생 에너지 발전 자료를 읽는다. spatial inequality(공간적 불균등)는 에너지 자원과 이용 기회, 환경 부담이 장소마다 다르게 놓이는 모습을 살피는 관점이다. energy transition(에너지 전환)과 지속가능한 이용의 조건을 지역과 주민 생활을 고려해 살펴본다.
+  illustration:
+    src: /images/04-01/opening.webp
+    alt: 가정에서 전기를 쓰고 전기 버스가 오가는 동네 뒤로 태양광 지붕과 풍력 발전기가 보인다.
+  focus:
+    kind: map
+    step:
+      id: focus
+      type: map
+      data: /data/04-01/energy-use-per-capita-map.json
+      source: u0401-energy-use-per-capita-map
+      caption: Our World in Data, 국가별 1인당 총에너지 공급량, 2024년(kWh/인)
+      alt: 2024년 국가별 1인당 총에너지 공급량을 색으로 나타낸 지도다.
+      config: { kind: choropleth }
+      concepts: [energy-system, spatial-inequality, scale]
+closing:
+  summary: |
+    에너지원 구성은 지역과 시기에 따라 달라진다. 생산 상위국과 에너지 순수입·순수출 분포를 함께 보면 생산과 공급이 여러 장소를 연결하는 모습을 살필 수 있다. 에너지 통계는 총에너지 공급, 발전량, 설비 용량처럼 서로 다른 기준으로 집계되므로 각 범례와 단위를 확인해 읽는다.
+
+    태양광·풍력·수력·지열·바이오에너지는 서로 다른 자연 조건과 설비를 이용한다. 지속가능한 이용을 위해 설비의 입지와 규모를 정할 때에는 자원 조건, 비용, 기반 시설, 생태계와 주민 생활을 함께 살핀다. 여러 근거와 관점을 연결하면 에너지 전환의 선택과 과제를 구체적으로 설명할 수 있다.
+  bridge: 다음 중단원에서는 에너지 이용과 연결되는 세계의 주요 환경 문제와 대응을 살펴본다.
+  transfer:
+    prompt: 나미비아를 새 사례로 삼는다. 지도에서 1인당 총에너지 공급량을 확인하시오. 에너지원 구성과 재생 에너지 이용에 관한 공식 자료를 찾아 연결하시오. 자원 조건·공급 안정성·환경 영향·주민 참여를 고려해 에너지 전환 방안을 제안하시오. 자료마다 기준과 범위도 밝히시오.
+    step:
+      id: transfer
+      type: map
+      data: /data/04-01/energy-use-per-capita-map.json
+      source: u0401-energy-use-per-capita-map
+      caption: Our World in Data, 국가별 1인당 총에너지 공급량, 2024년(kWh/인)
+      alt: 2024년 국가별 1인당 총에너지 공급량을 색으로 나타낸 지도다.
+      config: { kind: choropleth }
+      concepts: [energy-system, renewable-energy, energy-transition, spatial-inequality]

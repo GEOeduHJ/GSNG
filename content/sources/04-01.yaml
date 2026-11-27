@@ -1,0 +1,91 @@
+sources:
+  eia-energy-sources:
+    title: 'What is energy? Sources of energy'
+    organization: U.S. Energy Information Administration (EIA)
+    url: https://www.eia.gov/energyexplained/what-is-energy/sources-of-energy.php
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 자료는 내장하지 않음. 페이지의 문장·그림 재사용 조건은 별도 확인 필요.
+    reuseBasis: 비재생 에너지와 화석 연료의 정의를 확인하는 참고 링크이며 문장과 그림은 복제하지 않음.
+    verificationStatus: EIA 설명에서 석탄·석유·천연가스가 오랜 시간에 걸쳐 형성되어 소비 속도에 맞춰 보충되지 않는 화석 연료임을 확인했다. 본문은 미국의 소비 통계를 세계 수치로 확대하지 않았다.
+    usage: 화석 연료 용어의 설명에만 참고했다. 수치와 순위는 04-01 자료 매니페스트를 따른다.
+  eia-renewable-types:
+    title: 'Renewable energy explained: Types & uses'
+    organization: U.S. Energy Information Administration (EIA)
+    url: https://www.eia.gov/energyexplained/renewable-sources/types-and-usage.php
+    sourceDate: '2023-08-14'
+    checkedAt: '2026-11-27'
+    licenseStatus: 자료는 내장하지 않음. 페이지의 문장·그림 재사용 조건은 별도 확인 필요.
+    reuseBasis: 태양광·풍력·수력·지열·바이오에너지의 자원과 에너지 변환을 확인하는 참고 링크이며 문장과 그림은 복제하지 않음.
+    verificationStatus: EIA의 유형별 설명에서 다섯 재생 에너지원의 자원과 주요 이용 방식을 확인했다. 미국 에너지 통계는 본문에 사용하지 않았다.
+    usage: 재생 에너지원의 일반적 설명을 새 문장으로 구성했다.
+  eia-solar-resources:
+    title: 'Solar explained: Where solar is found and used'
+    organization: U.S. Energy Information Administration (EIA)
+    url: https://www.eia.gov/energyexplained/solar/where-solar-is-found.php
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 자료는 내장하지 않음. 페이지의 문장·그림 재사용 조건은 별도 확인 필요.
+    reuseBasis: 일사량이 시간·장소·구름·지형과 그늘에 따라 달라짐을 확인하는 참고 링크이며 지도와 수치는 복제하지 않음.
+    verificationStatus: EIA 설명에서 일사량의 위치·시간별 차이와 건물·나무·산지의 그늘 영향을 확인했다. 특정 가상 지역의 실제 일사량으로 표현하지 않았다.
+    usage: 태양광 입지 조건의 일반 원리를 소개하는 데 사용했다.
+  eia-wind-resources:
+    title: 'Wind explained: Where wind power is harnessed'
+    organization: U.S. Energy Information Administration (EIA)
+    url: https://www.eia.gov/energyexplained/wind/where-wind-power-is-harnessed.php
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 자료는 내장하지 않음. 페이지의 문장·그림 재사용 조건은 별도 확인 필요.
+    reuseBasis: 풍력 입지에서 바람의 세기·빈도·계절 변화를 고려해야 함을 확인하는 참고 링크이며 수치와 그림은 복제하지 않음.
+    verificationStatus: EIA 설명에서 풍력 설비의 입지 검토에 풍속과 바람이 부는 빈도·계절성이 포함됨을 확인했다. 본문에는 미국의 풍속 기준을 옮기지 않았다.
+    usage: 풍력 입지 조건의 일반 원리를 소개하는 데 사용했다.
+  doe-wind-siting:
+    title: Site Selection
+    organization: U.S. Department of Energy, WINDExchange
+    url: https://www.energy.gov/cmei/systems/windexchange/site-selection
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 자료는 내장하지 않음. 페이지의 문장·그림 재사용 조건은 별도 확인 필요.
+    reuseBasis: 풍력 사업 입지에서 자원·송전 연결·환경 영향과 지역사회 공존을 검토하는지 확인하는 참고 링크다.
+    verificationStatus: 미국 에너지부 안내에서 바람 자원 잠재력, 기존 전력선과의 거리, 환경 영향, 야생생물과 주민에 미치는 영향을 입지 검토에 포함함을 확인했다.
+    usage: 지역 자료와 주민 참여를 함께 검토하도록 안내하는 근거로 사용했다.
+  eia-hydropower-environment:
+    title: 'Hydropower explained: Hydropower and the environment'
+    organization: U.S. Energy Information Administration (EIA)
+    url: https://www.eia.gov/energyexplained/hydropower/hydropower-and-the-environment.php
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 자료는 내장하지 않음. 페이지의 문장·그림 재사용 조건은 별도 확인 필요.
+    reuseBasis: 댐·저수지·하천 이용이 주변 환경과 생태계에 미칠 수 있는 영향을 확인하는 참고 링크이며 그림과 수치는 복제하지 않음.
+    verificationStatus: EIA 설명에서 댐·저수지·수력 운영이 하천 흐름과 수온, 수생 생물 이동, 주변 토지와 사람들의 생활에 영향을 줄 수 있음을 확인했다.
+    usage: 수력 입지를 검토할 때 생태계·물 이용·주민 생활을 함께 보도록 안내하는 데 사용했다.
+  eia-geothermal-resources:
+    title: 'Geothermal explained: Where geothermal energy is found'
+    organization: U.S. Energy Information Administration (EIA)
+    url: https://www.eia.gov/energyexplained/geothermal/where-geothermal-energy-is-found.php
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 자료는 내장하지 않음. 페이지의 문장·그림 재사용 조건은 별도 확인 필요.
+    reuseBasis: 지열 자원이 지하의 열·물과 연결되고 지질 조사로 탐색됨을 확인하는 참고 링크이며 지도와 수치는 복제하지 않음.
+    verificationStatus: EIA 설명에서 지열 저장층의 열과 물, 자원 탐색에 필요한 지질 조사와 시추 시험을 확인했다. 특정 지역의 지열 잠재량은 제시하지 않았다.
+    usage: 지열은 지하 조건을 추가 조사해야 한다는 설명에 사용했다.
+  eia-energy-environment:
+    title: Energy and the environment explained
+    organization: U.S. Energy Information Administration (EIA)
+    url: https://www.eia.gov/energyexplained/energy-and-the-environment/
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 자료는 내장하지 않음. 페이지의 문장·그림 재사용 조건은 별도 확인 필요.
+    reuseBasis: 에너지 생산·공급·이용의 환경 영향이 에너지원과 설비 규모에 따라 달라짐을 확인하는 참고 링크다.
+    verificationStatus: EIA 설명에서 에너지의 생산·전달·이용이 환경에 영향을 줄 수 있고 영향의 종류와 크기가 다름을 확인했다.
+    usage: 재생 에너지도 입지와 운영에 따른 영향을 살펴야 한다는 일반 설명에 사용했다.
+  iea-energy-security-glossary:
+    title: IEA Glossary
+    organization: International Energy Agency (IEA)
+    url: https://www.iea.org/glossary
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 자료는 내장하지 않음. 페이지의 문장 재사용 조건은 별도 확인 필요.
+    reuseBasis: 에너지 안보와 에너지원 구성의 용어 정의를 확인하는 참고 링크이며 문장은 그대로 복제하지 않음.
+    verificationStatus: IEA 용어집에서 에너지 안보를 감당 가능한 가격으로 에너지원을 끊김 없이 이용할 수 있는 상태로 설명함을 확인했다. 본문은 순수입 비율만으로 안보 수준을 판단하지 않았다.
+    usage: 에너지 안보의 개념 설명에 참고했다. 국가별 통계는 04-01 매니페스트와 자료 파일을 따른다.
