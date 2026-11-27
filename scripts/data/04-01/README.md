@@ -1,6 +1,6 @@
 # 04-01 세계의 에너지 자원 — 실제 자료
 
-자료 수집일은 2026-11-27이다. 재생 스크립트는 Python 표준 라이브러리를 쓰며 내려받은 원자료를 임시 디렉터리에서만 읽는다. 저장소에는 웹에서 읽는 JSON만 두었고, 산출 JSON은 모두 1MB 이하이다.
+자료 수집일은 2026-11-27이다. 재생 스크립트는 Python 표준 라이브러리를 쓰며 내려받은 원자료를 임시 디렉터리에서만 읽는다. 저장소에는 웹에서 읽는 JSON과 수기 개념도 SVG를 둔다. 산출 JSON은 모두 1MB 이하이다.
 
 ## 산출물
 
@@ -17,6 +17,8 @@
 | `solar-capacity-top10.json` | 막대그래프 | 2024 | 887 bytes |
 | `wind-capacity-top10.json` | 막대그래프 | 2024 | 872 bytes |
 | `korea-renewable-electricity-share-series.json` | 선그래프 | 1985–2025 | 1,208 bytes |
+| `energy-resource-types.svg` | 개념도 | — | 4,377 bytes |
+| `renewable-source-conditions.svg` | 개념도 | — | 3,941 bytes |
 
 ## 출처와 이용 조건
 
@@ -55,16 +57,21 @@
 
 ## 절별 자료 단계 제안
 
-| 절 | 추천 단계 | 파일 및 수업에서 볼 점 |
+| 절 | 단계 | 파일 및 수업에서 볼 점 |
 | --- | --- | --- |
-| 1. 주요 에너지 자원의 소비 구조는 어떻게 변화했을까? | 1단계 | `energy-mix-world-series.json`에서 1980–2025년 세계 석탄·석유·천연가스·원자력·수력·기타 재생 비중 변화를 읽는다. 2025년 이전 판과 계산 방법이 바뀐 점도 확인한다. |
-|  | 2단계 | `energy-mix-korea-series.json`을 세계 그래프와 비교해 대한민국의 화석연료·원자력·재생에너지 비중이 어떻게 다른지 설명한다. |
-|  | 3단계 | `energy-use-per-capita-map.json`으로 2024년 국가별 1인당 총에너지 공급을 비교한다. 1인당 평균은 국가 안의 개인별 소비 차이를 보여 주지 않는다. |
-| 2. 주요 에너지 자원의 생산과 소비는 어떻게 이루어질까? | 1단계 | `oil-production-top10.json`, `gas-production-top10.json`, `coal-production-top10.json`에서 생산 상위국과 에너지 등가 생산 규모를 비교한다. TWh는 연료의 에너지량이지 발전량이 아니다. |
-|  | 2단계 | `energy-net-imports-map.json`에서 순수입 국가와 순수출 국가를 찾는다. 이 지표는 화석연료만의 무역 수지가 아니라 에너지 전반의 순수입 비율임을 짚는다. |
-| 3. 친환경 에너지의 종류와 특징은 무엇일까? | 1단계 | `renewable-electricity-share-map.json`에서 2024년 재생에너지 발전 비중이 높은 국가와 낮은 국가를 비교한다. 발전 비중과 전체 에너지 공급 비중을 구분한다. |
-|  | 2단계 | `solar-capacity-top10.json`과 `wind-capacity-top10.json`으로 태양광·풍력 설비 용량 상위국을 비교한다. 용량은 설치 규모이며 실제 발전량이나 비중과 같지 않다. |
-|  | 3단계 | `korea-renewable-electricity-share-series.json`에서 대한민국의 재생에너지 발전 비중 변화를 읽고, 설비 확충이 발전 구성에 어떻게 반영되는지 질문을 만든다. |
+| 1. 주요 에너지 자원의 소비 구조는 어떻게 변화했을까? | 1단계 | `energy-resource-types.svg`에서 화석 연료와 재생 에너지의 성격, 변환·공급 단계를 살핀다. |
+|  | 2단계 | `energy-mix-world-series.json`에서 1980–2025년 세계 석탄·석유·천연가스 등 총에너지 공급 비중 변화를 비교한다. 2025년부터 계산 방식이 달라진 점을 확인한다. |
+|  | 3단계 | `energy-mix-korea-series.json`을 세계 그래프와 비교해 에너지원 구성이 어떻게 다른지 설명한다. |
+|  | 4단계 | `energy-use-per-capita-map.json`으로 2024년 국가별 1인당 총에너지 공급 차이를 찾고 산업·교통·건물 수요와 연결해 살핀다. |
+| 2. 주요 에너지 자원의 생산과 소비는 어떻게 이루어질까? | 1단계 | `coal-production-top10.json`, `oil-production-top10.json`, `gas-production-top10.json`에서 생산 상위국과 에너지 등가 생산 규모를 비교한다. TWh는 연료의 에너지량이지 발전량이 아니다. |
+|  | 2단계 | `energy-net-imports-map.json`에서 에너지 순수입·순수출 분포를 읽는다. 이 지표는 화석 연료만이 아니라 에너지 전반을 다룬다. |
+|  | 3단계 | `energy-use-per-capita-map.json`을 함께 읽어 생산·교역과 1인당 공급량의 지역 차이를 구분한다. |
+| 3. 친환경 에너지의 종류와 특징은 무엇일까? | 1단계 | `renewable-source-conditions.svg`에서 수력·풍력·태양광·바이오에너지·지열·해양에너지의 자원 조건과 지역에서 살필 요소를 비교한다. |
+|  | 2단계 | `renewable-electricity-share-map.json`에서 2024년 국가별 전력 발전 중 재생 에너지 비중을 살핀다. 총에너지 공급 비중과 구분한다. |
+|  | 3단계 | `solar-capacity-top10.json`과 `wind-capacity-top10.json`의 설비 규모를 비교하고, 설비 용량과 발전량의 차이를 확인한다. |
+|  | 4단계 | `korea-renewable-electricity-share-series.json`과 펠트하임 사례를 연결해 국가와 지역 차원의 지속가능한 생산 노력을 비교한다. |
+
+교과서 180쪽의 지속가능한 생산 목표는 3절에 결합했다. 새 실제 데이터는 추가하지 않았으며 기존 자료 11종과 개념도 2종으로 각 절의 실제 자료 3개 이상 조건을 채운다.
 
 ## 한계와 생성
 

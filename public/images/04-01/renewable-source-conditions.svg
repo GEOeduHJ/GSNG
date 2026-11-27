@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="548" viewBox="0 0 1120 548">
+  <rect width="1120" height="548" fill="#fbf8f1"/>
+  <rect x="34" y="26" width="1052" height="58" rx="10" fill="#dce8e1"/>
+  <text x="56" y="62" fill="#344e40" font-family="sans-serif" font-size="18" font-weight="700">에너지원</text>
+  <text x="255" y="62" fill="#344e40" font-family="sans-serif" font-size="18" font-weight="700">필요한 자연 조건</text>
+  <text x="540" y="62" fill="#344e40" font-family="sans-serif" font-size="18" font-weight="700">주요 이용</text>
+  <text x="786" y="62" fill="#344e40" font-family="sans-serif" font-size="18" font-weight="700">지역에서 함께 살필 요소</text>
+  <path d="M232 26 V470 M516 26 V470 M760 26 V470" stroke="#d2d0c7" stroke-width="1.5"/>
+  <g font-family="sans-serif" font-size="17" fill="#38443d">
+    <rect x="34" y="90" width="1052" height="60" fill="#fffdf8"/>
+    <text x="56" y="126" font-weight="700">수력</text>
+    <text x="255" y="116"><tspan x="255">흐르는 물</tspan><tspan x="255" dy="21">낙차와 유량</tspan></text>
+    <text x="540" y="126">터빈으로 전기 생산</text>
+    <text x="786" y="116"><tspan x="786">하천 흐름과</tspan><tspan x="786" dy="21">생태·물 이용</tspan></text>
+    <rect x="34" y="152" width="1052" height="60" fill="#f2f3ed"/>
+    <text x="56" y="188" font-weight="700">풍력</text>
+    <text x="255" y="178"><tspan x="255">강하고 지속적인 바람</tspan><tspan x="255" dy="21">풍속과 계절 변화</tspan></text>
+    <text x="540" y="188">풍력 터빈으로 전기</text>
+    <text x="786" y="178"><tspan x="786">소음·경관과</tspan><tspan x="786" dy="21">생물 서식지</tspan></text>
+    <rect x="34" y="214" width="1052" height="60" fill="#fffdf8"/>
+    <text x="56" y="250" font-weight="700">태양광</text>
+    <text x="255" y="240"><tspan x="255">일사량과 햇빛을 받는 시간</tspan><tspan x="255" dy="21">주변의 그늘</tspan></text>
+    <text x="540" y="250">전기·열</text>
+    <text x="786" y="240"><tspan x="786">날씨·계절과</tspan><tspan x="786" dy="21">설치 공간</tspan></text>
+    <rect x="34" y="276" width="1052" height="60" fill="#f2f3ed"/>
+    <text x="56" y="312" font-weight="700">바이오에너지</text>
+    <text x="255" y="302"><tspan x="255">지속적으로 얻는</tspan><tspan x="255" dy="21">식물·유기물 자원</tspan></text>
+    <text x="540" y="302"><tspan x="540">열·전기·연료</tspan><tspan x="540" dy="21">발효·연소 등</tspan></text>
+    <text x="786" y="302"><tspan x="786">토지·물과</tspan><tspan x="786" dy="21">식량 생산의 관계</tspan></text>
+    <rect x="34" y="338" width="1052" height="60" fill="#fffdf8"/>
+    <text x="56" y="374" font-weight="700">지열</text>
+    <text x="255" y="364"><tspan x="255">지하의 열·물·암석</tspan><tspan x="255" dy="21">지질 조건</tspan></text>
+    <text x="540" y="374">열·전기</text>
+    <text x="786" y="364"><tspan x="786">지질 조사와</tspan><tspan x="786" dy="21">시추 영향</tspan></text>
+    <rect x="34" y="400" width="1052" height="60" fill="#f2f3ed"/>
+    <text x="56" y="436" font-weight="700">해양에너지</text>
+    <text x="255" y="426"><tspan x="255">조수·파랑·해류의</tspan><tspan x="255" dy="21">흐름</tspan></text>
+    <text x="540" y="436">해양 발전 장치</text>
+    <text x="786" y="426"><tspan x="786">해안 생태와</tspan><tspan x="786" dy="21">항로·어업</tspan></text>
+  </g>
+  <path d="M34 90 H1086 M34 152 H1086 M34 214 H1086 M34 276 H1086 M34 338 H1086 M34 400 H1086 M34 462 H1086" stroke="#d2d0c7" stroke-width="1.5"/>
+  <rect x="34" y="480" width="1052" height="44" rx="10" fill="#e5ede6"/>
+  <text x="560" y="508" text-anchor="middle" fill="#40564a" font-family="sans-serif" font-size="18">에너지원의 입지는 자연 조건과 주민 생활을 함께 살펴 결정한다</text>
+</svg>

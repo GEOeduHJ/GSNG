@@ -1,0 +1,120 @@
+unit: '04-01'
+textbookLearningGoalMappings:
+  - textbookPage: 170
+    lesson: 1
+    gist: 에너지 자원의 종류와 성격을 파악하고 소비 구조의 변화를 이해한다.
+  - textbookPage: 172
+    lesson: 2
+    gist: 주요 에너지 자원의 생산과 소비 현황을 조사한다.
+  - textbookPage: 176
+    lesson: 3
+    gist: 친환경 에너지원의 종류와 특징을 이해한다.
+  - textbookPage: 180
+    lesson: 3
+    gist: 지속가능한 에너지 생산 방안을 평가하고 제시한다.
+mappingRationale: 교과서 180쪽의 지속가능한 생산 목표는 친환경 에너지원의 특성과 지역별 조건을 활용하는 3절에 연결했다. 이에 따라 3절은 176쪽의 에너지원별 특징과 180쪽의 생산 노력·사례를 함께 다룬다.
+lessons:
+  - index: 1
+    textbookPages: [170, 171]
+    textbookLearningGoals: [170]
+    goalGist: 에너지 자원의 성격과 종류를 구분하고 시기·지역별 소비 구조의 변화를 설명한다.
+    topics:
+      - title: 에너지 자원의 의미와 특성
+        concepts: [자원, 에너지 자원, 유한성, 편재성, 가변성, 1차 에너지]
+        textbookMaterials: [에너지 자원의 개념 설명, 화석 에너지와 재생 에너지 예]
+        ourData: ['개념도:energy-resource-types']
+      - title: 주요 에너지원 소비 구조의 변화
+        concepts: [석탄, 석유, 천연가스, 재생 에너지, 산업·교통 기술과 에너지 이용]
+        textbookMaterials: [시대별 에너지 이용 사례, 세계 1차 에너지 소비 구조 그래프]
+        ourData: [u0401-energy-mix-world-series]
+      - title: 지역별 소비량과 에너지원 구성
+        concepts: [지역별 소비 차이, 에너지원 구성, 1인당 에너지 공급]
+        textbookMaterials: [지역별 1차 에너지 소비량 변화 그래프, 세계와 대한민국 에너지원 구성]
+        ourData: [u0401-energy-mix-world-series, u0401-energy-mix-korea-series, u0401-energy-use-per-capita-map]
+  - index: 2
+    textbookPages: [172, 175]
+    textbookLearningGoals: [172]
+    goalGist: 주요 화석 연료의 생산지와 소비지, 교역 및 소비 부문의 관계를 살핀다.
+    topics:
+      - title: 석탄의 생산과 소비 지역
+        concepts: [석탄 생산, 발전·제철 수요, 생산지와 소비지]
+        textbookMaterials: [석탄 생산국·소비국 지도, 석탄 수출국·수입국 그래프, 부문별 소비 비율]
+        ourData: [u0401-coal-production-top10, u0401-energy-net-imports-map]
+      - title: 석유의 생산과 국제 이동
+        concepts: [석유 생산, 수송·석유화학 수요, 수출·수입]
+        textbookMaterials: [석유 생산국·소비국 지도, 석유 수출국·수입국 그래프]
+        ourData: [u0401-oil-production-top10, u0401-energy-net-imports-map]
+      - title: 천연가스 생산과 공급 연결
+        concepts: [천연가스 생산, 파이프라인, 액화 운송]
+        textbookMaterials: [천연가스 생산국·소비국 지도, 천연가스 수출국·수입국 그래프]
+        ourData: [u0401-gas-production-top10, u0401-energy-net-imports-map]
+      - title: 부문별 소비와 지역 격차
+        concepts: [교통·산업·건물 이용, 1인당 에너지 공급, 소비 격차]
+        textbookMaterials: [석탄·석유·천연가스 부문별 소비 그래프, 국가별 1인당 에너지 소비 지도]
+        ourData: [u0401-energy-use-per-capita-map]
+      - title: 에너지 소비 문제와 대응
+        concepts: [화석 연료, 온실가스·대기 오염, 에너지 안보, 효율 향상]
+        textbookMaterials: [세계 에너지 수요와 배출 전망, 에너지 수입 의존 사례]
+        ourData: [u0401-energy-net-imports-map]
+  - index: 3
+    textbookPages: [176, 181]
+    textbookLearningGoals: [176, 180]
+    goalGist: 재생 에너지원별 입지·발전 특성을 이해하고 지속가능한 생산 노력을 평가한다.
+    topics:
+      - title: 친환경 에너지와 재생 에너지의 특징
+        concepts: [재생 가능성, 환경 영향, 발전 설비]
+        textbookMaterials: [유형별 전력 생산 변화, 재생 에너지 발전 설비 용량]
+        ourData: ['개념도:renewable-source-conditions', u0401-renewable-electricity-share-map]
+      - title: 수력 발전의 자원 조건과 영향
+        concepts: [하천 유량, 낙차, 댐과 생태계]
+        textbookMaterials: [수력 발전 설명, 국가별 수력 생산 비율, 1인당 수력 발전량]
+        ourData: ['개념도:renewable-source-conditions', u0401-renewable-electricity-share-map]
+      - title: 풍력과 바이오에너지의 이용
+        concepts: [풍속·바람의 지속성, 유기물 자원, 토지 이용]
+        textbookMaterials: [풍력 생산 비율, 바이오에너지 생산 비율, 바이오에너지 이용 사례]
+        ourData: ['개념도:renewable-source-conditions', u0401-wind-capacity-top10]
+      - title: 태양광 발전의 조건과 활용
+        concepts: [일사량, 발전 설비 용량, 분산형 이용]
+        textbookMaterials: [태양광 생산 비율, 발전 가능 지역 지도, 1인당 태양광 발전량]
+        ourData: ['개념도:renewable-source-conditions', u0401-solar-capacity-top10]
+      - title: 지열·해양 에너지의 조건
+        concepts: [지하 열, 판 경계, 조차·파랑·해류]
+        textbookMaterials: [지열 발전 설비 용량, 조력·파력 설명]
+        ourData: ['개념도:renewable-source-conditions']
+      - title: 지속가능한 생산을 위한 노력
+        concepts: [지역 자원 결합, 저장·공급망, 기술 개발, 주민 참여]
+        textbookMaterials: [마을 에너지 공급 사례, 기업의 생산 전략, 정부·지역의 에너지 전환 노력]
+        ourData: [u0401-korea-renewable-electricity-share-series]
+
+dataJudgement:
+  existingEnoughTopics:
+    - lesson: 1
+      topic: 세계·대한민국의 에너지원 구성과 1인당 공급 비교
+      data: [u0401-energy-mix-world-series, u0401-energy-mix-korea-series, u0401-energy-use-per-capita-map]
+    - lesson: 2
+      topic: 석탄·석유·천연가스 생산과 에너지 수입·수출 분포
+      data: [u0401-coal-production-top10, u0401-oil-production-top10, u0401-gas-production-top10, u0401-energy-net-imports-map, u0401-energy-use-per-capita-map]
+    - lesson: 3
+      topic: 재생 에너지 발전 비중, 태양광·풍력 설비와 대한민국의 변화
+      data: [u0401-renewable-electricity-share-map, u0401-solar-capacity-top10, u0401-wind-capacity-top10, u0401-korea-renewable-electricity-share-series]
+  newRealDataTopics: []
+  conceptualDiagramTopics:
+    - lesson: 1
+      topic: 화석 연료와 재생 에너지의 분류 및 1차 에너지 이용 단계
+      data: ['개념도:energy-resource-types']
+    - lesson: 3
+      topic: 재생 에너지원별 자연 조건과 지역에서 살필 요소
+      data: ['개념도:renewable-source-conditions']
+  lessonDataCounts:
+    - lesson: 1
+      realDataCount: 3
+      conceptualDiagramCount: 1
+      totalMaterialCount: 4
+    - lesson: 2
+      realDataCount: 5
+      conceptualDiagramCount: 0
+      totalMaterialCount: 5
+    - lesson: 3
+      realDataCount: 4
+      conceptualDiagramCount: 1
+      totalMaterialCount: 5

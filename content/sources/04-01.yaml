@@ -89,3 +89,33 @@ sources:
     reuseBasis: 에너지 안보와 에너지원 구성의 용어 정의를 확인하는 참고 링크이며 문장은 그대로 복제하지 않음.
     verificationStatus: IEA 용어집에서 에너지 안보를 감당 가능한 가격으로 에너지원을 끊김 없이 이용할 수 있는 상태로 설명함을 확인했다. 본문은 순수입 비율만으로 안보 수준을 판단하지 않았다.
     usage: 에너지 안보의 개념 설명에 참고했다. 국가별 통계는 04-01 매니페스트와 자료 파일을 따른다.
+  eia-energy-use-sectors:
+    title: U.S. energy facts explained
+    organization: U.S. Energy Information Administration (EIA)
+    url: https://www.eia.gov/energyexplained/us-energy-facts/
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 자료는 링크로만 참고한다. 문장·그림·통계는 내장하지 않으며 별도 재사용 조건을 주장하지 않는다.
+    reuseBasis: 주거·상업·산업·교통 등 에너지 이용 부문의 구분과 부문별 주요 에너지원 차이를 확인하는 참고 링크다. 미국 통계는 세계 수치로 일반화하지 않는다.
+    verificationStatus: EIA가 교통·산업·주거·상업을 최종 이용 부문으로 구분하고 부문에 따라 주로 쓰는 에너지원이 다르다고 설명함을 확인했다. 본문은 부문 구분만 참고하고 미국의 수치 자료는 사용하지 않았다.
+    usage: 에너지 자원의 부문별 이용 설명에 참고했다.
+  doe-marine-energy:
+    title: Marine Energy Basics
+    organization: U.S. Department of Energy
+    url: https://www.energy.gov/cmei/water/marine-energy-basics
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 자료는 링크로만 참고한다. 본문·그림·수치 자료는 내장하지 않는다.
+    reuseBasis: 해양에너지가 파도·조수·강과 바다의 흐름 등 물의 자연스러운 움직임에서 얻어진다는 개념을 확인하는 참고 링크다.
+    verificationStatus: 미국 에너지부가 해양에너지를 파도·조수·강·해류의 움직임에서 얻는 재생 전력으로 정의함을 확인했다. 미국의 자원 잠재량 수치는 사용하지 않았다.
+    usage: 조력·파력·해류 에너지의 일반 개념을 설명하는 데 참고했다.
+  eu-cap-feldheim:
+    title: Setting up a renewable energy visitor centre in Feldheim – Germany
+    organization: European Commission, EU CAP Network
+    url: https://eu-cap-network.ec.europa.eu/good-practice/setting-renewable-energy-visitor-centre-feldheim-germany_en
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 페이지의 사례 사실만 참고한다. 본문 문장·사진·표는 복제하거나 내장하지 않았다.
+    reuseBasis: 독일 브란덴부르크주 펠트하임에서 풍력·태양광 발전과 바이오가스, 지역 열·전력망을 결합한 사례를 확인하는 링크다.
+    verificationStatus: EU CAP Network가 펠트하임의 가정과 사업체가 풍력·태양광에서 전기·열을 공급받고 바이오가스 설비가 지역 열·전력망과 연결된다고 설명함을 확인했다. 한 지역 사례이며 모든 지역에 그대로 적용되는 모형으로 일반화하지 않았다.
+    usage: 지속가능한 생산 노력의 지역 사례를 설명하는 데 참고했다.

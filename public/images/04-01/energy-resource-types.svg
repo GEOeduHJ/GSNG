@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="430" viewBox="0 0 1120 430">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#54796d"/>
+    </marker>
+  </defs>
+  <rect width="1120" height="430" fill="#fbf8f1"/>
+  <text x="58" y="42" fill="#3d4a43" font-family="sans-serif" font-size="19" font-weight="700">자연에서 얻는 1차 에너지</text>
+  <rect x="48" y="68" width="260" height="116" rx="18" fill="#f0e5d7" stroke="#c3a789" stroke-width="2"/>
+  <text x="72" y="105" fill="#493c32" font-family="sans-serif" font-size="20" font-weight="700">화석 에너지</text>
+  <text x="72" y="137" fill="#493c32" font-family="sans-serif" font-size="18">석탄 · 석유 · 천연가스</text>
+  <text x="72" y="165" fill="#66594d" font-family="sans-serif" font-size="16">오랜 지질 과정으로 형성</text>
+  <rect x="48" y="216" width="260" height="116" rx="18" fill="#e1eee5" stroke="#8aaf9a" stroke-width="2"/>
+  <text x="72" y="253" fill="#345344" font-family="sans-serif" font-size="20" font-weight="700">재생 에너지</text>
+  <text x="72" y="284" fill="#345344" font-family="sans-serif" font-size="18">햇빛 · 바람 · 물 · 지열</text>
+  <text x="72" y="311" fill="#456a58" font-family="sans-serif" font-size="18">바이오매스</text>
+  <path d="M308 126 H366" stroke="#54796d" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M308 274 H366" stroke="#54796d" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="382" y="68" width="236" height="116" rx="18" fill="#fffdf8" stroke="#c9c2b5" stroke-width="2"/>
+  <text x="500" y="111" text-anchor="middle" fill="#3d4a43" font-family="sans-serif" font-size="19" font-weight="700">매장량이 한정됨</text>
+  <text x="500" y="145" text-anchor="middle" fill="#5d665f" font-family="sans-serif" font-size="17">다시 형성되는 데 긴 시간</text>
+  <rect x="382" y="216" width="236" height="116" rx="18" fill="#fffdf8" stroke="#c9c2b5" stroke-width="2"/>
+  <text x="500" y="259" text-anchor="middle" fill="#3d4a43" font-family="sans-serif" font-size="19" font-weight="700">자연 과정에서 보충</text>
+  <text x="500" y="293" text-anchor="middle" fill="#5d665f" font-family="sans-serif" font-size="17">자원별 조건은 서로 다름</text>
+  <path d="M618 126 H676" stroke="#54796d" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M618 274 H676" stroke="#54796d" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="692" y="68" width="198" height="116" rx="18" fill="#e9ecea" stroke="#9ba8a0" stroke-width="2"/>
+  <text x="791" y="111" text-anchor="middle" fill="#3d4a43" font-family="sans-serif" font-size="19" font-weight="700">변환 · 저장</text>
+  <text x="791" y="145" text-anchor="middle" fill="#5d665f" font-family="sans-serif" font-size="17">설비와 기반 시설</text>
+  <rect x="692" y="216" width="198" height="116" rx="18" fill="#e9ecea" stroke="#9ba8a0" stroke-width="2"/>
+  <text x="791" y="259" text-anchor="middle" fill="#3d4a43" font-family="sans-serif" font-size="19" font-weight="700">변환 · 저장</text>
+  <text x="791" y="293" text-anchor="middle" fill="#5d665f" font-family="sans-serif" font-size="17">설비와 기반 시설</text>
+  <path d="M890 126 H930" stroke="#54796d" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M890 274 H930" stroke="#54796d" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="944" y="68" width="140" height="116" rx="18" fill="#dfe9ed" stroke="#94aeb6" stroke-width="2"/>
+  <text x="1014" y="111" text-anchor="middle" fill="#344a52" font-family="sans-serif" font-size="19" font-weight="700">열 · 전기</text>
+  <text x="1014" y="145" text-anchor="middle" fill="#53646a" font-family="sans-serif" font-size="17">연료</text>
+  <rect x="944" y="216" width="140" height="116" rx="18" fill="#dfe9ed" stroke="#94aeb6" stroke-width="2"/>
+  <text x="1014" y="259" text-anchor="middle" fill="#344a52" font-family="sans-serif" font-size="19" font-weight="700">열 · 전기</text>
+  <text x="1014" y="293" text-anchor="middle" fill="#53646a" font-family="sans-serif" font-size="17">연료</text>
+  <text x="560" y="390" text-anchor="middle" fill="#46584e" font-family="sans-serif" font-size="18">기술 · 비용 · 사회적 필요가 달라지면 자원의 이용 가치도 달라진다</text>
+</svg>
