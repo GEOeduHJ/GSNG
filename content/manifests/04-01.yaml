@@ -1,0 +1,161 @@
+items:
+  - id: u0401-energy-mix-world-series
+    path: /data/04-01/energy-mix-world-series.json
+    title: 세계 에너지원별 총에너지 공급 비중 변화, 1980–2025년
+    organization: Energy Institute; U.S. Energy Information Administration; Our World in Data
+    url: https://catalog.ourworldindata.org/energy/owid_energy/
+    retrievedAt: '2026-11-27'
+    license: >-
+      Our World in Data의 가공 자료는 CC BY 4.0이며 원출처 조건이 함께 적용된다. Energy Institute 자료는 출처 표기를 조건으로 무료 이용·복제가 허용되고, U.S. EIA 자료는 공공 도메인으로 출처 표기를 요구한다.
+    attribution: >-
+      Energy Institute (2026), Statistical Review of World Energy 2026; U.S. Energy Information Administration (2026), International Energy Data; processed by Our World in Data, Energy dataset snapshot 2026-09-10. Modified: selected World values for 1980–2025, translated source labels, and calculated other renewables as total renewables share minus hydropower share. This use does not imply endorsement by the cited organizations.
+    script: scripts/data/04-01/owid_energy.py
+    unit: '% of total energy supply'
+    year: 2025
+    summary: >-
+      2025년 세계 총에너지 공급 비중은 석유 33.5%, 석탄 27.7%, 천연가스 25.1%였다. 기타 재생에너지는 전체 재생에너지 비중에서 수력 비중을 뺀 값이다.
+  - id: u0401-energy-mix-korea-series
+    path: /data/04-01/energy-mix-korea-series.json
+    title: 대한민국 에너지원별 총에너지 공급 비중 변화, 1980–2025년
+    organization: Energy Institute; U.S. Energy Information Administration; Our World in Data
+    url: https://catalog.ourworldindata.org/energy/owid_energy/
+    retrievedAt: '2026-11-27'
+    license: >-
+      Our World in Data의 가공 자료는 CC BY 4.0이며 원출처 조건이 함께 적용된다. Energy Institute 자료는 출처 표기를 조건으로 무료 이용·복제가 허용되고, U.S. EIA 자료는 공공 도메인으로 출처 표기를 요구한다.
+    attribution: >-
+      Energy Institute (2026), Statistical Review of World Energy 2026; U.S. Energy Information Administration (2026), International Energy Data; processed by Our World in Data, Energy dataset snapshot 2026-09-10. Modified: selected South Korea values for 1980–2025, translated source labels, and calculated other renewables as total renewables share minus hydropower share. This use does not imply endorsement by the cited organizations.
+    script: scripts/data/04-01/owid_energy.py
+    unit: '% of total energy supply'
+    year: 2025
+    summary: >-
+      2025년 대한민국 총에너지 공급 비중은 석유 41.8%, 석탄 22.0%, 천연가스 17.5%, 원자력 15.5%였다. 수력은 0.1%, 수력을 제외한 기타 재생에너지는 3.1%였다.
+  - id: u0401-energy-use-per-capita-map
+    path: /data/04-01/energy-use-per-capita-map.json
+    title: 국가별 1인당 총에너지 공급량, 2024년
+    organization: Our World in Data; Energy Institute; U.S. Energy Information Administration; UN DESA Population Division
+    url: https://catalog.ourworldindata.org/energy/owid_energy/
+    retrievedAt: '2026-11-27'
+    license: >-
+      Our World in Data의 가공 자료는 CC BY 4.0이며 원출처 조건이 함께 적용된다. Energy Institute 자료는 출처 표기를 조건으로 무료 이용·복제가 허용되고, U.S. EIA 자료는 공공 도메인으로 출처 표기를 요구한다. 2024년 인구 분모의 UN World Population Prospects 2024는 CC BY 3.0 IGO이다.
+    attribution: >-
+      Energy Institute (2026), Statistical Review of World Energy 2026; U.S. Energy Information Administration (2026), International Energy Data; United Nations, Department of Economic and Social Affairs, Population Division (2024), World Population Prospects 2024; processed by Our World in Data. Modified: selected 2024 per-capita values and converted them to an ISO3 map. The 2024 population denominator uses the UN WPP medium-variant projection. This use does not imply endorsement.
+    script: scripts/data/04-01/owid_energy.py
+    unit: kWh per person
+    year: 2024
+    summary: >-
+      2024년 1인당 총에너지 공급량은 대한민국 70,773kWh, 미국 74,018kWh, 중국 31,076kWh였다. 인구 분모는 UN WPP 2024의 중위 시나리오 추계다.
+  - id: u0401-oil-production-top10
+    path: /data/04-01/oil-production-top10.json
+    title: 석유 생산 상위 10개국, 2025년
+    organization: Energy Institute; U.S. Energy Information Administration; Our World in Data
+    url: https://catalog.ourworldindata.org/energy/owid_energy/
+    retrievedAt: '2026-11-27'
+    license: >-
+      Our World in Data의 가공 자료는 CC BY 4.0이며 원출처 조건이 함께 적용된다. Energy Institute 자료는 출처 표기를 조건으로 무료 이용·복제가 허용되고, U.S. EIA 자료는 공공 도메인으로 출처 표기를 요구한다.
+    attribution: >-
+      Energy Institute (2026), Statistical Review of World Energy 2026; U.S. Energy Information Administration (2026), International Energy Data; processed by Our World in Data, Energy dataset snapshot 2026-09-10. Modified: selected 2025 oil-production values, ranked the top ten countries and translated country labels. Values are energy-equivalent production in TWh. This use does not imply endorsement.
+    script: scripts/data/04-01/owid_energy.py
+    unit: TWh (energy-equivalent)
+    year: 2025
+    summary: >-
+      2025년 에너지 등가량 기준 석유 생산 상위는 미국 10,350TWh, 사우디아라비아 6,232TWh, 러시아 6,085TWh였다.
+  - id: u0401-gas-production-top10
+    path: /data/04-01/gas-production-top10.json
+    title: 천연가스 생산 상위 10개국, 2025년
+    organization: Energy Institute; U.S. Energy Information Administration; Our World in Data
+    url: https://catalog.ourworldindata.org/energy/owid_energy/
+    retrievedAt: '2026-11-27'
+    license: >-
+      Our World in Data의 가공 자료는 CC BY 4.0이며 원출처 조건이 함께 적용된다. Energy Institute 자료는 출처 표기를 조건으로 무료 이용·복제가 허용되고, U.S. EIA 자료는 공공 도메인으로 출처 표기를 요구한다.
+    attribution: >-
+      Energy Institute (2026), Statistical Review of World Energy 2026; U.S. Energy Information Administration (2026), International Energy Data; processed by Our World in Data, Energy dataset snapshot 2026-09-10. Modified: selected 2025 gas-production values, ranked the top ten countries and translated country labels. Values are energy-equivalent production in TWh. This use does not imply endorsement.
+    script: scripts/data/04-01/owid_energy.py
+    unit: TWh (energy-equivalent)
+    year: 2025
+    summary: >-
+      2025년 에너지 등가량 기준 천연가스 생산 상위는 미국 10,737TWh, 러시아 6,094TWh, 이란 2,648TWh였다.
+  - id: u0401-coal-production-top10
+    path: /data/04-01/coal-production-top10.json
+    title: 석탄 생산 상위 10개국, 2025년
+    organization: Energy Institute; U.S. Energy Information Administration; Our World in Data
+    url: https://catalog.ourworldindata.org/energy/owid_energy/
+    retrievedAt: '2026-11-27'
+    license: >-
+      Our World in Data의 가공 자료는 CC BY 4.0이며 원출처 조건이 함께 적용된다. Energy Institute 자료는 출처 표기를 조건으로 무료 이용·복제가 허용되고, U.S. EIA 자료는 공공 도메인으로 출처 표기를 요구한다.
+    attribution: >-
+      Energy Institute (2026), Statistical Review of World Energy 2026; U.S. Energy Information Administration (2026), International Energy Data; processed by Our World in Data, Energy dataset snapshot 2026-09-10. Modified: selected 2025 coal-production values, ranked the top ten countries and translated country labels. Values are energy-equivalent production in TWh. This use does not imply endorsement.
+    script: scripts/data/04-01/owid_energy.py
+    unit: TWh (energy-equivalent)
+    year: 2025
+    summary: >-
+      2025년 에너지 등가량 기준 석탄 생산 상위는 중국 26,296TWh, 인도 4,992TWh, 인도네시아 4,454TWh였다.
+  - id: u0401-energy-net-imports-map
+    path: /data/04-01/energy-net-imports-map.json
+    title: 국가별 에너지 순수입 비율, 2024년
+    organization: World Bank WDI; International Energy Agency
+    url: https://data.worldbank.org/indicator/EG.IMP.CONS.ZS
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0 (World Bank indicator page and IEA Energy Statistics Data Browser)
+    attribution: >-
+      World Bank, World Development Indicators, Energy imports, net (% of energy use), indicator EG.IMP.CONS.ZS; source: IEA Energy Statistics Data Browser. Modified: selected 2024 values and converted them to an ISO3 map. Positive values indicate net imports and negative values indicate net exports. This use does not imply endorsement by the World Bank or IEA.
+    script: scripts/data/04-01/world_bank.py
+    unit: '% of energy use'
+    year: 2024
+    summary: >-
+      2024년 에너지 순수입 비율은 대한민국 83.2%, 중국 24.0%, 미국 -9.8%였다. 에너지 전반의 지표로 화석 연료만의 무역 수지는 아니다.
+  - id: u0401-renewable-electricity-share-map
+    path: /data/04-01/renewable-electricity-share-map.json
+    title: 국가별 재생에너지 발전 비중, 2024년
+    organization: Ember
+    url: https://ember-energy.org/data/yearly-electricity-data/
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      Ember, Yearly Electricity Data (global CSV, last updated 17 November 2026), CC BY 4.0. Modified: selected 2024 country-level renewable-generation shares and converted them to an ISO3 map. This use does not imply Ember endorsement.
+    script: scripts/data/04-01/ember_electricity.py
+    unit: '% of electricity generation'
+    year: 2024
+    summary: >-
+      2024년 재생에너지 발전 비중은 중국 33.158%, 미국 24.063%, 대한민국 10.467%였다. 기존 경계의 ISO3 국가 코드 중 166개에 값이 있다.
+  - id: u0401-solar-capacity-top10
+    path: /data/04-01/solar-capacity-top10.json
+    title: 태양광 설비 용량 상위 10개국, 2024년
+    organization: Ember
+    url: https://ember-energy.org/data/yearly-electricity-data/
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      Ember, Yearly Electricity Data (global CSV, last updated 17 November 2026), CC BY 4.0. Modified: selected 2024 solar-capacity values, ranked the top ten countries and translated country labels. This use does not imply Ember endorsement.
+    script: scripts/data/04-01/ember_electricity.py
+    unit: GW
+    year: 2024
+    summary: >-
+      2024년 태양광 설비 용량 상위는 중국 887.1GW, 미국 177.59GW, 인도 98.48GW였다.
+  - id: u0401-wind-capacity-top10
+    path: /data/04-01/wind-capacity-top10.json
+    title: 풍력 설비 용량 상위 10개국, 2024년
+    organization: Ember
+    url: https://ember-energy.org/data/yearly-electricity-data/
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      Ember, Yearly Electricity Data (global CSV, last updated 17 November 2026), CC BY 4.0. Modified: selected 2024 wind-capacity values, ranked the top ten countries and translated country labels. This use does not imply Ember endorsement.
+    script: scripts/data/04-01/ember_electricity.py
+    unit: GW
+    year: 2024
+    summary: >-
+      2024년 풍력 설비 용량 상위는 중국 521.27GW, 미국 152.65GW, 독일 72.74GW였다.
+  - id: u0401-korea-renewable-electricity-share-series
+    path: /data/04-01/korea-renewable-electricity-share-series.json
+    title: 대한민국 재생에너지 발전 비중 변화, 1985–2025년
+    organization: Ember
+    url: https://ember-energy.org/data/yearly-electricity-data/
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      Ember, Yearly Electricity Data (global CSV, last updated 17 November 2026), CC BY 4.0. Modified: selected South Korea's yearly renewable-generation share for 1985–2025. This use does not imply Ember endorsement.
+    script: scripts/data/04-01/ember_electricity.py
+    unit: '% of electricity generation'
+    year: 2025
+    summary: >-
+      대한민국 재생에너지 발전 비중은 2000년 1.415%, 2010년 1.149%, 2024년 10.467%, 2025년 10.454%였다.

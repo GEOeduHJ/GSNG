@@ -1,0 +1,56 @@
+{
+  "year": 2024,
+  "unit": "GW",
+  "rows": [
+    {
+      "iso3": "CHN",
+      "name": "중화인민공화국",
+      "value": 887.1
+    },
+    {
+      "iso3": "USA",
+      "name": "미국",
+      "value": 177.59
+    },
+    {
+      "iso3": "IND",
+      "name": "인도",
+      "value": 98.48
+    },
+    {
+      "iso3": "DEU",
+      "name": "독일",
+      "value": 91.2
+    },
+    {
+      "iso3": "JPN",
+      "name": "일본",
+      "value": 89.6
+    },
+    {
+      "iso3": "BRA",
+      "name": "브라질",
+      "value": 53.11
+    },
+    {
+      "iso3": "ESP",
+      "name": "스페인",
+      "value": 38.16
+    },
+    {
+      "iso3": "AUS",
+      "name": "오스트레일리아",
+      "value": 36.0
+    },
+    {
+      "iso3": "ITA",
+      "name": "이탈리아",
+      "value": 35.44
+    },
+    {
+      "iso3": "KOR",
+      "name": "대한민국",
+      "value": 26.68
+    }
+  ]
+}
