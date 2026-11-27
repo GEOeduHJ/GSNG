@@ -1,0 +1,85 @@
+items:
+  - id: u0103-populated-places-top32
+    path: /data/01-03/populated-places-top32.geojson
+    title: Natural Earth POP_MAX 상위 32개 세계 도시의 위치와 인구 속성
+    organization: Natural Earth
+    url: https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-populated-places/
+    retrievedAt: '2026-11-27'
+    license: 공개 도메인 (Natural Earth Terms of Use)
+    attribution: >-
+      Made with Natural Earth. 1:10m Populated Places v5.1.2. 한국어 도시·국가 표시명과 POP_MAX 상위 32개만 선택했다.
+    script: scripts/data/01-03/natural_earth_places.py
+    unit: WGS84 십진도; POP_MAX 단위 명
+    year: null
+    summary: >-
+      Natural Earth POP_MAX 상위 32곳 중 도쿄도는 35,676,000명, 뉴욕은 19,040,000명, 멕시코시티는 19,028,000명이다. 도시별 정의와 인구 기준 시점이 같지 않아 최신 동시점 센서스 순위로 읽지 않는다.
+  - id: u0103-populated-places-top10
+    path: /data/01-03/populated-places-top10.json
+    title: Natural Earth POP_MAX 상위 10개 도시
+    organization: Natural Earth
+    url: https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-populated-places/
+    retrievedAt: '2026-11-27'
+    license: 공개 도메인 (Natural Earth Terms of Use)
+    attribution: >-
+      Made with Natural Earth. 1:10m Populated Places v5.1.2. POP_MAX 상위 10개 행을 한국어 도시명으로 구성했다.
+    script: scripts/data/01-03/natural_earth_places.py
+    unit: 명 (Natural Earth POP_MAX; 기준 연도 미표기)
+    year: null
+    summary: >-
+      도쿄도 35,676,000명, 뉴욕 19,040,000명, 멕시코시티 19,028,000명이다. POP_MAX는 도시별 인구 정의와 기준 시점이 달라 현행 동시점 인구통계와 구분해서 읽는다.
+  - id: u0103-nepal-earthquakes-2015
+    path: /data/01-03/nepal-earthquakes-apr-may-2015.geojson
+    title: 네팔과 주변 지역 규모 4.5 이상 지진, 2015년 4–5월
+    organization: U.S. Geological Survey (USGS)
+    url: "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2015-04-01T00:00:00&endtime=2015-05-31T23:59:59&eventtype=earthquake&minmagnitude=4.5&minlatitude=24&maxlatitude=34&minlongitude=79&maxlongitude=90&orderby=time-asc&limit=2000"
+    retrievedAt: '2026-11-27'
+    license: 공개 도메인 (USGS 자체 제작 데이터); 출처 표기
+    attribution: >-
+      Credit: U.S. Geological Survey. Earthquake events for 2015-04-01–2015-05-31 UTC, 24–34°N, 79–90°E, magnitude 4.5 이상으로 필터링하고 규모 구간 색과 날짜를 추가했다.
+    script: scripts/data/01-03/nepal_earthquakes.py
+    unit: WGS84 십진도; 규모; UTC 날짜
+    year: 2015
+    summary: >-
+      네팔과 주변 지역의 지진 106건이다. 2015-04-25의 M7.8 지진, 2015-05-12의 M7.3 지진, 2015-04-26의 M6.7 지진이 포함된다. 진앙 위치는 흔들림 세기나 피해 범위가 아니다.
+  - id: u0103-nepal-osm-participation
+    path: /data/01-03/nepal-osm-participation-2015.json
+    title: 네팔 지진 대응 디지털 매핑 참여 규모, 2015년
+    organization: Humanitarian OpenStreetMap Team (HOT)
+    url: https://www.hotosm.org/downloads/2015-Annual-Report.pdf
+    retrievedAt: '2026-11-27'
+    license: CC BY-SA 4.0 (출처 표시와 동일 조건 적용)
+    attribution: >-
+      Humanitarian OpenStreetMap Team, 2015 Annual Report, pp. 5–6, CC BY-SA 4.0. 값을 JSON으로 편집하고 한국어 설명을 붙였다. 파생 표는 같은 조건으로 배포한다.
+    script: scripts/data/01-03/nepal_osm_participation.py
+    unit: 명 (8,000명은 보고서의 하한)
+    year: 2015
+    summary: >-
+      HOT 보고서는 첫 48시간 약 2,000명, 지진 발생 5일 뒤 3,679명, 전체 활성화 기간 8,000명 이상으로 보고한다. 2,000은 반올림 수치이고 8,000은 하한이다.
+  - id: u0103-daejeon-seogu-shelters
+    path: /data/01-03/daejeon-seogu-earthquake-shelters.geojson
+    title: 대전광역시 서구 지진 옥외 대피장소 위치
+    organization: 대전광역시 서구 · 공공데이터포털
+    url: https://www.data.go.kr/data/15124341/fileData.do
+    retrievedAt: '2026-11-27'
+    license: 공공데이터포털 표시 — 이용허락범위 제한 없음
+    attribution: >-
+      출처: 대전광역시 서구, 공공데이터포털 데이터 식별자 15124341. 시설명·유형·좌표만 사용했고 관리자 연락처와 수용가능면적은 제외했다.
+    script: scripts/data/01-03/daejeon_seogu_shelters.py
+    unit: WGS84 십진도
+    year: 2026
+    summary: >-
+      원자료 기준일 2026-01-21의 대피장소 79곳이다. 학교운동장 72곳, 옥외 주차장 5곳, 공원 2곳이며 수용 인원 열은 제공되지 않는다.
+  - id: u0103-daejeon-seogu-shelters-by-type
+    path: /data/01-03/daejeon-seogu-shelters-by-type.json
+    title: 대전광역시 서구 지진 옥외 대피장소 유형별 수
+    organization: 대전광역시 서구 · 공공데이터포털
+    url: https://www.data.go.kr/data/15124341/fileData.do
+    retrievedAt: '2026-11-27'
+    license: 공공데이터포털 표시 — 이용허락범위 제한 없음
+    attribution: >-
+      출처: 대전광역시 서구, 공공데이터포털 데이터 식별자 15124341. 2026-01-21 기준 파일에서 지도에 포함한 시설을 유형별로 집계했다.
+    script: scripts/data/01-03/daejeon_seogu_shelters.py
+    unit: 곳
+    year: 2026
+    summary: >-
+      학교운동장 72곳, 옥외 주차장 5곳, 공원 2곳이다. 이 집계는 대피장소 위치·유형 목록이며 지역 인구나 대피소 수용 인원은 나타내지 않는다.
