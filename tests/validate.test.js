@@ -204,9 +204,12 @@ describe('module lessons', () => {
       expect.stringContaining('sections 1 (need 2-5)'),
       expect.stringContaining('text step in module lesson: s9'),
     ]));
-    const many = ['m1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7'];
+    const seven = ['m1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7'];
+    const okSeven = errorsFor({ steps: seven.map((id) => linked(id)), sections: [{ title: '가', paragraphs: [{ text: 'x', refs: seven.slice(0, 4) }] }, { title: '나', paragraphs: [{ text: 'y', refs: seven.slice(4) }] }] });
+    expect(okSeven).toEqual([]);
+    const many = [...seven, 'm8'];
     const tooMany = errorsFor({ steps: many.map((id) => linked(id)), sections: [{ title: '가', paragraphs: [{ text: 'x', refs: many.slice(0, 4) }] }, { title: '나', paragraphs: [{ text: 'y', refs: many.slice(4) }] }] });
-    expect(tooMany).toEqual(expect.arrayContaining([expect.stringContaining('data steps 7 (need 3-6)')]));
+    expect(tooMany).toEqual(expect.arrayContaining([expect.stringContaining('data steps 8 (need 3-7)')]));
   });
 
   it('requires three real (non-schematic) data steps', () => {

@@ -38,7 +38,7 @@ function checkLegacyLesson(lesson, where, errors) {
   if (dataSteps < 2 || dataSteps > 4) errors.push(`${where}: data steps ${dataSteps} (need 2-4)`);
 }
 
-/** Module lessons: 2-5 topics, 3-6 linked data steps (3+ real), opener, 3-4 summary points. */
+/** Module lessons: 2-5 topics, 3-7 linked data steps (3+ real), opener, 3-4 summary points. */
 function checkModuleLesson(lesson, where, errors) {
   const sections = lesson.sections ?? [];
   if (sections.length < 2 || sections.length > 5) errors.push(`${where}: sections ${sections.length} (need 2-5)`);
@@ -46,7 +46,7 @@ function checkModuleLesson(lesson, where, errors) {
     if (step.type === 'text') errors.push(`${where}: text step in module lesson: ${step.id}`);
   }
   const data = lesson.steps.filter((step) => step.type !== 'text');
-  if (data.length < 3 || data.length > 6) errors.push(`${where}: data steps ${data.length} (need 3-6)`);
+  if (data.length < 3 || data.length > 7) errors.push(`${where}: data steps ${data.length} (need 3-7)`);
   const real = data.filter((step) => !step.schematic).length;
   if (real < 3) errors.push(`${where}: real data steps ${real} (need 3+)`);
   const dataIds = new Set(data.map((step) => step.id));
