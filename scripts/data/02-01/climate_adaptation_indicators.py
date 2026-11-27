@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build 2022 country maps for water stress and irrigated agricultural land."""
+"""Build country maps for the latest available water stress and irrigated-land values."""
 
 from __future__ import annotations
 
@@ -8,7 +8,7 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-RETRIEVED_AT = "2026-11-26"
+RETRIEVED_AT = "2026-11-27"
 WORLD_BANK_API_BASE = "https://api.worldbank.org/v2"
 WORLD_BANK_COUNTRIES_URL = f"{WORLD_BANK_API_BASE}/country?format=json&per_page=400"
 WATER_STRESS_PAGE_URL = "https://data.worldbank.org/indicator/ER.H2O.FWST.ZS"
@@ -23,17 +23,18 @@ CC_BY_URL = "https://creativecommons.org/licenses/by/4.0/"
 ROOT = Path(__file__).resolve().parents[3]
 OUTPUT_DIR = ROOT / "public/data/02-01"
 MAX_BYTES = 1_000_000
-YEAR = 2022
 INDICATORS = (
     {
         "code": "ER.H2O.FWST.ZS",
         "slug": "water-stress-map",
         "label": "물 스트레스 수준",
+        "year": 2022,
     },
     {
         "code": "AG.LND.IRIG.AG.ZS",
         "slug": "irrigated-land-map",
         "label": "농업용 관개 토지 비율",
+        "year": 2024,
     },
 )
 
@@ -58,16 +59,16 @@ def country_iso3s() -> list[str]:
     )
 
 
-def indicator_url(code: str) -> str:
-    params = {"format": "json", "per_page": 20000, "date": str(YEAR)}
+def indicator_url(code: str, year: int) -> str:
+    params = {"format": "json", "per_page": 20000, "date": str(year)}
     return (
         f"{WORLD_BANK_API_BASE}/country/all/indicator/{code}?"
         + urllib.parse.urlencode(params)
     )
 
 
-def indicator_values(code: str, country_codes: set[str]) -> dict[str, float]:
-    response = fetch_json(indicator_url(code))
+def indicator_values(code: str, year: int, country_codes: set[str]) -> dict[str, float]:
+    response = fetch_json(indicator_url(code, year))
     if not isinstance(response, list) or len(response) < 2 or response[1] is None:
         raise ValueError(f"Unexpected World Bank response for {code}")
     values = {}
@@ -75,7 +76,7 @@ def indicator_values(code: str, country_codes: set[str]) -> dict[str, float]:
         iso3 = row.get("countryiso3code")
         if (
             iso3 in country_codes
-            and int(row["date"]) == YEAR
+            and int(row["date"]) == year
             and row.get("value") is not None
         ):
             values[iso3] = round(float(row["value"]), 1)
@@ -97,13 +98,14 @@ def build() -> None:
     iso3s = country_iso3s()
     iso3_set = set(iso3s)
     for indicator in INDICATORS:
-        known_values = indicator_values(indicator["code"], iso3_set)
+        year = indicator["year"]
+        known_values = indicator_values(indicator["code"], year, iso3_set)
         values = {iso3: known_values.get(iso3) for iso3 in iso3s}
         path = OUTPUT_DIR / f"{indicator['slug']}.json"
-        write_json(path, {"year": YEAR, "unit": "%", "values": values})
+        write_json(path, {"year": year, "unit": "%", "values": values})
         print(
             f"  {indicator['code']}: {len(known_values)}/{len(iso3s)} values; "
-            f"source={indicator_url(indicator['code'])}"
+            f"source={indicator_url(indicator['code'], year)}"
         )
     print(
         f"Sources retrieved {RETRIEVED_AT}: {WORLD_BANK_COUNTRIES_URL}; "

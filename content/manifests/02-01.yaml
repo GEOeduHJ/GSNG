@@ -133,13 +133,13 @@ items:
     summary: 2022년 값은 World Bank 국가·경제 217개 중 176개에서 확인했다. 사우디아라비아 974.2%, 이집트 141.2%, 대한민국 85.2%이며 나머지 결측은 null이다.
   - id: u0201-irrigated-land-map
     path: /data/02-01/irrigated-land-map.json
-    title: 국가별 농업용 관개 토지 비율, 2022년
+    title: 국가별 농업용 관개 토지 비율, 2024년
     organization: World Bank WDI (FAOSTAT 자료)
-    url: 'https://api.worldbank.org/v2/country/all/indicator/AG.LND.IRIG.AG.ZS?format=json&per_page=20000&date=2022'
-    retrievedAt: '2026-11-26'
+    url: 'https://api.worldbank.org/v2/country/all/indicator/AG.LND.IRIG.AG.ZS?format=json&per_page=20000&date=2024'
+    retrievedAt: '2026-11-27'
     license: CC BY 4.0 (World Bank indicator page; FAO database terms also apply)
-    attribution: 'FAOSTAT agricultural land data, republished by World Bank WDI; accessed 2026-11-26. Modified: selected 2022 country values, rounded to 0.1 percentage point, and retained missing values as null.'
+    attribution: 'FAOSTAT agricultural land data, republished by World Bank WDI; accessed 2026-11-27. Modified: selected 2024 country values, rounded to 0.1 percentage point, and retained missing values as null.'
     script: scripts/data/02-01/climate_adaptation_indicators.py
     unit: '% of total agricultural land'
-    year: 2022
-    summary: 2022년 값은 World Bank 국가·경제 217개 중 63개에서 확인했다. 이집트 100.0%, 방글라데시 88.8%, 호주 0.5%이며 나머지 결측은 null이다.
+    year: 2024
+    summary: 2024년 값은 World Bank 국가·경제 217개 중 67개에서 확인했다. 이집트 100.0%, 방글라데시 89.0%, 호주 0.5%이며 나머지 결측은 null이다.

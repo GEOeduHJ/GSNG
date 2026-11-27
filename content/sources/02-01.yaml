@@ -66,9 +66,19 @@ sources:
     sourceDate: null
     checkedAt: '2026-11-27'
     licenseStatus: World Bank 지표 페이지는 CC BY 4.0을 표시하며 FAO 데이터베이스 약관도 적용됨.
-    reuseBasis: 지표 명칭과 분모를 확인하는 참고 링크. 값은 manifest의 정적 자료를 사용하고 원표를 복제하지 않음.
-    verificationStatus: World Bank 지표가 전체 농업용 토지 중 관개 토지의 비율이며 원자료가 FAOSTAT임을 확인했다. 관개 토지 비율을 실제 취수량으로 해석하지 않았다.
-    usage: 값의 출처와 단위·기준 연도는 자료 manifest를 따릅니다.
+    reuseBasis: 지표 명칭과 분모를 확인하는 출처. 값은 manifest의 정적 자료를 사용하고 원표를 복제하지 않음.
+    verificationStatus: World Bank 지표가 전체 농업용 토지 중 관개 토지의 비율이며 원자료가 FAOSTAT임을 확인했다. 2024년 값은 국가·경제 코드 217개 중 67개에 있으며, 관개 토지 비율을 실제 취수량으로 해석하지 않았다.
+    usage: 값의 출처와 단위·기준 연도는 자료 manifest를 따릅니다. 결측은 관개 토지가 없다는 뜻이 아닙니다.
+  noaa-tropical-rain-belt:
+    title: Annual Migration of Tropical Rain Belt
+    organization: NOAA Climate.gov
+    url: https://www.climate.gov/news-features/understanding-climate/annual-migration-tropical-rain-belt
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 설명 페이지와 그림을 재배포하지 않음. 개념을 새 문장과 독자 SVG로 설명함.
+    reuseBasis: 열대 강수대의 계절 이동과 몬순의 계절별 바람 반전이 강수 계절성을 만드는 원리를 확인하는 참고 출처.
+    verificationStatus: NOAA 설명에서 열대 강수대가 계절에 따라 북·남반구로 이동하고, 몬순 지역에서는 육지와 바다의 계절적 가열 차와 상승·하강 기류 변화에 따라 바람 방향이 바뀌며 강수가 달라지는 점을 확인했다.
+    usage: 열대 전 지역의 계절 패턴을 하나로 일반화하지 않고, 지역별 강수 계절성은 실제 기후 그래프와 함께 살핍니다.
   doe-energy-saver-guide-2022:
     title: "Energy Saver: Tips on Saving Money and Energy in Your Home"
     organization: U.S. Department of Energy

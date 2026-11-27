@@ -1,0 +1,116 @@
+unit: '02-01'
+bookScope:
+  textbookPages: [50, 71]
+  lessonPages: [50, 65]
+  applicationPages: [66, 67]
+  recapPages: [68, 69]
+  followingUnitOpeningPages: [70, 71]
+lessons:
+  - index: 1
+    textbookPages: [50, 53]
+    goalGist: 기후 요소와 기후 요인을 구분하고 위도·대기 순환·수륙 분포·지형이 세계 기후의 지역 차이를 만드는 과정을 설명한다.
+    topics:
+      - title: 기후 요소와 기후 요인
+        concepts: [기후 요소, 기후 요인, 위도, 대기 대순환, 수륙 분포, 해류, 지형, 해발 고도, 기단, 전선]
+        textbookMaterials: [위도에 따른 기후 특성, 대기 대순환, 위도대별 강수량·증발량, 수륙 분포·해발 고도·지형·해류 사례]
+        ourData: ['개념도:climate-factors', u0201-climate-city-points, u0201-climograph-seoul, u0201-climograph-london, u0201-climograph-yakutsk]
+      - title: 세계의 기후와 기후 지역
+        concepts: [기온 분포, 강수 분포, 위도대, 쾨펜 기후 구분, 기후 지역]
+        textbookMaterials: [세계의 1월·7월 평균 기온과 강수량 지도, 쾨펜 기후 구분 지도]
+        ourData: [u0201-climate-city-points, u0201-climograph-seoul, u0201-climograph-london, u0201-climograph-yakutsk]
+  - index: 2
+    textbookPages: [54, 57]
+    goalGist: 열대 기후의 강수 계절성과 열대 우림·몬순·사바나의 차이, 그 조건에 대응하는 주민 생활의 다양성을 설명한다.
+    topics:
+      - title: 열대 기후의 분포와 특징
+        concepts: [저위도, 적도 수렴대, 열대 기후, 강수 계절성]
+        textbookMaterials: [열대 기후 분포 지도, 열대 도시 기후 그래프, 적도 수렴대의 계절 이동]
+        ourData: [u0201-climate-city-points, '개념도:tropical-rainfall', u0201-climograph-manaus, u0201-climograph-mumbai]
+      - title: 열대 우림 기후와 주민 생활
+        concepts: [열대 우림 기후, 연중 강수, 농업, 주거와 이동]
+        textbookMaterials: [열대 우림 기후 사례, 고상 가옥, 작물과 도시 생활]
+        ourData: [u0201-climograph-manaus]
+      - title: 건기와 우기가 뚜렷한 기후와 주민 생활
+        concepts: [열대 몬순 기후, 사바나 기후, 계절풍, 우기, 건기]
+        textbookMaterials: [계절풍과 열대 강수대, 벼농사·플랜테이션·유목·관광 사례]
+        ourData: ['개념도:tropical-rainfall', u0201-climograph-mumbai, u0201-climate-city-points]
+  - index: 3
+    textbookPages: [58, 61]
+    goalGist: 온대 기후 안의 서안·동안·지중해성 기후 차이와 계절별 주민 생활·농업의 관계를 살핀다.
+    topics:
+      - title: 온대 기후의 분포와 특징
+        concepts: [온대 기후, 대륙 서안, 대륙 동안, 편서풍, 계절풍]
+        textbookMaterials: [온대 기후 분포 지도, 온대 도시 기후 그래프]
+        ourData: [u0201-climate-city-points, u0201-climograph-athens, u0201-climograph-london, u0201-climograph-shanghai]
+      - title: 서안 해양성 기후와 주민 생활
+        concepts: [서안 해양성 기후, 혼합 농업, 목축, 낙농, 화훼]
+        textbookMaterials: [서안 해양성 기후 그래프, 목축·치즈·화훼 사례]
+        ourData: [u0201-climograph-london]
+      - title: 지중해성 기후와 주민 생활
+        concepts: [지중해성 기후, 여름 건조, 수목 농업, 곡물 농업]
+        textbookMaterials: [지중해성 기후 그래프, 수목 농업·가옥·태양광 사례]
+        ourData: [u0201-climograph-athens]
+      - title: 계절풍의 영향을 받는 기후와 주민 생활
+        concepts: [온난 습윤 기후, 겨울 건조 기후, 계절풍, 벼농사]
+        textbookMaterials: [계절별 바람과 강수 지도, 온대 동안 기후 그래프, 벼농사·차 재배 사례]
+        ourData: [u0201-climograph-shanghai]
+  - index: 4
+    textbookPages: [62, 65]
+    goalGist: 건조·냉대·한대 기후의 특징과 생활 조건을 비교하고 물·주거·에너지 적응 방안을 지역 자료에 비추어 평가한다.
+    topics:
+      - title: 건조 기후의 분포와 주민 생활
+        concepts: [건조 기후, 사막, 스텝, 물 부족, 관개]
+        textbookMaterials: [건조 기후 지도와 도시 기후 그래프, 유목·오아시스·관개·물 확보 사례]
+        ourData: [u0201-climate-city-points, u0201-climograph-cairo, u0201-water-stress-map, u0201-irrigated-land-map]
+      - title: 냉·한대 기후의 분포와 주민 생활
+        concepts: [냉대 기후, 한대 기후, 타이가, 툰드라, 빙설, 계절 적응]
+        textbookMaterials: [냉·한대 도시 기후 그래프, 임업·유목·수렵·어업·광공업·관광 사례]
+        ourData: [u0201-climate-city-points, u0201-climograph-yakutsk, u0201-climograph-nuuk]
+      - title: 기후 적응 방안
+        concepts: [기후 적응, 물 관리, 주거, 에너지, 인간과 자연환경의 상호 작용]
+        textbookMaterials: [물을 얻는 방법, 전통 주거와 현대 기술, 생활·산업 사례]
+        ourData: [u0201-climograph-cairo, u0201-water-stress-map, u0201-irrigated-land-map, u0201-climograph-yakutsk, u0201-climograph-nuuk]
+
+dataJudgement:
+  existingEnoughTopics:
+    - lesson: 1
+      topic: 기후 요인과 도시 기후의 계절 패턴
+      data: [u0201-climate-city-points, u0201-climograph-seoul, u0201-climograph-london, u0201-climograph-yakutsk]
+    - lesson: 2
+      topic: 열대 우림·몬순의 강수 패턴과 기후형
+      data: [u0201-climate-city-points, u0201-climograph-manaus, u0201-climograph-mumbai]
+    - lesson: 3
+      topic: 지중해성·서안 해양성·온난 습윤 기후의 계절성
+      data: [u0201-climograph-athens, u0201-climograph-london, u0201-climograph-shanghai]
+    - lesson: 4
+      topic: 건조·한랭 도시의 계절성 및 물·관개 지표
+      data: [u0201-climograph-cairo, u0201-climograph-yakutsk, u0201-climograph-nuuk, u0201-water-stress-map, u0201-irrigated-land-map]
+  updatedRealDataTopics:
+    - lesson: 4
+      topic: 농업용 토지 중 관개 토지 비율 최신 국가별 값
+      data: [u0201-irrigated-land-map]
+      note: 2022년에서 WDI의 2024년 자료로 갱신했다. 217개 국가·경제 코드 중 유효 값은 67개다.
+  conceptualDiagramTopics:
+    - lesson: 1
+      topic: 기후 요인과 기후 요소의 복합 관계
+      data: ['개념도:climate-factors']
+    - lesson: 2
+      topic: 열대 수렴대·계절풍과 강수 계절성
+      data: ['개념도:tropical-rainfall']
+  lessonDataCounts:
+    - lesson: 1
+      realDataCount: 4
+      conceptualDiagramCount: 1
+      totalMaterialCount: 5
+    - lesson: 2
+      realDataCount: 3
+      conceptualDiagramCount: 1
+      totalMaterialCount: 4
+    - lesson: 3
+      realDataCount: 4
+      conceptualDiagramCount: 0
+      totalMaterialCount: 4
+    - lesson: 4
+      realDataCount: 6
+      conceptualDiagramCount: 0
+      totalMaterialCount: 6

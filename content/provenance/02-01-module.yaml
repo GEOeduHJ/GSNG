@@ -1,0 +1,23 @@
+items:
+  - src: /images/02-01/climate-factors-schematic.svg
+    prompt: >-
+      손으로 작성한 독자 SVG 개념도. 위도와 태양 에너지, 육지와 바다, 해류와 바람,
+      해발 고도, 지형, 기단과 전선이 기온·강수·바람의 차이에 함께 영향을 주는 관계를
+      가운데 연결 구조로 표현했다. 수치 눈금·연도·실제 값이나 교과서의 그림 배치는 사용하지 않았다.
+    model: 'Codex; hand-authored SVG'
+    createdAt: '2026-11-27'
+    usedIn: '02-01 lesson 1, 기후 요소와 기후 요인'
+    alt: '위도·육지와 바다·해류와 바람·고도·지형·기단과 전선이 기후 요소에 함께 영향을 준다.'
+    basis: 'NOAA Global Monitoring Laboratory, Factors that Influence Climates'
+    source: https://gml.noaa.gov/infodata/lesson_plans/Factors%20that%20Affect%20Climate.pdf
+  - src: /images/02-01/tropical-rainfall-schematic.svg
+    prompt: >-
+      손으로 작성한 독자 SVG 개념도. 적도 수렴대 주변의 상승 기류, 수렴대의 계절 이동,
+      계절풍의 수증기 공급이라는 서로 다른 원리를 열대 우림·사바나·몬순의 강수 계절성과
+      연결했다. 수치 눈금·연도·실제 값이나 교과서의 그림 배치는 사용하지 않았다.
+    model: 'Codex; hand-authored SVG'
+    createdAt: '2026-11-27'
+    usedIn: '02-01 lesson 2, 열대 기후의 강수 계절성'
+    alt: '상승 기류가 이어지는 곳, 수렴대가 계절 이동하는 곳, 계절풍이 수증기를 공급하는 곳에서 열대 강수 계절성이 달라진다.'
+    basis: 'NOAA Climate.gov, Annual Migration of Tropical Rain Belt'
+    source: https://www.climate.gov/news-features/understanding-climate/annual-migration-tropical-rain-belt

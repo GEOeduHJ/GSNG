@@ -17,7 +17,7 @@
 | `climograph-nuuk.json` | 593 B | 누크 기온·강수량 월평년 |
 | `climate-city-points.geojson` | 2,771 B | 도시 9곳의 WGS84 점과 기후형·색 |
 | `water-stress-map.json` | 3,674 B | 국가별 물 스트레스, 2022년 |
-| `irrigated-land-map.json` | 3,704 B | 국가별 농업용 관개 토지 비율, 2022년 |
+| `irrigated-land-map.json` | 3,701 B | 국가별 농업용 관개 토지 비율, 2024년 |
 
 ## 계산과 처리
 
@@ -42,10 +42,10 @@ Beck, H. E. et al. (2023). “High-resolution (1 km) Köppen-Geiger maps for 190
 
 ### 절 4 국가 지표
 
-- World Bank WDI API에서 2022년 값만 추렸다. WDI의 `ER.H2O.FWST.ZS`는 FAO AQUASTAT의 SDG 6.4.2이고, `AG.LND.IRIG.AG.ZS`는 FAOSTAT 자료다. World Bank 지표 페이지는 두 자료의 라이선스를 CC BY 4.0으로 표시한다. FAO 통계 DB 조건도 적용되므로 FAO를 출처로 표시하고, FAO가 이용을 승인·보증한 것처럼 표현하지 않으며, 상업 기업 홍보와 연결해 사용하지 않는다.
+- World Bank WDI API에서 각 지표의 최신 국가별 연도를 골랐다. `ER.H2O.FWST.ZS`는 FAO AQUASTAT의 SDG 6.4.2이며 2022년이 최신 공통 연도다. `AG.LND.IRIG.AG.ZS`는 FAOSTAT 자료이며 2024년 값으로 갱신했다. World Bank 지표 페이지는 두 자료의 라이선스를 CC BY 4.0으로 표시한다. FAO 통계 DB 조건도 적용되므로 FAO를 출처로 표시하고, FAO가 이용을 승인·보증한 것처럼 표현하지 않으며, 상업 기업 홍보와 연결해 사용하지 않는다.
 - 물 스트레스 값은 담수 주요 부문 취수량을 환경 유량을 고려한 재생 가능 담수 자원으로 나눈 비율이다. 100%보다 큰 값을 자르지 않았다. 이 비율만으로 특정 가구의 물 접근성이나 물 부족의 원인을 단정할 수 없다.
 - 관개 토지 비율은 농업용 토지 중 관개 토지가 차지하는 비율이다. 실제로 그해 사용한 물의 양이나 관개가 기후에 미친 효과를 뜻하지 않는다.
-- 두 지도 모두 World Bank 국가·경제 217개를 기준으로 만들고, 해당 연도 값이 없는 국가는 `null`로 뒀다. 2022년 유효 값은 물 스트레스 176개, 관개 토지 63개다. 현재 웹 지도는 저장소에 이미 있는 Natural Earth 1:110m 경계를 쓰므로 해당 경계와 ISO3가 맞지 않는 경제는 지도에 나타나지 않을 수 있다.
+- 두 지도 모두 World Bank 국가·경제 217개를 기준으로 만들고, 해당 연도 값이 없는 국가는 `null`로 뒀다. 물 스트레스는 2022년 176개, 관개 토지는 2024년 67개 코드에 값이 있다. 현재 웹 지도는 저장소에 이미 있는 Natural Earth 1:110m 경계를 쓰므로 해당 경계와 ISO3가 맞지 않는 경제는 지도에 나타나지 않을 수 있다.
 
 출처: [World Bank 물 스트레스 지표](https://data.worldbank.org/indicator/ER.H2O.FWST.ZS), [World Bank 관개 토지 지표](https://data.worldbank.org/indicator/AG.LND.IRIG.AG.ZS), [FAO 물 스트레스 정의](https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/642-water-stress/sdg-6-indicators-of-water-use-efficiency-and-water-stress/), [FAO 통계 DB 이용 조건](https://www.fao.org/contact-us/terms/db-terms-of-use/). FAO DB 자료는 CC BY 4.0을 기본으로 하며, 별도 출처·제3자 조건과 추가 이용 조건을 확인해야 한다.
 
@@ -66,7 +66,7 @@ Beck, H. E. et al. (2023). “High-resolution (1 km) Köppen-Geiger maps for 190
 | `climograph-nuuk.json` | 1월 기온 -12.1°C; 8월 기온 8.0°C; 7월 강수량 61.5mm | [Open-Meteo API](https://archive-api.open-meteo.com/v1/archive?latitude=64.18347&longitude=-51.72157&start_date=1991-01-01&end_date=2020-12-31&daily=temperature_2m_mean%2Cprecipitation_sum&timezone=auto&models=era5) |
 | `climate-city-points.geojson` | 서울 `[126.9784, 37.566]`, 21→Dwa, `#AAAFFF`; 마나우스 `[-60.025, -3.10194]`, 1→Af, `#0000FF`; 누크 `[-51.72157, 64.18347]`, 29→ET, `#B2B2B2` | [서울 좌표](https://geocoding-api.open-meteo.com/v1/search?name=Seoul&count=10&language=en&format=json), [마나우스 좌표](https://geocoding-api.open-meteo.com/v1/search?name=Manaus&count=10&language=en&format=json), [누크 좌표](https://geocoding-api.open-meteo.com/v1/search?name=Nuuk&count=10&language=en&format=json), [Beck 분류 TIFF](https://data.naturalcapitalalliance.stanford.edu/download/global/koppen_geiger_climatezones/koppen_geiger_climatezones_1991_2020_1km.tif), [범례](https://data.naturalcapitalalliance.stanford.edu/download/global/koppen_geiger_climatezones/legend.txt) |
 | `water-stress-map.json` | 사우디아라비아 974.2%; 이집트 141.2%; 대한민국 85.2% | [World Bank WDI API](https://api.worldbank.org/v2/country/all/indicator/ER.H2O.FWST.ZS?format=json&per_page=20000&date=2022), [지표·라이선스](https://data.worldbank.org/indicator/ER.H2O.FWST.ZS) |
-| `irrigated-land-map.json` | 이집트 100.0%; 방글라데시 88.8%; 호주 0.5% | [World Bank WDI API](https://api.worldbank.org/v2/country/all/indicator/AG.LND.IRIG.AG.ZS?format=json&per_page=20000&date=2022), [지표·라이선스](https://data.worldbank.org/indicator/AG.LND.IRIG.AG.ZS) |
+| `irrigated-land-map.json` | 이집트 100.0%; 방글라데시 89.0%; 호주 0.5% | [World Bank WDI API](https://api.worldbank.org/v2/country/all/indicator/AG.LND.IRIG.AG.ZS?format=json&per_page=20000&date=2024), [지표·라이선스](https://data.worldbank.org/indicator/AG.LND.IRIG.AG.ZS) |
 
 ## 절별 자료 배치 추천
 

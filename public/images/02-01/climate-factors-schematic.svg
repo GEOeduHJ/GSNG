@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" role="img" aria-label="기후 요인들이 기온·강수·바람에 함께 영향을 주는 관계">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#607a75"/>
+    </marker>
+  </defs>
+  <rect width="960" height="560" rx="24" fill="#f7f5ef"/>
+  <g fill="none" stroke="#78918a" stroke-width="3" marker-end="url(#arrow)">
+    <path d="M 302 112 C 385 112 390 210 438 230"/>
+    <path d="M 302 270 C 360 270 390 270 430 270"/>
+    <path d="M 302 428 C 385 428 390 330 438 310"/>
+    <path d="M 658 112 C 575 112 570 210 522 230"/>
+    <path d="M 658 270 C 600 270 570 270 530 270"/>
+    <path d="M 658 428 C 575 428 570 330 522 310"/>
+  </g>
+  <g font-family="Noto Sans KR, Apple SD Gothic Neo, sans-serif" text-anchor="middle" fill="#243b3a">
+    <g>
+      <rect x="58" y="70" width="244" height="84" rx="18" fill="#e5eee9" stroke="#b7cbc1" stroke-width="2"/>
+      <text x="180" y="104" font-size="19" font-weight="700">위도와 태양 에너지</text>
+      <text x="180" y="132" font-size="16">받는 에너지의 차이</text>
+    </g>
+    <g>
+      <rect x="58" y="228" width="244" height="84" rx="18" fill="#e8eef1" stroke="#c0d0d6" stroke-width="2"/>
+      <text x="180" y="262" font-size="19" font-weight="700">육지와 바다</text>
+      <text x="180" y="290" font-size="16">계절별 가열·냉각 차이</text>
+    </g>
+    <g>
+      <rect x="58" y="386" width="244" height="84" rx="18" fill="#e8eef1" stroke="#c0d0d6" stroke-width="2"/>
+      <text x="180" y="420" font-size="19" font-weight="700">해류와 바람</text>
+      <text x="180" y="448" font-size="16">열과 수증기의 이동</text>
+    </g>
+    <g>
+      <rect x="658" y="70" width="244" height="84" rx="18" fill="#eee9f4" stroke="#cbc1d8" stroke-width="2"/>
+      <text x="780" y="104" font-size="19" font-weight="700">해발 고도</text>
+      <text x="780" y="132" font-size="16">높이에 따른 기온 차이</text>
+    </g>
+    <g>
+      <rect x="658" y="228" width="244" height="84" rx="18" fill="#f2eadf" stroke="#d9c8ac" stroke-width="2"/>
+      <text x="780" y="262" font-size="19" font-weight="700">지형과 산지</text>
+      <text x="780" y="290" font-size="16">바람받이·비그늘의 차이</text>
+    </g>
+    <g>
+      <rect x="658" y="386" width="244" height="84" rx="18" fill="#f2eadf" stroke="#d9c8ac" stroke-width="2"/>
+      <text x="780" y="420" font-size="19" font-weight="700">기단과 전선</text>
+      <text x="780" y="448" font-size="16">공기의 성질과 만남</text>
+    </g>
+    <g>
+      <rect x="358" y="214" width="244" height="112" rx="24" fill="#fffdf8" stroke="#486b64" stroke-width="3"/>
+      <text x="480" y="252" font-size="22" font-weight="700">기후 요소</text>
+      <text x="480" y="289" font-size="18">기온 · 강수 · 바람</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 540" role="img" aria-label="열대 우림·몬순·사바나 기후에서 강수 계절성이 달라지는 관계">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#607a75"/>
+    </marker>
+  </defs>
+  <rect width="1020" height="540" rx="24" fill="#f7f5ef"/>
+  <g font-family="Noto Sans KR, Apple SD Gothic Neo, sans-serif" text-anchor="middle" fill="#243b3a">
+    <g>
+      <rect x="40" y="208" width="260" height="252" rx="20" fill="#e5eee9" stroke="#b7cbc1" stroke-width="2"/>
+      <text x="170" y="250" font-size="21" font-weight="700">상승 기류가 이어짐</text>
+      <text x="170" y="287" font-size="16">적도 수렴대 주변</text>
+      <path d="M 170 310 L 170 351" stroke="#78918a" stroke-width="3" marker-end="url(#arrow)"/>
+      <rect x="64" y="364" width="212" height="72" rx="16" fill="#fffdf8" stroke="#c8d8d0" stroke-width="2"/>
+      <text x="170" y="394" font-size="19" font-weight="700">열대 우림</text>
+      <text x="170" y="420" font-size="16">비가 여러 계절 이어짐</text>
+    </g>
+    <g>
+      <rect x="380" y="208" width="260" height="252" rx="20" fill="#e8eef1" stroke="#c0d0d6" stroke-width="2"/>
+      <text x="510" y="250" font-size="21" font-weight="700">수렴대가 계절 이동</text>
+      <text x="510" y="287" font-size="16">강수대가 남북으로 움직임</text>
+      <path d="M 510 310 L 510 351" stroke="#78918a" stroke-width="3" marker-end="url(#arrow)"/>
+      <rect x="404" y="364" width="212" height="72" rx="16" fill="#fffdf8" stroke="#c8d8d0" stroke-width="2"/>
+      <text x="510" y="394" font-size="19" font-weight="700">열대 사바나</text>
+      <text x="510" y="420" font-size="16">우기와 건기의 차가 큼</text>
+    </g>
+    <g>
+      <rect x="720" y="208" width="260" height="252" rx="20" fill="#f2eadf" stroke="#d9c8ac" stroke-width="2"/>
+      <text x="850" y="250" font-size="21" font-weight="700">계절풍이 수증기 공급</text>
+      <text x="850" y="287" font-size="16">바람 방향과 강수 집중</text>
+      <path d="M 850 310 L 850 351" stroke="#78918a" stroke-width="3" marker-end="url(#arrow)"/>
+      <rect x="744" y="364" width="212" height="72" rx="16" fill="#fffdf8" stroke="#ddceb5" stroke-width="2"/>
+      <text x="850" y="394" font-size="19" font-weight="700">열대 몬순</text>
+      <text x="850" y="420" font-size="16">우기 집중, 건기는 짧음</text>
+    </g>
+  </g>
+</svg>

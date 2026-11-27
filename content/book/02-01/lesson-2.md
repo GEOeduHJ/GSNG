@@ -1,58 +1,82 @@
 ---
 title: 열대 기후 지역 주민들은 어떻게 살아갈까?
-goal: 열대 기후의 강수 계절성을 그래프에서 읽고 생활과 농업에 미칠 수 있는 영향을 자료의 범위에 맞게 설명할 수 있다.
+goal: 열대 기후의 우기·건기와 연중 강수 차이를 설명하고, 농업·주거·관광·목축 사례를 비교한다.
+opener: 연중 비가 내리는 곳과 우기·건기가 뚜렷한 곳에서는 집과 생업이 어떻게 달라질까?
+textbookRef: { pages: [54, 57] }
 steps:
-  - { id: s1, type: text, caption: '', source: '', alt: '' }
-  - id: s2
+  - id: d1
     type: map
     data: /data/02-01/climate-city-points.geojson
+    label: 도시 표본의 열대 기후형
+    caption: 선정 도시의 쾨펜–가이거 기후형, 1991–2020년 분류 (Beck et al., 2023)
     source: u0201-climate-city-points
-    caption: 선정 도시의 쾨펜–가이거 기후형, Beck et al. 1991–2020년 분류 자료
-    alt: 선정 도시의 위치와 쾨펜–가이거 기후형을 점과 색으로 나타낸 지도다.
-    config: { kind: points }
+    alt: 세계 여러 기후 지역에 있는 도시 대표점과 각 지점의 쾨펜–가이거 기후형을 나타낸 지도다.
+    config: { kind: points, unit: '기후형' }
     concepts: [climate-region]
-  - id: s3
+  - id: d2
     type: chart
     data: /data/02-01/climograph-manaus.json
+    label: 마나우스 기후 그래프
+    caption: 마나우스 월평균 기온·강수량, 1991–2020년 ERA5 평년 (Open-Meteo, ECMWF/Copernicus C3S)
     source: u0201-climograph-manaus
-    caption: 마나우스 월평균 기온·강수량, 1991–2020년 ERA5 재분석 격자값
-    alt: 마나우스의 월평균 기온은 선, 월평균 강수량은 막대로 나타낸 기후 그래프다.
-    config: { kind: climograph }
+    alt: 마나우스 도시 대표 격자의 월평균 기온은 선으로, 월평균 강수량은 막대로 나타낸 기후 그래프다.
+    config: { kind: climograph, unit: '기온(°C)·강수량(mm)' }
     concepts: [climate, climate-region]
-  - id: s4
+  - id: d3
     type: chart
     data: /data/02-01/climograph-mumbai.json
+    label: 뭄바이 기후 그래프
+    caption: 뭄바이 월평균 기온·강수량, 1991–2020년 ERA5 평년 (Open-Meteo, ECMWF/Copernicus C3S)
     source: u0201-climograph-mumbai
-    caption: 뭄바이 월평균 기온·강수량, 1991–2020년 ERA5 재분석 격자값
-    alt: 뭄바이의 월평균 기온은 선, 월평균 강수량은 막대로 나타낸 기후 그래프다.
-    config: { kind: climograph }
+    alt: 뭄바이 도시 대표 격자의 월평균 기온은 선으로, 월평균 강수량은 막대로 나타낸 기후 그래프다.
+    config: { kind: climograph, unit: '기온(°C)·강수량(mm)' }
     concepts: [climate, climate-region]
-  - { id: s5, type: text, caption: '', source: '', alt: '' }
-keyTerms: [climate-region, climate, human-environment-interaction]
+  - id: d4
+    type: image
+    schematic: true
+    data: /images/02-01/tropical-rainfall-schematic.svg
+    label: 열대 강수 계절성 개념도
+    caption: '개념도: 적도 수렴대와 계절풍에 따라 달라지는 열대 강수 리듬'
+    source: ''
+    alt: 상승 기류가 이어지는 곳, 수렴대가 계절 이동하는 곳, 계절풍이 수증기를 공급하는 곳에서 열대 강수의 계절성이 달라진다.
+    config: {}
+    concepts: [climate, climate-region, human-environment-interaction]
+summary:
+  - 열대 기후는 저위도에 분포하며 연중 고온이고, 연중 강수 또는 뚜렷한 우기·건기가 지역별로 나타난다.
+  - 적도 수렴대의 계절 이동과 계절풍은 열대의 우기·건기를 만든다.
+  - 열대 우림 주민은 고상 가옥·급경사 지붕과 다양한 농업으로 잦은 비에 대응한다.
+  - 몬순 아시아의 벼농사, 사바나의 목축과 사파리 관광은 계절 강수와 초원 환경에 연결된다.
 activity:
   template: evidence-sort
   fictional: false
   config:
-    title: 기후 자료와 생활에 대한 추론 구분하기
-    instruction: 그래프에서 직접 읽은 내용, 그 내용을 바탕으로 세울 수 있는 생활·농업 관련 추론, 추가 자료가 필요한 주장을 나눈다.
-    prompt: 각 문장을 알맞은 범주에 놓고, 그래프만으로 판단할 수 없는 항목에는 필요한 자료를 적으시오.
+    title: 기후 자료와 생활 추론 구분하기
+    instruction: 마나우스와 뭄바이 기후 그래프에서 직접 읽은 패턴, 생활에 대한 가능한 해석, 추가 자료가 필요한 주장을 나눈다.
+    prompt: 각 문장을 알맞은 범주에 놓고, 판단 근거와 더 확인할 지역 자료를 덧붙이시오.
     items:
-      - { id: mana-rain, text: 마나우스의 강수는 여러 달에 걸쳐 나타난다. }
-      - { id: mumbai-rain, text: 뭄바이의 강수는 여름철 몇 달에 집중된다. }
-      - { id: farming, text: 강수 계절성을 고려해 파종 시기와 물 저장 계획을 조정할 수 있다. }
-      - { id: uniform-life, text: 열대 기후 지역의 모든 주민은 같은 집에서 살고 같은 옷을 입는다. }
+      - { id: manaus-pattern, text: 마나우스에서는 여러 달에 걸쳐 강수가 나타난다. }
+      - { id: mumbai-pattern, text: 뭄바이의 강수는 일부 계절에 집중된다. }
+      - { id: farming-calendar, text: 강수 계절성을 살펴 파종 시기와 물 관리 계획을 검토할 수 있다. }
+      - { id: one-lifestyle, text: 열대 기후형 하나만으로 그 지역 모든 주민의 집과 생업을 알 수 있다. }
     categories:
-      - { id: direct, label: 그래프에서 직접 확인 }
-      - { id: inference, label: 생활에 대한 가능한 추론 }
-      - { id: more, label: 그래프만으로 확인하기 어려움 }
-sourceIds: [noaa-climate-classification, beck-2023-koppen-geiger, fao-climate-crop-growth, fao-irrigated-crop-calendars]
+      - { id: observed, label: 그래프에서 직접 확인 }
+      - { id: interpretation, label: 개념을 적용한 가능한 해석 }
+      - { id: more-evidence, label: 추가 자료가 필요한 주장 }
+keyTerms: [climate, climate-region, human-environment-interaction]
+sourceIds: [noaa-climate-classification, noaa-tropical-rain-belt, beck-2023-koppen-geiger, fao-climate-crop-growth, fao-irrigated-crop-calendars]
 ---
-열대 기후는 강수가 연중 이어지는 곳과 우기·건기의 차이가 큰 곳으로 나뉜다. 쾨펜–가이거 분류의 열대 우림(Af), 열대 몬순(Am), 열대 사바나(Aw)는 서로 다른 강수 계절성을 보여 준다. 기후형은 이 계절 패턴을 비교하는 기준이며, 생활 모습은 지역의 조건과 선택에 따라 다양하다.
+## 열대 기후와 강수 계절성
 
-도시 대표점 지도에서 마나우스는 열대 우림(Af), 뭄바이는 열대 몬순(Am)으로 분류된다. 선정 도시 가운데 사바나 기후형 대표점은 없다. 사바나의 월별 강수량과 우기·건기 차이는 별도 기후 자료에서 확인한다.
+열대 기후는 저위도에 분포하며 연중 기온이 높고, 지역마다 강수 계절성이 다르다. 적도 수렴대 부근에서는 따뜻하고 습한 공기가 상승해 구름과 비를 만들며, 수렴대가 계절에 따라 남북으로 이동하면서 비가 집중되는 지역도 달라진다. 도시 표본의 분포와 강수 개념도에서 열대 기후의 범위와 수렴대 이동을 살펴보자. [[d1]] [[d4]]
 
-마나우스 그래프는 ERA5 재분석 격자에서 계산한 월평균을 나타낸다. 기온은 연중 높고 강수는 여러 달 이어지며, 월평균 강수량은 3월 375.0mm, 8월 98.7mm로 달라진다. 농작물과 가구별 물 이용은 지역의 농업·수자원 자료를 함께 살펴본다.
+## 연중 비가 이어지는 열대 우림
 
-뭄바이의 1월 월평균 강수량은 0.8mm이며, 여름에는 강수가 크게 늘어 7월 636.2mm에 이른다. 그래프에서 강수의 계절 집중을 확인할 수 있다. 농사 일정과 건기의 물 관리를 살필 때에는 실제 작물과 지역별 토양·수자원·시설 자료도 함께 확인한다.
+열대 우림 기후는 연중 고온 다우가 이어지고, 강한 일사로 더워진 공기가 상승해 짧고 세찬 스콜을 만든다. 고상 가옥은 바닥을 지면에서 띄워 습기와 빗물의 영향을 줄이고, 급경사 지붕은 비를 빠르게 흘려보낸다. 잦은 비와 강물은 주거와 이동 방식에도 영향을 준다.
 
-기후에 맞춘 생활에는 집의 그늘과 환기, 배수, 물 저장과 농사 일정 조정 등 여러 선택이 있다. 농작물의 생육 시기는 비뿐 아니라 기온과 햇빛, 토양 조건에도 영향을 받는다. 열대 지역에서도 도시와 농촌, 고도, 생업, 자원 접근성, 기술과 문화가 달라 주거와 농사 방식은 다양하게 나타난다.
+이동식 화전 농업은 밭의 지력이 낮아지면 경작지를 옮기고, 이전 경작지에 식생이 회복되도록 두는 방식이다. 플랜테이션에서는 기름야자·고무·카카오 같은 열대 작물을 넓은 농장에 재배해 수출한다. 마나우스의 기후 그래프에서 연중 높은 기온과 이어지는 강수를 확인하자. [[d2]]
+
+## 몬순과 사바나의 우기·건기
+
+열대 몬순 기후와 사바나 기후에는 우기와 건기가 뚜렷하다. 몬순 아시아의 여름 계절풍은 바다의 습한 공기를 대륙으로 옮겨 많은 비를 내리고, 이 강수는 벼농사의 중요한 조건이 된다.
+
+사바나에는 키 큰 풀이 자라는 초원과 흩어진 나무가 나타나며, 야생 동물이 계절에 따라 물과 먹이를 찾아 이동한다. 동아프리카의 여러 보호 지역에서는 야생 동물 관찰을 중심으로 한 사파리 관광이 발달했다. 일부 지역에서는 주민이 가축과 계절 초지를 따라 이동하는 유목·목축을 이어 간다. 뭄바이 그래프의 우기·건기와 수렴대·계절풍 개념도를 비교해 보자. [[d3]] [[d4]]

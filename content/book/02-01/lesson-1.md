@@ -1,54 +1,89 @@
 ---
 title: 세계의 기후는 왜 지역마다 다르게 나타날까?
-goal: 기후 요소와 기후 요인을 구분하고, 도시 기후 그래프와 기후형 자료를 비교해 지역 차이를 설명할 수 있다.
+goal: 기후 요소와 요인을 구분하고, 위도별 태양 에너지·대기 대순환과 해륙·해류·지형이 세계 기후 구분에 미치는 과정을 설명한다.
+opener: 적도와 극지방의 태양 에너지는 어떻게 다르고, 그 차이는 세계 기후의 띠를 어떻게 만들까?
+textbookRef: { pages: [50, 53] }
 steps:
-  - { id: s1, type: text, caption: '', source: '', alt: '' }
-  - id: s2
+  - id: d1
+    type: image
+    schematic: true
+    data: /images/02-01/climate-factors-schematic.svg
+    label: 기후 요인의 작용
+    caption: '개념도: 여러 기후 요인이 기온·강수·바람에 함께 작용하는 관계'
+    source: ''
+    alt: 위도와 태양 에너지, 육지와 바다, 해류와 바람, 고도, 지형, 기단과 전선이 기후 요소에 함께 영향을 준다.
+    config: {}
+    concepts: [climate, climate-region]
+  - id: d2
     type: map
     data: /data/02-01/climate-city-points.geojson
+    label: 도시 표본의 기후형
+    caption: 선정 도시의 쾨펜–가이거 기후형, 1991–2020년 분류 (Beck et al., 2023)
     source: u0201-climate-city-points
-    caption: 선정 도시의 쾨펜–가이거 기후형, Beck et al. 1991–2020년 분류 자료
-    alt: 선정 도시의 위치와 쾨펜–가이거 기후형을 점과 색으로 나타낸 지도다.
-    config: { kind: points }
+    alt: 세계 여러 기후 지역에 있는 도시 대표점과 각 지점의 쾨펜–가이거 기후형을 나타낸 지도다.
+    config: { kind: points, unit: '기후형' }
     concepts: [climate-region]
-  - id: s3
+  - id: d3
     type: chart
     data: /data/02-01/climograph-seoul.json
+    label: 서울 기후 그래프
+    caption: 서울 월평균 기온·강수량, 1991–2020년 ERA5 평년 (Open-Meteo, ECMWF/Copernicus C3S)
     source: u0201-climograph-seoul
-    caption: 서울 월평균 기온·강수량, 1991–2020년 ERA5 재분석 격자값
-    alt: 서울의 월평균 기온은 선, 월평균 강수량은 막대로 나타낸 기후 그래프다.
-    config: { kind: climograph }
+    alt: 서울 도시 대표 격자의 월평균 기온은 선으로, 월평균 강수량은 막대로 나타낸 기후 그래프다.
+    config: { kind: climograph, unit: '기온(°C)·강수량(mm)' }
     concepts: [climate, climate-region]
-  - id: s4
+  - id: d4
     type: chart
     data: /data/02-01/climograph-london.json
+    label: 런던 기후 그래프
+    caption: 런던 월평균 기온·강수량, 1991–2020년 ERA5 평년 (Open-Meteo, ECMWF/Copernicus C3S)
     source: u0201-climograph-london
-    caption: 런던 월평균 기온·강수량, 1991–2020년 ERA5 재분석 격자값
-    alt: 런던의 월평균 기온은 선, 월평균 강수량은 막대로 나타낸 기후 그래프다.
-    config: { kind: climograph }
+    alt: 런던 도시 대표 격자의 월평균 기온은 선으로, 월평균 강수량은 막대로 나타낸 기후 그래프다.
+    config: { kind: climograph, unit: '기온(°C)·강수량(mm)' }
     concepts: [climate, climate-region]
-  - { id: s5, type: text, caption: '', source: '', alt: '' }
-keyTerms: [climate, climate-region]
+  - id: d5
+    type: chart
+    data: /data/02-01/climograph-yakutsk.json
+    label: 야쿠츠크 기후 그래프
+    caption: 야쿠츠크 월평균 기온·강수량, 1991–2020년 ERA5 평년 (Open-Meteo, ECMWF/Copernicus C3S)
+    source: u0201-climograph-yakutsk
+    alt: 야쿠츠크 도시 대표 격자의 월평균 기온은 선으로, 월평균 강수량은 막대로 나타낸 기후 그래프다.
+    config: { kind: climograph, unit: '기온(°C)·강수량(mm)' }
+    concepts: [climate, climate-region]
+summary:
+  - 기온·강수·바람은 기후 요소이고, 위도·해륙 분포·해류·지형·기단·전선은 기후 요인이다.
+  - 태양 에너지의 위도별 차이와 대기 대순환은 세계 기온·강수 분포의 큰 틀을 만든다.
+  - 산지의 바람받이에는 비가 많이 내리고, 산맥 뒤편의 비그늘은 건조하다.
+  - 쾨펜은 기온과 강수 기준으로 기후를 열대(A)·건조(B)·온대(C)·냉대(D)·한대(E)로 구분한다.
 activity:
   template: layer-compare
   fictional: false
   config:
-    title: 서울과 런던의 기후 그래프 비교
-    instruction: 두 그래프의 기온 선과 강수 막대를 읽고 월별 계절 패턴을 비교한다.
-    prompt: 두 도시의 공통점과 차이를 자료에서 확인하고, 기후 요인 하나의 영향으로 단정하기 어려운 이유를 기록하시오.
+    title: 도시 기후 그래프와 기후형 함께 읽기
+    instruction: 도시 표본 지도에서 서울·런던·야쿠츠크의 위치와 기후형을 찾고, 세 기후 그래프의 계절 패턴을 비교한다.
+    prompt: 기온과 강수에서 확인한 차이를 설명하고, 원인을 더 구체적으로 살피려면 어떤 지역 자료가 필요한지 적으시오.
     fields:
-      - { id: seoul, label: 서울 그래프에서 확인한 기온과 강수 패턴 }
-      - { id: london, label: 런던 그래프에서 확인한 기온과 강수 패턴 }
-      - { id: compare, label: 두 그래프에서 함께 보이는 점과 다른 점 }
-      - { id: limit, label: 원인을 설명하려면 더 필요한 자료 }
+      - { id: temperature, label: 기온의 계절 변화에서 확인한 차이 }
+      - { id: precipitation, label: 강수의 계절 분포에서 확인한 차이 }
+      - { id: climate-type, label: 지도에서 찾은 도시 대표점의 기후형 }
+      - { id: more-evidence, label: 원인을 따져 보려면 더 필요한 지역 자료 }
+keyTerms: [climate, climate-region]
 sourceIds: [noaa-climate-classification, noaa-climate-factors, beck-2023-koppen-geiger]
 ---
-기온과 강수는 기후를 나타내는 기후 요소다. 위도와 해류처럼 요소의 지역 차이에 영향을 주는 조건은 기후 요인이다. 기후는 오랜 기간의 평균적 흐름이므로 여러 해의 자료를 살펴 파악한다.
+## 기후 요소와 기후 요인
 
-기후형 지도는 기온과 강수의 계절 패턴으로 지역을 구분한다. 이 지도는 선정 도시의 대표점에 기후형을 표시한다. 서울은 냉대 겨울 건조 기후(Dwa), 런던은 서안 해양성 기후(Cfb)로 분류된다. 도시 내부의 고도와 해안 거리 차이는 세부 지역 자료로 살펴본다.
+기후 요소는 기온·강수·바람처럼 기후의 상태를 나타내는 항목이고, 기후 요인은 요소의 지역 차이를 만드는 조건이다. 위도, 해륙 분포, 해류, 해발 고도, 지형, 기단과 전선이 기후 요인에 해당한다. 요인과 요소가 연결되는 모습을 개념도에서 확인하자. [[d1]]
 
-서울 그래프에서 월평균 기온은 1월 -2.4°C, 8월 26.0°C다. 7월 월평균 강수량은 313.5mm로 나타난다. 겨울과 여름의 기온 차와 여름 강수 집중을 그래프에서 읽는다. 값은 ERA5 재분석 격자에서 계산한 월평균이므로 캡션의 기준 기간과 함께 확인한다.
+## 위도와 대기 대순환
 
-런던의 월평균 기온은 1월 5.3°C, 7월 17.8°C다. 강수는 여러 달에 걸쳐 나타나며 서울과 계절 분포가 다르다. 두 그래프의 기온선과 강수 막대를 나란히 비교해 계절 패턴을 살핀다. 차이의 원인을 설명할 때에는 위도와 바다의 분포 등 여러 조건을 함께 고려한다.
+위도대에 따라 태양 에너지는 달라 적도에서 많고 극지방으로 갈수록 줄어든다. 적도 부근의 공기는 가열되어 상승하고, 아열대에서는 상공으로 이동한 공기가 내려오며, 중위도와 고위도에서는 공기가 오가며 전선과 저기압이 발달한다. 이 대기 대순환은 세계의 기온 분포와 강수 분포에 큰 띠를 만든다.
 
-위도는 받는 태양 에너지와 관계가 있고, 바다와 대륙의 분포는 기온의 계절 변화와 수분 공급에 영향을 준다. 해발 고도와 해류, 대기 대순환도 기온과 강수에 관여한다. 도시별 차이를 설명할 때에는 위치뿐 아니라 고도·바람·해류와 주변 지형 자료도 대조한다.
+## 해륙 분포와 지형
+
+수륙 분포(해륙 분포)는 해안과 내륙의 계절 기온 차이를 만든다. 바다는 육지보다 천천히 가열되고 식어 해안의 기온 변화를 완화하며, 해류는 연안으로 열과 수분을 옮긴다. 산지에서는 습한 바람이 바람받이 사면을 오르며 비를 내리고, 산맥을 넘은 공기는 하강하면서 건조해져 비그늘이 형성된다.
+
+도시 기후는 위도와 바다까지의 거리, 해류·바람·지형의 조합에 따라 다르게 나타난다. 서울·런던·야쿠츠크의 계절별 기온과 강수 패턴을 비교해 보자. [[d3]] [[d4]] [[d5]]
+
+## 세계의 기후 지역
+
+쾨펜 기후 구분은 기온과 강수 기준으로 세계의 기후를 열대(A)·건조(B)·온대(C)·냉대(D)·한대(E)로 나눈다. 각 기후형은 다시 강수 계절과 기온 차이에 따라 세분된다. 도시 표본 지도에서 다섯 기후형이 분포하는 위도와 지역을 찾아보자. [[d2]]
