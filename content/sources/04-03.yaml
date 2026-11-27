@@ -1,0 +1,101 @@
+sources:
+  un-peace-security-prevention:
+    title: Preventing conflict, sustaining peace
+    organization: United Nations
+    url: https://www.un.org/en/peaceandsecurity/preventingconflictsustainingpeace
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 유엔 공식 안내 페이지의 링크만 제공하며 문장·그림은 복제하지 않음.
+    reuseBasis: 자원 경쟁·집단 간 분열 등 여러 갈등 위험 요인을 확인하는 참고 링크다.
+    verificationStatus: 유엔 페이지가 자원 경쟁과 종파적 분열, 기후 압력, 여러 요인의 상호작용을 분쟁 위험의 맥락으로 제시함을 확인했다. 이를 특정 국가의 단일 원인으로 옮기지 않았다.
+    usage: 분쟁 요인 분류의 일반적 맥락에 참고했다. 사례별 판단에는 해당 기관 보고서와 지역 자료를 함께 살핀다.
+  un-sustaining-peace-2017:
+    title: Guidance on Sustaining Peace
+    organization: United Nations Peacebuilding Support Office
+    url: https://www.un.org/peacebuilding/sites/default/files/documents/guidance-on-sustaining-peace.170117.final_.pdf
+    sourceDate: '2017'
+    checkedAt: '2026-11-27'
+    licenseStatus: 유엔 보고서의 링크만 제공하며 본문·그림·표는 복제하지 않음.
+    reuseBasis: 평화 구축에서 갈등의 근본 요인과 배제·차별, 포용적 참여를 함께 다루는지 확인하는 공식 지침이다.
+    verificationStatus: 유엔 평화 구축 지침에서 폭력의 발생·확대·지속·재발을 막는 노력과 배제·제도적 차별·주변화를 다루는 접근을 확인했다.
+    usage: 평화 구축과 분쟁 요인 분류를 설명하는 데 참고했다. 특정 분쟁의 책임 판정에 사용하지 않았다.
+  un-peacekeeping-principles:
+    title: Principles of peacekeeping
+    organization: United Nations Peacekeeping
+    url: https://peacekeeping.un.org/en/principles-of-peacekeeping
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 유엔 공식 안내 페이지의 링크만 제공하며 문장·그림은 복제하지 않음.
+    reuseBasis: 유엔 평화유지활동의 기본 원칙을 확인하는 공식 링크다.
+    verificationStatus: 당사자의 동의, 임무 수행의 공평성, 자기 방어와 임무 방어 외 무력 사용 금지의 세 원칙을 확인했다. 공평성을 중립 또는 무활동과 같은 뜻으로 쓰지 않았다.
+    usage: 평화유지활동의 임무와 원칙을 설명하는 데 참고했다.
+  un-website-terms-of-use:
+    title: Terms of Use
+    organization: United Nations
+    url: https://www.un.org/en/about-us/terms-of-use/
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 이용 조건을 확인하는 링크로만 사용하며 유엔의 임무 자료를 복제·편집하지 않음.
+    reuseBasis: 유엔 웹사이트 자료를 이용해 파생 지도와 데이터를 제작·재배포할 수 있는지 판단하는 공식 조건이다.
+    verificationStatus: 개인적·비상업적 이용 조건과 재배포, 편집물 작성, 2차 저작물 제작 제한을 확인했다.
+    usage: 임무 위치·연도를 추출한 파생 데이터를 제작하지 않은 근거로 교사용 안내에 연결했다.
+  unficyp-factsheet:
+    title: UNFICYP Fact Sheet
+    organization: United Nations Peacekeeping
+    url: https://peacekeeping.un.org/en/factsheet/unficyp
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 공식 사실자료의 링크만 제공하며 원문·지도·사진은 재배포하지 않음.
+    reuseBasis: 키프로스의 UNFICYP 설치 배경과 공식 임무를 확인하는 링크다.
+    verificationStatus: 유엔 사실자료에서 1964년 설치와 정전선 감독·완충 지대 유지·인도적 활동 등 임무를 확인했다. 지역의 역사와 다양한 당사자 관점을 단독으로 설명하는 자료로 쓰지 않았다.
+    usage: 키프로스 평화유지 사례의 공식 임무 설명에 사용했다.
+  unhcr-refugee-data-finder:
+    title: 'Refugee Data Finder: Terms and conditions of use'
+    organization: United Nations High Commissioner for Refugees (UNHCR)
+    url: https://refugeedata.unhcr.org/en/terms-and-conditions-of-use/
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 데이터는 매니페스트에 CC BY 4.0으로 기록했다. 승인·보증을 암시하지 않으며 이용 조건을 따른다.
+    reuseBasis: 출신지·수용국 집계에 쓰인 UNHCR 자료의 이용 조건과 인구 범주를 확인하는 링크다.
+    verificationStatus: 매니페스트와 자료 보고서의 범주 정의를 확인했다. 출신지·수용국 막대는 네 인구 유형을 합한 국외 재고로 설명하고 UNHCR의 승인·보증을 암시하지 않았다.
+    usage: UNHCR 자료의 범위·표시·이용 조건을 설명하는 데 참고했다. 값과 단위는 04-03 매니페스트 및 JSON을 따른다.
+  unhcr-global-forced-displacement:
+    title: Figures at a glance
+    organization: United Nations High Commissioner for Refugees (UNHCR)
+    url: https://www.unhcr.org/figures-at-a-glance
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 통계 페이지의 링크만 제공한다. 그래프와 문장은 복제하지 않으며 수치는 자료 매니페스트를 따른다.
+    reuseBasis: UNHCR이 공개한 세계 강제 이주민 총계 지표를 확인하는 링크다.
+    verificationStatus: 매니페스트에 기록된 2006–2025년 공개 총계와 원자료 정밀도를 확인했다. 국가별 인구 유형을 단순 합산한 값으로 설명하지 않았다.
+    usage: 세계 강제 이주민 시계열의 공식 총계 출처로 연결했다.
+  unhcr-education-emergencies:
+    title: Education in Emergencies
+    organization: United Nations High Commissioner for Refugees (UNHCR)
+    url: https://emergency.unhcr.org/emergency-assistance/education-and-livelihood/education-emergencies-camps
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 안내 페이지 링크만 제공하며 원문·표·그림은 복제하지 않음.
+    reuseBasis: 강제 이주 상황의 학교 접근과 학습 연속성, 교육 지원의 조건을 확인하는 공식 안내다.
+    verificationStatus: UNHCR 안내에서 학교 접근, 기록·언어 지원, 수용 지역의 교육 서비스와 지원을 함께 고려함을 확인했다. 특정 국가의 교육 상황으로 일반화하지 않았다.
+    usage: 강제 이주 뒤 교육 연속성의 과제를 설명하는 데 참고했다.
+  who-refugee-migrant-health:
+    title: Refugee and migrant health
+    organization: World Health Organization (WHO)
+    url: https://www.who.int/news-room/questions-and-answers/item/refugee-and-migrant-health
+    sourceDate: '2022-04-11'
+    checkedAt: '2026-11-27'
+    licenseStatus: WHO 안내 페이지의 링크만 제공하며 문장·그림은 복제하지 않음.
+    reuseBasis: 난민·이주민의 보건 서비스 접근과 제도·언어·비용 등의 장벽을 확인하는 공식 자료다.
+    verificationStatus: WHO 안내에서 보건 서비스 접근이 이동 과정과 제도, 언어·문화 및 재정 조건에 따라 달라질 수 있고 지역 당사자의 참여가 중요함을 확인했다.
+    usage: 보건 서비스 접근의 조건을 설명하는 데 참고했다. 주민 개인의 건강 상태를 추정하지 않았다.
+  unhcr-livelihoods-economic-inclusion:
+    title: Livelihoods and economic inclusion
+    organization: United Nations High Commissioner for Refugees (UNHCR)
+    url: https://www.unhcr.org/what-we-do/build-better-futures/livelihoods-and-economic-inclusion
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 안내 페이지 링크만 제공하며 원문·표·그림은 복제하지 않음.
+    reuseBasis: 난민과 강제 이주민의 일·생계·경제 참여 및 수용 공동체와의 협력에 관한 공식 안내다.
+    verificationStatus: UNHCR 안내가 적절한 일과 경제적 포용, 가족의 생계와 역량, 수용 공동체의 여건을 함께 다룸을 확인했다.
+    usage: 강제 이주민의 행위와 생계 참여를 설명하는 데 참고했다. 모든 개인의 경험을 동일하게 일반화하지 않았다.

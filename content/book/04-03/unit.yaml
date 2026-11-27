@@ -1,0 +1,41 @@
+id: '04-03'
+standardCode: 12세지04-03
+title: 공존과 평화를 위한 노력
+goal: 분쟁의 여러 요인과 주민의 삶을 자료로 살펴보고, 국제기구와 시민이 함께할 평화 구축 방안을 근거를 들어 제안할 수 있다.
+concepts: [world-citizenship, international-cooperation, geopolitics, geopolitical-conflict, peacebuilding, global-justice]
+opening:
+  intro: |
+    geopolitics(지정학)는 장소·영토·자원과 국가 간 힘의 관계가 국제 정세와 정책에 미치는 영향을 살피는 관점이다. geopolitical conflict(지정학적 분쟁)는 영토와 자원, 경계와 권력을 둘러싼 이해가 국제 관계와 얽혀 나타나는 갈등이다. 분쟁에는 정치·경제와 집단 정체성 등 여러 조건이 함께 작용할 수 있다.
+
+    이 중단원에서는 조직적 폭력 사망과 무력 분쟁 수, forced displacement(강제 이주) 통계를 살펴본다. 키프로스와 골란 고원의 유엔 임무 사례, 평화 과정 자료를 바탕으로 국제 협력과 시민의 역할을 알아본다. 분쟁을 겪는 사람들의 권리와 다양한 목소리도 함께 살핀다.
+  illustration:
+    src: /images/04-03/opening.webp
+    alt: 서로의 말을 듣는 이웃들이 대화를 나눈 뒤 함께 꽃을 심고 어린 나무에 물을 준다.
+  focus:
+    kind: map
+    step:
+      id: focus
+      type: map
+      data: /data/04-03/organized-violence-deaths-country-2025.json
+      source: u0403-organized-violence-deaths-2025
+      caption: 국가별 조직적 폭력 관련 사망자 수 추정, 2025년
+      alt: 2025년 국가별 조직적 폭력 관련 사망자 수 추정치를 색으로 나타낸 지도다.
+      config: { kind: choropleth }
+      concepts: [geopolitical-conflict, geopolitics]
+closing:
+  summary: |
+    분쟁에는 자원·영토·정체성·정치·경제·국제 관계 등 여러 요인이 얽힐 수 있다. 사망자 지도와 무력 분쟁 시계열은 각각 조직적 폭력 관련 피해의 분포와 국가기반 분쟁 수의 변화를 보여 준다. 원인과 지역 주민의 경험은 기관 보고서와 지역 자료, 당사자의 목소리를 함께 살펴 설명한다.
+
+    출신지·수용국 막대는 2025년 말 국외 강제 이주민의 인구 재고를, 세계 시계열은 UNHCR이 공개한 총계의 변화를 보여 준다. 유엔 평화유지활동은 정전선 감독과 합의 이행 지원 등 임무를 맡는다. 평화 구축은 갈등의 원인을 다루며 지속적인 공존의 조건을 세우는 노력이다. 세계시민은 국제 협력과 인도적 지원, 평화 교육, 공정한 소비와 연대의 역할을 근거와 기준에 따라 살핀다.
+  bridge: 이 중단원은 대단원 IV의 마지막 학습으로, 지속가능한 세계를 위한 공존과 평화의 실천으로 이어진다.
+  transfer:
+    prompt: 나이지리아를 새로운 사례로 삼아 지도에서 조직적 폭력 관련 사망 추정치를 확인하시오. 유엔이나 지역 공공기관의 자료를 찾아 분쟁 맥락의 여러 요인을 살피고, 지정학적 분쟁·평화 구축·세계 정의 개념으로 설명하시오. 자료의 집계 범위와 지역 주민의 목소리를 함께 고려해 지속적인 공존을 위한 방안을 제안하시오.
+    step:
+      id: transfer
+      type: map
+      data: /data/04-03/organized-violence-deaths-country-2025.json
+      source: u0403-organized-violence-deaths-2025
+      caption: 국가별 조직적 폭력 관련 사망자 수 추정, 2025년
+      alt: 2025년 국가별 조직적 폭력 관련 사망자 수 추정치를 색으로 나타낸 지도다.
+      config: { kind: choropleth }
+      concepts: [geopolitics, peacebuilding, global-justice]
