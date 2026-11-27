@@ -154,6 +154,15 @@ describe('values below the reporting threshold', () => {
   });
 });
 
+describe('separately counted areas', () => {
+  it('marks areas reported as one combined unit instead of colouring them by value', () => {
+    const geo = { type: 'FeatureCollection', features: [{ properties: { iso_a3: 'ISR' } }, { properties: { iso_a3: 'PSE' } }, { properties: { iso_a3: 'UKR' } }] };
+    const joined = joinValues(geo, { ISR: null, PSE: null, UKR: 5 }, {}, { ISR: true, PSE: true });
+    expect(joined.features.map((f) => f.properties.special)).toEqual([true, true, false]);
+    expect(joined.features[2].properties.value).toBe(5);
+  });
+});
+
 describe('country display names', () => {
   it('uses the usual Korean textbook names for a few long official names', () => {
     const geo = { features: [
@@ -161,9 +170,10 @@ describe('country display names', () => {
       { properties: { iso_a3: 'PRK', name: 'North Korea', name_ko: '조선민주주의인민공화국' } },
       { properties: { iso_a3: 'TWN', name: 'Taiwan', name_ko: '중화민국' } },
       { properties: { iso_a3: 'KOR', name: 'South Korea', name_ko: '대한민국' } },
+      { properties: { iso_a3: 'TUR', name: 'Turkey', name_ko: '터키' } },
       { properties: { iso_a3: 'XYZ', name: 'Somewhere' } },
     ] };
-    expect(countryNames(geo)).toEqual({ CHN: '중국', PRK: '북한', TWN: '타이완', KOR: '대한민국', XYZ: 'Somewhere' });
+    expect(countryNames(geo)).toEqual({ CHN: '중국', PRK: '북한', TWN: '타이완', KOR: '대한민국', TUR: '튀르키예', XYZ: 'Somewhere' });
   });
 });
 

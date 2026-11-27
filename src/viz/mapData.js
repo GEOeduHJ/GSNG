@@ -3,15 +3,17 @@ export const MAP_COLORS = ['#e6efe9', '#bcd5ca', '#86b3a2', '#4f8b77', '#2f6f5e'
 export const NO_DATA_COLOR = '#dedad0';
 
 export const BELOW_COLOR = '#f4f7f5';
+/** Areas the source reports together as one unit (shown apart from the value scale). */
+export const SPECIAL_COLOR = '#c9b8d9';
 
 /** `below` lists countries the source reports only as under a threshold (e.g. '<0.1'): not missing, just tiny. */
-export function joinValues(geojson, values = {}, below = {}) {
+export function joinValues(geojson, values = {}, below = {}, special = {}) {
   return {
     ...geojson,
     features: (geojson.features ?? []).map((feature) => {
       const iso = feature.properties?.iso_a3;
       const value = iso && values[iso] != null ? Number(values[iso]) : null;
-      return { ...feature, properties: { ...feature.properties, value, below: Boolean(iso && below[iso]) } };
+      return { ...feature, properties: { ...feature.properties, value, below: Boolean(iso && below[iso]), special: Boolean(iso && special[iso]) } };
     }),
   };
 }
@@ -73,7 +75,7 @@ export function pointCategories(geojson) {
 }
 
 /** Korean textbook names where Natural Earth's name_ko is a long official form. */
-const DISPLAY_NAMES = { CHN: '중국', PRK: '북한', TWN: '타이완' };
+const DISPLAY_NAMES = { CHN: '중국', PRK: '북한', TWN: '타이완', TUR: '튀르키예' };
 
 /** iso3 → display name for charts, tables and legends. */
 export function countryNames(geojson) {
