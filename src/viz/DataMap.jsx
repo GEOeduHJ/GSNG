@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { BASE_MAP_URL, MAP_COLORS, NO_DATA_COLOR, classBreaks, joinValues, legendLabels, mapOptions, pointCategories, POINT_COLOR, BELOW_COLOR, topValues } from './mapData.js';
+import { BASE_MAP_URL, MAP_COLORS, NO_DATA_COLOR, classBreaks, joinValues, legendLabels, mapOptions, pointCategories, POINT_COLOR, BELOW_COLOR, topValues, countryNames } from './mapData.js';
 import { useJson } from './useJson.js';
 import { ValueTable } from './DataChart.jsx';
 
@@ -46,7 +46,7 @@ export default function DataMap({ url, config = {}, alt, fallback, onInteract, r
   const [base, payload] = data ?? [];
   const points = config.kind === 'points';
   const breaks = useMemo(() => (payload && !points ? classBreaks(Object.values(payload.values ?? {})) : []), [payload, points]);
-  const names = useMemo(() => Object.fromEntries((base?.features ?? []).map((f) => [f.properties.iso_a3, f.properties.name_ko || f.properties.name])), [base]);
+  const names = useMemo(() => countryNames(base), [base]);
 
   useEffect(() => {
     if (status !== 'ready' || !containerRef.current) return undefined;

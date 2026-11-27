@@ -71,3 +71,13 @@ export function pointCategories(geojson) {
   }
   return [...seen].map(([label, color]) => ({ label, color }));
 }
+
+/** Korean textbook names where Natural Earth's name_ko is a long official form. */
+const DISPLAY_NAMES = { CHN: '중국', PRK: '북한', TWN: '타이완' };
+
+/** iso3 → display name for charts, tables and legends. */
+export function countryNames(geojson) {
+  return Object.fromEntries((geojson?.features ?? [])
+    .filter((f) => f.properties?.iso_a3)
+    .map((f) => [f.properties.iso_a3, DISPLAY_NAMES[f.properties.iso_a3] ?? f.properties.name_ko ?? f.properties.name]));
+}

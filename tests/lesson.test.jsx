@@ -3,7 +3,7 @@ import { act, render, renderHook, screen, waitFor } from '@testing-library/react
 import { useActiveStep } from '../src/book/lesson/useActiveStep.js';
 import { stageIndexFor } from '../src/book/lesson/stages.js';
 import { buildChartOption, chartHeader, chartRows, compactNumber } from '../src/viz/chartData.js';
-import { classBreaks, joinValues, legendLabels, formatNumber, pointCategories } from '../src/viz/mapData.js';
+import { classBreaks, joinValues, legendLabels, formatNumber, pointCategories, countryNames } from '../src/viz/mapData.js';
 import DataStage from '../src/book/lesson/DataStage.jsx';
 import LessonSpread from '../src/book/lesson/LessonSpread.jsx';
 import { BookProvider } from '../src/book/BookContext.jsx';
@@ -151,6 +151,19 @@ describe('values below the reporting threshold', () => {
     const joined = joinValues(geo, { KOR: null, XXX: null }, { KOR: '<0.1' });
     expect(joined.features[0].properties).toMatchObject({ value: null, below: true });
     expect(joined.features[1].properties.below).toBe(false);
+  });
+});
+
+describe('country display names', () => {
+  it('uses the usual Korean textbook names for a few long official names', () => {
+    const geo = { features: [
+      { properties: { iso_a3: 'CHN', name: 'China', name_ko: '중화인민공화국' } },
+      { properties: { iso_a3: 'PRK', name: 'North Korea', name_ko: '조선민주주의인민공화국' } },
+      { properties: { iso_a3: 'TWN', name: 'Taiwan', name_ko: '중화민국' } },
+      { properties: { iso_a3: 'KOR', name: 'South Korea', name_ko: '대한민국' } },
+      { properties: { iso_a3: 'XYZ', name: 'Somewhere' } },
+    ] };
+    expect(countryNames(geo)).toEqual({ CHN: '중국', PRK: '북한', TWN: '타이완', KOR: '대한민국', XYZ: 'Somewhere' });
   });
 });
 

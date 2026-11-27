@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { buildChartOption, chartHeader, chartRows } from './chartData.js';
 import { useJson } from './useJson.js';
-import { BASE_MAP_URL, formatNumber } from './mapData.js';
+import { BASE_MAP_URL, countryNames, formatNumber } from './mapData.js';
 
 let echartsPromise;
 function loadEcharts() {
@@ -37,7 +37,7 @@ export default function DataChart({ url, config, alt, fallback, onInteract, redu
   const [renderFailed, setRenderFailed] = useState(false);
   const [ready, setReady] = useState(false);
   const payload = data?.[0];
-  const names = useMemo(() => Object.fromEntries((base.data?.[0]?.features ?? []).map((f) => [f.properties.iso_a3, f.properties.name_ko || f.properties.name])), [base.data]);
+  const names = useMemo(() => countryNames(base.data?.[0]), [base.data]);
 
   // Create the chart once per data file; later prop changes only update its option.
   useEffect(() => {
