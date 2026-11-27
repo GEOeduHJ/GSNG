@@ -57,3 +57,11 @@
 ## 결과 파일 제출 안내
 
 - 학생은 처음 만든 질문, 자료 단계별 근거, 절별 활동 기록, 중심 질문에 대한 설명, 독일 전이 응답과 돌아보기를 결과 파일로 내보낸다. 실명 대신 학급 번호나 별칭을 사용하고, 교사가 안내한 LMS 제출함에 직접 제출한다.
+
+## 생각 루틴
+
+- 각 절의 생각 열기와 탐구하기 앞부분, 「내 질문과 이 절」에 Project Zero의 Thinking Routines를 바탕으로 한 생각 루틴 카드가 있다. 칸마다 한두 문장이면 충분하며, 루틴 하나에 5분 안팎을 쓴다. 응답은 필수가 아니다.
+- 생각 열기의 「궁금한 것」류 칸은 「질문 목록에 넣기」로 중단원 질문 목록에 보낼 수 있다. 마무리 쪽 질문 다듬기에서 다시 다룬다.
+- 절 1: 생각 열기 See, Think, Wonder(보고·생각하고·궁금해하기) · 탐구하기 What Makes You Say That?(왜 그렇게 말할까) · 정리 I Used to Think… Now I Think…(예전 생각·지금 생각)
+- 절 2: 생각 열기 See, Think, Wonder(보고·생각하고·궁금해하기) · 탐구하기 Claim, Support, Question(주장·근거·되묻기) · 정리 I Used to Think… Now I Think…(예전 생각·지금 생각)
+- 절 3: 생각 열기 See, Think, Wonder(보고·생각하고·궁금해하기) · 탐구하기 Step In, Step Out, Step Back(들어가 보기·물러나 보기·돌아보기) · 정리 I Used to Think… Now I Think…(예전 생각·지금 생각)
