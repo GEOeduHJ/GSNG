@@ -1,0 +1,31 @@
+sources:
+  fao-sofi-2025:
+    sourceDate: '2025'
+    checkedAt: '2026-11-27'
+    licenseStatus: 보고서 링크만 제공. PDF 본문과 도판의 재사용 조건은 보고서 안내를 확인해야 한다.
+    reuseBasis: FAO 등 유엔 기구가 발간한 세계 식량 안보·영양 보고서로, 식품 가격 상승과 구매력·식량 접근의 관계를 설명한다.
+    verificationStatus: 보고서에서 식품 가격 상승과 식량 불안정의 연관성, 소득 불평등과 사회 보호에 따른 영향 차이를 확인했다. 이 연관성은 개별 국가의 단일 원인을 입증하지 않는다.
+    title: The State of Food Security and Nutrition in the World 2025
+    organization: FAO, IFAD, UNICEF, WFP and WHO
+    url: https://www.fao.org/fileadmin/templates/cfs/CFS53/Plenary_documents/Inf.15_SOFI_Report/EN_compiled.pdf
+    usage: 가격·구매력의 관계를 설명하는 참고 출처다. 특정 지역의 원인을 단일 요인으로 단정하는 근거로 쓰지 않는다.
+  fao-global-report-food-crises-2025:
+    sourceDate: '2025-05-16'
+    checkedAt: '2026-11-27'
+    licenseStatus: 공동 보도자료 링크만 제공. 보고서 본문과 도판의 재사용 조건은 발행기관 안내를 확인해야 한다.
+    reuseBasis: Global Report on Food Crises 2025의 주요 결과와 식량 위기의 동인을 요약한 FAO 공동 보도자료.
+    verificationStatus: 2025년 공동 보도자료에서 분쟁·경제 충격·기후 극한·강제 이주가 급성 식량 위기와 함께 나타난다는 점을 확인했다. 이 보고서는 식량 위기 국가·지역을 다루며 모든 국가의 일반적 상황을 뜻하지 않는다.
+    title: Acute food insecurity and malnutrition rise for sixth consecutive year in world’s most fragile regions – new report
+    organization: Joint EU, FAO, IFAD, UNHCR, UNICEF, World Bank and WFP news release
+    url: https://www.fao.org/newsroom/detail/acute-food-insecurity-and-malnutrition-rise-for-sixth-consecutive-year-in-world-s-most-fragile-regions---new-report/
+    usage: 위기 동인을 설명할 때 보고서가 다룬 범위에 한정해 참고한다. 위기 지역을 낙후하거나 무력한 집단으로 묘사하지 않는다.
+  unctad-trade-development-report-2024:
+    sourceDate: '2024'
+    checkedAt: '2026-11-27'
+    licenseStatus: 보고서 링크만 제공. 본문·표·도판의 재사용 권리는 발행기관 안내를 확인해야 한다.
+    reuseBasis: UNCTAD 보고서의 곡물 기업 집중 추정치를 확인해 국가별 수출량 통계와 기업 단위 시장 구조를 구분한다.
+    verificationStatus: 보고서 제2장 식량·비료 절에서 세계 곡물 교역 상위 4개 기업의 비중 70–90% 추정치를 인용한 내용을 확인했다. 이 추정치는 FAOSTAT의 국가별 수출 비중과 출처·기간·측정 단위가 다르며, 특정 국가의 영양 부족 원인을 입증하지 않는다.
+    title: 'Trade and Development Report 2024: Rethinking Development in the Age of Discontent'
+    organization: United Nations Conference on Trade and Development (UNCTAD)
+    url: https://unctad.org/system/files/official-document/tdr2024_en.pdf
+    usage: 70–90%를 UNCTAD가 인용한 추정치로 밝히고, 국가별 수출 비중과 직접 비교하지 않는다.

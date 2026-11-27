@@ -1,0 +1,41 @@
+id: '03-02'
+standardCode: 12세지03-02
+title: 세계의 식량 자원과 식량 문제
+goal: 식량의 생산·교역·접근이 연결되는 방식을 자료로 살펴보고, 식량 안보를 높이는 방안을 여러 기준으로 평가할 수 있다.
+concepts: [food-system, food-security, food-market-concentration, spatial-inequality]
+opening:
+  intro: |
+    food system(식량 체계)은 농산물의 생산과 가공, 운송, 판매, 소비를 잇는 활동과 주체의 구조다. 쌀·밀·옥수수는 여러 지역에서 생산되고 교역되며, 농가와 운송·판매 관계자, 소비자의 선택이 서로 연결된다.
+
+    food security(식량 안보)는 사람들이 필요한 식량을 안정적으로 구해 충분하고 안전한 식사를 이어 가는 상태다. 생산량이 많다는 사실만으로 모든 가구가 식량을 얻는 것은 아니다. 이 중단원에서는 생산·수출 자료와 영양 부족·수입 의존 자료를 읽고, 여러 해결 방안을 이익과 부담에 따라 평가한다.
+  illustration:
+    src: /images/03-02/opening.webp
+    alt: 씨앗을 심고 곡식과 채소를 수확해 시장으로 나른 뒤, 주민들이 음식을 준비해 함께 먹는다.
+  focus:
+    kind: map
+    step:
+      id: focus
+      type: map
+      data: /data/03-02/undernourishment-map.json
+      source: u0302-undernourishment-map
+      caption: '세계은행 WDI(원자료: FAO), 영양 부족 인구 비율, 2024년(FAO 2023–2025년 평균)'
+      alt: 국가별 영양 부족 인구 비율을 색으로 나타내고 2.5% 미만 값은 별도 범례로 구분한 지도다.
+      config: { kind: choropleth }
+      concepts: [food-security, spatial-inequality]
+closing:
+  summary: |
+    식량 체계는 생산과 교역, 유통과 소비를 연결한다. 생산량·수출량·수입 의존도·영양 부족 비율은 서로 다른 범위와 기준으로 만든 지표다. 하나의 지표만으로 식량에 대한 접근이나 국가 안의 차이를 설명할 수 없다.
+
+    식량 안보에는 안정적인 생산과 공급, 가구의 구매력, 분쟁·기후 충격에 대한 대응, 시장 구조와 정책 선택이 함께 작용한다. 해결 방안을 평가할 때에는 안정성뿐 아니라 비용, 환경, 농가와 소비자에게 돌아갈 이익과 부담도 살펴야 한다.
+  bridge: 다음 중단원에서는 세계 경제의 생산·교역 관계가 장소별 기회와 부담의 차이로 이어지는 모습을 살펴본다.
+  transfer:
+    prompt: 이 중단원에서 다룬 나라와 다른 나이지리아를 새 사례로 삼아 지도에서 영양 부족 인구 비율을 확인하시오. 지역의 농업과 주민의 식량 접근에 관한 자료를 하나 더 찾아 원인을 단정하지 않고 설명하며, 안정성·비용·환경·농가를 고려한 방안을 제안하시오.
+    step:
+      id: transfer
+      type: map
+      data: /data/03-02/undernourishment-map.json
+      source: u0302-undernourishment-map
+      caption: '세계은행 WDI(원자료: FAO), 국가별 영양 부족 인구 비율, 2024년(FAO 2023–2025년 평균)'
+      alt: 국가별 영양 부족 인구 비율을 색으로 나타내고 2.5% 미만 값은 별도 범례로 구분한 지도다.
+      config: { kind: choropleth }
+      concepts: [food-security, spatial-inequality]
