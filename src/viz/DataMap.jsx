@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { BASE_MAP_URL, MAP_COLORS, NO_DATA_COLOR, classBreaks, joinValues, legendLabels, mapOptions, pointCategories, POINT_COLOR, BELOW_COLOR, SPECIAL_COLOR, topValues, countryNames } from './mapData.js';
+import { BASE_MAP_URL, MAP_COLORS, NO_DATA_COLOR, classBreaks, joinValues, legendLabels, mapOptions, pointCategories, POINT_COLOR, BELOW_COLOR, SPECIAL_COLOR, topValues, countryNames, pointsView } from './mapData.js';
 import { useJson } from './useJson.js';
 import { ValueTable } from './DataChart.jsx';
 
@@ -56,7 +56,7 @@ export default function DataMap({ url, config = {}, alt, fallback, onInteract, r
     loadMaplibre().then((maplibre) => {
       if (disposed || !containerRef.current) return;
       try {
-        map = new maplibre.Map({ container: containerRef.current, style: emptyStyle, ...mapOptions(config, { reduced }) });
+        map = new maplibre.Map({ container: containerRef.current, style: emptyStyle, ...mapOptions(config, { reduced, view: points ? pointsView(payload) : null }) });
         map.addControl(new maplibre.NavigationControl({ showCompass: false }), 'top-right');
         map.on('dragstart', () => interactRef.current?.());
         map.on('zoomstart', (event) => { if (event.originalEvent) interactRef.current?.(); });

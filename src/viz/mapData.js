@@ -67,18 +67,36 @@ export function legendLabels(breaks) {
   return [`${f(breaks[0])} 미만`, ...breaks.slice(1).map((value, index) => `${f(breaks[index])}–${f(value)}`), `${f(breaks.at(-1))} 이상`];
 }
 
-/** MapLibre constructor options; reduced motion removes label/tile fades. */
-export function mapOptions(config = {}, { reduced = false } = {}) {
+/** MapLibre constructor options; reduced motion removes label/tile fades. Point maps may zoom closer. */
+export function mapOptions(config = {}, { reduced = false, view } = {}) {
+  const points = config.kind === 'points';
   return {
-    center: config.center ?? [20, 20],
-    zoom: config.zoom ?? 0.6,
+    center: config.center ?? view?.center ?? [20, 20],
+    zoom: config.zoom ?? view?.zoom ?? 0.6,
+    ...(!config.center && view?.bounds ? { bounds: view.bounds, fitBoundsOptions: view.fitBoundsOptions } : {}),
     minZoom: 0.3,
-    maxZoom: 6,
+    maxZoom: points ? 13 : 6,
     attributionControl: false,
     dragRotate: false,
     pitchWithRotate: false,
     fadeDuration: reduced ? 0 : 300,
   };
+}
+
+/** Initial view that shows every point: fit their extent, or centre a single point at a regional scale. */
+export function pointsView(geojson) {
+  const coords = (geojson?.features ?? [])
+    .map((feature) => feature.geometry?.coordinates)
+    .filter((c) => Array.isArray(c) && Number.isFinite(c[0]) && Number.isFinite(c[1]));
+  if (!coords.length) return null;
+  const lons = coords.map((c) => c[0]);
+  const lats = coords.map((c) => c[1]);
+  const west = Math.min(...lons);
+  const east = Math.max(...lons);
+  const south = Math.min(...lats);
+  const north = Math.max(...lats);
+  if (west === east && south === north) return { center: [west, south], zoom: 4 };
+  return { bounds: [[west, south], [east, north]], fitBoundsOptions: { padding: 36, maxZoom: 11 } };
 }
 
 export const POINT_COLOR = '#8a5a2b';

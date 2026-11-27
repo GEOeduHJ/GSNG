@@ -3,7 +3,7 @@ import { act, render, renderHook, screen, waitFor } from '@testing-library/react
 import { useActiveStep } from '../src/book/lesson/useActiveStep.js';
 import { stageIndexFor } from '../src/book/lesson/stages.js';
 import { buildChartOption, chartHeader, chartRows, compactNumber } from '../src/viz/chartData.js';
-import { classBreaks, joinValues, legendLabels, formatNumber, pointCategories, countryNames } from '../src/viz/mapData.js';
+import { classBreaks, joinValues, legendLabels, formatNumber, pointCategories, countryNames, pointsView, mapOptions } from '../src/viz/mapData.js';
 import DataStage from '../src/book/lesson/DataStage.jsx';
 import LessonSpread from '../src/book/lesson/LessonSpread.jsx';
 import { BookProvider } from '../src/book/BookContext.jsx';
@@ -142,6 +142,28 @@ describe('chart and map data', () => {
     expect(joined.features[0].properties.value).toBe(80);
     expect(joined.features[1].properties.value).toBeNull();
     expect(classBreaks([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 5)).toHaveLength(4);
+  });
+});
+
+describe('point map view', () => {
+  const pt = (lon, lat) => ({ type: 'Feature', geometry: { type: 'Point', coordinates: [lon, lat] }, properties: {} });
+
+  it('fits the extent of several points', () => {
+    const view = pointsView({ features: [pt(127.33, 36.33), pt(127.40, 36.36), pt(127.36, 36.28)] });
+    expect(view.bounds).toEqual([[127.33, 36.28], [127.4, 36.36]]);
+    expect(view.fitBoundsOptions.maxZoom).toBeGreaterThanOrEqual(10);
+  });
+
+  it('centres a single point at a regional scale', () => {
+    expect(pointsView({ features: [pt(86.9, 27.9)] })).toEqual({ center: [86.9, 27.9], zoom: 4 });
+  });
+
+  it('feeds the view into map options and allows closer zoom for points', () => {
+    const options = mapOptions({ kind: 'points' }, { view: { center: [1, 2], zoom: 4 } });
+    expect(options.center).toEqual([1, 2]);
+    expect(options.zoom).toBe(4);
+    expect(options.maxZoom).toBeGreaterThanOrEqual(12);
+    expect(mapOptions({ kind: 'choropleth' }).maxZoom).toBe(6);
   });
 });
 
