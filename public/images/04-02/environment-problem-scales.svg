@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="500" viewBox="0 0 960 500" role="img" aria-labelledby="desc">
+  <desc id="desc">환경 문제의 활동, 이동 경로, 공간 규모를 연결한 개념도</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#617a6e"/>
+    </marker>
+    <style>
+      text { font-family: "Noto Sans KR", Arial, sans-serif; fill: #243a32; }
+      .head { font-size: 21px; font-weight: 700; }
+      .label { font-size: 18px; }
+      .note { font-size: 18px; font-weight: 700; }
+    </style>
+  </defs>
+  <rect width="960" height="500" rx="24" fill="#f6f7f1"/>
+  <text class="head" x="145" y="55" text-anchor="middle">활동</text>
+  <text class="head" x="480" y="55" text-anchor="middle">변화와 이동 경로</text>
+  <text class="head" x="810" y="55" text-anchor="middle">영향의 공간 규모</text>
+
+  <rect x="35" y="90" width="220" height="85" rx="16" fill="#e5eee5" stroke="#91aa99" stroke-width="2"/>
+  <text class="label" x="145" y="126" text-anchor="middle"><tspan x="145">에너지 사용</tspan><tspan x="145" dy="27">산업 활동</tspan></text>
+  <rect x="370" y="90" width="220" height="85" rx="16" fill="#e6edf0" stroke="#91a8b0" stroke-width="2"/>
+  <text class="label" x="480" y="126" text-anchor="middle"><tspan x="480">온실가스의</tspan><tspan x="480" dy="27">대기 축적</tspan></text>
+  <rect x="705" y="90" width="220" height="85" rx="16" fill="#f4eadb" stroke="#c6a979" stroke-width="2"/>
+  <text class="label" x="815" y="126" text-anchor="middle"><tspan x="815">지구 규모의</tspan><tspan x="815" dy="27">기후 변화</tspan></text>
+  <path d="M255 132 H358" stroke="#617a6e" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M590 132 H693" stroke="#617a6e" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="35" y="205" width="220" height="85" rx="16" fill="#e5eee5" stroke="#91aa99" stroke-width="2"/>
+  <text class="label" x="145" y="241" text-anchor="middle"><tspan x="145">농업·토지 이용</tspan><tspan x="145" dy="27">산림 개발</tspan></text>
+  <rect x="370" y="205" width="220" height="85" rx="16" fill="#e6edf0" stroke="#91a8b0" stroke-width="2"/>
+  <text class="label" x="480" y="241" text-anchor="middle"><tspan x="480">토양과 식생의</tspan><tspan x="480" dy="27">변화</tspan></text>
+  <rect x="705" y="205" width="220" height="85" rx="16" fill="#f4eadb" stroke="#c6a979" stroke-width="2"/>
+  <text class="label" x="815" y="241" text-anchor="middle"><tspan x="815">지역 토지 황폐화</tspan><tspan x="815" dy="27">산림 생태계 변화</tspan></text>
+  <path d="M255 247 H358" stroke="#617a6e" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M590 247 H693" stroke="#617a6e" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="35" y="320" width="220" height="85" rx="16" fill="#e5eee5" stroke="#91aa99" stroke-width="2"/>
+  <text class="label" x="145" y="356" text-anchor="middle"><tspan x="145">생산과 소비</tspan><tspan x="145" dy="27">폐기물 배출</tspan></text>
+  <rect x="370" y="320" width="220" height="85" rx="16" fill="#e6edf0" stroke="#91a8b0" stroke-width="2"/>
+  <text class="label" x="480" y="356" text-anchor="middle"><tspan x="480">대기·하천·해류를</tspan><tspan x="480" dy="27">따른 이동</tspan></text>
+  <rect x="705" y="320" width="220" height="85" rx="16" fill="#f4eadb" stroke="#c6a979" stroke-width="2"/>
+  <text class="label" x="815" y="356" text-anchor="middle"><tspan x="815">국경을 넘는</tspan><tspan x="815" dy="27">오염과 폐기물</tspan></text>
+  <path d="M255 362 H358" stroke="#617a6e" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M590 362 H693" stroke="#617a6e" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <text class="note" x="480" y="465" text-anchor="middle">원인 지역과 영향 지역은 서로 다를 수 있다</text>
+</svg>

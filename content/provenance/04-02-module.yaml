@@ -1,0 +1,36 @@
+items:
+  - src: /images/04-02/environment-problem-scales.svg
+    prompt: >-
+      손으로 작성한 독자 SVG 개념도. 에너지 사용과 산업, 농업·토지 이용, 생산·폐기 활동이
+      온실가스의 대기 축적과 토양·식생 변화, 대기·하천·해류 이동으로 이어지고,
+      지구 규모 기후 변화와 지역 토지 황폐화, 다른 지역의 오염으로 나타나는 관계를 표현했다.
+      수치·연도·실제값이나 교과서의 그림 배치는 사용하지 않았다.
+    model: 'Codex; hand-authored SVG'
+    createdAt: '2026-11-27'
+    usedIn: '04-02 lesson 1, 환경 문제의 공간 규모'
+    alt: '에너지 사용과 토지 이용, 폐기 활동이 기후 변화와 토지 황폐화, 국경을 넘는 오염으로 이어지는 관계를 나타낸 개념도다.'
+    basis: 'IPCC AR6 WGII; UNECE Convention on Long-range Transboundary Air Pollution; UNEP marine litter assessment'
+    source: https://www.ipcc.ch/report/ar6/wg2/chapter/summary-for-policymakers/
+  - src: /images/04-02/environmental-justice.svg
+    prompt: >-
+      손으로 작성한 독자 SVG 개념도. 환경 문제의 책임·기여, 피해·노출, 대응 역량을
+      나란히 두고 감축·적응·지원의 분담과 의사결정 참여를 공정한 협력으로 연결했다.
+      국가나 사회집단을 한 가지 역할로 고정하지 않았으며 수치·연도·실제값은 사용하지 않았다.
+    model: 'Codex; hand-authored SVG'
+    createdAt: '2026-11-27'
+    usedIn: '04-02 lesson 2, 환경 정의와 국제 협력'
+    alt: '환경에 대한 책임, 피해와 노출, 대응 역량을 함께 고려해 공정한 협력 방안을 찾는 개념도다.'
+    basis: 'IPCC AR6 SYR; UNFCCC Convention, Article 3'
+    source: https://unfccc.int/files/essential_background/background_publications_htmlpdf/application/pdf/conveng.pdf
+  - src: /images/04-02/ecological-transition-framework.svg
+    prompt: >-
+      손으로 작성한 독자 SVG 개념도. 생태 발자국을 인간의 자원 사용·폐기물 흡수 수요로,
+      생태 용량을 생태계의 생물자원 생산·재생 능력으로 나누어 나타냈다.
+      공공 정책·시설, 기업·지역의 생산과 관리, 개인의 생활 선택을 생태전환 과정에 연결했다.
+      수치·연도·실제값이나 교과서의 그림 배치는 사용하지 않았다.
+    model: 'Codex; hand-authored SVG'
+    createdAt: '2026-11-27'
+    usedIn: '04-02 lesson 3, 생태 발자국·생태 용량과 생태전환'
+    alt: '생태 발자국으로 나타내는 인간의 자원 수요와 생태 용량을 정책·기업·지역·개인의 선택과 연결한 개념도다.'
+    basis: 'Global Footprint Network FAQ; IPCC AR6 WGIII Chapter 5'
+    source: https://footprintnetwork.org/faq/

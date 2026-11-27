@@ -129,3 +129,94 @@ sources:
     reuseBasis: 개인 선택과 생활 방식의 변화가 사회 규범·기반 시설·정책과 상호작용한다는 평가를 확인했다.
     verificationStatus: 장의 요약에서 개인 행동이 구조적·문화적 변화와 함께 이루어져야 한다는 진술을 확인했다.
     usage: 생태전환을 개인 실천만이 아니라 제도와 기반 시설을 포함한 변화로 설명한다.
+
+  unccd-desertification-faq:
+    title: UNCCD FAQ — desertification and land degradation
+    organization: United Nations Convention to Combat Desertification (UNCCD)
+    url: https://www.unccd.int/unccd-faq
+    sourceDate: 'n.d.'
+    checkedAt: '2026-11-27'
+    licenseStatus: 공식 설명 페이지를 사실 확인에만 사용했으며 본문이나 도표를 복제하지 않았다.
+    reuseBasis: 건조 지역의 토지 황폐화가 기후 변동과 인간 활동의 영향을 함께 받는다는 정의를 확인했다.
+    verificationStatus: UNCCD 협약의 정의와 공식 FAQ의 원인 설명을 확인했다.
+    usage: 사막화를 건조 지역의 토지 황폐화로 설명한다.
+  unece-transboundary-air-pollution:
+    title: The Convention and its achievements
+    organization: United Nations Economic Commission for Europe (UNECE)
+    url: https://unece.org/environmental-policy/air/convention-and-its-achievements
+    sourceDate: 'n.d.'
+    checkedAt: '2026-11-27'
+    licenseStatus: 공식 설명 페이지를 사실 확인에만 사용했으며 본문이나 도표를 복제하지 않았다.
+    reuseBasis: 장거리 대기 오염과 산성비 피해, 국경을 넘는 협력의 배경을 확인했다.
+    verificationStatus: 오염 물질의 장거리 이동, 북유럽 호수의 산성화, 국제 협약의 대응을 확인했다.
+    usage: 산성비 사례와 장거리 대기 오염 협력을 설명한다.
+  unep-marine-litter-report:
+    title: 'From Pollution to Solution: A global assessment of marine litter and plastic pollution'
+    organization: United Nations Environment Programme (UNEP)
+    url: https://www.unep.org/en/publications/report/pollution-solution-global-assessment-marine-litter-and-plastic-pollution
+    sourceDate: 2021
+    checkedAt: '2026-11-27'
+    licenseStatus: 공식 보고서 링크를 참고했으며 본문·그림·표를 복제하지 않았다.
+    reuseBasis: 해양 쓰레기와 플라스틱 오염의 생태계·생물·인간 영향에 관한 평가를 확인했다.
+    verificationStatus: UNEP 보고서 소개와 평가 범위를 확인했다.
+    usage: 해양 쓰레기가 해양 생태계와 생물, 사람에게 미치는 영향을 설명한다.
+  fao-forest-deforestation-drivers:
+    title: Reducing deforestation — in more depth
+    organization: Food and Agriculture Organization of the United Nations (FAO)
+    url: https://www.fao.org/sustainable-forest-management/toolbox/modules/reducing-deforestation/in-more-depth/en/
+    sourceDate: 'n.d.'
+    checkedAt: '2026-11-27'
+    licenseStatus: 공식 설명 페이지를 사실 확인에만 사용했으며 본문이나 도표를 복제하지 않았다.
+    reuseBasis: 산림 감소의 원인이 장소에 따라 다르고 농업·벌목·도로 접근 등 복합적임을 확인했다.
+    verificationStatus: FAO 산림 관리 자료의 산림 감소 원인 설명을 확인했다.
+    usage: 열대림 감소의 원인과 토지 이용의 관계를 설명한다.
+  unep-montreal-protocol:
+    title: The Montreal Protocol on Substances that Deplete the Ozone Layer
+    organization: United Nations Environment Programme (UNEP), Ozone Secretariat
+    url: https://ozone.unep.org/treaties/montreal-protocol
+    sourceDate: 1987
+    checkedAt: '2026-11-27'
+    licenseStatus: 공식 협약 설명 페이지를 사실 확인에만 사용했으며 본문이나 도표를 복제하지 않았다.
+    reuseBasis: 오존층 파괴 물질의 생산과 소비를 줄이기 위한 국제 약속을 확인했다.
+    verificationStatus: 협약의 목적과 당사국 이행 절차를 공식 페이지에서 확인했다.
+    usage: 환경 문제 해결을 위한 국제 협약의 사례로 든다.
+  basel-plastic-waste-amendments:
+    title: Plastic Waste Amendments FAQs
+    organization: Basel Convention Secretariat
+    url: https://www.basel.int/implementation/plasticwaste/plasticwasteamendments/faqs/tabid/8427/default.aspx
+    sourceDate: 2019
+    checkedAt: '2026-11-27'
+    licenseStatus: 공식 협약 안내 페이지를 사실 확인에만 사용했으며 본문이나 도표를 복제하지 않았다.
+    reuseBasis: 플라스틱 폐기물의 국가 간 이동과 통제 절차에 관한 협약 개정을 확인했다.
+    verificationStatus: 플라스틱 폐기물 개정안의 범위와 적용 시점을 협약 사무국 자료에서 확인했다.
+    usage: 폐기물 이동을 다루는 국제 협약의 사례로 든다.
+  global-footprint-network-faq:
+    title: Global Footprint Network FAQ
+    organization: Global Footprint Network
+    url: https://footprintnetwork.org/faq/
+    sourceDate: 'n.d.'
+    checkedAt: '2026-11-27'
+    licenseStatus: 정의를 확인하는 링크만 제공했으며 자료·그림을 복제하지 않았다.
+    reuseBasis: 생태 발자국을 생물 생산 공간에 대한 수요로, 생태 용량을 생태계의 생산·재생 능력으로 설명하는 정의를 확인했다.
+    verificationStatus: 공식 FAQ의 개념 정의와 비교 범위를 확인했다.
+    usage: 생태 발자국과 생태 용량을 구분해 설명한다.
+  curitiba-transport-network:
+    title: Rede Integrada de Transporte
+    organization: Urbanização de Curitiba (URBS)
+    url: https://www.urbs.curitiba.pr.gov.br/portal/transporte/rede-integrada-de-transporte/
+    sourceDate: 'n.d.'
+    checkedAt: '2026-11-27'
+    licenseStatus: 시 교통기관의 공식 안내를 사실 확인에만 사용했으며 본문이나 이미지를 복제하지 않았다.
+    reuseBasis: 쿠리치바 대중교통의 통합 환승 구조와 여러 지역을 잇는 운영 방식을 확인했다.
+    verificationStatus: URBS의 공식 교통망 안내를 확인했다.
+    usage: 도시 교통 정책이 이동 선택의 기반이 되는 사례로 든다.
+  curitiba-cambio-verde:
+    title: Câmbio Verde municipal program
+    organization: Prefeitura Municipal de Curitiba
+    url: https://www.curitiba.pr.gov.br/noticias/cambio-verde-amplia-atendimento-e-passa-a-funcionar-em-seis-ecopontos-de-curitiba/86063
+    sourceDate: 'n.d.'
+    checkedAt: '2026-11-27'
+    licenseStatus: 시 정부의 공식 안내를 사실 확인에만 사용했으며 본문이나 이미지를 복제하지 않았다.
+    reuseBasis: 재활용품을 지역 농산물과 교환하는 시의 폐기물 관리 프로그램을 확인했다.
+    verificationStatus: 쿠리치바 시 정부의 Câmbio Verde 공식 안내를 확인했다.
+    usage: 도시의 폐기물 관리와 지역 먹거리 이용을 연결하는 사례로 든다.

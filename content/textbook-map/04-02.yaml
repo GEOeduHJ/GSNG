@@ -1,0 +1,91 @@
+# 요청 범위 186–201쪽 가운데 04-02 학습 목표별 본문은 186–199쪽이다. 200–201쪽은 다음 중단원 도입이다.
+unit: '04-02'
+lessons:
+  - index: 1
+    textbookPages: [186, 192]
+    goalGist: 세계 환경 문제의 원인·영향·공간 규모를 사례와 자료로 설명한다.
+    topics:
+      - title: 환경 문제의 공간 규모
+        concepts: [환경 문제, 공간 규모, 발생 지역과 영향 지역]
+        textbookMaterials: [환경 문제 사례 지도와 사진, 원인·피해 지역 비교 활동]
+        ourData: ['개념도:environment-problem-scales', u0402-global-temperature, u0402-pm25-exposure]
+      - title: 기후 변화와 물 부족
+        concepts: [기후 변화, 지구 온난화, 물 부족, 가뭄, 해수면 상승]
+        textbookMaterials: [지구 기온 변화 그래프, 온실효과 개념도, 국가별 배출·물 스트레스 자료]
+        ourData: [u0402-global-temperature]
+      - title: 사막화와 열대림 파괴
+        concepts: [사막화, 토지 황폐화, 산림 감소, 생물 다양성]
+        textbookMaterials: [사막화·산림 파괴 지역 지도, 산림 파괴 원인과 영향 자료]
+        ourData: [u0402-forest-area-series]
+      - title: 이동하는 오염과 해양 쓰레기
+        concepts: [대기 오염 물질 이동, 산성비, 해양 쓰레기, 환경 문제의 공간적 연결]
+        textbookMaterials: [산성비 사례, 해양 플라스틱 이동·피해 자료, 국가별 초미세먼지 노출 지도]
+        ourData: [u0402-pm25-exposure]
+  - index: 2
+    textbookPages: [193, 193]
+    goalGist: 국가별 이해관계와 환경 부담의 차이를 파악하고 국제 협력의 필요성을 설명한다.
+    topics:
+      - title: 환경 문제의 책임과 환경 정의
+        concepts: [환경 정의, 현재 배출량, 1인당 배출량, 누적 배출량, 역사적 기여]
+        textbookMaterials: [선진국·개발 도상국의 입장 자료, 현재와 누적 CO₂ 배출 비교]
+        ourData: [u0402-co2-per-capita, u0402-cumulative-co2-top10, '개념도:environmental-justice']
+      - title: 지역별 위험과 국가 우선순위
+        concepts: [기후 위험, 환경 취약성, 섬 지역, 건조 지역, 열대림 지역, 국가별 우선순위]
+        textbookMaterials: [지역별 환경 문제 사례와 국가별 우선순위 비교]
+        ourData: [u0402-pm25-exposure]
+      - title: 국제 협력의 쟁점
+        concepts: [공통의 차별화된 책임, 대응 역량, 감축, 적응, 재정·기술 지원, 국제 협력]
+        textbookMaterials: [환경 문제 대응 이해관계 자료, 국제 협약과 공동 대응]
+        ourData: [u0402-co2-per-capita, u0402-cumulative-co2-top10]
+  - index: 3
+    textbookPages: [194, 199]
+    goalGist: 국제 협약과 여러 수준의 환경 실천을 파악하고 생태전환적 생활 방식을 비판적으로 점검한다.
+    topics:
+      - title: 국제 사회의 협약과 공동 대응
+        concepts: [국제 협약, 파리협정, 몬트리올 의정서, 바젤 협약, 국경 간 대기 오염 협력]
+        textbookMaterials: [환경 협약 연표, 기후 책임 토론]
+        ourData: [u0402-korea-ghg-series]
+      - title: 국가·기업·도시의 노력
+        concepts: [국가 정책, 기업의 환경 책임, 도시 교통, 폐기물 관리, 재생에너지]
+        textbookMaterials: [국가·기업 사례, 생태도시 쿠리치바 사례]
+        ourData: [u0402-korea-ghg-series, u0402-renewable-energy-share, u0402-forest-area-series]
+      - title: 생태 발자국·생태 용량과 생태전환적 삶
+        concepts: [생태 발자국, 생태 용량, 개인의 생활 방식, 공동체 참여, 생태전환]
+        textbookMaterials: [생태 발자국과 생태 용량 개념도, 일상 실천 점검 활동]
+        ourData: ['개념도:ecological-transition-framework']
+
+dataJudgement:
+  existingEnoughTopics:
+    - lesson: 1
+      topic: 전 지구 기온, 주요국 산림 변화, 국가별 초미세먼지 노출
+      data: [u0402-global-temperature, u0402-forest-area-series, u0402-pm25-exposure]
+    - lesson: 2
+      topic: 현재 1인당 CO₂, 누적 CO₂, 대기오염 노출과 환경 부담
+      data: [u0402-co2-per-capita, u0402-cumulative-co2-top10, u0402-pm25-exposure]
+    - lesson: 3
+      topic: 대한민국 배출, 재생에너지 소비, 산림 변화
+      data: [u0402-korea-ghg-series, u0402-renewable-energy-share, u0402-forest-area-series]
+  newRealDataTopics: []
+  conceptualDiagramTopics:
+    - lesson: 1
+      topic: 환경 문제의 원인·이동 경로·공간 규모
+      data: ['개념도:environment-problem-scales']
+    - lesson: 2
+      topic: 환경 책임·영향·대응 역량과 공정한 협력
+      data: ['개념도:environmental-justice']
+    - lesson: 3
+      topic: 생태 발자국·생태 용량과 여러 수준의 선택
+      data: ['개념도:ecological-transition-framework']
+  lessonDataCounts:
+    - lesson: 1
+      realDataCount: 3
+      conceptualDiagramCount: 1
+      totalMaterialCount: 4
+    - lesson: 2
+      realDataCount: 3
+      conceptualDiagramCount: 1
+      totalMaterialCount: 4
+    - lesson: 3
+      realDataCount: 3
+      conceptualDiagramCount: 1
+      totalMaterialCount: 4

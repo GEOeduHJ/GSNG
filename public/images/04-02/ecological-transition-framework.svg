@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-labelledby="desc">
+  <desc id="desc">생태 발자국과 생태 용량, 여러 수준의 선택을 연결한 개념도</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#617a6e"/>
+    </marker>
+    <style>
+      text { font-family: "Noto Sans KR", Arial, sans-serif; fill: #243a32; }
+      .head { font-size: 21px; font-weight: 700; }
+      .label { font-size: 18px; }
+      .result { font-size: 19px; font-weight: 700; }
+    </style>
+  </defs>
+  <rect width="960" height="560" rx="24" fill="#f6f7f1"/>
+
+  <rect x="55" y="45" width="385" height="130" rx="18" fill="#e5eee5" stroke="#91aa99" stroke-width="2"/>
+  <text class="head" x="247" y="83" text-anchor="middle">생태 발자국</text>
+  <text class="label" x="247" y="121" text-anchor="middle"><tspan x="247">자원 사용과 폐기물 흡수에</tspan><tspan x="247" dy="27">필요한 생물 생산 공간의 수요</tspan></text>
+
+  <rect x="520" y="45" width="385" height="130" rx="18" fill="#e6edf0" stroke="#91a8b0" stroke-width="2"/>
+  <text class="head" x="712" y="83" text-anchor="middle">생태 용량</text>
+  <text class="label" x="712" y="121" text-anchor="middle"><tspan x="712">생태계의 자원 생산과</tspan><tspan x="712" dy="27">폐기물 흡수·재생 능력</tspan></text>
+
+  <path d="M247 175 C247 212 345 213 400 242" fill="none" stroke="#617a6e" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M712 175 C712 212 615 213 560 242" fill="none" stroke="#617a6e" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="175" y="250" width="610" height="78" rx="16" fill="#f2ead9" stroke="#c6a979" stroke-width="2"/>
+  <text class="head" x="480" y="298" text-anchor="middle">생산·소비·이동·폐기의 관계를 바꾼다</text>
+
+  <path d="M480 328 V370" stroke="#617a6e" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="35" y="382" width="270" height="85" rx="16" fill="#e5eee5" stroke="#91aa99" stroke-width="2"/>
+  <text class="label" x="170" y="418" text-anchor="middle"><tspan x="170">공공 정책과</tspan><tspan x="170" dy="27">기반 시설</tspan></text>
+
+  <rect x="345" y="382" width="270" height="85" rx="16" fill="#e6edf0" stroke="#91a8b0" stroke-width="2"/>
+  <text class="label" x="480" y="418" text-anchor="middle"><tspan x="480">기업·지역의</tspan><tspan x="480" dy="27">생산과 관리</tspan></text>
+
+  <rect x="655" y="382" width="270" height="85" rx="16" fill="#e5eee5" stroke="#91aa99" stroke-width="2"/>
+  <text class="label" x="790" y="418" text-anchor="middle"><tspan x="790">개인의 생활</tspan><tspan x="790" dy="27">선택과 참여</tspan></text>
+
+  <path d="M170 467 C170 495 350 500 410 510" fill="none" stroke="#617a6e" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M480 467 V505" stroke="#617a6e" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M790 467 C790 495 610 500 550 510" fill="none" stroke="#617a6e" stroke-width="3" marker-end="url(#arrow)"/>
+  <text class="result" x="480" y="545" text-anchor="middle">생태계의 한계와 인간·자연의 공존을 고려하는 생태전환</text>
+</svg>

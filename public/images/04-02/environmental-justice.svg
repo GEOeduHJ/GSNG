@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="500" viewBox="0 0 960 500" role="img" aria-labelledby="desc">
+  <desc id="desc">환경 책임, 영향, 대응 역량을 공정한 협력으로 연결한 개념도</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#617a6e"/>
+    </marker>
+    <style>
+      text { font-family: "Noto Sans KR", Arial, sans-serif; fill: #243a32; }
+      .head { font-size: 21px; font-weight: 700; }
+      .label { font-size: 18px; }
+      .result { font-size: 19px; font-weight: 700; }
+    </style>
+  </defs>
+  <rect width="960" height="500" rx="24" fill="#f6f7f1"/>
+
+  <rect x="35" y="55" width="270" height="145" rx="18" fill="#e5eee5" stroke="#91aa99" stroke-width="2"/>
+  <text class="head" x="170" y="92" text-anchor="middle">책임과 기여</text>
+  <text class="label" x="170" y="132" text-anchor="middle"><tspan x="170">현재와 누적 배출</tspan><tspan x="170" dy="28">자원 이용의 이익</tspan></text>
+
+  <rect x="345" y="55" width="270" height="145" rx="18" fill="#e6edf0" stroke="#91a8b0" stroke-width="2"/>
+  <text class="head" x="480" y="92" text-anchor="middle">환경 영향</text>
+  <text class="label" x="480" y="132" text-anchor="middle"><tspan x="480">노출과 위험</tspan><tspan x="480" dy="28">건강과 생계</tspan></text>
+
+  <rect x="655" y="55" width="270" height="145" rx="18" fill="#f4eadb" stroke="#c6a979" stroke-width="2"/>
+  <text class="head" x="790" y="92" text-anchor="middle">대응 역량</text>
+  <text class="label" x="790" y="132" text-anchor="middle"><tspan x="790">재정·기술·시설</tspan><tspan x="790" dy="28">참여와 정보 접근</tspan></text>
+
+  <path d="M170 200 C170 260 335 265 395 305" fill="none" stroke="#617a6e" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M480 200 V294" fill="none" stroke="#617a6e" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M790 200 C790 260 625 265 565 305" fill="none" stroke="#617a6e" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="210" y="310" width="540" height="120" rx="20" fill="#edf0df" stroke="#9cab7b" stroke-width="2"/>
+  <text class="head" x="480" y="352" text-anchor="middle">공정한 국제 협력</text>
+  <text class="result" x="480" y="393" text-anchor="middle">감축·적응·지원의 분담과 의사결정 참여</text>
+</svg>
