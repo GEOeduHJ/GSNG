@@ -1,0 +1,41 @@
+id: '03-01'
+standardCode: 12세지03-01
+title: 세계의 인구 문제와 인구 이주
+goal: 세계의 인구 분포와 구조, 이주의 원인과 영향을 자료에 근거해 설명하고 서로 다른 지역과 사람의 관점을 고려한 대응을 제안할 수 있다.
+concepts: [population-distribution, population-structure, international-migration, migration-impact]
+opening:
+  intro: |
+    population distribution(인구 분포)과 population structure(인구 구조), 국제 이주는 사람과 장소가 어떻게 연결되는지 살피는 관점이다. 지도와 그래프는 국가마다 다른 양상을 보여 주지만, 하나의 색이나 평균만으로 한 지역 안의 차이와 개인의 경험까지 설명할 수는 없다.
+
+    이 중단원에서는 먼저 인구 밀도와 총인구를 구분한다. 이어 인구 피라미드와 출산율 자료로 연령 구조의 차이를 살피고, 마지막으로 국제 이주와 송금 자료를 통해 출발 지역과 도착 지역의 관계를 살펴본다. 자료에서 확인한 사실과 그에 대한 설명, 더 필요한 정보를 구분해 읽는다.
+  illustration:
+    src: /images/03-01/opening.webp
+    alt: 새 이웃이 무지 상자와 화분을 들고 도착하고, 여러 세대의 주민들이 공동 마당에서 함께 맞이한다.
+  focus:
+    kind: map
+    step:
+      id: focus
+      type: map
+      data: /data/03-01/age-65plus-map-2024.json
+      source: u0301-age-65plus
+      caption: 국가별 65세 이상 인구 비율, 2024년
+      alt: 2024년 각 국가 총인구에서 65세 이상 인구가 차지하는 비율을 색으로 나타낸 지도다.
+      config: { kind: choropleth }
+      concepts: [population-structure, population-distribution]
+closing:
+  summary: |
+    인구 밀도와 총인구는 서로 다른 지표이며, 국가 단위 자료는 한 나라 안의 도시와 농촌 차이를 모두 보여 주지 않는다. 인구 피라미드는 특정 연도의 연령·성별 구성을 비교하게 하지만, 변화의 원인이나 정책의 효과를 단독으로 설명하지 않는다.
+
+    이주는 여러 지역과 사람을 연결하고, 그 영향은 출발지와 도착지의 조건 및 제도에 따라 다르게 나타날 수 있다. 이주민 비율 지도와 송금 비율 지도는 서로 다른 지표를 보여 준다. 이 자료를 사람들의 선택과 경험, 지역의 다양한 목소리와 연결할 때 인구 변화에 대한 대응을 더 구체적으로 설명할 수 있다.
+  bridge: 다음 중단원에서는 식량 자원의 생산과 소비가 세계 여러 지역을 어떻게 연결하고 식량 문제와 어떤 관계를 맺는지 살펴본다.
+  transfer:
+    prompt: 독일을 새 사례로 삼아 지도에서 국제 이주민 비율을 확인하시오. 독일의 지방 정부나 공공기관이 제공하는 지역 자료를 하나 찾아, 국가 단위 지도와 지역 자료가 각각 보여 주는 점을 구분하고 새 주민의 참여와 지역 생활을 함께 고려한 정착 지원 방안을 제안하시오.
+    step:
+      id: transfer
+      type: map
+      data: /data/03-01/international-migrant-share-map-2024.json
+      source: u0301-international-migrant-share
+      caption: 국가별 국제 이주민 비율, 2024년
+      alt: 2024년 각 국가 총인구에서 국제 이주민이 차지하는 비율을 색으로 나타낸 지도다.
+      config: { kind: choropleth }
+      concepts: [international-migration, migration-impact]

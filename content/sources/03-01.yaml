@@ -1,0 +1,71 @@
+sources:
+  undesa-population-distribution:
+    title: 'Chapter IX: Factors Affecting Population Distribution'
+    organization: United Nations Department of Economic and Social Affairs
+    url: https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/files/documents/2020/Jan/un_1953_determinantsandconsequencesofpopulationtrends_0.pdf
+    sourceDate: '1953'
+    checkedAt: '2026-11-27'
+    licenseStatus: 공식 보고서 링크만 참고하며 PDF 표·그림은 재배포하지 않음.
+    reuseBasis: 기후·지형·토양 등 자연 조건과 경제 활동·사회 조직·인구 이동이 인구 분포와 맺는 관계를 설명하는 참고 출처.
+    verificationStatus: Chapter IX에서 지리·문화·인구 요인의 분류와 자연·문화 요인의 상호작용을 확인함.
+    usage: 보고서의 시대별 수치나 당시의 구체적 설명은 사용하지 않고 요인들이 함께 작용한다는 개념에 한정함.
+  national-geographic-geography-standard-16:
+    title: Geography Standard 16
+    organization: National Geographic Society
+    url: https://education.nationalgeographic.org/resource/geography-standard-16/
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 교육 자료 링크만 참고하며 페이지의 문장과 자료는 재배포하지 않음.
+    reuseBasis: 자원 위치와 일자리, 필요와 기술 변화가 인구 분포와 정착에 미치는 관계를 설명하는 교육 자료.
+    verificationStatus: 자원·고용과 인구 분포의 관계 및 필요와 기술 변화에 따라 정착 양상이 달라질 수 있음을 확인함.
+    usage: 자연 조건만으로 정착을 설명하지 않고 경제 활동과 기술의 변화도 함께 살핌.
+  undesa-population-ageing:
+    title: Population Ageing
+    organization: United Nations Department of Economic and Social Affairs, Population Division
+    url: https://www.un.org/development/desa/pd/content/population-ageing
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 공식 설명 페이지 링크만 참고하며 페이지의 개별 자료는 재배포하지 않음.
+    reuseBasis: 출산율 변화에 따른 연령 구조의 변화와 인구 고령화가 노동시장·가구·사회 보호·교육·보건에 갖는 함의를 확인하는 출처.
+    verificationStatus: 출산율 하락 뒤 노동 연령 인구 비중 변화와 이후 고령화가 나타날 수 있고 여러 사회 제도에 영향을 준다는 설명을 확인함.
+    usage: 고령화를 단일한 위기로 묘사하지 않고 국가별 조건과 대응에 따라 영향이 달라질 수 있음을 설명함.
+  undesa-demographic-dividend:
+    title: 'Policy Brief No. 161: On the path to an older population: Maximizing the benefits from the demographic dividend in the least developed countries'
+    organization: United Nations Department of Economic and Social Affairs, Population Division
+    url: https://desapublications.un.org/policy-briefs/un-desa-policy-brief-no-161-path-older-population-maximizing-benefits-demographic
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 공식 정책 요약 링크만 참고하며 페이지의 표·그림은 재배포하지 않음.
+    reuseBasis: 연령 구조 변화가 기회로 이어지려면 교육·보건·성평등·일자리 등 정책 조건이 중요하다는 점을 확인하는 출처.
+    verificationStatus: 요약에서 출산율 하락에 따른 연령 구조 변화와 인구 배당의 잠재적 기회, 이를 뒷받침할 정책 조건을 확인함.
+    usage: 젊은 인구가 많다는 사실만으로 경제 성과가 자동으로 생긴다고 설명하지 않음.
+  iom-migration-drivers:
+    title: 'Why do people migrate? — World Migration Report Educators Toolkit'
+    organization: International Organization for Migration
+    url: https://wmr-educatorstoolkit.iom.int/module-3-why-do-people-migrate-instructions
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 교육 자료 링크만 참고하며 페이지의 학습 자료는 별도 이용 조건을 확인하지 않고 재배포하지 않음.
+    reuseBasis: 이주 동인이 경제·사회·환경·분쟁 등 여러 요인과 개인별 이동 선택의 범위에 따라 달라짐을 설명하는 출처.
+    verificationStatus: IOM 교육 모듈에서 여러 동인이 함께 작용하며 이동이 자발적·강제적 조건의 연속선상에 놓일 수 있음을 확인함.
+    usage: 배출·흡인 요인은 설명을 돕는 틀로 쓰고 개인의 이동을 하나의 이유나 동일한 선택으로 일반화하지 않음.
+  world-bank-wdr2023-migration:
+    title: 'World Development Report 2023: Migrants, Refugees, and Societies'
+    organization: World Bank
+    url: https://www.worldbank.org/en/publication/wdr2023
+    sourceDate: '2023'
+    checkedAt: '2026-11-27'
+    licenseStatus: 보고서 설명 페이지 링크만 참고하며 보고서의 표·그림은 재배포하지 않음.
+    reuseBasis: 이주민·출발 국가·도착 국가의 효과가 기술과 일자리의 적합성, 권리와 정책에 따라 다르며 송금·지식 이전과 노동·사회 통합 과제가 함께 나타날 수 있음을 설명하는 출처.
+    verificationStatus: 보고서 요약에서 출발지의 송금·지식 이전과 이주로 인한 일부 가족·지역의 과제, 도착지 노동시장 기여와 공공 서비스·사회 통합 과제를 확인함.
+    usage: 이주 효과를 자동으로 긍정적이거나 부정적인 것으로 설명하지 않고 조건과 정책에 따라 달라짐을 함께 밝힘.
+  iom-migration-contributions:
+    title: 'Migrants’ Contributions — World Migration Report Educators Toolkit'
+    organization: International Organization for Migration
+    url: https://wmr-educatorstoolkit.iom.int/module-12-migrants-contributions-resources
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 교육 자료 링크만 참고하며 페이지의 학습 자료는 별도 이용 조건을 확인하지 않고 재배포하지 않음.
+    reuseBasis: 이주민의 사회문화·시민 참여·경제 활동 기여가 출발지와 도착지에서 다양하게 나타날 수 있음을 설명하는 교육 자료.
+    verificationStatus: IOM 교육 자료에서 이주민의 사회문화적·시민 참여·경제적 기여와 개인별 다양한 역할을 다루는 점을 확인함.
+    usage: 이주민을 단일한 역할이나 문화로 묶지 않고 지역 사회의 다양한 참여자로 다룸.
