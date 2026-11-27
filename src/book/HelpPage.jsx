@@ -1,7 +1,9 @@
 import { useBook } from './BookContext.jsx';
 
 export default function HelpPage() {
-  const { storageAvailable } = useBook();
+  const { storageAvailable, book } = useBook();
+  const routineSource = book?.routines?.source ?? {};
+  const routineItems = Object.values(book?.routines?.items ?? {});
   return (
     <article className="help-page">
       <h1>도움말</h1>
@@ -27,6 +29,16 @@ export default function HelpPage() {
         <h2>질문 피드백 기준에 대하여</h2>
         <p>교사용 질문 피드백 기준은 수업 설계 연구를 위한 초안입니다. 검증된 평가 도구가 아니며 성적 평가에 쓰지 않습니다.</p>
       </section>
+      {routineItems.length > 0 && (
+        <section>
+          <h2>생각 루틴의 출처</h2>
+          <p>각 절의 생각 루틴은 {routineSource.organization ?? 'Project Zero'}의 <a href={routineSource.url}>Thinking Routines</a>에서 이름과 단계 구성을 가져왔습니다. 이용 조건: {routineSource.license}.</p>
+          <p>학생용 안내문은 이 교과서가 우리말로 새로 쓴 것이며 원문의 번역이 아닙니다.</p>
+          <ul>
+            {routineItems.map((item) => <li key={item.id}><a href={item.url}>{item.name}</a>{item.nameKo ? ` (${item.nameKo})` : ''}</li>)}
+          </ul>
+        </section>
+      )}
     </article>
   );
 }

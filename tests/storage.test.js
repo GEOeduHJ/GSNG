@@ -75,7 +75,7 @@ describe('result files', () => {
   it('builds a versioned result file', () => {
     const file = buildResultFile({ ...emptyUnitRecord('01-01'), displayName: '7번' }, unit, new Date('2026-11-27T01:02:03Z'));
     expect(file).toMatchObject({ schema: 'gsng-unit-result', schemaVersion: 1, exportedAt: '2026-11-27T01:02:03.000Z', unitId: '01-01', unitTitle: '세계화와 세계시민', displayName: '7번' });
-    expect(file).not.toHaveProperty('activityState');
+    expect(file.activityState).toEqual({});
   });
 
   it('round-trips through JSON', () => {
@@ -114,5 +114,26 @@ describe('routine state', () => {
   it('normalizes routineState to an object', () => {
     expect(normalizeUnitRecord('01-01', { routineState: 'x' }).routineState).toEqual({});
     expect(normalizeUnitRecord('01-01', { routineState: { l1: { opener: { see: 'a' } }, l2: 'bad' } }).routineState).toEqual({ l1: { opener: { see: 'a' } } });
+  });
+});
+
+describe('result file routine fields', () => {
+  const unit = { id: '01-01', title: '세계화' };
+  const at = new Date('2026-11-27T00:00:00Z');
+  it('exports routineResponses and activityState', () => {
+    const record = { ...emptyUnitRecord('01-01'), routineState: { 'lesson-01-01-2': { opener: { see: '본 것' } } }, activityState: { 'lesson-01-01-2': { sorted: { a: 'x' } } } };
+    const file = buildResultFile(record, unit, at);
+    expect(file.routineResponses).toEqual(record.routineState);
+    expect(file.activityState).toEqual(record.activityState);
+    expect(parseResultFile(JSON.stringify(file)).ok).toBe(true);
+  });
+  it('reads old files without the new fields', () => {
+    const file = buildResultFile(emptyUnitRecord('01-01'), unit, at);
+    delete file.routineResponses; delete file.activityState;
+    expect(parseResultFile(JSON.stringify(file)).ok).toBe(true);
+  });
+  it('rejects non-object routineResponses as bad-shape', () => {
+    const file = { ...buildResultFile(emptyUnitRecord('01-01'), unit, at), routineResponses: ['x'] };
+    expect(parseResultFile(JSON.stringify(file))).toEqual({ ok: false, reason: 'bad-shape' });
   });
 });

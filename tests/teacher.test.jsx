@@ -82,6 +82,17 @@ describe('TeacherPage', () => {
     vi.unstubAllGlobals();
   });
 
+  it('teacher detail shows routine answers by lesson', async () => {
+    render(<BookProvider book={makeBook({ moduleLesson: true })} storage={memoryStorage()}><TeacherPage unitId="01-01" /></BookProvider>);
+    const { text } = result('2번', { routineState: { 'lesson-01-01-2': { opener: { see: '무역이 많은 나라', sent: '무역이 많은 나라' }, closing: { now: '생각이 바뀌었다' } } } });
+    fireEvent.change(screen.getByLabelText('결과 파일 고르기'), { target: { files: [new File([text], '2번.json', { type: 'application/json' })] } });
+    await waitFor(() => expect(screen.getByText('2번')).toBeTruthy());
+    expect(screen.getByRole('heading', { name: '생각 루틴' })).toBeTruthy();
+    expect(screen.getByText(/본 것: 무역이 많은 나라/)).toBeTruthy();
+    expect(screen.getByText(/지금 생각: 생각이 바뀌었다/)).toBeTruthy();
+    expect(screen.queryByText(/sent/)).toBeNull();
+  });
+
   it('shows the teacher guide for the unit', () => {
     render(<BookProvider book={makeBook()} storage={memoryStorage()}><TeacherPage unitId="01-01" /></BookProvider>);
     expect(screen.getByText(/예시 발문/)).toBeTruthy();

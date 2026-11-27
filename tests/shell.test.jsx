@@ -46,6 +46,14 @@ describe('book shell', () => {
     expect(screen.getAllByText(/이 기기에서는 학습 기록이 저장되지 않습니다/)).toHaveLength(1);
   });
 
+  it('help page credits Project Zero with license and links', () => {
+    renderAt('#/help');
+    expect(screen.getByRole('heading', { name: '생각 루틴의 출처' })).toBeTruthy();
+    expect(screen.getAllByText(/Project Zero/).length).toBeGreaterThan(0);
+    expect(screen.getByText(/CC BY-NC-ND/)).toBeTruthy();
+    expect(screen.getByRole('link', { name: /See, Think, Wonder/ }).getAttribute('href')).toBe('https://pz.harvard.edu/resources/see-think-wonder');
+  });
+
   it('has no storage notice when storage works', () => {
     renderAt('#/help');
     expect(screen.queryByText(/이 기기에서는 학습 기록이 저장되지 않습니다/)).toBeNull();

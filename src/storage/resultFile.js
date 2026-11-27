@@ -25,6 +25,8 @@ export function buildResultFile(record, unit, now = new Date()) {
     transferResponse: record.transferResponse ?? '',
     reflection: record.reflection ?? '',
     stageTimes: record.stageTimes ?? {},
+    routineResponses: record.routineState ?? {},
+    activityState: record.activityState ?? {},
   };
 }
 
@@ -36,6 +38,8 @@ function hasValidShape(value) {
   if (value.questions != null && !(Array.isArray(value.questions) && value.questions.every((q) => isObject(q) && optionalString(q.text) && (q.conceptTags == null || Array.isArray(q.conceptTags))))) return false;
   if (value.evidence != null && !(Array.isArray(value.evidence) && value.evidence.every(isObject))) return false;
   if (value.explanation != null && !(isObject(value.explanation) && (value.explanation.evidenceIds == null || Array.isArray(value.explanation.evidenceIds)))) return false;
+  if (value.routineResponses != null && !isObject(value.routineResponses)) return false;
+  if (value.activityState != null && !isObject(value.activityState)) return false;
   return true;
 }
 

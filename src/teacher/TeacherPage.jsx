@@ -3,6 +3,7 @@ import { useBook } from '../book/BookContext.jsx';
 import { questionText } from '../book/qft/questions.js';
 import { SKIP_REASONS, summarizeResults } from './summarize.js';
 import TeacherGuide from './TeacherGuide.jsx';
+import { routineForSlot } from '../content-loader/routines.js';
 
 function readFile(file) {
   if (typeof file.text === 'function') return file.text();
@@ -14,7 +15,33 @@ function readFile(file) {
   });
 }
 
+const SLOT_LABELS = { opener: '생각 열기', inquiry: '탐구하기', closing: '정리' };
+
+/** Routine answers by lesson and slot; labels come from the routine library, the internal `sent` mark is hidden. */
+function RoutineAnswers({ student, unit, book }) {
+  const byLesson = student.routineResponses ?? {};
+  const lessons = (unit?.lessons ?? []).filter((lesson) => byLesson[lesson.id]);
+  if (!lessons.length) return <p className="hint">응답 없음</p>;
+  return (
+    <ul>
+      {lessons.map((lesson) => (
+        <li key={lesson.id}>
+          <strong>{lesson.title}</strong>
+          {['opener', 'inquiry', 'closing'].filter((slot) => byLesson[lesson.id]?.[slot]).map((slot) => {
+            const routine = routineForSlot(book, lesson, slot);
+            const answers = byLesson[lesson.id][slot];
+            const lines = Object.entries(answers).filter(([key, value]) => key !== 'sent' && String(value ?? '').trim())
+              .map(([key, value]) => `${routine?.steps.find((step) => step.id === key)?.label ?? key}: ${value}`);
+            return lines.length ? <p key={slot}>{SLOT_LABELS[slot]}{routine ? ` · ${routine.name}` : ''} — {lines.join(' / ')}</p> : null;
+          })}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 function StudentDetail({ student, unit }) {
+  const { book } = useBook();
   const questions = (student.questions ?? []).filter((q) => q.text?.trim());
   const evidence = student.evidence ?? [];
   const lessonTitle = (id) => unit?.lessons.find((lesson) => lesson.id === id)?.title ?? '';
@@ -33,6 +60,8 @@ function StudentDetail({ student, unit }) {
       <h3>다듬은 질문</h3><p>{student.revisedQuestion || '—'}</p>
       <h3>새 사례 적용</h3><p>{student.transferResponse || '—'}</p>
       <h3>돌아보기</h3><p>{student.reflection || '—'}</p>
+      <h3>생각 루틴</h3>
+      <RoutineAnswers student={student} unit={unit} book={book} />
     </details>
   );
 }
