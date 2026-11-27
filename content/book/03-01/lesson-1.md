@@ -11,7 +11,7 @@ steps:
     caption: 국가별 인구 밀도, 2024년
     source: u0301-population-density
     alt: 2024년 국가별 단위 면적당 인구 밀도를 색으로 나타낸 지도다.
-    config: { kind: choropleth }
+    config: { kind: choropleth, unit: '명/km²' }
     concepts: [population-distribution]
   - id: d2
     type: chart
@@ -20,7 +20,7 @@ steps:
     caption: 대륙별 세계 인구 비중, 1950–2023년 추계·2024–2100년 중위 전망
     source: u0301-wpp-continent-share
     alt: 1950년부터 2023년까지의 추계와 2024년부터 2100년까지의 중위 전망으로 대륙별 세계 인구 비중을 나타낸 선 그래프다.
-    config: { kind: line, maxYear: 2100, projectionFrom: 2024 }
+    config: { kind: line, maxYear: 2100, projectionFrom: 2024, unit: '%' }
     concepts: [population-distribution]
   - id: d3
     type: chart
@@ -29,7 +29,7 @@ steps:
     caption: 인구 상위 10개국, 2024년
     source: u0301-population-top10
     alt: 2024년 총인구가 많은 국가의 순위를 막대로 비교한 그래프다.
-    config: { kind: bar }
+    config: { kind: bar, unit: '명' }
     concepts: [population-distribution]
 summary:
   - 인구는 기후·지형 같은 자연환경과 농업 생산력·산업·교통 같은 사회·경제적 조건의 영향을 받아 고르지 않게 분포한다.

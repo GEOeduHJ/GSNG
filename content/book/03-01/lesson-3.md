@@ -21,7 +21,7 @@ steps:
     caption: 국가별 순이동, 2024년
     source: u0301-net-migration
     alt: 2024년 국가별 순이동 추정치를 색으로 나타낸 지도다.
-    config: { kind: choropleth }
+    config: { kind: choropleth, unit: '명' }
     concepts: [international-migration]
   - id: d3
     type: map
@@ -30,7 +30,7 @@ steps:
     caption: 국가별 국제 이주민 비율, 2024년
     source: u0301-international-migrant-share
     alt: 2024년 각 국가의 전체 거주 인구에서 국제 이주민이 차지하는 비율을 색으로 나타낸 지도다.
-    config: { kind: choropleth }
+    config: { kind: choropleth, unit: '%' }
     concepts: [international-migration]
   - id: d4
     type: map
@@ -39,7 +39,7 @@ steps:
     caption: 국가별 개인 송금 수입의 국내총생산 대비 비율, 2024년
     source: u0301-personal-remittances-gdp
     alt: 2024년 각 국가의 국내총생산에서 개인 송금 수입이 차지하는 비율을 색으로 나타낸 지도다.
-    config: { kind: choropleth }
+    config: { kind: choropleth, unit: '%(GDP 대비)' }
     concepts: [international-migration, migration-impact]
 summary:
   - 이주는 배출 요인과 흡인 요인이 함께 작용해 일어나며, 까닭에 따라 경제적·정치적·환경적 이주로 나눈다.

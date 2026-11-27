@@ -37,7 +37,7 @@ function Legend({ breaks, unit, belowLabel, specialLabel }) {
   );
 }
 
-/** config.kind: 'choropleth' (url → {year, unit, values: {ISO3: n}}) or 'points' (url → GeoJSON points). */
+/** config.kind: 'choropleth' (url → {year, unit, values: {ISO3: n}}) or 'points' (url → GeoJSON points). config.unit overrides the file's unit for display. */
 export default function DataMap({ url, config = {}, alt, fallback, onInteract, reduced = false }) {
   const { status, data } = useJson(BASE_MAP_URL, url);
   const containerRef = useRef(null);
@@ -79,17 +79,18 @@ export default function DataMap({ url, config = {}, alt, fallback, onInteract, r
   }, [status, base, payload, breaks, points, config, reduced]);
 
   if (status === 'error') return fallback;
+  const unit = config.unit ?? payload?.unit;
   const rows = payload && !points ? topValues(payload.values, names) : [];
   return (
     <>
       {renderFailed ? fallback : <div ref={containerRef} className="figure-canvas map-canvas" role="img" aria-label={alt} />}
-      {!points && <Legend breaks={breaks} unit={payload?.unit} belowLabel={payload?.below && Object.keys(payload.below).length ? payload.belowLabel ?? '기준값 미만' : ''} specialLabel={payload?.special && Object.keys(payload.special).length ? payload.specialLabel ?? '별도 집계 지역' : ''} />}
+      {!points && <Legend breaks={breaks} unit={unit} belowLabel={payload?.below && Object.keys(payload.below).length ? payload.belowLabel ?? '기준값 미만' : ''} specialLabel={payload?.special && Object.keys(payload.special).length ? payload.specialLabel ?? '별도 집계 지역' : ''} />}
       {points && pointCategories(payload).length > 0 && (
         <ul className="map-legend" aria-label="범례">
           {pointCategories(payload).map((item) => <li key={item.label}><span style={{ background: item.color, borderRadius: '50%' }} />{item.label}</li>)}
         </ul>
       )}
-      <ValueTable header={['국가', payload?.unit ?? '값']} rows={rows} />
+      <ValueTable header={['국가', unit ?? '값']} rows={rows} />
     </>
   );
 }

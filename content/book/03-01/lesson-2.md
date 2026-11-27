@@ -11,7 +11,7 @@ steps:
     caption: 세계 총인구, 1950–2023년 추계·2024–2100년 중위 전망
     source: u0301-wpp-world-population
     alt: 1950년부터 2023년까지의 추계와 2024년부터 2100년까지의 중위 전망으로 세계 총인구 흐름을 나타낸 선 그래프다. 7월 1일 기준 계열이다.
-    config: { kind: line, maxYear: 2100, projectionFrom: 2024 }
+    config: { kind: line, maxYear: 2100, projectionFrom: 2024, unit: '명' }
     concepts: [population-structure]
   - id: d2
     type: chart
@@ -20,7 +20,7 @@ steps:
     caption: 세계·대한민국·일본·우간다의 조출생률·조사망률, 1960–2024년
     source: u0301-crude-birth-death-rates
     alt: 세계·대한민국·일본·우간다의 조출생률과 조사망률을 1960년부터 2024년까지 비교한 선 그래프다.
-    config: { kind: line, maxYear: 2024 }
+    config: { kind: line, maxYear: 2024, unit: '명(인구 1,000명당)' }
     concepts: [population-structure]
   - id: d3
     type: image
@@ -57,7 +57,7 @@ steps:
     caption: 세계·대한민국·일본·우간다의 산업별 종사자 비율, 2024년
     source: u0301-industry-employment
     alt: 2024년 전체 종사자에서 농업·산업·서비스업이 차지하는 비율을 비교한 그래프다.
-    config: { kind: bar }
+    config: { kind: bar, unit: '%' }
     concepts: [population-structure]
   - id: d7
     type: chart
@@ -66,7 +66,7 @@ steps:
     caption: 세계·대한민국·일본·우간다의 유소년·노년 부양비, 2024년
     source: u0301-dependency-ratios
     alt: 2024년 생산연령 인구 100명당 유소년 인구와 노년 인구의 비율을 비교한 그래프다.
-    config: { kind: bar }
+    config: { kind: bar, unit: '명(청장년층 100명당)' }
     concepts: [population-structure]
 summary:
   - 산업 혁명 이후 사망률이 낮아지면서 세계 인구가 빠르게 늘었다.

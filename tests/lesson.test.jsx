@@ -3,6 +3,7 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { buildChartOption, chartHeader, chartRows, compactNumber } from '../src/viz/chartData.js';
 import { classBreaks, joinValues, legendLabels, formatNumber, pointCategories, countryNames, pointsView, mapOptions } from '../src/viz/mapData.js';
 import DataStage from '../src/book/lesson/DataStage.jsx';
+import DataMap from '../src/viz/DataMap.jsx';
 import LessonSpread from '../src/book/lesson/LessonSpread.jsx';
 import { BookProvider } from '../src/book/BookContext.jsx';
 import { makeBook, memoryStorage } from './fixtures/book.js';
@@ -352,5 +353,15 @@ describe('내 질문과 이 절', () => {
     renderWith(emptyUnitRecord('01-01'));
     fireEvent.click(screen.getByRole('button', { name: /자료 보기.*l2s3/ }));
     expect(screen.getByLabelText('어느 자료에서').value).toBe('l2s3');
+  });
+});
+
+describe('Korean display units', () => {
+  it('map legend and table use config.unit over the data file unit', async () => {
+    const base = { type: 'FeatureCollection', features: [{ type: 'Feature', properties: { iso_a3: 'KOR', name_ko: '대한민국' }, geometry: null }] };
+    const payload = { year: 2024, unit: 'persons per sq. km of land area', values: { KOR: 530, JPN: 340, CHN: 150, USA: 37, IND: 488, BRA: 26 } };
+    vi.stubGlobal('fetch', vi.fn(async (url) => ({ ok: true, json: async () => (String(url).includes('countries') ? base : payload) })));
+    render(<DataMap url="/data/unit-test.json" config={{ kind: 'choropleth', unit: '명/km²' }} alt="지도" fallback={null} />);
+    await waitFor(() => expect(document.querySelector('.map-legend')?.getAttribute('aria-label')).toBe('범례 (명/km²)'));
   });
 });
