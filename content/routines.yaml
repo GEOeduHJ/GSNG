@@ -33,3 +33,225 @@ routines:
     steps:
       - { id: used, label: 예전 생각, hint: 이 절을 공부하기 전에 이 주제를 어떻게 생각했는지 적는다. }
       - { id: now, label: 지금 생각, hint: 공부한 뒤 생각이 어떻게 달라졌는지 적는다. }
+  think-puzzle-explore:
+    name: Think, Puzzle, Explore
+    nameKo: 생각·궁금증·탐색
+    category: [core, introducing_and_exploring_ideas]
+    url: https://pz.harvard.edu/resources/think-puzzle-explore
+    steps:
+      - { id: think, label: 알고 있는 것, hint: 이 주제에 대해 이미 안다고 생각하는 것을 적는다. }
+      - { id: puzzle, label: 궁금한 점, hint: 아직 풀리지 않은 의문을 질문으로 적는다., toQuestion: true }
+      - { id: explore, label: 알아볼 방법, hint: 의문을 풀려면 어떤 자료를 어떻게 살펴볼지 적는다. }
+  see-think-me-we:
+    name: See, Think, Me, We
+    nameKo: 보기·생각·나·우리
+    category: [introducing_and_exploring_ideas]
+    url: https://pz.harvard.edu/resources/see-think-me-we
+    steps:
+      - { id: see, label: 본 것, hint: 자료나 사진에서 눈에 띄는 것을 적는다. }
+      - { id: think, label: 생각한 것, hint: 무엇을 뜻하는지 떠오르는 생각을 적는다. }
+      - { id: me, label: 나와의 연결, hint: 내 생활이나 경험과 어떻게 이어지는지 적는다. }
+      - { id: we, label: 우리와의 연결, hint: 우리 지역이나 더 넓은 세계와 어떻게 이어지는지 적는다. }
+  compass-points:
+    name: Compass Points
+    nameKo: 나침반 네 방향
+    category: [core, perspective_taking]
+    url: https://pz.harvard.edu/resources/compass-points
+    steps:
+      - { id: excited, label: 기대되는 점, hint: 이 생각이나 계획의 좋은 점을 적는다. }
+      - { id: worrisome, label: 걱정되는 점, hint: 문제가 될 수 있는 점을 적는다. }
+      - { id: need, label: 더 알아야 할 점, hint: 판단하려면 더 알아야 할 것을 질문으로 적는다., toQuestion: true }
+      - { id: stance, label: 지금의 입장, hint: 지금 어떻게 생각하는지, 무엇을 제안하는지 적는다. }
+  projecting-across-time:
+    name: Projecting Across Time
+    nameKo: 시간을 넘어 보기
+    category: [digging_deeper_into_ideas, perspective_taking]
+    url: https://pz.harvard.edu/resources/projecting-across-time
+    steps:
+      - { id: past, label: 과거, hint: 이 주제가 예전에는 어떤 모습이었을지 적는다. }
+      - { id: present, label: 현재, hint: 지금은 어떤 모습인지 자료를 근거로 적는다. }
+      - { id: future, label: 미래, hint: 앞으로 어떻게 바뀔 수 있을지와 그 까닭을 적는다. }
+  projecting-across-distance:
+    name: Projecting Across Distance
+    nameKo: 거리를 넘어 보기
+    category: [digging_deeper_into_ideas, perspective_taking]
+    url: https://pz.harvard.edu/resources/projecting-across-distance
+    steps:
+      - { id: here, label: 우리 지역에서, hint: 이 문제가 우리 지역에서는 어떻게 나타나는지 적는다. }
+      - { id: there, label: 먼 지역에서, hint: 멀리 떨어진 지역에서는 어떻게 다르게 나타나는지 적는다. }
+      - { id: link, label: 두 지역의 연결, hint: 두 지역이 이 문제로 어떻게 이어져 있는지 적는다. }
+  looking-ten-times-two:
+    name: 'Looking: Ten Times Two'
+    nameKo: 열 번씩 두 번 보기
+    category: [with_art_or_objects]
+    url: https://pz.harvard.edu/resources/looking-ten-times-two
+    steps:
+      - { id: first, label: 처음 본 것, hint: 사진을 천천히 보고 떠오르는 낱말이나 구절을 여러 개 적는다. }
+      - { id: second, label: 다시 본 것, hint: 한 번 더 보고 처음에 놓친 것을 더 적는다. }
+  what-makes-you-say-that:
+    name: What Makes You Say That?
+    nameKo: 왜 그렇게 말할까
+    category: [core, digging_deeper_into_ideas]
+    url: https://pz.harvard.edu/resources/what-makes-you-say
+    steps:
+      - { id: going-on, label: 무슨 일이 일어나는가, hint: 자료에서 무엇이 나타나는지 설명한다. }
+      - { id: evidence, label: 그렇게 말하는 근거, hint: 그렇게 판단한 근거를 자료에서 찾아 적는다. }
+  three-whys:
+    name: The 3 Whys
+    nameKo: 세 가지 왜
+    category: [global_thinking, perspective_taking]
+    url: https://pz.harvard.edu/resources/3-whys
+    steps:
+      - { id: me, label: 나에게, hint: 이 주제가 나에게 왜 중요한지 적는다. }
+      - { id: near, label: 주변 사람에게, hint: 가족·친구·우리 지역과 나라에 왜 중요한지 적는다. }
+      - { id: world, label: 세계에, hint: 세계에 왜 중요한지 적는다. }
+  options-diamond:
+    name: Options Diamond
+    nameKo: 선택지 다이아몬드
+    category: [possibilities_and_analogies, perspective_taking]
+    url: https://pz.harvard.edu/resources/options-diamond
+    steps:
+      - { id: option-a, label: 선택지 가, hint: 첫째 선택지와 그것으로 얻고 잃는 것을 적는다. }
+      - { id: option-b, label: 선택지 나, hint: 둘째 선택지와 그것으로 얻고 잃는 것을 적는다. }
+      - { id: both, label: 둘 다 얻는 길, hint: 두 선택지의 장점을 함께 살리는 방법을 적는다. }
+      - { id: choice, label: 나의 선택, hint: 어떤 길을 고를지와 그 까닭을 적는다. }
+  step-in-step-out-step-back:
+    name: Step In, Step Out, Step Back
+    nameKo: 들어가 보기·물러나 보기·돌아보기
+    category: [global_thinking, perspective_taking]
+    url: https://pz.harvard.edu/resources/step-step-out-step-back
+    steps:
+      - { id: in, label: 들어가 보기, hint: 그 사람이 무엇을 느끼고 믿고 겪을지 생각해 적는다. }
+      - { id: out, label: 물러나 보기, hint: 그 사람의 처지를 더 잘 이해하려면 무엇을 알아야 할지 질문으로 적는다., toQuestion: true }
+      - { id: back, label: 돌아보기, hint: 이 활동을 하며 알게 된 나의 관점과 그 한계를 적는다. }
+  circle-of-viewpoints:
+    name: Circle of Viewpoints
+    nameKo: 관점의 원
+    category: [core, perspective_taking]
+    url: https://pz.harvard.edu/resources/circle-of-viewpoints
+    steps:
+      - { id: list, label: 떠오르는 관점, hint: 이 문제에 관련된 여러 사람과 집단을 적는다. }
+      - { id: speak, label: 한 관점에서, hint: 하나를 골라 그 사람의 입장에서 이 문제를 설명한다. }
+      - { id: ask, label: 그 관점의 질문, hint: 그 입장에서 품을 만한 질문을 적는다., toQuestion: true }
+  step-inside:
+    name: Step Inside
+    nameKo: 그 자리에 서 보기
+    category: [perspective_taking, with_art_or_objects]
+    url: https://pz.harvard.edu/resources/step-inside
+    steps:
+      - { id: perceive, label: 보고 느끼는 것, hint: 그 사람이 그 자리에서 무엇을 보고 느낄지 적는다. }
+      - { id: know, label: 알거나 믿는 것, hint: 그 사람이 무엇을 알고 믿을지 적는다. }
+      - { id: care, label: 마음 쓰는 것, hint: 그 사람이 무엇을 소중히 여기고 걱정할지 적는다. }
+  parts-purposes-complexities:
+    name: Parts, Purposes, Complexities
+    nameKo: 부분·목적·복잡성
+    category: [objects_and_systems, introducing_and_exploring_ideas]
+    url: https://pz.harvard.edu/resources/parts-purposes-complexities
+    steps:
+      - { id: parts, label: 부분, hint: 이 기술이나 체계를 이루는 부분을 적는다. }
+      - { id: purposes, label: 목적, hint: 각 부분이 하는 일을 적는다. }
+      - { id: complexities, label: 복잡한 점, hint: 부분과 쓰임이 얽혀 생기는 어려움이나 쟁점을 적는다. }
+  parts-people-interactions:
+    name: Parts, People, Interactions
+    nameKo: 부분·사람·상호작용
+    category: [objects_and_systems, digging_deeper_into_ideas]
+    url: https://pz.harvard.edu/resources/parts-people-interactions
+    steps:
+      - { id: parts, label: 부분, hint: 이 체계를 이루는 요소를 적는다. }
+      - { id: people, label: 사람, hint: 이 체계에 관련된 사람과 집단을 적는다. }
+      - { id: interactions, label: 상호작용, hint: 사람과 요소가 서로 어떻게 영향을 주는지 적는다. }
+  think-feel-care:
+    name: Think, Feel, Care
+    nameKo: 생각·느낌·관심
+    category: [objects_and_systems, digging_deeper_into_ideas]
+    url: https://pz.harvard.edu/resources/think-feel-care
+    steps:
+      - { id: think, label: 생각, hint: 이 체계 안의 한 사람이 무엇을 생각할지 적는다. }
+      - { id: feel, label: 느낌, hint: 그 사람이 어떤 감정을 느낄지 적는다. }
+      - { id: care, label: 관심, hint: 그 사람이 무엇을 중요하게 여길지 적는다. }
+  ways-things-can-be-complex:
+    name: Ways Things Can Be Complex
+    nameKo: 복잡함의 여러 모습
+    category: [objects_and_systems, introducing_and_exploring_ideas]
+    url: https://pz.harvard.edu/resources/ways-things-can-be-complex
+    steps:
+      - { id: parts, label: 얽힌 요인, hint: 문제에 얽힌 여러 요인과 그 관계를 적는다. }
+      - { id: views, label: 다른 관점, hint: 사람과 지역에 따라 다르게 보이는 점을 적는다. }
+      - { id: change, label: 시간에 따른 변화, hint: 시간이 흐르며 달라진 점을 적는다. }
+      - { id: unknown, label: 아직 모르는 점, hint: 더 알아봐야 할 점을 질문으로 적는다., toQuestion: true }
+  same-different-connect-engage:
+    name: Same, Different, Connect, Engage
+    nameKo: 같은 점·다른 점·연결·다가가기
+    category: [global_thinking, perspective_taking]
+    url: https://pz.harvard.edu/resources/same-different-connect-engage
+    steps:
+      - { id: same, label: 같은 점, hint: 나와 그 사람(지역)이 비슷한 점을 적는다. }
+      - { id: different, label: 다른 점, hint: 나와 그 사람(지역)이 다른 점을 적는다. }
+      - { id: connect, label: 연결, hint: 사람으로서 어떻게 이어져 있는지 적는다. }
+      - { id: engage, label: 다가가기, hint: 그 사람에게 묻거나 함께 하고 싶은 것을 질문으로 적는다., toQuestion: true }
+  beauty-and-truth:
+    name: Beauty and Truth
+    nameKo: 아름다움과 진실
+    category: [global_thinking, with_art_or_objects]
+    url: https://pz.harvard.edu/resources/beauty-and-truth
+    steps:
+      - { id: beauty, label: 아름다움, hint: 이 경관이나 사진에서 아름다움을 찾아 적는다. }
+      - { id: truth, label: 진실, hint: 이 경관이나 사진이 보여 주는 사실을 적는다. }
+      - { id: reveal, label: 드러내는 것, hint: 아름다움이 어떤 사실을 드러내는지 적는다. }
+      - { id: conceal, label: 가리는 것, hint: 아름다움 때문에 가려지는 사실은 무엇인지 적는다. }
+  tug-of-war:
+    name: Tug of War
+    nameKo: 줄다리기
+    category: [perspectives_controversies_dilemmas, digging_deeper_into_ideas]
+    url: https://pz.harvard.edu/resources/tug-war
+    steps:
+      - { id: side-a, label: 한쪽의 이유, hint: 한쪽 입장을 끌어당기는 이유를 적는다. }
+      - { id: side-b, label: 다른 쪽의 이유, hint: 다른 쪽 입장을 끌어당기는 이유를 적는다. }
+      - { id: question, label: 남은 질문, hint: 양쪽을 판단하려면 더 알아야 할 것을 질문으로 적는다., toQuestion: true }
+  take-a-stand:
+    name: Take a Stand
+    nameKo: 입장 정하기
+    category: [perspectives_controversies_dilemmas, perspective_taking]
+    url: https://pz.harvard.edu/resources/take-stand
+    steps:
+      - { id: stand, label: 나의 입장, hint: 이 문제에 대한 나의 입장과 그 까닭을 적는다. }
+      - { id: other, label: 다른 입장, hint: 다른 입장을 가진 사람의 까닭을 적는다. }
+      - { id: rethink, label: 다시 생각한 입장, hint: 다른 입장을 듣고 달라진 점이나 지킨 점을 적는다. }
+  true-for-who:
+    name: True for Who?
+    nameKo: 누구에게 참일까
+    category: [global_thinking, perspectives_controversies_dilemmas]
+    url: https://pz.harvard.edu/resources/true-who
+    steps:
+      - { id: situation, label: 주장의 상황, hint: 이 주장이 누가 어떤 상황에서 한 것인지 적는다. }
+      - { id: views, label: 여러 관점, hint: 이 주장을 다르게 볼 사람과 집단을 적는다. }
+      - { id: from-one, label: 한 관점에서, hint: 한 관점을 골라 그 사람에게 이 주장이 참인지 판단한다. }
+      - { id: rethink, label: 다시 생각하기, hint: 여러 관점을 살핀 뒤 이 주장을 어떻게 보는지 적는다. }
+  unveiling-stories:
+    name: Unveiling Stories
+    nameKo: 숨은 이야기 찾기
+    category: [global_thinking, digging_deeper_into_ideas]
+    url: https://pz.harvard.edu/resources/unveiling-stories
+    steps:
+      - { id: story, label: 드러난 이야기, hint: 이 자료나 사진이 보여 주는 이야기를 적는다. }
+      - { id: human, label: 사람의 이야기, hint: 그 안에 담긴 사람들의 삶과 마음을 적는다. }
+      - { id: world, label: 세계의 이야기, hint: 이 이야기가 세계의 어떤 흐름과 이어지는지 적는다. }
+      - { id: untold, label: 가려진 이야기, hint: 드러나지 않은 이야기나 빠진 목소리를 적는다. }
+  values-identities-actions:
+    name: Values, Identities, Actions
+    nameKo: 가치·정체성·행동
+    category: [global_thinking, perspective_taking]
+    url: https://pz.harvard.edu/resources/values-identities-actions
+    steps:
+      - { id: values, label: 가치, hint: 이 문화나 활동에 담긴 가치를 적는다. }
+      - { id: identities, label: 정체성, hint: 어떤 공동체의 정체성을 보여 주는지 적는다. }
+      - { id: actions, label: 행동, hint: 그 가치를 지키기 위해 사람들이 하는 일을 적는다. }
+  circles-of-action:
+    name: Circles of Action
+    nameKo: 실천의 동심원
+    category: [global_thinking, synthesizing_and_organizing_ideas]
+    url: https://pz.harvard.edu/resources/circles-of-action
+    steps:
+      - { id: inner, label: 내 주변에서, hint: 가족과 친구 사이에서 할 수 있는 일을 적는다. }
+      - { id: community, label: 지역 사회에서, hint: 학교와 동네에서 할 수 있는 일을 적는다. }
+      - { id: world, label: 세계를 향해, hint: 더 넓은 세계를 위해 할 수 있는 일을 적는다. }
