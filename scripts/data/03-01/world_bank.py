@@ -25,6 +25,10 @@ MAX_BYTES = 1_000_000
 USER_AGENT = "WorldCitizenshipGeography/1.0 (educational data)"
 SNAPSHOT_YEAR = 2024
 SERIES_YEARS = list(range(1960, 2025))
+DEMOGRAPHIC_SNAPSHOT_YEAR = 2024
+EMPLOYMENT_SNAPSHOT_YEAR = 2024
+NET_MIGRATION_SNAPSHOT_YEAR = 2024
+CRUDE_RATE_YEARS = list(range(1960, 2025))
 
 INDICATORS = {
     "population-density-map-2024": {
@@ -68,6 +72,34 @@ FERTILITY_SERIES = [
     ("UGA", "우간다"),
     ("WLD", "세계"),
 ]
+
+COMPARISON_LOCATIONS = [
+    ("WLD", "세계"),
+    ("KOR", "대한민국"),
+    ("JPN", "일본"),
+    ("UGA", "우간다"),
+]
+
+CRUDE_RATE_INDICATORS = {
+    "SP.DYN.CBRT.IN": "조출생률",
+    "SP.DYN.CDRT.IN": "조사망률",
+}
+
+DEPENDENCY_INDICATORS = {
+    "SP.POP.DPND.YG": "유소년 부양비",
+    "SP.POP.DPND.OL": "노년 부양비",
+}
+
+EMPLOYMENT_INDICATORS = {
+    "SL.AGR.EMPL.ZS": "농업(1차 산업)",
+    "SL.IND.EMPL.ZS": "산업(2차 산업)",
+    "SL.SRV.EMPL.ZS": "서비스업(3차 산업)",
+}
+
+NET_MIGRATION_INDICATOR = {
+    "id": "SM.POP.NETM",
+    "unit": "persons",
+}
 
 
 def fetch_json(url: str):
@@ -122,17 +154,22 @@ def fetch_indicator(indicator: str, date: str, country: str = "all") -> tuple[li
     return response[1], response[0].get("lastupdated", "")
 
 
-def build_map(slug: str, config: dict, country_iso3s: set[str]) -> tuple[dict, list]:
+def build_map(
+    slug: str,
+    config: dict,
+    country_iso3s: set[str],
+    year: int = SNAPSHOT_YEAR,
+) -> tuple[dict, list]:
     indicator = config["id"]
-    rows, _ = fetch_indicator(indicator, str(SNAPSHOT_YEAR))
+    rows, _ = fetch_indicator(indicator, str(year))
     observations = {
         row.get("countryiso3code"): row.get("value")
         for row in rows
         if row.get("countryiso3code") in country_iso3s
-        and row.get("date") == str(SNAPSHOT_YEAR)
+        and row.get("date") == str(year)
     }
     values = {iso3: observations.get(iso3) for iso3 in sorted(country_iso3s)}
-    data = {"year": SNAPSHOT_YEAR, "unit": config["unit"], "values": values}
+    data = {"year": year, "unit": config["unit"], "values": values}
     write_json(OUT_DIR / f"{slug}.json", data)
     observed = sum(value is not None for value in values.values())
     return data, [observed, len(values)]
@@ -200,6 +237,84 @@ def build_fertility_series() -> dict:
     return data
 
 
+def build_crude_birth_death_series(country_iso3s: set[str]) -> tuple[dict, dict[str, str]]:
+    series = []
+    coverage = {}
+    selected_codes = {code for code, _ in COMPARISON_LOCATIONS}
+    for indicator, label in CRUDE_RATE_INDICATORS.items():
+        rows, _ = fetch_indicator(indicator, f"{CRUDE_RATE_YEARS[0]}:{CRUDE_RATE_YEARS[-1]}")
+        values_by_country: dict[str, dict[int, float | None]] = {
+            code: {} for code in selected_codes
+        }
+        latest_values = {}
+        for row in rows:
+            iso3 = row.get("countryiso3code")
+            if iso3 in country_iso3s and row.get("date") == str(CRUDE_RATE_YEARS[-1]):
+                if row.get("value") is not None:
+                    latest_values[iso3] = row["value"]
+            if iso3 not in selected_codes:
+                continue
+            year = int(row["date"])
+            values_by_country[iso3][year] = row.get("value")
+
+        coverage[label] = f"{len(latest_values)}/{len(country_iso3s)}"
+        for iso3, name in COMPARISON_LOCATIONS:
+            series.append(
+                {
+                    "name": f"{name} · {label}",
+                    "iso3": iso3,
+                    "values": [values_by_country[iso3].get(year) for year in CRUDE_RATE_YEARS],
+                }
+            )
+
+    data = {
+        "unit": "per 1,000 people",
+        "years": CRUDE_RATE_YEARS,
+        "series": series,
+    }
+    write_json(OUT_DIR / "crude-birth-death-rates-1960-2024.json", data)
+    return data, coverage
+
+
+def build_comparison_chart(
+    filename: str,
+    indicators: dict[str, str],
+    year: int,
+    unit: str,
+    country_iso3s: set[str],
+) -> tuple[dict, dict[str, str]]:
+    values_by_indicator: dict[str, dict[str, float | None]] = {}
+    coverage = {}
+    for indicator, label in indicators.items():
+        rows, _ = fetch_indicator(indicator, str(year))
+        values = {
+            row.get("countryiso3code"): row.get("value")
+            for row in rows
+            if row.get("countryiso3code") and row.get("date") == str(year)
+        }
+        values_by_indicator[indicator] = values
+        observed = sum(
+            values.get(iso3) is not None
+            for iso3 in country_iso3s
+        )
+        coverage[label] = f"{observed}/{len(country_iso3s)}"
+
+    rows_out = []
+    for iso3, country_name in COMPARISON_LOCATIONS:
+        for indicator, label in indicators.items():
+            rows_out.append(
+                {
+                    "iso3": iso3,
+                    "name": f"{country_name} · {label}",
+                    "value": values_by_indicator[indicator].get(iso3),
+                }
+            )
+
+    data = {"year": year, "unit": unit, "rows": rows_out}
+    write_json(OUT_DIR / filename, data)
+    return data, coverage
+
+
 def build() -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     country_iso3s = get_country_iso3s()
@@ -216,6 +331,27 @@ def build() -> None:
 
     population_top_ten = build_population_top_ten(country_iso3s)
     fertility = build_fertility_series()
+    crude_rates, crude_rate_coverage = build_crude_birth_death_series(country_iso3s)
+    dependency, dependency_coverage = build_comparison_chart(
+        f"dependency-ratios-{DEMOGRAPHIC_SNAPSHOT_YEAR}.json",
+        DEPENDENCY_INDICATORS,
+        DEMOGRAPHIC_SNAPSHOT_YEAR,
+        "dependents per 100 working-age people",
+        country_iso3s,
+    )
+    industry, industry_coverage = build_comparison_chart(
+        f"industry-employment-shares-{EMPLOYMENT_SNAPSHOT_YEAR}.json",
+        EMPLOYMENT_INDICATORS,
+        EMPLOYMENT_SNAPSHOT_YEAR,
+        "% of total employment",
+        country_iso3s,
+    )
+    _, net_migration_coverage = build_map(
+        f"net-migration-map-{NET_MIGRATION_SNAPSHOT_YEAR}",
+        NET_MIGRATION_INDICATOR,
+        country_iso3s,
+        NET_MIGRATION_SNAPSHOT_YEAR,
+    )
     fertility_2024 = {
         series["iso3"]: series["values"][-1] for series in fertility["series"]
     }
@@ -223,7 +359,13 @@ def build() -> None:
         f"retrievedAt={RETRIEVED_AT}; source=World Development Indicators; "
         f"year={SNAPSHOT_YEAR}; countryCodes={len(country_iso3s)}; "
         f"mapCoverage={map_coverage}; "
+        f"crudeRateCoverage2024={crude_rate_coverage}; "
+        f"dependencyCoverage2024={dependency_coverage}; "
+        f"industryCoverage2024={industry_coverage}; "
+        f"netMigrationCoverage2024={net_migration_coverage}; "
         f"top10={[row['iso3'] for row in population_top_ten['rows']]}; "
+        f"crudeRateSamples2024={[(row['iso3'], row['values'][-1]) for row in crude_rates['series'] if row['iso3'] in {'KOR', 'JPN', 'UGA'}]}; "
+        f"dependencyRows={dependency['rows']}; industryRows={industry['rows']}; "
         f"fertility2024={fertility_2024}; license=CC BY 4.0; "
         f"catalog={WDI_CATALOG_URL}; licenseInfo={WDI_LICENSE_URL}"
     )

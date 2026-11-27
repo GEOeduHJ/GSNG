@@ -69,3 +69,59 @@ sources:
     reuseBasis: 이주민의 사회문화·시민 참여·경제 활동 기여가 출발지와 도착지에서 다양하게 나타날 수 있음을 설명하는 교육 자료.
     verificationStatus: IOM 교육 자료에서 이주민의 사회문화적·시민 참여·경제적 기여와 개인별 다양한 역할을 다루는 점을 확인함.
     usage: 이주민을 단일한 역할이나 문화로 묶지 않고 지역 사회의 다양한 참여자로 다룸.
+  world-bank-wdi-03-01:
+    title: World Development Indicators — population and employment indicators
+    organization: World Bank
+    url: https://api.worldbank.org/v2/
+    relatedUrls:
+      - https://data.worldbank.org/indicator/SP.DYN.CBRT.IN
+      - https://data.worldbank.org/indicator/SP.DYN.CDRT.IN
+      - https://data.worldbank.org/indicator/SP.POP.DPND.YG
+      - https://data.worldbank.org/indicator/SP.POP.DPND.OL
+      - https://data.worldbank.org/indicator/SL.AGR.EMPL.ZS
+      - https://data.worldbank.org/indicator/SL.IND.EMPL.ZS
+      - https://data.worldbank.org/indicator/SL.SRV.EMPL.ZS
+      - https://data.worldbank.org/indicator/SM.POP.NETM
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: >-
+      각 WDI 지표 페이지에 CC BY-4.0이 표시됨. WDI API는 World Bank가 배포하는 지표값을 제공하며,
+      라이선스는 데이터 카탈로그의 공개 라이선스 안내와 각 지표 페이지를 함께 확인함.
+    reuseBasis: >-
+      조출생률·조사망률은 인구 1,000명당 연간 출생·사망 수, 부양비는 15–64세 인구 100명당
+      연령 의존 인구 비율, 산업별 종사자 비율은 전체 종사자 중 부문별 비율, 순이동은 이민자
+      유입과 유출의 차이를 나타내는 WDI 지표다.
+    verificationStatus: >-
+      2026-11-27 WDI API와 각 지표 원 페이지를 대조함. 조출생률·조사망률은 2024년 217/217,
+      부양비는 2024년 217/217, 산업별 종사자 비율은 2024년 지표별 182/217, 순이동은
+      2024년 217/217 국가·경제 코드에 값이 확인됨. 검수 기준에 따라 WPP 전망과 ILO 모형 전망 구간인
+      2025년 값은 배제하고 2024년으로 통일했다. 산업별 종사자 값은 ILO 모형 추정치로 표시됨.
+    usage: >-
+      결측을 보간하지 않음. 부양비와 순이동은 WDI가 인용하는 UN WPP/세계은행 추정 계열이며,
+      순이동을 한 해 동안의 입국자 수나 개인 경험으로 해석하지 않음. 산업별 종사자 비율은 ILO 모형
+      추정치임을 캡션과 자료 안내에 밝힘.
+  undesa-wpp2024-population:
+    title: World Population Prospects 2024 — Demographic Indicators, Medium variant
+    organization: United Nations, Department of Economic and Social Affairs, Population Division
+    url: https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/CSV_FILES/WPP2024_Demographic_Indicators_Medium.csv.gz
+    relatedUrls:
+      - https://population.un.org/wpp/
+      - https://population.un.org/dataportal/countryProfiles/types/1/topics/1/coreThemes/7/locations/231
+      - https://population.un.org/wpp/assets/Excel%20Files/4_Metadata/WPP2024_Data_Sources.pdf
+      - https://creativecommons.org/licenses/by/3.0/igo/
+    sourceDate: '2024'
+    checkedAt: '2026-11-27'
+    licenseStatus: >-
+      UN DESA Population Division WPP 국가 프로필은 CC BY 3.0 IGO로 표시한다. WPP 2024 Data Sources
+      공식 간행물도 CC BY 3.0 IGO 재사용 조건을 밝힌다.
+    reuseBasis: >-
+      WPP 2024 중위 변이의 세계 총인구와 여섯 대륙 지역 TPopulation1July 계열을 사용한다.
+      세계 총인구는 1950–2023년 추계와 2024–2100년 전망을 포함한다. 대륙별 비중은 같은 해
+      지역 인구를 세계 인구로 나눈 파생 비율이다.
+    verificationStatus: >-
+      공식 WPP CSV의 LocID, LocTypeName, Variant, Time, TPopulation1July 열을 확인하고,
+      세계 LocID 900과 여섯 Geographic region의 1950–2100년 자료를 추출함. 2024년 세계값과
+      아프리카·아시아·유럽 비중 및 세계 1950·2100년 값은 원본 CSV를 다시 읽어 대조함.
+    usage: >-
+      2024년 이후 값은 중위 변이 전망으로 표시한다. 인구 단위는 천 명이며 7월 1일 기준이다.
+      여섯 WPP 대륙 지역의 구분을 따르며 국가별 관측치나 인구 밀도와 혼동하지 않는다.

@@ -108,3 +108,24 @@ items:
     createdAt: '2026-11-27'
     usedIn: '03-03 lesson 3'
     alt: '가치사슬의 여러 참여자가 표식 없는 조명 부품과 완성품을 함께 살펴보며 의견을 나눈다.'
+  - src: /images/03-01/demographic-transition-schematic.svg
+    prompt: >-
+      손으로 작성한 독자 SVG 개념도. 수치 눈금과 연도를 사용하지 않고, 높은 출생·사망에서
+      사망률 하락, 출생률 하락, 낮은 출생·사망, 사망률이 출생률보다 조금 높은 자연 감소의 흐름과 총인구의 상대적 변화를
+      다섯 설명 구역에 걸쳐 표현했다. 교과서의 그림 배치나 선 모양을 따르지 않았다.
+    model: 'Codex; hand-authored SVG'
+    createdAt: '2026-11-27'
+    usedIn: '03-01 lesson 2, 인구 변천의 과정'
+    alt: '출생률과 사망률이 서로 다른 속도로 낮아지고 마지막에는 사망률이 출생률을 조금 웃돌 수 있음을 나타내는 일반 개념도.'
+    basis: '일반 개념 도식'
+  - src: /images/03-01/migration-drivers-schematic.svg
+    prompt: >-
+      손으로 작성한 독자 SVG 개념도. 일자리·소득, 가족·교육·보건, 정치·안전, 환경 조건이
+      개인의 상황과 선택에 함께 작용하고 선택의 폭이 넓은 경우부터 제한된 경우까지 달라질 수
+      있음을 도식화했다. 특정 집단의 이동 경험을 하나로 일반화하지 않았다.
+    model: 'Codex; hand-authored SVG'
+    createdAt: '2026-11-27'
+    usedIn: '03-01 lesson 3, 이주 동인과 유형'
+    alt: '경제·사회·정치·환경 조건이 개인의 상황과 선택에 복합적으로 작용하고 이동의 선택 폭이 달라진다.'
+    basis: 'International Organization for Migration, World Migration Report Educators Toolkit, Module 3'
+    source: https://wmr-educatorstoolkit.iom.int/module-3-why-do-people-migrate-instructions

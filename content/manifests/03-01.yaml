@@ -52,7 +52,7 @@ items:
 
   - id: u0301-population-pyramid-kor
     path: /data/03-01/pyramid-kor-2024.json
-    title: 대한민국 인구 피라미드, 2024년 추계
+    title: 대한민국 인구 피라미드, 2024년 중위 변이 전망
     organization: United Nations, Department of Economic and Social Affairs, Population Division
     url: https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/CSV_FILES/WPP2024_PopulationByAge5GroupSex_Medium.csv.gz
     retrievedAt: '2026-11-27'
@@ -65,12 +65,12 @@ items:
     unit: '% of total population'
     year: 2024
     summary: >-
-      WPP 2024 중위 시나리오 추계에서 0–4세 남아는 전체 인구의 1.273273%, 여아는 1.206607%,
+      WPP 2024 중위 변이 전망에서 0–4세 남아는 전체 인구의 1.273273%, 여아는 1.206607%,
       65–69세 남성은 3.269634%이다. 모든 성별·연령 값은 2024년 전체 인구 대비 비율이다.
 
   - id: u0301-population-pyramid-jpn
     path: /data/03-01/pyramid-jpn-2024.json
-    title: 일본 인구 피라미드, 2024년 추계
+    title: 일본 인구 피라미드, 2024년 중위 변이 전망
     organization: United Nations, Department of Economic and Social Affairs, Population Division
     url: https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/CSV_FILES/WPP2024_PopulationByAge5GroupSex_Medium.csv.gz
     retrievedAt: '2026-11-27'
@@ -83,12 +83,12 @@ items:
     unit: '% of total population'
     year: 2024
     summary: >-
-      WPP 2024 중위 시나리오 추계에서 0–4세 남아는 전체 인구의 1.661035%, 여아는 1.581985%,
+      WPP 2024 중위 변이 전망에서 0–4세 남아는 전체 인구의 1.661035%, 여아는 1.581985%,
       65–69세 남성은 2.918167%이다. 모든 성별·연령 값은 2024년 전체 인구 대비 비율이다.
 
   - id: u0301-population-pyramid-uga
     path: /data/03-01/pyramid-uga-2024.json
-    title: 우간다 인구 피라미드, 2024년 추계
+    title: 우간다 인구 피라미드, 2024년 중위 변이 전망
     organization: United Nations, Department of Economic and Social Affairs, Population Division
     url: https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/CSV_FILES/WPP2024_PopulationByAge5GroupSex_Medium.csv.gz
     retrievedAt: '2026-11-27'
@@ -101,7 +101,7 @@ items:
     unit: '% of total population'
     year: 2024
     summary: >-
-      WPP 2024 중위 시나리오 추계에서 0–4세 남아는 전체 인구의 8.150162%, 여아는 7.979667%,
+      WPP 2024 중위 변이 전망에서 0–4세 남아는 전체 인구의 8.150162%, 여아는 7.979667%,
       65–69세 남성은 0.386683%이다. 모든 성별·연령 값은 2024년 전체 인구 대비 비율이다.
 
   - id: u0301-fertility-rate-series
@@ -154,3 +154,122 @@ items:
     summary: >-
       2024년 개인 송금 수입의 GDP 대비 비율은 타지키스탄 47.1531%, 통가 39.4086%, 필리핀
       8.7247%이다. 217개 국가·경제 코드 중 162개에 값이 있고, 결측 55개는 null이다.
+
+  - id: u0301-wpp-world-population
+    path: /data/03-01/world-population-wpp2024-1950-2100.json
+    title: 세계 총인구 추계와 중위 전망, 1950–2100년
+    organization: United Nations, Department of Economic and Social Affairs, Population Division
+    url: https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/CSV_FILES/WPP2024_Demographic_Indicators_Medium.csv.gz
+    retrievedAt: '2026-11-27'
+    license: CC BY 3.0 IGO
+    attribution: >-
+      United Nations, Department of Economic and Social Affairs, Population Division (2024),
+      World Population Prospects 2024, CC BY 3.0 IGO. Modified: selected the World total for
+      1950–2100 from TPopulation1July; estimates run through 2023 and medium-variant projections
+      cover 2024–2100.
+    script: scripts/data/03-01/wpp2024_population.py
+    unit: thousands of persons (1 July)
+    year: 2100
+    summary: >-
+      세계 총인구는 WPP 2024의 1월 1일이 아닌 7월 1일 계열에서 1950년 2,493,092.848천 명,
+      2024년 8,161,972.572천 명, 2100년 중위 전망 10,180,160.751천 명이다.
+
+  - id: u0301-wpp-continent-share
+    path: /data/03-01/continent-population-share-wpp2024-1950-2100.json
+    title: 대륙별 세계 인구 비중, 1950–2100년
+    organization: United Nations, Department of Economic and Social Affairs, Population Division
+    url: https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/CSV_FILES/WPP2024_Demographic_Indicators_Medium.csv.gz
+    retrievedAt: '2026-11-27'
+    license: CC BY 3.0 IGO
+    attribution: >-
+      United Nations, Department of Economic and Social Affairs, Population Division (2024),
+      World Population Prospects 2024, CC BY 3.0 IGO. Modified: divided each of the six WPP
+      continental-region TPopulation1July series by the World total and expressed it as a share.
+    script: scripts/data/03-01/wpp2024_population.py
+    unit: '% of world population'
+    year: 2100
+    summary: >-
+      2024년 세계 인구 비중은 아시아 58.893827%, 아프리카 18.563415%, 유럽 9.128722%이다.
+      여섯 WPP 대륙 지역의 합이 세계 인구가 되도록 같은 연도 총인구로 나누었다.
+
+  - id: u0301-crude-birth-death-rates
+    path: /data/03-01/crude-birth-death-rates-1960-2024.json
+    title: 세계·대한민국·일본·우간다의 조출생률과 조사망률, 1960–2024년
+    organization: World Bank, World Development Indicators (WDI)
+    url: https://data.worldbank.org/indicator/SP.DYN.CBRT.IN
+    relatedUrls:
+      - https://data.worldbank.org/indicator/SP.DYN.CDRT.IN
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      World Bank, World Development Indicators, CC BY 4.0. Modified: selected the World,
+      Republic of Korea, Japan, and Uganda annual series for crude birth and death rates from
+      1960–2024. The original indicators cite UN Population Division and national statistical sources.
+    script: scripts/data/03-01/world_bank.py
+    unit: per 1,000 people
+    year: 2024
+    summary: >-
+      2024년 조출생률/조사망률은 대한민국 4.7/7.0명, 일본 5.7/13.3명, 우간다
+      34.436/4.767명(인구 1,000명당)이다. 두 지표의 최신 공통 연도는 2024년이며
+      217개 국가·경제 코드 모두 관측값이 있다.
+
+  - id: u0301-dependency-ratios
+    path: /data/03-01/dependency-ratios-2024.json
+    title: 세계·대한민국·일본·우간다의 유소년·노년 부양비, 2024년
+    organization: World Bank, World Development Indicators (WDI); source data from UN Population Division
+    url: https://data.worldbank.org/indicator/SP.POP.DPND.YG
+    relatedUrls:
+      - https://data.worldbank.org/indicator/SP.POP.DPND.OL
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      World Bank, World Development Indicators, CC BY 4.0. Modified: selected 2024 young and
+      old age-dependency ratios for the World, Republic of Korea, Japan, and Uganda. The WDI
+      indicators cite World Population Prospects and World Bank staff estimates.
+    script: scripts/data/03-01/world_bank.py
+    unit: dependents per 100 working-age people
+    year: 2024
+    summary: >-
+      2024년 유소년/노년 부양비는 대한민국 15.0632/27.4714, 일본 19.4547/50.6621,
+      우간다 80.2364/4.0329이다. 원 지표의 국가·경제 코드 217개 모두 값이 있다.
+
+  - id: u0301-industry-employment
+    path: /data/03-01/industry-employment-shares-2024.json
+    title: 세계·대한민국·일본·우간다의 산업별 종사자 비율, 2024년
+    organization: World Bank, World Development Indicators (WDI), modeled ILO estimates
+    url: https://data.worldbank.org/indicator/SL.AGR.EMPL.ZS
+    relatedUrls:
+      - https://data.worldbank.org/indicator/SL.IND.EMPL.ZS
+      - https://data.worldbank.org/indicator/SL.SRV.EMPL.ZS
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      World Bank, World Development Indicators, CC BY 4.0; sector-employment inputs are modeled
+      ILO estimates. Modified: selected agriculture, industry, and services employment shares
+      for the World, Republic of Korea, Japan, and Uganda in 2024.
+    script: scripts/data/03-01/world_bank.py
+    unit: '% of total employment'
+    year: 2024
+    summary: >-
+      2024년 농업/산업/서비스업 종사자 비율은 대한민국 5.1968/23.6591/71.1441%,
+      일본 2.8825/23.3448/73.7727%, 우간다 65.4114/7.2274/27.3611%이다.
+      217개 국가·경제 코드 중 182개에 값이 있고, 산업별 값은 ILO 모형 추정치다.
+
+  - id: u0301-net-migration
+    path: /data/03-01/net-migration-map-2024.json
+    title: 국가별 순이동, 2024년
+    organization: World Bank, World Development Indicators (WDI); source data from UN Population Division
+    url: https://data.worldbank.org/indicator/SM.POP.NETM
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      World Bank, World Development Indicators, CC BY 4.0. Modified: selected 2024 net-migration
+      values by ISO3 code for a choropleth map. The indicator cites World Population Prospects,
+      United Nations Population Division.
+    script: scripts/data/03-01/world_bank.py
+    unit: persons
+    year: 2024
+    summary: >-
+      2024년 순이동 지표는 대한민국 75,963명, 일본 153,357명, 우간다 -117,924명이다.
+      217개 국가·경제 코드 모두 값이 있다. 이 값은 순이동 추정치이며 연간 입국자 수나
+      개인별 이동 경로를 뜻하지 않는다.

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 620" role="img" aria-labelledby="title desc">
+  <title id="title" lang="ko">이주 동인과 선택의 개념도</title>
+  <desc id="desc" lang="ko">경제, 가족과 사회, 정치와 안전, 환경 조건이 서로 얽혀 사람마다 다른 이동 경로와 선택의 폭을 만든다.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#4b5e55" />
+    </marker>
+  </defs>
+  <rect width="1120" height="620" fill="#fbf8f1" />
+  <g font-family="sans-serif" font-size="17" font-weight="700" text-anchor="middle">
+    <rect x="70" y="145" width="245" height="76" rx="18" fill="#e8eee8" stroke="#c4d1c6" stroke-width="2" />
+    <text x="192" y="191" fill="#26352f">일자리와 소득</text>
+    <rect x="70" y="252" width="245" height="76" rx="18" fill="#edf0e7" stroke="#cdd4bf" stroke-width="2" />
+    <text x="192" y="298" fill="#26352f">가족·교육·보건</text>
+    <rect x="70" y="359" width="245" height="76" rx="18" fill="#f2e9df" stroke="#dcc8b7" stroke-width="2" />
+    <text x="192" y="405" fill="#26352f">정치와 안전</text>
+    <rect x="70" y="466" width="245" height="76" rx="18" fill="#e4edf0" stroke="#bfd0d5" stroke-width="2" />
+    <text x="192" y="512" fill="#26352f">환경 변화</text>
+  </g>
+
+  <g fill="none" stroke="#91a49a" stroke-width="3">
+    <path d="M315 183 C390 183 386 277 447 290" />
+    <path d="M315 290 H447" />
+    <path d="M315 397 C390 397 386 304 447 291" />
+    <path d="M315 504 C418 504 394 338 447 294" />
+  </g>
+  <rect x="448" y="226" width="260" height="132" rx="28" fill="#dbe8df" stroke="#56836d" stroke-width="3" />
+  <text x="578" y="271" fill="#26352f" font-family="sans-serif" font-size="18" font-weight="700" text-anchor="middle">
+    <tspan x="578">여러 조건과</tspan>
+    <tspan x="578" dy="27">개인의 상황·선택</tspan>
+  </text>
+  <path d="M708 292 H793" fill="none" stroke="#4b5e55" stroke-width="3" marker-end="url(#arrow)" />
+
+  <rect x="805" y="145" width="245" height="216" rx="22" fill="#f1eee5" stroke="#d6cebc" stroke-width="2" />
+  <text x="927" y="181" fill="#59665f" font-family="sans-serif" font-size="15" font-weight="700" text-anchor="middle">이동을 설명하는 관점</text>
+  <g font-family="sans-serif" font-size="16" fill="#26352f" text-anchor="middle">
+    <rect x="833" y="201" width="188" height="34" rx="17" fill="#fffdf8" />
+    <text x="927" y="224">경제적 이동</text>
+    <rect x="833" y="244" width="188" height="34" rx="17" fill="#fffdf8" />
+    <text x="927" y="267">사회적 이동</text>
+    <rect x="833" y="287" width="188" height="34" rx="17" fill="#fffdf8" />
+    <text x="927" y="310">정치·환경 이동</text>
+    <text x="927" y="344" fill="#59665f" font-size="14">여러 이유가 함께 나타날 수 있음</text>
+  </g>
+
+  <text x="560" y="424" fill="#26352f" font-family="sans-serif" font-size="16" font-weight="700" text-anchor="middle">이동을 선택할 수 있는 폭은 상황마다 다르다</text>
+  <path d="M390 493 C510 454 765 454 940 493" fill="none" stroke="#c7cfc8" stroke-width="10" stroke-linecap="round" />
+  <path d="M390 493 C510 454 765 454 940 493" fill="none" stroke="#56836d" stroke-width="4" stroke-linecap="round" />
+  <circle cx="390" cy="493" r="13" fill="#4e7890" />
+  <circle cx="940" cy="493" r="13" fill="#b65f48" />
+  <g font-family="sans-serif" font-size="15" fill="#26352f" text-anchor="middle">
+    <text x="390" y="530">선택의 폭이 넓은 경우</text>
+    <text x="940" y="530">선택의 폭이 제한된 경우</text>
+  </g>
+</svg>
