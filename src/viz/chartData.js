@@ -1,6 +1,18 @@
 const FONT = 'Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif';
 const PALETTE = ['#2f6f5e', '#8a5a2b', '#345f86', '#7a4f7d', '#9a7b2f', '#5b7d4a', '#a2574a', '#4d6a73'];
 const label = { fontSize: 14, color: '#3a3a34' };
+
+/** Axis-friendly number: 217,867,864 → '2.2억', 56,000 → '5.6만', smaller numbers with thousands separators. */
+export function compactNumber(value) {
+  const n = Number(value);
+  if (!Number.isFinite(n)) return String(value);
+  const abs = Math.abs(n);
+  const trim = (x) => String(Math.round(x * 10) / 10);
+  if (abs >= 1e8) return `${n < 0 ? '-' : ''}${trim(abs / 1e8)}억`;
+  if (abs >= 1e4) return `${n < 0 ? '-' : ''}${trim(abs / 1e4)}만`;
+  return n.toLocaleString('en-US', { maximumFractionDigits: 1 });
+}
+const valueLabel = { ...label, formatter: compactNumber };
 const AGGREGATE_NAMES = { WLD: '세계' };
 
 function displayName(item, names = {}) {
@@ -70,7 +82,7 @@ export function buildChartOption(config = {}, data = {}, names = {}, { reduced =
     const rows = sortedRows(data, names);
     return {
       ...common,
-      xAxis: { type: 'value', name: unit, nameTextStyle: label, axisLabel: label },
+      xAxis: { type: 'value', name: unit, nameTextStyle: label, axisLabel: valueLabel },
       yAxis: { type: 'category', inverse: true, data: rows.map((row) => row.name), axisLabel: label },
       series: [{ type: 'bar', data: rows.map((row) => row.value), barMaxWidth: 22 }],
     };
@@ -80,7 +92,7 @@ export function buildChartOption(config = {}, data = {}, names = {}, { reduced =
     ...common,
     legend: { top: 0, textStyle: label },
     xAxis: { type: 'category', data: years, axisLabel: label },
-    yAxis: { type: 'value', name: unit, nameTextStyle: label, axisLabel: label },
+    yAxis: { type: 'value', name: unit, nameTextStyle: label, axisLabel: valueLabel },
     series: series.map((item) => ({ type: 'line', name: item.name, data: item.values, showSymbol: false, connectNulls: false, lineStyle: { width: 2.5 } })),
   };
 }

@@ -2,7 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { act, render, renderHook, screen, waitFor } from '@testing-library/react';
 import { useActiveStep } from '../src/book/lesson/useActiveStep.js';
 import { stageIndexFor } from '../src/book/lesson/stages.js';
-import { buildChartOption, chartHeader, chartRows } from '../src/viz/chartData.js';
+import { buildChartOption, chartHeader, chartRows, compactNumber } from '../src/viz/chartData.js';
 import { classBreaks, joinValues, legendLabels, formatNumber, pointCategories } from '../src/viz/mapData.js';
 import DataStage from '../src/book/lesson/DataStage.jsx';
 import LessonSpread from '../src/book/lesson/LessonSpread.jsx';
@@ -119,6 +119,16 @@ describe('chart and map data', () => {
     expect(option.xAxis.axisLabel.formatter(-1.5)).toBe('1.5');
     expect(chartRows({ kind: 'pyramid' }, data)).toEqual([['0-4', 1.5, 1.4], ['5-9', 2.0, 1.9]]);
     expect(chartHeader({ kind: 'pyramid' }, data)).toEqual(['연령', '남성(%)', '여성(%)']);
+  });
+
+  it('shortens large axis numbers with Korean units', () => {
+    expect(compactNumber(217867864)).toBe('2.2억');
+    expect(compactNumber(300000000)).toBe('3억');
+    expect(compactNumber(56000)).toBe('5.6만');
+    expect(compactNumber(1500)).toBe('1,500');
+    expect(compactNumber(-25)).toBe('-25');
+    const option = buildChartOption({ kind: 'bar' }, { unit: 't', rows: [{ name: 'A', value: 217867864 }] });
+    expect(option.xAxis.axisLabel.formatter(200000000)).toBe('2억');
   });
 
   it('builds sorted bar rows', () => {
