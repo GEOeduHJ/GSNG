@@ -72,7 +72,7 @@ items:
     retrievedAt: '2026-11-26'
     license: CC BY 4.0
     attribution: >-
-      GeoNames.org Gazetteer, CC BY 4.0; coordinates accessed 2026-11-26. Modified: selected nine place records, translated names, and assigned religious categories and colors. Individual record URLs are listed in scripts/data/02-03/README.md.
+      GeoNames.org Gazetteer, CC BY 4.0; coordinates accessed 2026-11-26. Modified: selected nine place records, translated names, and assigned religious categories and colors. Religious significance categories are editorial classifications; Jerusalem's shared significance is referenced to The Pluralism Project at Harvard University. Individual record URLs are listed in scripts/data/02-03/README.md.
     script: scripts/data/02-03/religion_data.py
     unit: WGS84 decimal degrees
     year: null

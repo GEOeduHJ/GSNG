@@ -1,0 +1,91 @@
+unit: '02-03'
+lessons:
+  - index: 1
+    textbookPages: [90, 91]
+    goalGist: 주요 종교의 전파와 분포를 살펴보고 지역 공동체의 역사와 문화가 종교의 확산에 미친 관계를 설명한다.
+    topics:
+      - title: 종교 범주와 공동체의 관계
+        concepts: [보편 종교, 민족 종교, 종교 전통, 종교 비소속]
+        textbookMaterials: [세계 종교별 인구 구성 그래프]
+        ourData: [u0203-religion-global-share-series]
+      - title: 주요 종교의 전파와 공간적 분포
+        concepts: [크리스트교, 이슬람교, 불교, 힌두교, 이동과 교류, 지역별 분포]
+        textbookMaterials: [세계 주요 종교 분포·전파 지도, 종교 중심 도시]
+        ourData: [u0203-religion-christian-share, u0203-religion-muslim-share, u0203-religion-buddhist-share, u0203-religion-hindu-share, '개념도:religion-diffusion-schematic']
+      - title: 세계 종교 인구 구성의 변화
+        concepts: [세계 종교별 인구 비율, 종교 소속의 추정]
+        textbookMaterials: [세계 종교별 인구 구성 그래프]
+        ourData: [u0203-religion-global-share-series]
+  - index: 2
+    textbookPages: [92, 97]
+    goalGist: 주요 종교 전통의 역사와 가르침, 성지와 종교 경관의 지역별 특성을 살핀다.
+    topics:
+      - title: 크리스트교와 유대교의 전통
+        concepts: [예수와 크리스트교, 토라와 유대교, 예루살렘의 종교적 의미, 공동 성지]
+        textbookMaterials: [종교와 연결된 대표 도시, 종교 경관 사진]
+        ourData: [u0203-religion-sites-points, u0203-religion-christian-share]
+      - title: 이슬람교의 믿음과 성지
+        concepts: [유일신 신앙, 꾸란, 메카와 메디나, 이슬람교의 다양성]
+        textbookMaterials: [종교 분포 지도, 성지 지도, 모스크 사진]
+        ourData: [u0203-religion-sites-points, u0203-religion-muslim-share]
+      - title: 불교의 가르침과 지역별 모습
+        concepts: [사성제, 팔정도, 불교의 여러 흐름, 불교 성지와 종교 경관]
+        textbookMaterials: [불교 분포 지도, 성지 지도, 사원과 탑 사진]
+        ourData: [u0203-religion-sites-points, u0203-religion-buddhist-share]
+      - title: 힌두교의 사상과 성지
+        concepts: [남아시아의 여러 전통, 다르마, 카르마, 힌두교의 다양성]
+        textbookMaterials: [힌두교 분포 지도, 성지와 종교 경관 사진]
+        ourData: [u0203-religion-sites-points, u0203-religion-hindu-share]
+      - title: 종교 경관과 장소의 의미
+        concepts: [예배 공간, 건축과 지역 문화, 성지 순례, 공동체의 기억]
+        textbookMaterials: [종교 건축 사진, 종교 성지 지도]
+        ourData: [u0203-religion-sites-points]
+  - index: 3
+    textbookPages: [98, 102]
+    goalGist: 종교 전통과 개인의 선택이 일상 관행과 공동체 공간에 닿는 다양한 모습을 살피고 함께 참여할 방안을 제안한다.
+    topics:
+      - title: 종교와 생활 관행
+        concepts: [식사 관습, 의례와 시간 사용, 종교 전통 안의 다양성]
+        textbookMaterials: [종교별 식사·의례 사례, 세계 종교 인구 비율]
+        ourData: [u0203-religion-global-share-series, u0203-religion-muslim-share]
+      - title: 종교 경관과 공동 공간
+        concepts: [성지와 예배 공간, 공동체 생활, 여러 전통의 장소 이용]
+        textbookMaterials: [종교 성지 지도, 예배·공동체 공간 사진]
+        ourData: [u0203-religion-sites-points]
+      - title: 차이를 고려한 참여와 공존
+        concepts: [식사와 행사 운영, 개인의 선택과 의견, 문화적 공존]
+        textbookMaterials: [싱가포르 종교 경관 사례, 학교 급식 운영 토의]
+        ourData: ['개념도:religion-everyday-life-schematic']
+
+dataJudgement:
+  existingEnoughTopics:
+    - lesson: 1
+      topic: 주요 종교의 국가별 분포와 세계 인구 구성
+      data: [u0203-religion-christian-share, u0203-religion-muslim-share, u0203-religion-buddhist-share, u0203-religion-hindu-share, u0203-religion-global-share-series]
+    - lesson: 2
+      topic: 주요 종교 전통의 분포와 대표 도시
+      data: [u0203-religion-sites-points, u0203-religion-christian-share, u0203-religion-muslim-share, u0203-religion-buddhist-share, u0203-religion-hindu-share]
+    - lesson: 3
+      topic: 종교 생활의 지리적 맥락과 공동체 공간
+      data: [u0203-religion-global-share-series, u0203-religion-muslim-share, u0203-religion-sites-points]
+  newRealDataTopics: []
+  conceptualDiagramTopics:
+    - lesson: 1
+      topic: 이동·교류와 지역 공동체의 해석이 종교 전파에 함께 작용하는 관계
+      data: ['개념도:religion-diffusion-schematic']
+    - lesson: 3
+      topic: 종교 전통·지역·개인의 해석과 일상생활 영역의 상호 관계
+      data: ['개념도:religion-everyday-life-schematic']
+  lessonDataCounts:
+    - lesson: 1
+      realDataCount: 5
+      conceptualDiagramCount: 1
+      totalMaterialCount: 6
+    - lesson: 2
+      realDataCount: 5
+      conceptualDiagramCount: 0
+      totalMaterialCount: 5
+    - lesson: 3
+      realDataCount: 3
+      conceptualDiagramCount: 1
+      totalMaterialCount: 4

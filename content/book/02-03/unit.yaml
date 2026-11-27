@@ -17,10 +17,11 @@ opening:
       id: focus
       type: chart
       data: /data/02-03/religion-global-share-series.json
+      label: 세계 종교별 인구 비율
       source: u0203-religion-global-share-series
       caption: 세계 종교별 인구 비율, 2010·2020년
       alt: 세계 인구에서 일곱 종교 범주가 차지하는 비율을 2010년과 2020년 값으로 나타낸 선그래프다.
-      config: { kind: line }
+      config: { kind: line, unit: '%' }
       concepts: [religious-tradition, cultural-diversity]
 closing:
   summary: |
@@ -34,8 +35,9 @@ closing:
       id: transfer
       type: chart
       data: /data/02-03/religion-global-share-series.json
+      label: 세계 종교별 인구 비율
       source: u0203-religion-global-share-series
       caption: 세계 종교별 인구 비율, 2010·2020년
       alt: 세계 인구에서 일곱 종교 범주가 차지하는 비율을 2010년과 2020년 값으로 나타낸 선그래프다.
-      config: { kind: line }
+      config: { kind: line, unit: '%' }
       concepts: [religion-and-everyday-life, cultural-diversity]

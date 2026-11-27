@@ -1,75 +1,108 @@
 ---
 title: '종교는 인간 생활에 어떤 영향을 미칠까?'
-goal: 종교가 식사·시간 사용·공동체 공간에 미치는 영향을 사례와 자료의 한계에 비추어 설명하고, 서로 다른 배경의 사람들이 함께 참여할 운영 방안을 제안할 수 있다.
+goal: 종교 관습이 식사·의복·시간·축제와 지역 경관에 나타나는 사례를 설명하고, 학교와 지역에서 종교가 다른 사람들의 참여를 돕는 방안을 제안할 수 있다.
+opener: 학교의 식사와 행사, 공동 공간을 계획할 때 서로 다른 생활 방식과 일정은 어떻게 함께 고려할 수 있을까?
+textbookRef: { pages: [98, 102] }
 steps:
-  - { id: s1, type: text, caption: '', source: '', alt: '' }
-  - id: s2
+  - id: d1
     type: chart
     data: /data/02-03/religion-global-share-series.json
+    label: 세계 종교별 인구 비율
+    caption: 세계 종교별 인구 비율, 2010·2020년
     source: u0203-religion-global-share-series
-    caption: 세계 종교별 인구 비율 변화, 2010–2020년
-    alt: 세계 인구에서 일곱 종교 범주가 차지하는 비율을 2010년과 2020년 값으로 나타낸 선그래프다.
-    config: { kind: line }
-    concepts: [religion-and-everyday-life, cultural-diversity]
-  - id: s3
+    alt: 세계 인구에서 일곱 종교 범주가 차지하는 비율을 2010년과 2020년 값으로 나타낸 선 그래프다.
+    config: { kind: line, unit: '%' }
+    concepts: [religious-tradition, cultural-diversity, religion-and-everyday-life]
+  - id: d2
+    type: map
+    data: /data/02-03/religion-muslim-share-map.json
+    label: 국가별 이슬람교 인구 비율
+    caption: 국가별 이슬람교 인구 비율, 2020년
+    source: u0203-religion-muslim-share
+    alt: 2020년 국가 인구에서 이슬람교 인구가 차지하는 비율을 색으로 나타낸 지도다.
+    config: { kind: choropleth, unit: '%' }
+    concepts: [religious-tradition, cultural-diversity]
+  - id: d3
     type: map
     data: /data/02-03/religion-sites-points.geojson
+    label: 종교와 연결된 대표 도시
+    caption: 주요 종교의 성지·중심지와 연결된 대표 도시
     source: u0203-religion-sites-points
-    caption: 주요 종교와 연결된 대표 도시 위치
-    alt: 크리스트교·이슬람교·불교·힌두교의 발상지 또는 성지와 연결된 대표 도시를 점으로 나타냈다. 예루살렘은 세 종교의 공동 성지로 분류되며 국가 귀속은 표시하지 않는다.
-    config: { kind: points }
+    alt: 크리스트교·이슬람교·불교·힌두교와 연결된 대표 도시를 점으로 나타냈다. 예루살렘은 크리스트교·이슬람교·유대교의 공동 성지로 표시하며 국가 귀속은 나타내지 않는다.
+    config: { kind: points, unit: '도시 대표 위치' }
     concepts: [religious-landscape, religion-and-everyday-life]
-  - { id: s4, type: text, caption: '', source: '', alt: '' }
-  - { id: s5, type: text, caption: '', source: '', alt: '' }
-keyTerms: [religion-and-everyday-life, religious-landscape, cultural-diversity]
+  - id: d4
+    type: image
+    schematic: true
+    data: /images/02-03/religion-everyday-life-schematic.svg
+    label: 종교와 일상생활 개념도
+    caption: 종교 전통·지역·개인의 해석과 생활 영역의 관계
+    source: ''
+    alt: 종교 전통과 지역, 개인의 해석이 식사·시간과 의례·공동체 관계·공간과 경관에 서로 영향을 주며 실천은 사람마다 다를 수 있음을 나타낸 개념도다.
+    config: {}
+    concepts: [religion-and-everyday-life, cultural-diversity]
+summary:
+  - 많은 무슬림은 할랄 기준과 돼지고기·술 금기를 고려하며, 많은 힌두교도는 소고기를 피하고 일부 불교 공동체는 채식 전통을 잇는다.
+  - 라마단 금식과 금요 예배, 유대교의 샤밧은 일상 시간의 사용과 공동체 생활에 연결된다.
+  - 성탄절·이드 알피트르·디왈리·베삭·유월절 등 종교 축제와 의례는 공동체의 믿음과 역사를 기념한다.
+  - 성지와 예배 공간은 순례·관광과 이어지며, 학교와 지역은 식사·일정·공간 정보를 제공하고 참여 선택지를 마련할 수 있다.
 activity:
   template: civic-hearing
   fictional: true
   config:
-    title: 가상 학교 급식·행사 운영 협의
-    instruction: 가상 상황이다. 여러 종교와 비종교적 배경의 학생·보호자, 영양 교사, 학교 운영위원이 급식 선택지와 행사 일정·공간을 함께 논의한다. 개인별 필요가 서로 다를 수 있음을 전제로 하며, 자료에서 확인한 사실과 역할을 위해 가정한 내용을 구분한다.
+    title: 학교 급식과 행사를 함께 계획하기
+    instruction: 가상 상황이다. 학생 개인은 종교나 식습관을 공개할 필요가 없고, 어느 학생도 한 종교 집단 전체를 대표하지 않는다.
     actors:
       - id: students
-        label: 학생들(여러 종교·비종교 배경)
+        label: 학생들
         place: 학교
-        role: 종교 배경과 실천은 학생마다 다를 수 있고, 누구도 집단 전체의 요구를 대신하지 않는다.
-        power: 식사와 행사 참여 경험을 선택적으로 나누고, 운영 대안을 제안할 수 있다.
-      - id: guardians
-        label: 보호자들(여러 종교·비종교 배경)
-        place: 가정과 학교
-        role: 학생의 식사 선택과 행사 참여에 관한 다양한 의견을 낼 수 있다.
-        power: 자녀와 상의해 참여 방식과 필요한 정보에 의견을 낼 수 있다.
-      - id: nutrition-teacher
-        label: 영양 교사
+        role: 식사와 행사 참여에 관한 경험이나 필요를 선택적으로 나누며 서로 다른 의견을 낼 수 있다.
+        power: 익명 의견과 선택 가능한 방식으로 운영 대안을 제안한다.
+      - id: food-coordinator
+        label: 급식 담당자
         place: 학교 급식실
-        role: 식단의 재료와 영양, 조리 과정과 제공 가능성을 검토한다.
-        power: 재료 정보를 알리고 실현 가능한 선택지를 설계할 수 있다.
+        role: 재료와 조리 과정, 영양, 제공 여건을 살핀다.
+        power: 재료 정보를 알리고 실행 가능한 식사 선택지를 설계한다.
+      - id: teacher
+        label: 교사
+        place: 교실과 행사 공간
+        role: 행사 일정과 공간 사용, 참여 접근성을 검토한다.
+        power: 일정과 공간 정보를 미리 알리고 의견을 모을 절차를 마련한다.
       - id: school-committee
-        label: 학교 운영위원
+        label: 학교 운영 협의자
         place: 학교 운영 회의
-        role: 행사 일정, 공간 운영, 예산과 의견 수렴 절차를 검토한다.
-        power: 학교 운영 원칙과 협의 절차를 제안하고 결정할 수 있다.
+        role: 예산과 운영 원칙, 의견 반영 방식을 함께 검토한다.
+        power: 제안의 실행 가능성을 살피고 점검 일정을 정한다.
     levels:
+      - id: information
+        label: 정보 제공
+        action: 식재료와 일정, 공간 이용 정보를 미리 확인할 수 있게 한다.
+      - id: options
+        label: 선택지 마련
+        action: 가능한 식사 선택과 행사 참여 방법을 함께 검토한다.
       - id: participation
-        label: 참여 방식
-        action: 학생이 종교나 식습관을 공개하지 않고도 선택지를 확인하고 의견을 낼 수 있게 한다.
-      - id: meal
-        label: 급식 운영
-        action: 메뉴와 주요 재료 정보를 알리고, 가능한 대안과 선택 절차를 마련한다.
-      - id: schedule-space
-        label: 일정과 공간
-        action: 행사 일정과 공동 공간 사용을 미리 알리고, 의견을 반영하는 협의 과정을 둔다.
+        label: 의견 수렴
+        action: 종교나 개인 정보를 공개하지 않고도 의견을 낼 수 있는 통로를 둔다.
       - id: review
         label: 운영 점검
-        action: 행사 뒤에 참여 경험과 운영의 어려움을 확인해 다음 계획에 반영한다.
-sourceIds: [pew-global-religious-change-2025, geonames-gazetteer, harvard-pluralism-religion-guidelines, harvard-pluralism-islamic-practices, harvard-pluralism-halal-food, harvard-pluralism-ramadan, harvard-pluralism-changing-religious-landscape]
+        action: 참여 경험과 운영의 어려움을 확인해 다음 계획에 반영한다.
+keyTerms: [religion-and-everyday-life, religious-landscape, cultural-diversity]
+sourceIds: [pew-global-religious-change-2025, geonames-gazetteer, harvard-pluralism-religion-guidelines, harvard-pluralism-islamic-practices, harvard-pluralism-salat, harvard-pluralism-halal-food, harvard-pluralism-ramadan, harvard-pluralism-hijab, harvard-pluralism-shabbat, harvard-pluralism-buddhist-vegetarianism, queensland-health-hindu-dietary-practices, harvard-pluralism-advent-christmas, harvard-pluralism-divali, harvard-pluralism-buddha-birthday, harvard-pluralism-passover, harvard-pluralism-changing-religious-landscape, harvard-pluralism-jerusalem, harvard-pluralism-varanasi, unesco-religious-sacred-heritage, unesco-sustainable-tourism]
 ---
-종교와 일상생활의 관계는 사람마다 다르게 나타난다. 같은 전통 안에서도 신앙 실천과 중요하게 여기는 관습은 다양하다. 가족·지역·세대·개인의 선택도 생활에 영향을 준다. 종교 배경은 당사자의 설명과 생활 맥락을 함께 살펴 이해한다.
+## 종교와 생활 관습
 
-세계 종교 그래프는 종교 비소속을 포함한 여러 범주의 인구 비율이 시간에 따라 달라졌음을 보여 준다. 크리스트교 비율은 2010년 30.6%에서 2020년 28.8%로, 이슬람교는 23.9%에서 25.6%로 나타났다. 식단·행사 참여·신앙 실천의 모습은 관련 조사와 당사자의 목소리로 살펴보고, 인구 비율 변화의 배경은 인구·이주 자료와 함께 알아본다.
+종교 전통은 서로 다른 지역의 일상과 공동체 일정에 배경으로 자리한다. 2010년과 2020년의 세계 종교 비율을 비교하고, 이슬람교 비율이 높은 인도네시아와 파키스탄의 위치를 찾아 분포의 지역 차이를 확인하자. [[d1]] [[d2]]
 
-점 지도는 종교와 연결된 도시 위치를 보여 주며, 예루살렘은 크리스트교·이슬람교·유대교의 공동 성지로 분류된다. 여러 전통이 같은 장소에 종교적 의미를 두는 모습은 종교 경관의 겹침을 보여 준다. 그곳의 일상적 공존과 장소 이용, 접근·관리 방식은 지역 주민과 방문자의 경험 및 관리 자료를 함께 살펴 이해한다.
+음식 선택에는 종교적 기준과 지역 음식문화가 함께 반영된다. 많은 무슬림은 할랄 기준에 맞는 음식을 고르고 돼지고기와 술을 피한다. 많은 힌두교도는 소를 존중하는 전통과 연결해 소고기를 피한다. 불교의 일부 공동체는 자비와 불살생을 실천하는 방식으로 채식 전통을 이어 간다.
 
-식사와 시간 사용에는 종교적 관습이 관계할 수 있다. 일부 무슬림은 할랄(허용된 음식) 기준을 고려하고 라마단 기간에 금식하기도 한다. 라마단 날짜는 이슬람 음력에 따라 해마다 양력에서 달라진다. 공동체와 개인마다 실천 방식과 예외가 다르므로, 학교는 메뉴와 주요 재료, 행사 일정을 미리 알리고 선택 가능한 방식을 마련할 수 있다.
+옷차림은 신앙과 정체성을 나타내기도 한다. 일부 무슬림 여성은 히잡을 착용한다. 종교 실천은 공동체와 개인에 따라 다르게 나타난다.
 
-여러 배경의 사람이 함께 참여하려면 대화로 선택지를 넓히고 급식·행사 운영 조건을 살펴야 한다. 한 가지 식사 방식이나 일정만 두면 일부 학생의 참여가 어려워질 수 있다. 정보 제공, 예산, 일정과 공간, 의견을 듣는 절차를 함께 조정해 보자. 이어지는 협의는 실제 학교를 묘사하지 않는 가상 상황이다. 역할 속 학생은 특정 종교 집단을 대표하지 않으며, 모두가 참여할 조건을 설계하는 데 목적이 있다.
+종교 의례는 하루와 한 해의 시간을 구성한다. 많은 무슬림은 라마단 기간 낮 시간에 금식하고, 금요일에는 정오 무렵 공동 예배를 드린다. 유대교의 샤밧(안식일)은 금요일 해 질 무렵부터 토요일 해 질 무렵까지 이어지며, 휴식·예배·가족 식사의 시간으로 지킨다.
+
+종교 축제는 믿음과 공동체의 역사를 기념한다. 크리스트교의 성탄절, 이슬람교의 이드 알피트르, 힌두교의 디왈리, 불교의 베삭, 유대교의 유월절은 절기와 의례의 사례다.
+
+## 종교 경관과 함께 살아가기
+
+성당과 교회, 모스크, 사찰, 힌두교 사원, 시너고그와 순례길은 종교 경관과 문화유산을 이룬다. 성지에는 순례자와 관광객이 함께 찾기도 한다. 방문은 교통·숙박·상업 등 지역 활동과 연결되며, 관광 계획에는 종교 의례와 주민 생활, 문화유산 보전이 함께 고려된다. 예루살렘·메카·메디나·바라나시·부다가야의 위치와 종교 전통의 연결을 찾아보자. [[d3]]
+
+학교와 지역 시설은 사전 안내와 선택지를 마련해 종교 배경이 다른 사람들의 참여를 도울 수 있다. 급식 재료와 조리 정보를 알리고 할랄·채식 등 식사 선택지를 둔다. 행사 일정을 미리 공유해 라마단과 샤밧, 종교 축제와 겹치는지 살핀다. 필요한 공간과 참여 방법은 당사자와 협의하고, 종교를 공개하지 않아도 의견을 낼 통로를 둔다. 식사·시간·공간·의견 수렴 가운데 실행할 배려를 개념도에 연결해 제안하자. [[d4]]

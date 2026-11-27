@@ -1,0 +1,27 @@
+items:
+  - src: /images/02-03/religion-diffusion-schematic.svg
+    prompt: |-
+      Use case: conceptual diagram for high-school geography lesson 02-03, explaining religious diffusion without presenting a single route or ranking.
+      Asset type: hand-authored SVG concept diagram.
+      Primary request: Show that human movement and encounter, trade networks, and political or institutional relationships can contribute to religious transmission and reception. Show that local communities interpret and choose how traditions continue, resulting in varied everyday practices and religious landscapes. Do not suggest a single cause, one-way route, fixed identity, or hierarchy among religions.
+      Scene/backdrop: Neutral diagram on a light background with three contributing contexts flowing toward transmission and reception, then toward local interpretation and varied landscapes.
+      Text: Korean labels only, all visible text at least 14 px. No dates, quantities, numerical scale, source line, title, or subtitle inside the figure.
+      Style/medium: Hand-authored vector SVG with restrained muted green, warm neutral, and soft violet colors; clear rounded boxes and directional arrows.
+      Constraints: Do not imitate the textbook map, use real borders or routes, evaluate religions, or imply that one tradition is more influential or advanced.
+    model: Hand-authored SVG
+    createdAt: '2026-11-27'
+    usedIn: '02-03 lesson 1'
+    alt: 사람의 이동과 교역, 정치적 관계가 종교 전파와 수용에 함께 작용하고 지역 공동체의 해석이 다양한 종교 경관으로 이어지는 개념도다.
+  - src: /images/02-03/religion-everyday-life-schematic.svg
+    prompt: |-
+      Use case: conceptual diagram for high-school geography lesson 02-03, showing possible relationships between religious traditions and everyday life while preserving individual agency.
+      Asset type: hand-authored SVG concept diagram.
+      Primary request: Place religious tradition, local and community context, and individual interpretation at the center. Connect this context bidirectionally with food and ingredients, time and ritual, community relationships, and spaces and landscapes. Make clear that people within the same tradition have varied ways of living and needs.
+      Scene/backdrop: A centered concept node with four surrounding everyday-life domains and two-way arrows; no human figures or culturally identifying objects.
+      Text: Korean labels only, all visible text at least 14 px. No dates, quantities, numerical scale, source line, title, or subtitle inside the figure.
+      Style/medium: Hand-authored vector SVG with restrained muted green, warm neutral, and soft violet colors; clear rounded boxes and directional arrows.
+      Constraints: Do not portray any religion as determining every person's behavior, characterize a group as a burden or threat, or rank religious traditions.
+    model: Hand-authored SVG
+    createdAt: '2026-11-27'
+    usedIn: '02-03 lesson 3'
+    alt: 종교 전통과 지역, 공동체, 개인의 해석이 식사·시간과 의례·공동체 관계·공간과 경관에 서로 영향을 주며 실천은 사람마다 다를 수 있음을 나타낸 개념도다.

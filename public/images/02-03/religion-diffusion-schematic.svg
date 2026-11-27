@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-label="사람의 이동과 교역, 정치적 관계가 종교 전파와 수용에 함께 작용하고 지역 공동체의 해석이 다양한 종교 경관으로 이어지는 개념도">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#527b6e" />
+    </marker>
+  </defs>
+  <rect x="60" y="54" width="300" height="112" rx="24" fill="#f1e8d8" stroke="#9b7a4f" stroke-width="3" />
+  <text x="210" y="101" text-anchor="middle" font-family="sans-serif" font-size="24" fill="#2f302d">사람의 이동과 만남</text>
+  <text x="210" y="137" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#4a4b45">이주와 교류</text>
+
+  <rect x="450" y="54" width="300" height="112" rx="24" fill="#e2eee8" stroke="#527b6e" stroke-width="3" />
+  <text x="600" y="101" text-anchor="middle" font-family="sans-serif" font-size="24" fill="#2f302d">교역과 관계망</text>
+  <text x="600" y="137" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#4a4b45">지역 간 접촉</text>
+
+  <rect x="840" y="54" width="300" height="112" rx="24" fill="#e8e7f0" stroke="#77718c" stroke-width="3" />
+  <text x="990" y="101" text-anchor="middle" font-family="sans-serif" font-size="24" fill="#2f302d">정치와 제도</text>
+  <text x="990" y="137" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#4a4b45">시대별 조건</text>
+
+  <path d="M 210 166 C 245 255, 365 276, 480 310" fill="none" stroke="#527b6e" stroke-width="4" marker-end="url(#arrow)" />
+  <path d="M 600 166 L 600 292" fill="none" stroke="#527b6e" stroke-width="4" marker-end="url(#arrow)" />
+  <path d="M 990 166 C 955 255, 835 276, 720 310" fill="none" stroke="#527b6e" stroke-width="4" marker-end="url(#arrow)" />
+
+  <rect x="390" y="300" width="420" height="112" rx="28" fill="#dce9e2" stroke="#527b6e" stroke-width="4" />
+  <text x="600" y="349" text-anchor="middle" font-family="sans-serif" font-size="27" font-weight="700" fill="#26332e">종교 전통의 전파와 수용</text>
+  <text x="600" y="385" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#40544b">공동체와 지역에 따라 다른 과정</text>
+
+  <path d="M 600 412 L 600 482" fill="none" stroke="#527b6e" stroke-width="4" marker-end="url(#arrow)" />
+
+  <rect x="270" y="492" width="660" height="92" rx="24" fill="#f7f4ed" stroke="#9b7a4f" stroke-width="3" />
+  <text x="600" y="530" text-anchor="middle" font-family="sans-serif" font-size="24" fill="#2f302d">지역 공동체의 해석과 선택</text>
+  <text x="600" y="562" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#4a4b45">다양한 생활 관행과 종교 경관으로 이어짐</text>
+</svg>
