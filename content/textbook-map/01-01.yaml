@@ -1,0 +1,76 @@
+unit: '01-01'
+textbookScope: [10, 21]
+lessonOpeningPages: [10, 11]
+unitSummaryPages: [19]
+adjacentUnitOpeningPages: [20, 21]
+lessons:
+  - index: 1
+    textbookPages: [10, 11]
+    supplementaryPages: [18]
+    goalGist: 세계화의 의미와 경제·문화·정보 흐름이 일상 및 지역에 미치는 영향을 설명한다.
+    topics:
+      - title: 세계화의 의미
+        concepts: [국경 간 이동과 장소 간 상호연관성, 교통·통신의 발달, 여러 지리적 스케일의 상호작용]
+        textbookMaterials: [세계화의 일상 사례, 청바지 생산·유통의 지역별 분업]
+        ourData: [wdi-trade-share-map, wdi-trade-share-series]
+      - title: 세계화의 영향
+        concepts: [경제적 국제 분업, 기업과 산업의 전략, 국가 간 경제적 불균등, 문화 공유와 획일화, 연결망의 변화]
+        textbookMaterials: [문화 콘텐츠의 이동, 감염병과 국제 연결, 세계도시의 기능]
+        ourData: [apparel-trade, wdi-internet-use-series]
+  - index: 2
+    textbookPages: [12, 13]
+    supplementaryPages: [17]
+    goalGist: 지역화와 세계지역화의 뜻을 이해하고 지역 브랜드·지리적 표시 등 지역의 대응 전략을 설명한다.
+    topics:
+      - title: 지역화의 의미와 전략
+        concepts: [지역의 고유성, 지역 브랜드화, 지리적 표시제]
+        textbookMaterials: [지역 브랜드 사례, 세계의 지리적 표시 상품]
+        ourData: [region-canary-islands-point, region-canary-islands-series, region-south-tyrol-point, region-south-tyrol-series]
+      - title: 세계화와 지역화의 결합
+        concepts: [세계화와 지역화의 상호작용, 세계지역화, 지역의 조건과 주민 선택]
+        textbookMaterials: [세계화와 지역 특성이 결합된 상품·문화 사례]
+        ourData: ['개념도:global-local-flow']
+  - index: 3
+    textbookPages: [14, 16]
+    goalGist: 다중 스케일 관점과 관계적 사고를 이해하고 세계시민으로서 여러 수준의 역할과 실천을 살핀다.
+    topics:
+      - title: 다중 스케일 관점
+        concepts: [세계·국가·지역·개인 규모, 여러 행위자의 상호작용]
+        textbookMaterials: [기후변화 대응의 공간 규모별 사례]
+        ourData: ['개념도:scales-and-relations', wdi-trade-share-map]
+      - title: 관계적 사고와 세계시민의 역할
+        concepts: [장소 간 상호의존, 개인 선택의 원거리 영향, 세계시민성, 공동의 실천]
+        textbookMaterials: [윤리적 소비, 세계 연결망의 영향, 행동하는 세계시민 사례]
+        ourData: [apparel-trade, wdi-internet-use-map]
+
+dataJudgement:
+  existingEnoughTopics:
+    - lesson: 1
+      topic: 상품·서비스 교역, 국제 분업, 정보 연결의 공간 차이
+      data: [wdi-trade-share-map, wdi-trade-share-series, apparel-trade, wdi-internet-use-series]
+    - lesson: 2
+      topic: 지역 관광 흐름과 지역별 변화 비교
+      data: [region-canary-islands-point, region-canary-islands-series, region-south-tyrol-point, region-south-tyrol-series]
+    - lesson: 3
+      topic: 소비 시장·원산지·국가별 무역 및 정보 접근의 관계
+      data: [apparel-trade, wdi-trade-share-map, wdi-internet-use-map]
+  newRealDataTopics: []
+  conceptualDiagramTopics:
+    - lesson: 2
+      topic: 세계적 흐름과 지역의 조건·선택이 서로 영향을 주는 관계
+      data: ['개념도:global-local-flow']
+    - lesson: 3
+      topic: 개인·지역·국가·세계 규모의 상호작용
+      data: ['개념도:scales-and-relations']
+  lessonDataCounts:
+    - lesson: 1
+      realDataCount: 4
+      totalMaterialCount: 4
+    - lesson: 2
+      realDataCount: 4
+      conceptualDiagramCount: 1
+      totalMaterialCount: 5
+    - lesson: 3
+      realDataCount: 3
+      conceptualDiagramCount: 1
+      totalMaterialCount: 4

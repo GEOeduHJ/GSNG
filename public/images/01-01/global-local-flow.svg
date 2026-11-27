@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 310" role="img" aria-label="세계적 흐름과 지역 선택의 상호작용">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2f6f5e"/>
+    </marker>
+    <marker id="arrow-start" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8a7b63"/>
+    </marker>
+  </defs>
+  <rect x="28" y="44" width="230" height="112" rx="16" fill="#eef3ec" stroke="#2f6f5e" stroke-width="2.5"/>
+  <rect x="335" y="44" width="230" height="112" rx="16" fill="#f4f1e8" stroke="#8a7b63" stroke-width="2.5"/>
+  <rect x="642" y="44" width="230" height="112" rx="16" fill="#e9f0f2" stroke="#527b88" stroke-width="2.5"/>
+  <text x="143" y="88" text-anchor="middle" font-size="20" font-weight="700" fill="#24332e">세계적 흐름</text>
+  <text x="143" y="123" text-anchor="middle" font-size="16" fill="#3c5149">상품 · 정보 · 사람</text>
+  <text x="450" y="88" text-anchor="middle" font-size="20" font-weight="700" fill="#3e382f">지역의 조건</text>
+  <text x="450" y="123" text-anchor="middle" font-size="16" fill="#514a40">환경 · 문화 · 기술</text>
+  <text x="757" y="88" text-anchor="middle" font-size="20" font-weight="700" fill="#293b40">주민과 제도의 선택</text>
+  <text x="757" y="123" text-anchor="middle" font-size="16" fill="#435d63">수용 · 조정 · 새 구성</text>
+  <path d="M262 100 H322" fill="none" stroke="#2f6f5e" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M332 128 H272" fill="none" stroke="#8a7b63" stroke-width="2.5" marker-end="url(#arrow-start)"/>
+  <path d="M569 100 H629" fill="none" stroke="#2f6f5e" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M639 128 H579" fill="none" stroke="#8a7b63" stroke-width="2.5" marker-end="url(#arrow-start)"/>
+  <path d="M757 170 C757 235 143 235 143 170" fill="none" stroke="#527b88" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <rect x="295" y="214" width="310" height="42" rx="18" fill="#fff" stroke="#c8d4cf" stroke-width="1.5"/>
+  <text x="450" y="241" text-anchor="middle" font-size="16" fill="#3d514a">지역의 표현과 가치가 다시 바깥과 연결됨</text>
+</svg>

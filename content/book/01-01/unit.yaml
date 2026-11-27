@@ -35,7 +35,7 @@ closing:
       type: chart
       data: /data/01-01/region-south-tyrol-series.json
       source: region-south-tyrol-series
-      caption: 남티롤 관광 숙박일수, 2014–2024년
-      alt: 남티롤 관광 숙박일수의 2014년부터 2024년까지 변화를 나타낸 선 그래프다.
-      config: { kind: line, maxYear: 2024 }
+      caption: 남티롤 관광 숙박일수, 2014–2025년
+      alt: 남티롤 관광 숙박일수의 2014년부터 2025년까지 변화를 나타낸 선 그래프다.
+      config: { kind: line, maxYear: 2025, unit: '박' }
       concepts: [interdependence, scale, glocalization]

@@ -1,0 +1,17 @@
+items:
+  - src: /images/01-01/global-local-flow.svg
+    prompt: |-
+      Hand-authored concept diagram for lesson 2. Show a two-way relationship between global flows, local conditions and resident choices, and new regional expressions that connect back to wider exchange. Use Korean labels only. Do not depict measured values, dates, map boundaries, brands, or a named region.
+    model: Hand-authored SVG
+    createdAt: '2026-11-27'
+    usedIn: '01-01 lesson 2'
+    alt: 세계적 흐름이 지역의 조건과 주민 선택에 맞춰 새롭게 나타나고, 지역의 표현과 가치가 다시 세계와 연결되는 과정을 나타낸다.
+    basis: 세계화·지역화·세계지역화의 관계를 설명하는 자체 제작 개념도.
+  - src: /images/01-01/scales-and-relations.svg
+    prompt: |-
+      Hand-authored concept diagram for lesson 3. Lay out global, national, local, and individual scales with connected actors and two-way influence among them. Use Korean labels only. Do not make the levels a hierarchy of importance. Do not depict measured values, dates, or a specific real-world case.
+    model: Hand-authored SVG
+    createdAt: '2026-11-27'
+    usedIn: '01-01 lesson 3'
+    alt: 세계·국가·지역·개인 규모의 제도와 선택이 서로 영향을 주고받는 관계를 나타낸다.
+    basis: 다중 스케일 관점과 관계적 사고를 설명하는 자체 제작 개념도.

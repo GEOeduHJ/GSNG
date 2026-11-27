@@ -2,10 +2,10 @@
 sources:
   unesco-gced:
     sourceDate: null
-    checkedAt: null
-    licenseStatus: 자료 자체를 재배포하지 않음. 개별 자료 이용 조건은 미검토.
-    reuseBasis: 링크만 제공. 표·이미지·데이터를 포함할 경우 항목별 이용 조건을 확인해야 함.
-    verificationStatus: 링크와 개별 학습 주장에 대한 전수 검증 전.
+    checkedAt: '2026-11-27'
+    licenseStatus: 링크만 제공. 교육 콘텐츠·이미지·표를 재사용할 경우 항목별 이용 조건을 확인해야 함.
+    reuseBasis: 세계시민교육에서 지역·세계의 연결, 문화 다양성과 참여를 설명하는 UNESCO 공식 안내. 원문 문장과 시각 자료는 복제하지 않음.
+    verificationStatus: UNESCO 공식 안내에서 지역·세계 차원의 참여와 문화 다양성 존중을 확인. 이 모듈은 개념을 독립적인 한국어 문장으로 서술함.
     title: "Global Citizenship Education: What You Need to Know"
     organization: UNESCO
     url: https://www.unesco.org/en/global-citizenship-peace-education/need-know?hub=84606
@@ -355,3 +355,53 @@ sources:
     reuseBasis: 미국 Census 공식 수입 자료. 국가별 원산지와 품목 코드, 일반수입액을 포함하며 이 단원 파일은 HS 61–62 의류에 한정됨.
     verificationStatus: U.S. Census Bureau 공식 페이지에서 일반수입 자료의 원산지·품목·가치 항목과 2025년 월별 파일 제공을 확인. 정적 파일의 개별 값은 manifest와 가공 자료에 대조해야 함.
     usage: 미국이 수입한 의류의 원산지별 통계로 표시하고 세계 전체 무역이나 개별 제품의 경로로 일반화하지 않습니다.
+  eurostat-gisco-nuts:
+    title: Statistical units geodata
+    organization: Eurostat GISCO
+    url: https://ec.europa.eu/eurostat/web/gisco/geodata/statistical-units
+    sourceDate: '2021 NUTS boundaries'
+    checkedAt: '2026-11-27'
+    licenseStatus: 비상업적 이용. 출처 및 © EuroGeographics (행정 경계) 표시 필요.
+    reuseBasis: NUTS 지역 대표 지점의 바탕이 된 GISCO 지리 자료와 이용 조건을 확인하는 공식 안내. 원 경계 도형은 재배포하지 않음.
+    verificationStatus: Eurostat GISCO의 통계 단위 안내에서 비상업적 이용과 저작권 문구 표시 조건을 확인. 정적 산출물은 해당 문구를 manifest attribution으로 전달함.
+    usage: 점 지도를 표시할 때 출처와 © EuroGeographics (행정 경계)를 함께 표시합니다.
+  wipo-geographical-indications:
+    title: Geographical Indications
+    organization: World Intellectual Property Organization (WIPO)
+    url: https://www.wipo.int/en/web/geographical-indications
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 링크만 제공. 원문·도판의 재사용 권리는 별도 확인 필요.
+    reuseBasis: 지리적 표시와 상품의 지리적 기원·품질·평판의 관계를 확인하는 WIPO 공식 안내. 원문 문장과 도판은 복제하지 않음.
+    verificationStatus: WIPO 공식 설명에서 지리적 표시가 특정 장소와 연결된 상품의 품질·특성·평판을 나타낸다는 정의를 확인.
+    usage: 지리적 표시제 개념을 설명할 때 WIPO를 출처로 표시하고, 제도별 보호 범위는 해당 관할의 자료를 확인합니다.
+  gawc-world-cities:
+    title: About GaWC
+    organization: Globalization and World Cities Research Network, Loughborough University
+    url: https://gawc.lboro.ac.uk/about/
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 링크만 제공. 연구 문장·표·분류 자료의 재사용 조건은 별도 확인 필요.
+    reuseBasis: 도시 간 관계와 기업 서비스가 세계화에서 갖는 역할을 확인하는 대학 기반 연구 네트워크 자료. 순위표와 원문은 복제하지 않음.
+    verificationStatus: GaWC 공식 소개에서 도시 간 대외 관계와 기업의 고급 사업 서비스를 연구하는 관점을 확인.
+    usage: 세계도시 개념의 참고 자료로 사용하며, GaWC 분류는 연구 기준에 따른 분석으로 소개합니다.
+  nyc-economic-development:
+    title: Economic Development
+    organization: NYC Mayor's Office for International Affairs · New York City Economic Development Corporation
+    url: https://www.nyc.gov/site/international/services/international-business.page
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 링크만 제공. 원문과 이미지의 재사용 조건은 별도 확인 필요.
+    reuseBasis: 뉴욕시의 금융·문화·미디어 등 국제 경제 분야를 소개하는 시 정부 안내. 해당 기관의 관점을 밝히고 원문은 복제하지 않음.
+    verificationStatus: 뉴욕시 공식 안내에서 금융·패션·미디어 등 도시의 국제적 산업 분야를 확인. 도시 자체의 홍보 관점을 가진 자료임을 함께 기록함.
+    usage: 뉴욕의 산업 분야를 소개하는 참고 링크로 사용하며, 세계도시의 전체 기능이나 순위를 단독으로 입증하는 자료로 쓰지 않습니다.
+  who-travel-health:
+    title: Minimizing health risks at airports, ports and ground crossings
+    organization: World Health Organization (WHO)
+    url: https://www.who.int/activities/minimizing-health-risks-at-airports-ports-and-ground-crossings
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 링크만 제공. WHO 원문·이미지의 재사용 조건은 별도 확인 필요.
+    reuseBasis: 국제 교통·여행·무역과 국경 통과 지점의 공중보건 대응을 확인하는 WHO 공식 안내. 원문과 시각 자료는 복제하지 않음.
+    verificationStatus: WHO 안내에서 국제 이동망이 질병 확산의 경로가 될 수 있고 공항·항만 등에서 위험 관리가 이루어짐을 확인.
+    usage: 이동과 공중보건의 관계를 설명하는 공식 참고 자료로 사용합니다.

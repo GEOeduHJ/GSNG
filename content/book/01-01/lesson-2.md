@@ -1,53 +1,88 @@
 ---
 title: '세계화 시대에 지역은 어떻게 대응할까?'
-goal: 세계적 흐름이 지역 조건과 만나 달라지는 모습을 카나리아 제도 자료로 분석하고 대응 방안을 기준에 따라 평가할 수 있다.
+goal: 지역화 전략과 세계화의 상호작용을 사례 자료에 근거해 설명하고 지역의 선택을 평가할 수 있다.
+opener: 세계적으로 알려진 상품이나 장소가 지역의 고유한 특성과 만날 때 어떤 모습이 생길까? 그 과정에서 주민은 어떤 선택을 할 수 있을까?
+textbookRef: { pages: [12, 13] }
 steps:
-  - { id: s1, type: text, caption: '', source: '', alt: '' }
-  - id: s2
+  - id: d1
     type: map
     data: /data/01-01/region-canary-islands-point.geojson
+    label: 카나리아 제도 위치
+    caption: 카나리아 제도 통계 지역의 대표 지점, 2021년
     source: region-canary-islands-point
-    caption: 카나리아 제도 대표 지점, 2021년
-    alt: 지도 위에 카나리아 제도의 대표 위치를 나타낸 점 자료다.
-    config: { kind: points }
+    alt: 유럽 지도에서 카나리아 제도 통계 지역의 대표 위치를 점으로 나타낸 지도다.
+    config: { kind: points, unit: '대표 지점' }
     concepts: [scale, glocalization]
-  - id: s3
+  - id: d2
     type: chart
     data: /data/01-01/region-canary-islands-series.json
+    label: 카나리아 제도 관광 숙박일수
+    caption: 카나리아 제도 관광 숙박시설 숙박일수, 2014–2025년
     source: region-canary-islands-series
-    caption: 카나리아 제도 관광 숙박일수, 2014–2024년
-    alt: 카나리아 제도 관광 숙박일수의 연도별 변화를 나타낸 선 그래프다.
-    config: { kind: line, maxYear: 2024 }
+    alt: 카나리아 제도 관광 숙박시설에서 보낸 밤의 연도별 합계를 나타낸 선 그래프다.
+    config: { kind: line, maxYear: 2025, unit: '박' }
     concepts: [interdependence, glocalization]
-  - { id: s4, type: text, caption: '', source: '', alt: '' }
-  - { id: s5, type: text, caption: '', source: '', alt: '' }
-keyTerms: [glocalization, interdependence, scale]
+  - id: d3
+    type: map
+    data: /data/01-01/region-south-tyrol-point.geojson
+    label: 남티롤 위치
+    caption: 남티롤 통계 지역의 대표 지점, 2021년
+    source: region-south-tyrol-point
+    alt: 이탈리아 북부 지도에서 남티롤 통계 지역의 대표 위치를 점으로 나타낸 지도다.
+    config: { kind: points, unit: '대표 지점' }
+    concepts: [scale, glocalization]
+  - id: d4
+    type: chart
+    data: /data/01-01/region-south-tyrol-series.json
+    label: 남티롤 관광 숙박일수
+    caption: 남티롤 관광 숙박시설 숙박일수, 2014–2025년
+    source: region-south-tyrol-series
+    alt: 남티롤 관광 숙박시설에서 보낸 밤의 연도별 합계를 나타낸 선 그래프다.
+    config: { kind: line, maxYear: 2025, unit: '박' }
+    concepts: [interdependence, glocalization]
+  - id: d5
+    type: image
+    schematic: true
+    data: /images/01-01/global-local-flow.svg
+    label: 세계적 흐름과 지역의 선택
+    caption: 세계화와 지역화의 상호작용
+    source: ''
+    alt: 세계적 흐름이 지역의 조건과 주민 선택에 맞춰 새롭게 나타나고, 지역의 표현과 가치가 다시 세계와 연결되는 과정을 나타낸 개념도다.
+    config: {}
+    concepts: [glocalization, interdependence, scale]
+summary:
+  - 지역화는 지역의 고유한 조건과 자율성을 바탕으로 독자적인 가치를 키우는 과정이다.
+  - 지역 브랜드와 지리적 표시제는 지역의 자원·기술·이름을 바깥의 소비자와 연결한다.
+  - 세계지역화는 세계적 흐름이 지역의 조건과 주민의 선택을 만나 새롭게 구성되는 과정이다.
 activity:
   template: decision-matrix
-  fictional: false
+  fictional: true
   config:
-    title: 카나리아 제도의 대응 방안 평가
-    instruction: 관광 숙박일수 자료가 보여 주는 변화와 한계를 확인하고, 각 방안의 이익과 부담을 기준별로 비교한다.
-    prompt: 주민 생활·지역 경제·환경 부담을 각각 살펴보고 가장 설득력 있는 대응을 근거와 함께 고르시오.
+    title: 가상 지역의 브랜드 전략 고르기
+    instruction: 가상 지역의 자연·문화·기술 조건과 주민의 의견을 고려해 지역화 전략을 비교한다.
+    prompt: 지역의 고유성을 살리면서 주민의 참여와 지속 가능한 지역 경제를 고려할 수 있는 방안을 근거와 함께 고르시오.
     options:
-      - { id: expand, label: 관광 시설과 방문 규모 확대 }
-      - { id: manage, label: 체류 기간과 방문 장소 관리·분산 }
-      - { id: diversify, label: 지역 산업 다각화 }
+      - { id: product, label: 지역의 특산품과 생산 기술 알리기 }
+      - { id: place, label: 지역의 장소와 이야기를 연결한 방문 경험 만들기 }
+      - { id: exchange, label: 바깥의 문화·산업과 협력해 새 상품이나 행사 기획하기 }
     criteria:
-      - { id: residents, label: 주민 생활 }
-      - { id: economy, label: 지역 경제 }
-      - { id: environment, label: 환경 부담 }
-sourceIds: [eurostat-regional-tourism]
+      - { id: distinctiveness, label: 지역의 고유한 조건 반영 }
+      - { id: participation, label: 주민과 생산자의 참여 }
+      - { id: sustainability, label: 지역 경제와 생활의 지속 가능성 }
+keyTerms: [glocalization, interdependence, scale]
+sourceIds: [eurostat-regional-tourism, eurostat-gisco-nuts, wipo-geographical-indications]
 illustration:
   src: /images/01-01/lesson-2-local-response.webp
   alt: 여러 연령과 배경의 이웃들이 상자 속 생활 물품과 지역에서 기른 채소를 함께 살피며 공동 공간을 꾸민다.
 ---
-세계적 흐름은 지역마다 다른 자연·문화·경제 조건과 만나 여러 모습으로 나타난다. glocalization(세계지역화)은 세계적 흐름을 지역의 조건과 주민의 선택에 맞게 받아들이고 새롭게 바꾸는 과정이다. 지역 주민과 기관은 흐름에 대응하며 지역의 모습을 만들어 간다.
+## 지역화의 의미와 전략
 
-카나리아 제도 대표 지점 자료에서 사례 지역의 위치를 확인한다. 점으로 표시된 위치와 통계의 집계 범위를 나누어 살펴본다. 지역의 경계와 주민 분포, 관광 활동 범위는 각각 해당 지역 자료에서 확인한다.
+지역화는 한 지역이 고유한 조건과 자율성을 살려 세계 속에서 독자적인 가치를 키우는 과정이다. 지역 브랜드화는 장소·상품·축제의 특징을 알리고 지역의 선택을 넓히는 전략이다. geographical indication(지리적 표시제)은 상품의 특성과 평판이 생산 지역과 연결됨을 나타내는 제도다. 지역의 자연환경과 축적된 기술, 주민의 경험을 살펴 전략의 바탕을 찾는다.
 
-카나리아 제도의 관광 숙박일수는 2019년 약 9,611만 박에서 2020년 약 2,914만 박으로 줄었다. 2024년에는 약 9,949만 박으로 늘었다. 이 값은 관광 숙박시설에서 보낸 밤을 합한 숙박일수다. 방문객 수와 주민의 생활 변화, 변화의 원인은 관련 자료를 함께 살펴 확인한다.
+지역의 경제 활동은 세계의 이동과 연결될 수 있다. 카나리아 제도 통계 지역의 대표 지점을 지도에서 찾고, 이 지역의 관광 숙박시설 이용 흐름을 살펴보자. 숙박일수는 시설에서 보낸 밤의 합계다. 2019년 약 9,611만 박에서 2020년 약 2,914만 박으로 낮아졌고, 2025년 약 1억 232만 박으로 나타난다. 이 변화와 함께 지역의 산업·주민 생활 자료를 살피면 지역의 대응을 구체적으로 비교할 수 있다. [[d1]] [[d2]]
 
-관광 확대는 지역 경제 활동을 늘릴 수 있고 주민 생활과 환경에 부담을 줄 수도 있다. 방문 장소와 시기를 관리하거나 지역 산업을 다각화하는 방안도 함께 비교해 보자. 각 대안이 주민·사업자·공공기관에 주는 이익과 비용을 살피면 선택에 따른 차이가 드러난다.
+남티롤(이탈리아 볼차노 자치주)의 대표 지점도 지도에서 확인한다. 숙박일수는 2019년 약 3,364만 박, 2020년 약 2,170만 박, 2025년 약 3,824만 박이다. 카나리아 제도와 남티롤의 시계열에서 공통된 변화와 다른 흐름을 찾아보자. 숙박일수는 관광 숙박시설의 이용을 기록하므로 방문객 수·지출·주민 의견은 지역 자료를 더해 설명한다. [[d3]] [[d4]]
 
-대응을 평가할 때에는 누가 이익을 얻고 부담을 지는지, 누가 선택을 결정하는지 함께 살핀다. 숙박일수와 주민의 의견, 지역 경제·환경 자료를 연결하면 세계적 흐름이 지역에 미치는 영향을 구체적으로 설명할 수 있다.
+## 세계화와 지역화의 결합
+
+glocalization(세계지역화)은 세계적 흐름을 지역의 조건과 선택에 맞게 받아들이고 다시 구성하는 과정이다. 지역은 외부의 상품·정보·방문을 받아들이며 고유한 자원을 살린 상품과 경험을 만들 수 있다. 지역의 선택과 표현은 다시 바깥의 소비자와 공동체에 알려진다. 개념도에서 세계와 지역 사이의 영향이 오가는 흐름을 확인해 보자. [[d5]]

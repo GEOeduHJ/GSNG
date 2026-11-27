@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" role="img" aria-label="공간 규모와 행위자의 상호작용">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2f6f5e"/>
+    </marker>
+    <marker id="arrow-start" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8a7b63"/>
+    </marker>
+  </defs>
+  <rect x="70" y="24" width="250" height="64" rx="14" fill="#eef3ec" stroke="#2f6f5e" stroke-width="2"/>
+  <rect x="70" y="116" width="250" height="64" rx="14" fill="#f3f0e7" stroke="#8a7b63" stroke-width="2"/>
+  <rect x="70" y="208" width="250" height="64" rx="14" fill="#e9f0f2" stroke="#527b88" stroke-width="2"/>
+  <rect x="70" y="300" width="250" height="64" rx="14" fill="#f5eee8" stroke="#9a765e" stroke-width="2"/>
+  <text x="110" y="63" text-anchor="middle" font-size="18" font-weight="700" fill="#24332e">세계</text>
+  <text x="226" y="63" text-anchor="middle" font-size="16" fill="#3c5149">국제 규범 · 교류</text>
+  <text x="110" y="155" text-anchor="middle" font-size="18" font-weight="700" fill="#3e382f">국가</text>
+  <text x="226" y="155" text-anchor="middle" font-size="16" fill="#514a40">정책 · 제도</text>
+  <text x="110" y="247" text-anchor="middle" font-size="18" font-weight="700" fill="#293b40">지역</text>
+  <text x="226" y="247" text-anchor="middle" font-size="16" fill="#435d63">기관 · 공동체</text>
+  <text x="110" y="339" text-anchor="middle" font-size="18" font-weight="700" fill="#49382f">개인</text>
+  <text x="226" y="339" text-anchor="middle" font-size="16" fill="#665044">선택 · 참여</text>
+  <path d="M395 58 C465 58 465 150 395 150" fill="none" stroke="#527b88" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
+  <path d="M395 150 C465 150 465 242 395 242" fill="none" stroke="#527b88" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
+  <path d="M395 242 C465 242 465 334 395 334" fill="none" stroke="#527b88" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
+  <rect x="505" y="114" width="330" height="168" rx="18" fill="#fff" stroke="#cad6d2" stroke-width="2"/>
+  <text x="670" y="159" text-anchor="middle" font-size="20" font-weight="700" fill="#24332e">서로 이어지는 영향</text>
+  <text x="670" y="199" text-anchor="middle" font-size="16" fill="#3c5149">한 곳의 결정이 다른 곳에 닿고</text>
+  <text x="670" y="229" text-anchor="middle" font-size="16" fill="#3c5149">다른 규모의 대응이 다시 연결됨</text>
+  <path d="M523 303 C485 347 420 347 375 324" fill="none" stroke="#9a765e" stroke-width="2.5" marker-end="url(#arrow-start)"/>
+  <path d="M375 276 C445 296 483 290 510 267" fill="none" stroke="#2f6f5e" stroke-width="2.5" marker-end="url(#arrow)"/>
+</svg>
