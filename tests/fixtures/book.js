@@ -1,19 +1,36 @@
 // Shared test fixture: a two-part table of contents with one full unit (01-01).
+import { legacySections } from '../../src/content-loader/parse.js';
+
 const textStep = (id) => ({ id, type: 'text', caption: '', source: '', alt: `${id} 설명`, config: {}, schematic: false, concepts: [] });
 const chartStep = (id, concepts = []) => ({ id, type: 'chart', data: `/data/01-01/${id}.json`, caption: `${id} 자료`, source: `src-${id}`, alt: `${id} 그래프 설명`, config: { kind: 'bar', x: 'name', y: 'value', unit: '%', year: 2023 }, schematic: false, concepts });
 
 function lesson(index, keyTerms) {
+  const paragraphs = [`절${index} 문단 1`, `절${index} 문단 2`, `절${index} 문단 3`, `절${index} 문단 4`];
+  const steps = [textStep(`l${index}s1`), chartStep(`l${index}s2`, keyTerms), chartStep(`l${index}s3`), textStep(`l${index}s4`)];
   return {
     id: `lesson-01-01-${index}`, unitId: '01-01', index, title: `절 ${index} 제목`, goal: `절 ${index} 목표`,
-    paragraphs: [`절${index} 문단 1`, `절${index} 문단 2`, `절${index} 문단 3`, `절${index} 문단 4`],
-    steps: [textStep(`l${index}s1`), chartStep(`l${index}s2`, keyTerms), chartStep(`l${index}s3`), textStep(`l${index}s4`)],
+    format: 'legacy', opener: '', summary: [], textbookRef: null,
+    paragraphs, steps, sections: legacySections(paragraphs, steps),
     keyTerms,
     activity: { template: index === 3 ? 'civic-hearing' : 'evidence-sort', config: {}, fictional: index === 3 },
     sourceIds: [],
   };
 }
 
-export function makeBook() {
+/** A lesson in the module format: two topics, three linked data steps, opener and summary. */
+function moduleLesson(index, keyTerms) {
+  const steps = [chartStep('m1', keyTerms), chartStep('m2'), chartStep('m3')].map((step) => ({ ...step, label: `${step.id} 그래프` }));
+  const sections = [
+    { title: '소주제 가', paragraphs: [{ text: '가 문단 1', refs: ['m1'] }, { text: '가 문단 2', refs: [] }] },
+    { title: '소주제 나', paragraphs: [{ text: '나 문단 1', refs: ['m2'] }, { text: '나 문단 2', refs: ['m3'] }] },
+  ];
+  return {
+    ...lesson(index, keyTerms), format: 'module', opener: '생각 열기 문장', summary: ['정리 1', '정리 2', '정리 3'], textbookRef: { pages: [1, 2] },
+    steps, sections, paragraphs: sections.flatMap((section) => section.paragraphs.map((p) => p.text)),
+  };
+}
+
+export function makeBook({ moduleLesson: useModule = false } = {}) {
   return {
     toc: { parts: [
       { id: 'part-01', numeral: 'I', title: '세계시민, 세계화와 지역 이해', units: [
@@ -29,7 +46,7 @@ export function makeBook() {
       concepts: ['interdependence', 'scale', 'glocalization'],
       opening: { intro: '중단원 소개 문장', focus: { kind: 'chart', step: chartStep('focus') } },
       closing: { summary: '정리 문장', bridge: '다음 중단원 연결 문장', transfer: { prompt: '새 지역 사례에 적용해 설명하기' } },
-      lessons: [lesson(1, ['interdependence']), lesson(2, ['glocalization']), lesson(3, ['scale'])],
+      lessons: [lesson(1, ['interdependence']), useModule ? moduleLesson(2, ['glocalization']) : lesson(2, ['glocalization']), lesson(3, ['scale'])],
     }],
     teacher: { '01-01': '# 교사용 안내\n\n- 발문: 예시 발문' },
     concepts: {
