@@ -3,6 +3,8 @@ import { useBook, useUnitRecord } from '../BookContext.jsx';
 import { resolveConceptId } from '../../content-loader/concepts.js';
 import { routes } from '../router.js';
 import { lessonBornQuestions, newQuestion, questionText, selectedQuestions } from './questions.js';
+import RoutineCard from '../lesson/RoutineCard.jsx';
+import { routineForSlot } from '../../content-loader/routines.js';
 
 export function relatedQuestions(record, lesson, concepts) {
   const lessonConcepts = new Set([...(lesson.keyTerms ?? []), ...lesson.steps.flatMap((step) => step.concepts ?? [])]
@@ -56,6 +58,7 @@ const LessonQuestions = forwardRef(function LessonQuestions({ unit, lesson, sele
   return (
     <section className="my-questions" ref={ref} aria-labelledby={`mq-${lesson.id}`}>
       <h2 id={`mq-${lesson.id}`}>내 질문과 이 절</h2>
+      <RoutineCard unit={unit} lesson={lesson} slot="closing" routine={routineForSlot(book, lesson, 'closing')} />
       <h3>여는 쪽에서 고른 질문에 근거 붙이기</h3>
       {priority.length === 0 && <p className="hint">아직 고른 질문이 없습니다. <a href={routes.open(unit.id)}>여는 쪽에서 질문을 먼저 만들어 보세요</a>.</p>}
       {priority.length > 0 && related.length === 0 && <p className="hint">이 절과 직접 이어진 개념의 질문은 없습니다. 고른 질문 가운데 이 자료로 답할 수 있는 것이 있다면 근거를 붙여 봅니다.</p>}

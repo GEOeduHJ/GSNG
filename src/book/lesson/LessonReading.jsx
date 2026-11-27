@@ -3,6 +3,8 @@ import { useBook } from '../BookContext.jsx';
 import { resolveConceptId } from '../../content-loader/concepts.js';
 import DataStage from './DataStage.jsx';
 import { buttonLabel, stepById } from './lessonData.js';
+import RoutineCard from './RoutineCard.jsx';
+import { routineForSlot } from '../../content-loader/routines.js';
 
 export function KeyTerms({ ids, concepts }) {
   const terms = ids.map((id) => concepts[resolveConceptId(id, concepts)]).filter(Boolean);
@@ -46,6 +48,7 @@ export default function LessonReading({ unit, lesson, wide, selectedId, onSelect
         <aside className="opener" aria-label="생각 열기">
           <p className="opener-label">생각 열기</p>
           <p>{lesson.opener}</p>
+          <RoutineCard unit={unit} lesson={lesson} slot="opener" routine={routineForSlot(book, lesson, 'opener')} />
         </aside>
       )}
       <div className="prose">

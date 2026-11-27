@@ -15,6 +15,7 @@ export function emptyUnitRecord(unitId) {
     reflection: '',
     stageTimes: {},
     activityState: {},
+    routineState: {},
   };
 }
 
@@ -45,7 +46,14 @@ export function normalizeUnitRecord(unitId, value = {}) {
     explanation: { ...base.explanation, ...(record.explanation && typeof record.explanation === 'object' ? record.explanation : {}), evidenceIds: Array.isArray(record.explanation?.evidenceIds) ? record.explanation.evidenceIds : [] },
     stageTimes: record.stageTimes && typeof record.stageTimes === 'object' ? record.stageTimes : {},
     activityState: record.activityState && typeof record.activityState === 'object' ? record.activityState : {},
+    routineState: isPlainObject(record.routineState)
+      ? Object.fromEntries(Object.entries(record.routineState).filter(([, value]) => isPlainObject(value)))
+      : {},
   };
+}
+
+function isPlainObject(value) {
+  return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
 }
 
 export function migrateV3(v3 = {}) {

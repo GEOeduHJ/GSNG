@@ -109,3 +109,10 @@ describe('lesson-born questions', () => {
     expect(lessonBornQuestions(record, 'l2').map((q) => q.text)).toEqual(['나']);
   });
 });
+
+describe('routine state', () => {
+  it('normalizes routineState to an object', () => {
+    expect(normalizeUnitRecord('01-01', { routineState: 'x' }).routineState).toEqual({});
+    expect(normalizeUnitRecord('01-01', { routineState: { l1: { opener: { see: 'a' } }, l2: 'bad' } }).routineState).toEqual({ l1: { opener: { see: 'a' } } });
+  });
+});

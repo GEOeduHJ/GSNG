@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { buildChartOption, chartHeader, chartRows, compactNumber } from '../src/viz/chartData.js';
 import { classBreaks, joinValues, legendLabels, formatNumber, pointCategories, countryNames, pointsView, mapOptions } from '../src/viz/mapData.js';
 import DataStage from '../src/book/lesson/DataStage.jsx';
@@ -363,5 +363,65 @@ describe('Korean display units', () => {
     vi.stubGlobal('fetch', vi.fn(async (url) => ({ ok: true, json: async () => (String(url).includes('countries') ? base : payload) })));
     render(<DataMap url="/data/unit-test.json" config={{ kind: 'choropleth', unit: '명/km²' }} alt="지도" fallback={null} />);
     await waitFor(() => expect(document.querySelector('.map-legend')?.getAttribute('aria-label')).toBe('범례 (명/km²)'));
+  });
+});
+
+describe('routine cards', () => {
+  function renderModule({ book = makeBook({ moduleLesson: true }), index = 2, storage = memoryStorage(), wide = true } = {}) {
+    vi.stubGlobal('fetch', vi.fn(() => Promise.reject(new Error('offline'))));
+    setMedia({ wide });
+    const utils = render(<BookProvider book={book} storage={storage}><LessonSpread unit={book.units[0]} route={{ name: 'lesson', unitId: '01-01', index }} /></BookProvider>);
+    return { ...utils, storage, book };
+  }
+  const saved = (storage) => JSON.parse(storage.data[STORAGE_KEY_V4]).units['01-01'];
+
+  it('renders opener, inquiry and closing routine cards in place', () => {
+    renderModule();
+    expect(document.querySelectorAll('.opener .routine-card[data-slot="opener"]')).toHaveLength(1);
+    expect(document.querySelectorAll('.activity .routine-card[data-slot="inquiry"]')).toHaveLength(1);
+    expect(document.querySelectorAll('.my-questions .routine-card[data-slot="closing"]')).toHaveLength(1);
+    expect(document.querySelector('.routine-card[data-slot="closing"] h3').textContent).toContain('I Used to Think');
+    expect(document.querySelector('.routine-card[data-slot="opener"]').textContent).toContain('열기 안내');
+  });
+
+  it('saves answers per lesson and slot', () => {
+    const { storage } = renderModule();
+    fireEvent.change(screen.getByLabelText('본 것'), { target: { value: '무역 비중이 높은 나라' } });
+    expect(saved(storage).routineState['lesson-01-01-2'].opener.see).toBe('무역 비중이 높은 나라');
+  });
+
+  it('keeps lessons separate', () => {
+    const storage = memoryStorage();
+    const first = renderModule({ storage });
+    fireEvent.change(screen.getByLabelText('예전 생각'), { target: { value: '2절의 예전 생각' } });
+    first.unmount();
+    renderModule({ storage, index: 1 });
+    expect(document.querySelector('.routine-card[data-slot="opener"]')).toBeNull();
+    expect(document.querySelector('.routine-card[data-slot="inquiry"]')).toBeNull();
+    expect(screen.getByLabelText('예전 생각').value).toBe('');
+  });
+
+  it('sends a wonder to the question list once', () => {
+    const { storage } = renderModule();
+    const box = screen.getByLabelText('궁금한 것');
+    const send = within(box.closest('.routine-step')).getByRole('button', { name: '질문 목록에 넣기' });
+    fireEvent.change(box, { target: { value: '   ' } });
+    expect(send.disabled).toBe(true);
+    fireEvent.change(box, { target: { value: '왜 무역이 늘었을까' } });
+    expect(send.disabled).toBe(false);
+    fireEvent.click(send);
+    expect(saved(storage).questions.at(-1)).toMatchObject({ text: '왜 무역이 늘었을까', fromLessonId: 'lesson-01-01-2' });
+    expect(send.disabled).toBe(true);
+    expect(screen.getByText('넣었습니다')).toBeTruthy();
+    fireEvent.change(box, { target: { value: '왜 무역이 늘었을까?' } });
+    expect(send.disabled).toBe(false);
+  });
+
+  it('skips a card whose routine id is unknown', () => {
+    const book = makeBook({ moduleLesson: true });
+    book.units[0].lessons[1].routines.inquiry = { id: 'nope', prompt: 'x' };
+    renderModule({ book });
+    expect(document.querySelector('.routine-card[data-slot="inquiry"]')).toBeNull();
+    expect(document.querySelector('.activity h2').textContent).toBe('탐구하기');
   });
 });
