@@ -85,6 +85,7 @@ export function parseLesson(text, { unitId, index }) {
     opener: data.opener ?? '',
     summary: Array.isArray(data.summary) ? data.summary.map(String) : [],
     textbookRef: data.textbookRef ?? null,
+    routines: data.routines && typeof data.routines === 'object' ? data.routines : {},
     paragraphs,
     sections: module ? parsed.sections : legacySections(paragraphs, steps),
     steps,

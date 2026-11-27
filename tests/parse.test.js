@@ -116,3 +116,11 @@ describe('lesson body', () => {
     expect(lesson.summary).toEqual([]);
   });
 });
+
+describe('lesson routines', () => {
+  it('parses lesson routines and defaults to {}', () => {
+    const withRoutines = parseLesson('---\ntitle: t\nroutines:\n  opener: { id: see-think-wonder, prompt: 열기 }\n---\n## 가\n문단', { unitId: '03-01', index: 1 });
+    expect(withRoutines.routines).toEqual({ opener: { id: 'see-think-wonder', prompt: '열기' } });
+    expect(parseLesson('---\ntitle: t\n---\n문단', { unitId: '03-01', index: 1 }).routines).toEqual({});
+  });
+});

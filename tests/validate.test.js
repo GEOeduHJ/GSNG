@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { validateBook, checkCssFontSizes } from '../src/content-loader/validate.js';
 import { assembleBook, fullUnitIds } from '../src/content-loader/assemble.js';
 import { resolveConceptId } from '../src/content-loader/concepts.js';
+import { routineForSlot } from '../src/content-loader/routines.js';
 
 const toc = { parts: [{ id: 'part-01', units: [
   { id: '01-01', title: 'A', standardCode: '12세지01-01', lessons: [{ index: 1, title: 'L1' }] },
@@ -228,5 +229,35 @@ describe('module lessons', () => {
 
   it('keeps legacy rules for lessons without a format', () => {
     expect(run(unit())).toEqual([]);
+  });
+});
+
+describe('routines', () => {
+  const step = (id, extra = {}) => ({ id, label: id, hint: 'h', ...extra });
+  const library = {
+    'see-think-wonder': { id: 'see-think-wonder', name: 'See, Think, Wonder', nameKo: '보기', steps: [step('see'), step('think'), step('wonder', { toQuestion: true })] },
+    'used-to-think': { id: 'used-to-think', name: 'I Used to Think', nameKo: '생각 변화', steps: [step('used'), step('now')] },
+  };
+  const withLib = (items) => ({ ...refs, routines: { source: {}, items } });
+  const runWith = (lib, lessonRoutines) => validateBook({ toc, units: [unit({}, { routines: lessonRoutines })] }, withLib(lib), { fullUnits: ['01-01'] });
+
+  it('accepts a valid library and lesson routines', () => {
+    expect(runWith(library, { opener: { id: 'see-think-wonder', prompt: '열기' } })).toEqual([]);
+  });
+  it('checks step counts and toQuestion limits in the library', () => {
+    const bad = { ...library, one: { id: 'one', name: 'One', nameKo: '하나', steps: [step('a')] }, two: { id: 'two', name: 'Two', nameKo: '둘', steps: [step('a', { toQuestion: true }), step('b', { toQuestion: true })] } };
+    const errors = runWith(bad, {});
+    expect(errors).toEqual(expect.arrayContaining([expect.stringContaining('routine one: steps 1 (need 2-4)'), expect.stringContaining('routine two: toQuestion steps 2 (max 1)')]));
+  });
+  it('reports unknown routines and missing prompts', () => {
+    const errors = runWith(library, { opener: { id: 'nope', prompt: 'x' }, inquiry: { id: 'see-think-wonder', prompt: ' ' } });
+    expect(errors).toEqual(expect.arrayContaining([expect.stringContaining('unknown routine: nope'), expect.stringContaining('routine prompt missing: inquiry')]));
+  });
+  it('defaults the closing slot to used-to-think', () => {
+    const book = { routines: { items: library } };
+    expect(routineForSlot(book, { routines: {} }, 'closing')?.id).toBe('used-to-think');
+    expect(routineForSlot(book, { routines: {} }, 'opener')).toBeNull();
+    expect(routineForSlot(book, { routines: { opener: { id: 'see-think-wonder', prompt: 'p' } } }, 'opener')).toMatchObject({ id: 'see-think-wonder', prompt: 'p' });
+    expect(routineForSlot(book, { routines: { opener: { id: 'nope', prompt: 'p' } } }, 'opener')).toBeNull();
   });
 });

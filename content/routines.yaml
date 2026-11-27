@@ -1,0 +1,35 @@
+# 생각 루틴 사전. 루틴 이름과 단계 구성은 Harvard Project Zero의 Thinking Routines를 따른다.
+# 학생용 안내문(label, hint)은 이 교과서가 우리말로 새로 쓴 것이며 PZ 원문의 번역이 아니다.
+source:
+  title: Project Zero Thinking Routines
+  organization: Project Zero, Harvard Graduate School of Education
+  url: https://pz.harvard.edu/thinking-routines
+  license: 루틴 페이지 CC BY-NC-ND 4.0, Global Thinking 묶음 CC BY-NC 4.0
+  note: 이 교과서의 안내문은 루틴의 단계 구성을 바탕으로 새로 쓴 것이며 원문의 번역이 아니다.
+routines:
+  see-think-wonder:
+    name: See, Think, Wonder
+    nameKo: 보고·생각하고·궁금해하기
+    category: [core, introducing_and_exploring_ideas]
+    url: https://pz.harvard.edu/resources/see-think-wonder
+    steps:
+      - { id: see, label: 본 것, hint: 자료에서 눈에 띄는 것을 있는 그대로 적는다. }
+      - { id: think, label: 생각한 것, hint: 왜 그렇게 나타나는지 떠오르는 생각을 적는다. }
+      - { id: wonder, label: 궁금한 것, hint: 더 알아보고 싶은 점을 질문으로 적는다., toQuestion: true }
+  claim-support-question:
+    name: Claim, Support, Question
+    nameKo: 주장·근거·되묻기
+    category: [core, digging_deeper_into_ideas]
+    url: https://pz.harvard.edu/resources/claim-support-question
+    steps:
+      - { id: claim, label: 주장, hint: 자료를 보고 말할 수 있는 설명을 한 문장으로 적는다. }
+      - { id: support, label: 근거, hint: 주장을 뒷받침하는 자료의 내용을 적는다. }
+      - { id: question, label: 되묻기, hint: 주장에서 아직 확인하지 못한 점을 적는다., toQuestion: true }
+  used-to-think:
+    name: I Used to Think… Now I Think…
+    nameKo: 예전 생각·지금 생각
+    category: [core, synthesizing_and_organizing_ideas]
+    url: https://pz.harvard.edu/resources/i-used-think-now-i-think
+    steps:
+      - { id: used, label: 예전 생각, hint: 이 절을 공부하기 전에 이 주제를 어떻게 생각했는지 적는다. }
+      - { id: now, label: 지금 생각, hint: 공부한 뒤 생각이 어떻게 달라졌는지 적는다. }

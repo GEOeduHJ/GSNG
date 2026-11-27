@@ -65,8 +65,28 @@ function checkModuleLesson(lesson, where, errors) {
   if (!String(lesson.opener ?? '').trim()) errors.push(`${where}: opener missing`);
 }
 
+function checkLessonRoutines(lesson, where, refs, errors) {
+  const items = refs.routines?.items ?? {};
+  for (const [slot, spec] of Object.entries(lesson.routines ?? {})) {
+    if (!spec?.id) continue;
+    if (!items[spec.id]) errors.push(`${where}: unknown routine: ${spec.id}`);
+    if (slot !== 'closing' && !String(spec.prompt ?? '').trim()) errors.push(`${where}: routine prompt missing: ${slot}`);
+  }
+}
+
+/** Library rules: 2-4 steps per routine, at most one step that can be sent to the question list. */
+function checkRoutineLibrary(refs, errors) {
+  for (const [id, routine] of Object.entries(refs.routines?.items ?? {})) {
+    const steps = routine.steps ?? [];
+    if (steps.length < 2 || steps.length > 4) errors.push(`routine ${id}: steps ${steps.length} (need 2-4)`);
+    const toQuestion = steps.filter((step) => step.toQuestion).length;
+    if (toQuestion > 1) errors.push(`routine ${id}: toQuestion steps ${toQuestion} (max 1)`);
+  }
+}
+
 function checkLesson(lesson, refs, errors, extraRules) {
   const where = `${lesson.unitId} lesson ${lesson.index}`;
+  checkLessonRoutines(lesson, where, refs, errors);
   if (lesson.format === 'module') checkModuleLesson(lesson, where, errors);
   else checkLegacyLesson(lesson, where, errors);
   checkConcepts(lesson.keyTerms, where, refs, errors);
@@ -108,6 +128,7 @@ export function validateBook(book, refs, { fullUnits = [], extraRules = [] } = {
     if (!unit) { errors.push(`${unitId}: unit.yaml missing`); continue; }
     checkUnit(unit, tocUnit, refs, errors, extraRules);
   }
+  checkRoutineLibrary(refs, errors);
   return errors;
 }
 
