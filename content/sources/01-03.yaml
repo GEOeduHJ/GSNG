@@ -1,0 +1,71 @@
+sources:
+  natural-earth-populated-places:
+    title: '1:10m Populated Places, v5.1.2'
+    organization: Natural Earth
+    url: https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-populated-places/
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 공개 도메인. Natural Earth Terms of Use에 따라 수정·재배포 가능.
+    reuseBasis: Natural Earth POP_MAX 상위 도시의 점 위치와 도시·국가·인구 속성을 확인하는 자료다. 본문에는 가공 GeoJSON과 JSON 값만 사용하고 도시별 정의와 기준 시점의 차이를 밝힌다.
+    verificationStatus: Natural Earth 1:10m Populated Places v5.1.2의 Point geometry와 POP_MAX, 한국어 도시·국가 표시명을 자료 README 및 생성 산출물과 대조했다. POP_MAX를 동시점 센서스 순위로 표현하지 않았다.
+    usage: 점 지도와 막대그래프의 수치·위치 출처는 content/manifests/01-03.yaml에 기록한 가공 자료를 따른다.
+  usgs-remote-sensing:
+    title: What is remote sensing and what is it used for?
+    organization: U.S. Geological Survey (USGS)
+    url: https://www.usgs.gov/faqs/what-remote-sensing-and-what-it-used
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 참고 링크만 제공. 페이지의 문장과 그림은 복제하지 않음.
+    reuseBasis: 원격 탐사를 원거리에서 반사·방출 복사를 측정해 지표 특성을 감지하는 과정으로 설명하는지 확인한다.
+    verificationStatus: 위성·항공기 센서의 원격 측정과 지표의 반사·방출 에너지에 대한 USGS 설명을 확인했다. 본문은 자료의 관측 범위가 센서와 시점에 따라 달라짐을 함께 설명했다.
+    usage: 원격 탐사의 원리를 새 문장으로 설명하는 참고 링크다.
+  unoosa-gnss:
+    title: Global Navigation Satellite Systems (GNSS)
+    organization: United Nations Office for Outer Space Affairs (UNOOSA)
+    url: https://www.unoosa.org/oosa/en/ourwork/psa/gnss/gnss.html
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 참고 링크만 제공. 웹페이지의 문장과 그림은 복제하지 않음.
+    reuseBasis: GNSS의 위성·지상 관제·수신기 구성과 위치 결정 원리를 확인한다.
+    verificationStatus: GNSS 위성 신호와 수신기 계산으로 지상 위치를 정한다는 UNOOSA 설명을 확인했다. 미국의 GPS를 GNSS 전체와 같은 말로 쓰지 않았다.
+    usage: 위성항법의 일반 원리를 설명하는 참고 링크다.
+  usgs-geographic-information-system:
+    title: What is a geographic information system (GIS)?
+    organization: U.S. Geological Survey (USGS)
+    url: https://www.usgs.gov/faqs/what-a-geographic-information-system-gis
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 참고 링크만 제공. 페이지의 문장과 그림은 복제하지 않음.
+    reuseBasis: GIS가 위치에 연결된 자료를 분석하고 표현하는 컴퓨터 기반 체계라는 설명을 확인한다.
+    verificationStatus: USGS의 GIS 정의와 지리 위치가 연결된 자료의 분석·표현 예시를 확인했다. 본문은 자료 중첩을 통해 분포와 공간 관계를 비교하는 용도로 서술했다.
+    usage: 지리정보시스템의 원리와 공간 분석을 설명하는 참고 링크다.
+  usgs-fdsn-earthquake-catalog:
+    title: FDSN Event Web Service
+    organization: U.S. Geological Survey (USGS)
+    url: https://earthquake.usgs.gov/fdsnws/event/1/
+    sourceDate: '2015'
+    checkedAt: '2026-11-27'
+    licenseStatus: USGS 자체 제작 데이터는 미국 공개 도메인 자료이며 출처 표기를 요청함.
+    reuseBasis: 2015년 4–5월 네팔과 주변 지역의 규모 4.5 이상 지진 사건 위치·날짜·규모를 확인한다. 상세 조회 범위와 필터는 content/manifests/01-03.yaml에 기록했다.
+    verificationStatus: manifest에 기록된 기간·위도·경도·최소 규모 필터로 가공한 GeoJSON 106건을 자료 README와 대조했다. 진앙을 흔들림 세기나 피해 범위로 설명하지 않았다.
+    usage: 점 지도는 USGS Earthquake Catalog의 가공 결과이며 진앙 위치 자료로 읽는다.
+  hot-nepal-2015-annual-report:
+    title: 2015 Annual Report
+    organization: Humanitarian OpenStreetMap Team (HOT)
+    url: https://www.hotosm.org/downloads/2015-Annual-Report.pdf
+    sourceDate: '2015'
+    checkedAt: '2026-11-27'
+    licenseStatus: 보고서에 표시된 CC BY-SA 4.0 조건 적용.
+    reuseBasis: 보고서 pp. 5–6의 네팔 지진 대응 디지털 매핑 참여 규모를 확인한다. 선택한 수치를 JSON으로 옮기고 한국어 설명을 더했으며 파생 자료에도 같은 조건을 적용한다.
+    verificationStatus: 첫 48시간 약 2,000명, 지진 발생 5일 뒤 3,679명, 활성화 기간 8,000명 이상으로 기록된 참여 규모를 자료 README 및 파생 JSON과 대조했다. 반올림 값과 하한을 보존했다.
+    usage: 참여자 수는 디지털 매핑 참여 규모로만 사용하며 지도 품질이나 지원 수혜 규모를 뜻한다고 해석하지 않는다.
+  daejeon-seogu-earthquake-shelters:
+    title: 대전광역시 서구 지진 옥외 대피장소
+    organization: 대전광역시 서구 · 공공데이터포털
+    url: https://www.data.go.kr/data/15124341/fileData.do
+    sourceDate: '2026-01-21'
+    checkedAt: '2026-11-27'
+    licenseStatus: 공공데이터포털 표시 — 이용허락범위 제한 없음.
+    reuseBasis: 대피 장소 시설명·유형·좌표를 확인한다. 가공 자료에는 시설명·유형·좌표만 두었고 관리자 연락처와 수용가능면적은 제외했다.
+    verificationStatus: 기준일 2026-01-21의 대피 장소 79곳과 유형별 시설 수를 원자료 설명 및 가공 산출물과 대조했다. 수용 인원·도로망·주변 인구·위험 구역 정보가 없음을 본문과 활동에 반영했다.
+    usage: 대피 장소 위치와 유형의 출처는 content/manifests/01-03.yaml에 기록한 가공 자료를 따른다.

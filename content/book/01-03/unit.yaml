@@ -1,0 +1,32 @@
+id: '01-03'
+standardCode: 12세지01-03
+title: 지리 정보와 지리정보기술
+goal: 지리정보기술의 원리와 일상 활용을 자료로 설명하고, 공간자료를 비교해 지리적 문제 해결 방안을 근거와 함께 평가할 수 있다.
+concepts: [spatial-data, geospatial-technology, geographic-information-system, spatial-decision-making]
+opening:
+  intro: |
+    지리정보기술은 장소의 위치에 속성 정보를 더하고, 공간의 관계를 살펴 문제를 해결하는 데 쓰인다. 지도와 통계는 수집 방법에 따라 담는 정보와 범위가 다르다.
+
+    이 중단원에서는 도시 위치와 속성, 지진 자료와 디지털 지도 제작 사례, 대피 장소 정보를 살펴본다. 자료의 범위와 빠진 정보를 확인하며 지리정보기술의 원리와 활용을 이해한다.
+  illustration:
+    src: /images/01-03/opening.webp
+    alt: 학생들이 태블릿에 담긴 나무 사진과 눈앞의 동네 풍경을 비교하며 현장 조사를 한다.
+  focus:
+    kind: map
+    step:
+      id: focus
+      type: map
+      data: /data/01-03/populated-places-top32.geojson
+      source: u0103-populated-places-top32
+      caption: Natural Earth POP_MAX 상위 32개 세계 도시의 위치와 속성, 기준 연도 미표기
+      alt: Natural Earth POP_MAX 상위 32개 세계 도시의 점 위치와 각 점의 속성을 나타낸 지도다.
+      config: { kind: points }
+      concepts: [spatial-data, geospatial-technology]
+closing:
+  summary: |
+    공간자료는 장소의 위치·분포·관계를 기록하고, 이름과 인구처럼 장소를 설명하는 특성은 속성 정보로 담는다. 원격 탐사와 GNSS는 자료 수집에, 지리정보시스템은 여러 자료의 결합과 분석에 쓰인다.
+
+    지진 진앙·지도 제작 참여 수·대피 장소 자료는 각각 관측 위치, 참여 규모, 시설 위치와 유형을 보여 준다. 새 입지를 정할 때는 접근성·수용력·위험·비용을 검토하고 필요한 자료와 주민 의견을 더한다.
+  bridge: 다음 대단원 II의 첫 중단원에서는 기후 자료를 통해 세계의 기후와 인간 생활의 관계를 살펴본다.
+  transfer:
+    prompt: 새 사례로 학교 주변 통학길의 그늘과 보행 안전을 살펴보시오. 공개 지도와 현장 조사로 위치 자료를 모으고 이를 겹쳐 안전한 경로를 제안하시오. 개인의 집 위치와 이동 기록은 수집하지 말고 자료의 날짜와 범위도 함께 적으시오.
