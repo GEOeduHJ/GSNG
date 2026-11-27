@@ -1,0 +1,56 @@
+{
+  "year": 2024,
+  "unit": "% of FAOSTAT world wheat exports (quantity)",
+  "rows": [
+    {
+      "iso3": "RUS",
+      "name": "러시아",
+      "value": 16.13
+    },
+    {
+      "iso3": "CAN",
+      "name": "캐나다",
+      "value": 12.61
+    },
+    {
+      "iso3": "USA",
+      "name": "미국",
+      "value": 10.76
+    },
+    {
+      "iso3": "UKR",
+      "name": "우크라이나",
+      "value": 10.2
+    },
+    {
+      "iso3": "AUS",
+      "name": "오스트레일리아",
+      "value": 9.71
+    },
+    {
+      "iso3": "ROU",
+      "name": "루마니아",
+      "value": 3.68
+    },
+    {
+      "iso3": "DEU",
+      "name": "독일",
+      "value": 3.46
+    },
+    {
+      "iso3": "ARG",
+      "name": "아르헨티나",
+      "value": 3.3
+    },
+    {
+      "iso3": "KAZ",
+      "name": "카자흐스탄",
+      "value": 2.91
+    },
+    {
+      "iso3": "POL",
+      "name": "폴란드",
+      "value": 2.49
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+items:
+  - id: u0302-rice-production-top10
+    path: /data/03-02/rice-production-top10.json
+    title: 쌀 생산 상위 10개국, 2024년
+    organization: FAO, FAOSTAT
+    url: https://bulks-faostat.fao.org/production/Production_Crops_Livestock_E_All_Data_(Normalized).zip
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0 (FAO Statistical Database Terms of Use)
+    attribution: >-
+      FAO. 2025. FAOSTAT: Production: Crops and livestock products. Accessed on
+      27 November 2026. https://www.fao.org/faostat/en/#data/QCL.
+      Licence: CC-BY-4.0. Modified: selected 2024 rice-production country values,
+      ranked the top ten and translated country labels. This use does not imply
+      FAO endorsement.
+    script: scripts/data/03-02/fao_food_data.py
+    unit: t
+    year: 2024
+    summary: 2024년 쌀 생산량은 인도 217,867,864t, 중국 207,530,000t, 방글라데시 60,570,453t이다. 상위 10개국만 표시한다.
+  - id: u0302-wheat-production-top10
+    path: /data/03-02/wheat-production-top10.json
+    title: 밀 생산 상위 10개국, 2024년
+    organization: FAO, FAOSTAT
+    url: https://bulks-faostat.fao.org/production/Production_Crops_Livestock_E_All_Data_(Normalized).zip
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0 (FAO Statistical Database Terms of Use)
+    attribution: >-
+      FAO. 2025. FAOSTAT: Production: Crops and livestock products. Accessed on
+      27 November 2026. https://www.fao.org/faostat/en/#data/QCL.
+      Licence: CC-BY-4.0. Modified: selected 2024 wheat-production country values,
+      ranked the top ten and translated country labels. This use does not imply
+      FAO endorsement.
+    script: scripts/data/03-02/fao_food_data.py
+    unit: t
+    year: 2024
+    summary: 2024년 밀 생산량은 중국 140,100,000t, 인도 113,292,368t, 러시아 82,588,000t이다. 상위 10개국만 표시한다.
+  - id: u0302-maize-production-top10
+    path: /data/03-02/maize-production-top10.json
+    title: 옥수수 생산 상위 10개국, 2024년
+    organization: FAO, FAOSTAT
+    url: https://bulks-faostat.fao.org/production/Production_Crops_Livestock_E_All_Data_(Normalized).zip
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0 (FAO Statistical Database Terms of Use)
+    attribution: >-
+      FAO. 2025. FAOSTAT: Production: Crops and livestock products. Accessed on
+      27 November 2026. https://www.fao.org/faostat/en/#data/QCL.
+      Licence: CC-BY-4.0. Modified: selected 2024 maize-production country values,
+      ranked the top ten and translated country labels. This use does not imply
+      FAO endorsement.
+    script: scripts/data/03-02/fao_food_data.py
+    unit: t
+    year: 2024
+    summary: 2024년 옥수수 생산량은 미국 377,632,690t, 중국 294,920,000t, 브라질 114,953,303t이다. 상위 10개국만 표시한다.
+  - id: u0302-wheat-exports-top10
+    path: /data/03-02/wheat-exports-top10.json
+    title: 밀 수출 상위 10개국, 2024년
+    organization: FAO, FAOSTAT
+    url: https://bulks-faostat.fao.org/production/Trade_CropsLivestock_E_All_Data_(Normalized).zip
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0 (FAO Statistical Database Terms of Use)
+    attribution: >-
+      FAO. 2026. FAOSTAT: Trade: Crops and livestock products. Accessed on
+      27 November 2026. https://www.fao.org/faostat/en/#data/TCL.
+      Licence: CC-BY-4.0. Modified: selected 2024 Wheat export quantities and
+      ranked the top ten. This use does not imply FAO endorsement.
+    script: scripts/data/03-02/fao_food_data.py
+    unit: t
+    year: 2024
+    summary: 2024년 밀 수출량은 러시아 32,685,820t, 캐나다 25,549,815t, 미국 21,803,349t이다. 밀가루와 밀 부산물은 제외했다.
+  - id: u0302-wheat-export-world-share
+    path: /data/03-02/wheat-export-world-share-top10.json
+    title: 세계 밀 수출량 중 상위 수출국 비중, 2024년
+    organization: FAO, FAOSTAT
+    url: https://bulks-faostat.fao.org/production/Trade_CropsLivestock_E_All_Data_(Normalized).zip
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0 (FAO Statistical Database Terms of Use)
+    attribution: >-
+      FAO. 2026. FAOSTAT: Trade: Crops and livestock products. Accessed on
+      27 November 2026. https://www.fao.org/faostat/en/#data/TCL.
+      Licence: CC-BY-4.0. Modified: calculated each leading country's share of
+      the FAOSTAT World wheat export quantity. This use does not imply
+      FAO endorsement.
+    script: scripts/data/03-02/fao_food_data.py
+    unit: '% of FAOSTAT world wheat exports (quantity)'
+    year: 2024
+    summary: 세계 밀 수출량 기준 러시아 비중은 16.13%, 캐나다 12.61%, 미국 10.76%다. 상위 5개국 비중은 59.41%다.
+  - id: u0302-undernourishment-map
+    path: /data/03-02/undernourishment-map.json
+    title: 영양 부족 인구 비율, WDI 2024년(FAO 2023–2025 평균)
+    organization: World Bank WDI; FAO (source data)
+    url: https://data.worldbank.org/indicator/SN.ITK.DEFC.ZS
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0 (World Bank Open Data; source data by FAO)
+    attribution: >-
+      The World Bank. World Development Indicators: Prevalence of
+      undernourishment (% of population), indicator SN.ITK.DEFC.ZS (source:
+      FAO). Accessed 27 November 2026.
+      https://data.worldbank.org/indicator/SN.ITK.DEFC.ZS. Licence: CC BY 4.0. Modified: selected 2024 values,
+      reclassified displayed values of 2.5 as <2.5%, and retained them in the
+      separate below field. The 2024 values represent the 2023–2025 three-year
+      average midpoint. This use does not imply World Bank or FAO endorsement.
+    script: scripts/data/03-02/fao_food_data.py
+    unit: '% of population'
+    year: 2024
+    summary: WDI의 2024년 값(FAO의 2023–2025 평균)은 인도 9.8%, 방글라데시 8.2%, 케냐 34.9%다. 한국·미국·중국·프랑스·노르웨이 등 표시값 2.5는 <2.5%로 below에 구분했다.
+  - id: u0302-cereal-import-dependency-map
+    path: /data/03-02/cereal-import-dependency-map.json
+    title: 곡물 수입 의존도, 2022–2024년 3년 평균
+    organization: FAO, FAOSTAT
+    url: https://bulks-faostat.fao.org/production/Food_Security_Data_E_All_Data_(Normalized).zip
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0 (FAO Statistical Database Terms of Use)
+    attribution: >-
+      FAO. 2026. FAOSTAT: Suite of Food Security Indicators. Accessed on
+      27 November 2026. https://www.fao.org/faostat/en/#data/FS.
+      Licence: CC-BY-4.0. Modified: selected 2022–2024 country values.
+      This use does not imply FAO endorsement.
+    script: scripts/data/03-02/fao_food_data.py
+    unit: '% (3-year average; negative = net exporter)'
+    year: '2022-2024'
+    summary: 2022–2024년 곡물 수입 의존도는 대한민국 78.3%, 중국 9.1%, 미국 4.6%다. 자료가 없는 국가는 null이다.
+  - id: u0302-global-undernourishment-series
+    path: /data/03-02/global-undernourishment-series.json
+    title: 세계 영양 부족 인구 비율 변화
+    organization: FAO, FAOSTAT
+    url: https://bulks-faostat.fao.org/production/Food_Security_Data_E_All_Data_(Normalized).zip
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0 (FAO Statistical Database Terms of Use)
+    attribution: >-
+      FAO. 2026. FAOSTAT: Suite of Food Security Indicators. Accessed on
+      27 November 2026. https://www.fao.org/faostat/en/#data/FS.
+      Licence: CC-BY-4.0. Modified: selected World three-year averages from
+      2000–2002 to 2023–2025 and labeled each observation by the period midpoint.
+      This use does not imply FAO endorsement.
+    script: scripts/data/03-02/fao_food_data.py
+    unit: '% of world population (3-year average; year is period midpoint)'
+    year: 2024
+    summary: 세계 영양 부족 비율은 2000–2002년 13.0%에서 2023–2025년 8.1%로 변했다. 값은 각 기간의 3년 평균이다.
+  - id: u0302-korea-self-sufficiency-series
+    path: /data/03-02/korea-self-sufficiency-series.json
+    title: 대한민국 곡물·식량 자급률 변화, 2011–2022 양곡연도
+    organization: 농림축산식품부
+    url: https://mafra.go.kr/bbs/home/798/571364/artclView.do
+    retrievedAt: '2026-11-27'
+    license: 공공누리 제1유형(출처표시)
+    attribution: >-
+      농림축산식품부, 「양곡자급률 및 품목별 자급률(~2022년 양곡연도)」,
+      2024-08-29, 공공누리 제1유형. 원표에서 2011–2022년 전체 곡물·식량
+      자급률을 추출하여 JSON 시계열로 변환함. 농림축산식품부의 후원·승인을
+      뜻하지 않음.
+    script: scripts/data/03-02/mafra_self_sufficiency.py
+    unit: '%'
+    year: 2022
+    summary: 곡물자급률(사료용 포함)은 2011년 26.9%에서 2022년 22.3%로, 식량자급률(사료용 제외)은 2022년 49.3%다.
