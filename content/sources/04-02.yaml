@@ -1,0 +1,131 @@
+sources:
+  noaa-global-temperature:
+    title: NOAAGlobalTemp v6.1.0 annual global land and ocean temperature anomaly series
+    organization: NOAA National Centers for Environmental Information (NCEI)
+    url: https://www.ncei.noaa.gov/data/noaa-global-surface-temperature/v6.1/access/timeseries/aravg.ann.land_ocean.90S.90N.v6.1.0.202610.asc
+    sourceDate: 2025
+    checkedAt: '2026-11-27'
+    licenseStatus: NOAA/NCEI 공개 환경 자료. 자료 manifest에 Public domain으로 기록됨.
+    reuseBasis: NOAA NCEI의 공개 연평균 육지·해양 기온 편차 계열을 가공한 JSON 자료를 사용했다.
+    verificationStatus: 1991–2020년 평균 기준, 연도별 편차와 단위를 원자료 및 자료 보고서에서 대조했다. 2026년 진행 중인 값은 사용하지 않았다.
+    usage: 기준 기간과 대상이 전 지구 육지·해양 평균임을 캡션과 본문에 밝혔다.
+  wdi-forest-area:
+    title: Forest area (% of land area), indicator AG.LND.FRST.ZS
+    organization: 'World Bank, World Development Indicators (source: FAOSTAT, FAO)'
+    url: https://data.worldbank.org/indicator/AG.LND.FRST.ZS
+    sourceDate: 2024
+    checkedAt: '2026-11-27'
+    licenseStatus: World Bank WDI 자료는 CC BY 4.0으로 표시됨. 원 지표 출처는 FAOSTAT/FAO다.
+    reuseBasis: 여섯 국가의 1990–2024년 시계열을 자료 manifest와 함께 제공한다. 원자료 표를 별도로 복제하지 않았다.
+    verificationStatus: 지표 정의와 브라질·중국의 표본값을 자료 보고서 및 World Bank API 기록에서 확인했다. 결측 연도는 보간하지 않았다.
+    usage: 국토에서 산림이 차지하는 비율로 해석하며 산림의 실제 면적이나 생태적 질을 뜻하지 않는다.
+  wdi-pm25-exposure:
+    title: PM2.5 air pollution, mean annual exposure (EN.ATM.PM25.MC.M3)
+    organization: 'World Bank, World Development Indicators (source: IHME, Global Burden of Disease Study 2023)'
+    url: https://data.worldbank.org/indicator/EN.ATM.PM25.MC.M3
+    sourceDate: 2023
+    checkedAt: '2026-11-27'
+    licenseStatus: World Bank WDI 자료는 CC BY 4.0으로 표시됨. 원 추정 자료는 IHME GBD 2023이다.
+    reuseBasis: 2023년 국가별 연평균 노출 추정치를 Natural Earth ISO3 코드에 연결한 정적 자료를 사용했다.
+    verificationStatus: 인도·대한민국·미국의 표본값과 국가별 연평균 추정치라는 정의를 자료 보고서 및 World Bank API 기록에서 확인했다.
+    usage: 개인 측정값이나 도시 관측값과 구분해 해석한다.
+  who-pm25-health-2024:
+    title: Health consequences of air pollution
+    organization: World Health Organization (WHO)
+    url: https://www.who.int/news/item/25-06-2024-what-are-health-consequences-of-air-pollution-on-populations
+    sourceDate: 2024-06-25
+    checkedAt: '2026-11-27'
+    licenseStatus: 설명 페이지 링크만 제공하며 WHO 원문·그림은 복제하지 않음.
+    reuseBasis: PM2.5의 크기 기준과 건강 위험, 주요 대기오염 배출원을 확인하는 공식 안내 자료다.
+    verificationStatus: WHO 페이지에서 PM2.5를 지름 2.5µm보다 작은 미세 입자로 설명하고 건강 위험을 언급하는 점을 확인했다.
+    usage: 미세 입자와 대기 오염의 건강 관련성을 설명하는 데 사용했다.
+  gcp-owid-co2-per-capita:
+    title: Per capita CO₂ emissions
+    organization: Global Carbon Project, Global Carbon Budget 2026; Our World in Data
+    url: https://ourworldindata.org/grapher/co-emissions-per-capita
+    sourceDate: 2026
+    checkedAt: '2026-11-27'
+    licenseStatus: Global Carbon Budget 및 Our World in Data 자료는 CC BY 4.0으로 표시됨.
+    reuseBasis: 2024년 화석연료·산업 CO₂의 국가별 영토 기준 1인당 값을 자료 manifest에 따라 가공했다.
+    verificationStatus: 미국·대한민국·중국의 2024년 값을 Our World in Data 원자료와 자료 보고서에서 대조했다.
+    usage: 토지 이용 변화와 수입품에 포함된 배출이 제외된 영토 기준 자료임을 본문에 밝혔다.
+  gcp-owid-co2-annual:
+    title: Annual CO₂ emissions by country
+    organization: Global Carbon Project, Global Carbon Budget 2026; Our World in Data
+    url: https://ourworldindata.org/grapher/annual-co2-emissions-per-country
+    sourceDate: 2026
+    checkedAt: '2026-11-27'
+    licenseStatus: Global Carbon Budget 및 Our World in Data 자료는 CC BY 4.0으로 표시됨.
+    reuseBasis: 원자료 연도별 영토 기준 배출량을 1850–2024년에 합산해 상위 10개국 누적값을 만들었다.
+    verificationStatus: 미국·중국·러시아의 누적값과 합산 기간을 원자료 CSV 및 자료 보고서에서 대조했다.
+    usage: 과거 국가 귀속은 원자료 계열을 따르며 토지 이용 변화와 국제 항공·해운은 포함하지 않는다.
+  ipcc-ar6-syr-2023:
+    title: 'Climate Change 2023: Synthesis Report, Summary for Policymakers'
+    organization: Intergovernmental Panel on Climate Change (IPCC)
+    url: https://www.ipcc.ch/report/ar6/syr/summary-for-policymakers/
+    sourceDate: 2023
+    checkedAt: '2026-11-27'
+    licenseStatus: 보고서 링크만 제공하며 원문·그림·표를 복제하지 않음.
+    reuseBasis: 인간의 온실가스 배출이 지구 온난화를 일으킨다는 평가와 역사적으로 기여가 적은 취약 공동체의 불균형한 영향을 새 문장으로 요약했다.
+    verificationStatus: 승인된 요약의 A.1 및 A.2.1 핵심 진술을 확인했다.
+    usage: 기후 변화의 원인과 취약성의 불균형을 설명하는 참고 자료다.
+  ipcc-ar6-wgii-2022:
+    title: 'Climate Change 2022: Impacts, Adaptation and Vulnerability, Summary for Policymakers'
+    organization: Intergovernmental Panel on Climate Change (IPCC)
+    url: https://www.ipcc.ch/report/ar6/wg2/chapter/summary-for-policymakers/
+    sourceDate: 2022
+    checkedAt: '2026-11-27'
+    licenseStatus: 보고서 링크만 제공하며 원문·그림·표를 복제하지 않음.
+    reuseBasis: 기후 노출·취약성·대응 역량이 지역과 집단에 따라 다르게 나타난다는 평가를 확인했다.
+    verificationStatus: SPM의 취약성 및 소도서개발국 관련 진술을 확인했다. 특정 국가나 집단의 경험으로 일반화하지 않았다.
+    usage: 기후 영향이 지역별로 다르게 나타나는 배경을 설명한다.
+  unfccc-convention-1992:
+    title: United Nations Framework Convention on Climate Change
+    organization: United Nations Framework Convention on Climate Change (UNFCCC)
+    url: https://unfccc.int/files/essential_background/background_publications_htmlpdf/application/pdf/conveng.pdf
+    sourceDate: 1992
+    checkedAt: '2026-11-27'
+    licenseStatus: 협약 원문 링크만 제공하며 문서 일부를 복제하지 않음.
+    reuseBasis: 협약 제3조의 형평성, 공통의 차별화된 책임과 역량, 취약 국가의 특별한 필요를 확인했다.
+    verificationStatus: 제3조 1–2항의 원칙과 주의 사항을 원문에서 확인했다.
+    usage: 국가별 여건을 고려하는 국제 협력 원칙을 설명하는 데 사용했다.
+  unfccc-paris-agreement-2015:
+    title: Paris Agreement
+    organization: United Nations Framework Convention on Climate Change (UNFCCC)
+    url: https://unfccc.int/files/essential_background/convention/application/pdf/english_paris_agreement.pdf
+    sourceDate: 2015
+    checkedAt: '2026-11-27'
+    licenseStatus: 협정 원문 링크만 제공하며 문서 일부를 복제하지 않음.
+    reuseBasis: 국가결정기여의 주기와 전 지구적 이행 점검에 관한 협정 조항을 확인했다.
+    verificationStatus: 제4조의 5년 주기 국가결정기여와 제14조의 공동 진전 점검 조항을 확인했다.
+    usage: 국가 계획과 국제적 이행 점검을 설명하는 참고 자료다.
+  jones-owid-total-ghg:
+    title: Total greenhouse gas emissions
+    organization: Jones et al. (2025), National Contributions to Climate Change; Our World in Data
+    url: https://ourworldindata.org/grapher/total-ghg-emissions
+    sourceDate: 2025
+    checkedAt: '2026-11-27'
+    licenseStatus: 원자료와 Our World in Data 자료 페이지는 CC BY 4.0으로 표시됨.
+    reuseBasis: 대한민국의 1990–2024년 CO₂·CH₄·N₂O 및 토지 이용 배출 계열을 Mt CO₂e로 가공했다.
+    verificationStatus: 대한민국 2018년과 2024년의 표본값, 단위 변환, GWP* 산정 안내를 자료 보고서와 원자료에서 확인했다.
+    usage: 공식 국가 인벤토리와 다른 산정 계열이라는 점을 본문에 밝혔다.
+  wdi-renewable-energy:
+    title: Renewable energy consumption (% of total final energy consumption), indicator EG.FEC.RNEW.ZS
+    organization: 'World Bank, World Development Indicators (source: IEA Energy Statistics)'
+    url: https://data.worldbank.org/indicator/EG.FEC.RNEW.ZS
+    sourceDate: 2021
+    checkedAt: '2026-11-27'
+    licenseStatus: World Bank WDI 자료는 CC BY 4.0으로 표시됨. 원 지표 출처는 IEA Energy Statistics다.
+    reuseBasis: 2021년 국가별 최종 에너지 소비 중 재생에너지 비중을 자료 manifest에 따라 가공했다.
+    verificationStatus: 브라질·대한민국·미국의 2021년 값을 World Bank API 기록과 자료 보고서에서 대조했다.
+    usage: 발전량 비중이나 가정별 소비량이 아니라 최종 에너지 소비 구성비로 해석한다.
+  ipcc-ar6-wgiii-chapter5:
+    title: 'Climate Change 2022: Mitigation of Climate Change, Chapter 5: Demand, Services and Social Aspects of Mitigation'
+    organization: Intergovernmental Panel on Climate Change (IPCC)
+    url: https://www.ipcc.ch/report/ar6/wg3/chapter/chapter-5/
+    sourceDate: 2022
+    checkedAt: '2026-11-27'
+    licenseStatus: 보고서 링크만 제공하며 원문·그림·표를 복제하지 않음.
+    reuseBasis: 개인 선택과 생활 방식의 변화가 사회 규범·기반 시설·정책과 상호작용한다는 평가를 확인했다.
+    verificationStatus: 장의 요약에서 개인 행동이 구조적·문화적 변화와 함께 이루어져야 한다는 진술을 확인했다.
+    usage: 생태전환을 개인 실천만이 아니라 제도와 기반 시설을 포함한 변화로 설명한다.
