@@ -1,0 +1,107 @@
+unit: '03-02'
+lessons:
+  - index: 1
+    textbookPages: [140, 143]
+    goalGist: 쌀·밀·옥수수의 생산과 소비 양상을 살펴 생산지·수출지·소비지를 잇는 식량 체계의 공간적 연결을 설명한다.
+    topics:
+      - title: 식량 자원의 범위와 식량 체계
+        concepts: [식량 자원, 생산·가공·유통·소비, 식량 체계]
+        textbookMaterials: [학습 목표, 주요 식량 자원의 생산과 소비 설명]
+        ourData: ['개념도:food-system-schematic']
+      - title: 쌀·밀·옥수수의 생산과 이용
+        concepts: [작물별 생산 조건, 주요 생산국, 용도와 소비]
+        textbookMaterials: [작물별 생산 통계, 생산 지역과 재배 조건]
+        ourData:
+          - u0302-rice-production-top10
+          - u0302-wheat-production-top10
+          - u0302-maize-production-top10
+      - title: 생산지와 소비지를 잇는 교역
+        concepts: [생산량과 수출량, 수출 비중, 수입 의존도]
+        textbookMaterials: [작물별 국제 이동, 주요 수출국 통계]
+        ourData:
+          - u0302-wheat-exports-top10
+          - u0302-wheat-export-world-share
+          - u0302-cereal-import-dependency-map
+  - index: 2
+    textbookPages: [144, 146]
+    goalGist: 식량 문제를 생산량만의 문제가 아닌 접근·유통·시장 구조와 기후·경제·정치적 충격이 얽힌 현상으로 설명한다.
+    topics:
+      - title: 식량 안보와 식량 접근
+        concepts: [가용성, 접근성, 영양 이용, 안정성]
+        textbookMaterials: [식량 안보 개념도, 국가별 영양 부족 비율]
+        ourData:
+          - '개념도:food-security-dimensions'
+          - u0302-undernourishment-map
+          - u0302-global-undernourishment-series
+      - title: 생산·유통 과정의 손실과 시장 구조
+        concepts: [식량 손실, 식량 폐기, 식량 시장 집중]
+        textbookMaterials: [곡물 기업의 시장 구조, 식량 손실·폐기 사례]
+        ourData: [u0302-cereal-import-dependency-map]
+      - title: 식량 공급을 흔드는 충격
+        concepts: [기후 극한, 분쟁, 경제 충격, 식량 가격과 구매력]
+        textbookMaterials: [기후·정치·경제 요인 사례, 식량 가격 자료]
+        ourData: [u0302-global-undernourishment-series]
+  - index: 3
+    textbookPages: [147, 150]
+    goalGist: 식량 안보와 식량 주권의 관점을 구분하고, 국제·국가·지역·개인 수준의 대응을 여러 기준으로 평가한다.
+    topics:
+      - title: 식량 안보와 식량 주권
+        concepts: [안정적인 식량 접근, 식량·농업 체계에 관한 결정권]
+        textbookMaterials: [식량 안보와 식량 주권 설명]
+        ourData: []
+      - title: 국제 사회와 국가의 대응
+        concepts: [안정적인 생산, 수입 경로 다변화, 비축과 유통]
+        textbookMaterials: [국제 기구의 노력, 국가별 식량 정책과 공급 자료]
+        ourData:
+          - u0302-korea-self-sufficiency-series
+          - u0302-cereal-import-dependency-map
+          - u0302-wheat-export-world-share
+      - title: 지역·개인의 실천과 새로운 생산 방식
+        concepts: [식량 손실·폐기 감소, 지역 생산·유통, 시설 농업]
+        textbookMaterials: [식량 낭비를 줄이는 실천, 수직 농장 구상 활동, 이푸가오 계단식 논 사례]
+        ourData: []
+
+dataJudgement:
+  existingEnoughTopics:
+    - lesson: 1
+      topic: 주요 작물 생산과 밀의 국제 교역, 곡물 수입 구조
+      data:
+        - u0302-rice-production-top10
+        - u0302-wheat-production-top10
+        - u0302-maize-production-top10
+        - u0302-wheat-exports-top10
+        - u0302-wheat-export-world-share
+        - u0302-cereal-import-dependency-map
+    - lesson: 2
+      topic: 세계·국가별 영양 부족과 수입 의존 구조
+      data:
+        - u0302-undernourishment-map
+        - u0302-global-undernourishment-series
+        - u0302-cereal-import-dependency-map
+    - lesson: 3
+      topic: 대한민국 자급률과 국제 곡물 교역의 보완 관계
+      data:
+        - u0302-korea-self-sufficiency-series
+        - u0302-cereal-import-dependency-map
+        - u0302-wheat-export-world-share
+  newRealDataTopics: []
+  conceptualDiagramTopics:
+    - lesson: 1
+      topic: 생산·가공·유통·소비와 참여 주체가 잇는 식량 체계
+      data: ['개념도:food-system-schematic']
+    - lesson: 2
+      topic: 식량 안보의 가용성·접근성·활용성·안정성
+      data: ['개념도:food-security-dimensions']
+  lessonDataCounts:
+    - lesson: 1
+      realDataCount: 6
+      conceptualDiagramCount: 1
+      totalMaterialCount: 7
+      maximumMaterialCount: 7
+    - lesson: 2
+      realDataCount: 3
+      conceptualDiagramCount: 1
+      totalMaterialCount: 4
+    - lesson: 3
+      realDataCount: 3
+      totalMaterialCount: 3

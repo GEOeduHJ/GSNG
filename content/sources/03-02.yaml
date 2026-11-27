@@ -29,3 +29,63 @@ sources:
     organization: United Nations Conference on Trade and Development (UNCTAD)
     url: https://unctad.org/system/files/official-document/tdr2024_en.pdf
     usage: 70–90%를 UNCTAD가 인용한 추정치로 밝히고, 국가별 수출 비중과 직접 비교하지 않는다.
+  fao-food-systems-definition:
+    title: 'Food systems and value chains: definitions and characteristics'
+    organization: Food and Agriculture Organization of the United Nations (FAO)
+    url: https://www.fao.org/climate-smart-agriculture-sourcebook/production-resources/module-b10-value-chains/b10-overview/en/?type=111
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 링크만 제공. 웹페이지 문장·도판은 저장소에 복제하지 않았으며 별도 재사용 조건을 확인해야 함.
+    reuseBasis: 식량 체계를 여러 주체의 생산·가공·유통·소비 활동과 이를 둘러싼 환경의 연결로 설명하는 FAO 자료.
+    verificationStatus: 생산부터 소비까지 이어지는 활동과 주체, 자연·사회·경제적 환경이 식량 체계에 포함됨을 확인했다.
+    usage: 식량 체계의 개념을 자체 문장으로 설명하는 근거로 쓴다.
+  fao-crop-growth:
+    title: 'Chapter 2: Climate and Crop Growth'
+    organization: Food and Agriculture Organization of the United Nations (FAO)
+    url: https://www.fao.org/4/s2022e/s2022e06.htm
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 링크만 제공. 웹페이지 문장·표·도판은 저장소에 복제하지 않았으며 별도 재사용 조건을 확인해야 함.
+    reuseBasis: 기후와 물 조건이 작물 생육에 영향을 준다는 농업·기후 설명의 근거.
+    verificationStatus: 강수와 작물 생육의 관계를 확인했다. 작물별 적합 지역은 강수 외의 조건도 함께 살펴야 한다.
+    usage: 생산 지역이 자연환경과 농업 조건의 영향을 받는다고 설명하는 데 한정한다.
+  fao-food-security-dimensions:
+    title: An Introduction to the Basic Concepts of Food Security
+    organization: Food and Agriculture Organization of the United Nations (FAO)
+    url: https://www.fao.org/4/al936e/al936e.pdf
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 링크만 제공. PDF 문장·도판은 저장소에 복제하지 않았으며 별도 재사용 조건을 확인해야 함.
+    reuseBasis: 식량 안보의 가용성·접근성·활용성·안정성 차원을 설명하는 FAO 개념 자료.
+    verificationStatus: 생산·재고·순교역이 가용성에, 소득·지출·시장·가격이 접근성에 연결되고, 안정성이 다른 차원을 시간에 걸쳐 뒷받침함을 확인했다.
+    usage: 네 차원을 자체 개념도와 문장으로 설명한다. FAO 도판을 재현하지 않는다.
+  fao-food-loss-waste:
+    title: Introduction - Food Loss
+    organization: Food and Agriculture Organization of the United Nations (FAO)
+    url: https://www.fao.org/platform-food-loss-waste/food-loss/introduction/en
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 링크만 제공. 웹페이지 문장·도판은 저장소에 복제하지 않았으며 별도 재사용 조건을 확인해야 함.
+    reuseBasis: 공급망 단계의 식량 손실과 소매·외식·소비 단계의 식량 폐기를 구분하는 공식 설명.
+    verificationStatus: FAO가 식량 손실을 소매·외식·소비자를 제외한 공급자 단계의 양·품질 감소로 설명함을 확인했다.
+    usage: 서로 다른 단계의 원인과 대응을 구분하는 데 쓴다.
+  undrop-food-sovereignty:
+    title: United Nations Declaration on the Rights of Peasants and Other People Working in Rural Areas
+    organization: United Nations General Assembly
+    url: https://mandates.un.org/mandate/A/RES/73/165
+    sourceDate: '2018'
+    checkedAt: '2026-11-27'
+    licenseStatus: 링크만 제공. 유엔 결의문의 문장·도판은 저장소에 복제하지 않았으며 별도 재사용 조건을 확인해야 함.
+    reuseBasis: 농민과 농촌 주민이 식량·농업 체계를 결정할 권리와 식량 주권의 관계를 확인하는 공식 문서.
+    verificationStatus: 제15조가 농민과 농촌 주민의 식량·농업 체계를 정할 권리와 이를 식량 주권으로 인정하는 관점을 밝힘을 확인했다.
+    usage: 식량 안보와 식량 주권을 구분해 설명하고, 권리의 주체와 범위를 함께 밝힌다.
+  unesco-rice-terraces-cordilleras:
+    title: Rice Terraces of the Philippine Cordilleras
+    organization: UNESCO World Heritage Centre
+    url: https://whc.unesco.org/en/list/722/
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: UNESCO 설명문은 CC BY-SA IGO 3.0으로 표시되어 있다. 이 모듈은 링크와 자체 요약만 사용하며 사진·도판은 복제하지 않았다.
+    reuseBasis: 이푸가오 계단식 논의 관개, 공동체 농업, 자연환경과 문화 경관의 관계를 확인하는 공식 등재 자료.
+    verificationStatus: 산지 수원을 활용한 관개와 공동체 기반 벼농사, 현재의 사회·환경 변화에 따른 관리 과제를 확인했다.
+    usage: 지역 농업 사례로 소개하며 모든 지역의 지속가능한 생산 방식으로 일반화하지 않는다.

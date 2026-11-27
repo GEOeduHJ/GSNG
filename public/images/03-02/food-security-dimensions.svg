@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" role="img" aria-label="식량 안보의 네 차원">
+  <g fill="none" stroke="#9aa99d" stroke-width="2">
+    <path d="M263 112 L358 185"/>
+    <path d="M637 112 L542 185"/>
+    <path d="M263 317 L358 244"/>
+    <path d="M637 317 L542 244"/>
+  </g>
+  <g fill="#fbf8f1" stroke="#b9c9bd" stroke-width="2">
+    <rect x="45" y="45" width="220" height="118" rx="20"/>
+    <rect x="635" y="45" width="220" height="118" rx="20"/>
+    <rect x="45" y="267" width="220" height="118" rx="20"/>
+    <rect x="635" y="267" width="220" height="118" rx="20"/>
+  </g>
+  <ellipse cx="450" cy="215" rx="106" ry="68" fill="#e7eee5" stroke="#7d9882" stroke-width="2.5"/>
+  <g fill="#283832" text-anchor="middle" font-family="Noto Sans KR, sans-serif">
+    <text x="155" y="89" font-size="19" font-weight="700">가용성</text>
+    <text x="155" y="119" font-size="15">생산 · 비축 · 교역</text>
+    <text x="745" y="89" font-size="19" font-weight="700">접근성</text>
+    <text x="745" y="119" font-size="15">소득 · 가격 · 거리</text>
+    <text x="155" y="311" font-size="19" font-weight="700">활용성</text>
+    <text x="155" y="341" font-size="15">안전 · 영양 · 건강</text>
+    <text x="745" y="311" font-size="19" font-weight="700">안정성</text>
+    <text x="745" y="341" font-size="15">시간에 걸친 지속</text>
+    <text x="450" y="211" font-size="21" font-weight="700">식량</text>
+    <text x="450" y="240" font-size="21" font-weight="700">안보</text>
+  </g>
+</svg>

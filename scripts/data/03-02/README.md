@@ -21,12 +21,11 @@ FAOSTAT의 화면 출처 표시는 기관·자료명·접근일·URL·CC BY 4.0�
 
 | 절·추천 단계 | 자료 파일 | 수업에서 다룰 내용 |
 |---|---|---|
-| 절 1 · 2단계 | rice-production-top10.json, wheat-production-top10.json, maize-production-top10.json | 같은 해인 2024년 쌀·밀·옥수수 생산 상위 10개국을 나란히 비교한다. 생산량 순위가 곧 식량 접근성이나 국민 소비량을 뜻하지 않는다는 점을 구분한다. |
-| 절 1 · 3단계 | wheat-exports-top10.json, wheat-export-world-share-top10.json | 밀 수출 상위국의 수출량과 세계 수출량 대비 비중을 비교한다. 상위 5개국 비중 합은 59.41%로 계산되며, 교역망의 집중을 논의할 수 있다. |
-| 절 2 · 2단계 | undernourishment-map.json, cereal-import-dependency-map.json | WDI 2024 영양 부족 비율(FAO의 2023–2025 3년 평균)과 곡물 수입 의존도를 비교한다. 같은 현상의 두 측정값이 아니므로 상관관계를 곧바로 원인으로 읽지 않는다. |
-| 절 2 · 3단계 | global-undernourishment-series.json | 세계 영양 부족 인구 비율의 장기 변화를 살핀다. 각 수치는 FAO가 공개한 3년 평균이며, 가로축은 해당 기간의 가운데 연도다. |
-| 절 3 · 2단계 | korea-self-sufficiency-series.json, cereal-import-dependency-map.json | 국내 곡물·식량 자급률과 국가별 곡물 수입 의존도를 함께 보고, 안정적인 생산·공급 방안을 비교한다. |
-| 절 3 · 3단계 | wheat-export-world-share-top10.json, global-undernourishment-series.json | 국제 교역 집중과 세계 영양 부족 변화가 보여 주는 규모를 구분해 정책 선택의 기대 효과와 한계를 논의한다. |
+| 절 1 · d1–d4 | food-system-schematic.svg, rice-production-top10.json, wheat-production-top10.json, maize-production-top10.json | 식량 체계의 단계와 주체를 살피고, 같은 해인 2024년 쌀·밀·옥수수 생산 상위국을 비교한다. 상위 목록은 전체 생산과 소비·접근성을 각각 구분해 읽는다. |
+| 절 1 · d5–d7 | wheat-exports-top10.json, wheat-export-world-share-top10.json, cereal-import-dependency-map.json | 밀 수출량과 세계 비중, 국가별 곡물 수입 의존도를 비교한다. 국가별 교역 통계는 기업별 시장 구조나 가구의 식량 접근과 범위를 구분한다. |
+| 절 2 · d1–d2 | food-security-dimensions.svg, global-undernourishment-series.json | 식량 안보의 차원을 확인하고, 세계 영양 부족 비율의 장기 흐름을 살핀다. 각 시계열 값은 3년 평균이며 가로축 연도는 해당 기간의 가운데 해다. |
+| 절 2 · d3–d4 | undernourishment-map.json, cereal-import-dependency-map.json | WDI 2024 영양 부족 비율(FAO의 2023–2025년 3년 평균)과 곡물 수입 의존도를 비교한다. 서로 다른 측정 대상이므로 분포를 나란히 읽고 지역 원인은 추가 자료로 살핀다. |
+| 절 3 · d1–d3 | korea-self-sufficiency-series.json, cereal-import-dependency-map.json, wheat-export-world-share-top10.json | 국내 자급률과 국가별 수입 의존도, 주요 밀 수출국 비중을 함께 보고 생산·교역·비축·접근 방안을 평가한다. |
 
 해결 방안의 맥락 자료로 기존 출처 fao-korea-national-food-plan, maff-japan-basic-plan-2025, wfp-food를 함께 읽을 수 있다. 해당 문서의 표·그림·문장을 이 데이터 파일에 복제하지 않았다.
 

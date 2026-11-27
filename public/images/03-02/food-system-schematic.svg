@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" role="img" aria-label="식량 체계의 단계와 관계">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#55786c"/>
+    </marker>
+    <marker id="return-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#b07d47"/>
+    </marker>
+  </defs>
+  <g fill="none" stroke="#55786c" stroke-width="3" marker-end="url(#arrow)">
+    <path d="M224 117 H260"/>
+    <path d="M455 117 H491"/>
+    <path d="M686 117 H722"/>
+  </g>
+  <path d="M827 73 C827 22 130 22 130 73" fill="none" stroke="#b07d47" stroke-width="2.5" marker-end="url(#return-arrow)"/>
+  <text x="480" y="41" text-anchor="middle" fill="#76522f" font-family="Noto Sans KR, sans-serif" font-size="16">수요와 선택이 생산 계획에 되돌아감</text>
+  <g fill="#fbf8f1" stroke="#b9c9bd" stroke-width="2">
+    <rect x="34" y="74" width="190" height="86" rx="18"/>
+    <rect x="265" y="74" width="190" height="86" rx="18"/>
+    <rect x="496" y="74" width="190" height="86" rx="18"/>
+    <rect x="727" y="74" width="190" height="86" rx="18"/>
+  </g>
+  <g fill="#283832" text-anchor="middle" font-family="Noto Sans KR, sans-serif">
+    <text x="129" y="111" font-size="19" font-weight="700">생산</text>
+    <text x="129" y="138" font-size="15">재배와 사육</text>
+    <text x="360" y="111" font-size="19" font-weight="700">저장·가공</text>
+    <text x="360" y="138" font-size="15">보관과 형태 바꾸기</text>
+    <text x="591" y="111" font-size="19" font-weight="700">운송·판매</text>
+    <text x="591" y="138" font-size="15">시장과 유통 경로</text>
+    <text x="822" y="111" font-size="19" font-weight="700">조리·소비</text>
+    <text x="822" y="138" font-size="15">식사와 이용</text>
+  </g>
+  <rect x="54" y="211" width="852" height="48" rx="16" fill="#edf1e9" stroke="#c5d0c1" stroke-width="2"/>
+  <text x="480" y="242" text-anchor="middle" fill="#34483d" font-family="Noto Sans KR, sans-serif" font-size="17">자연환경 · 시장 · 정책 · 기술은 여러 단계와 참여자에 작용</text>
+  <g fill="none" stroke="#8b9d8e" stroke-width="2" stroke-dasharray="5 6">
+    <path d="M129 211 V164"/>
+    <path d="M360 211 V164"/>
+    <path d="M591 211 V164"/>
+    <path d="M822 211 V164"/>
+  </g>
+</svg>
