@@ -1,0 +1,96 @@
+items:
+  - src: /images/04-01/opening.webp
+    prompt: |-
+      Use case: illustration-story
+      Asset type: opening illustration for a Korean high-school digital geography textbook, unit 04-01 “World energy resources”
+      Primary request: Show the relationship between everyday energy use and energy generation in one calm, fictional neighborhood scene. In the foreground, a household uses electricity for ordinary evening tasks and a plain unbranded electric bus passes along a street; nearby rooftops carry modest solar panels, with a few wind turbines visible far beyond the homes. Make the links between daily life and energy sources clear through the scene itself, without diagram labels or arrows.
+      Scene/backdrop: A simple contemporary neighborhood flowing into open distant hills, entirely invented and unlocatable. Sparse homes and trees, no recognizable architecture or landscape.
+      Subject: A few people with varied skin tones, ages, genders, body types and abilities going about ordinary life; solar rooftops, distant wind turbines, a plain electric bus, and warm household lights. All people act naturally and with agency.
+      Style/medium: Restrained editorial textbook illustration in soft gouache and colored-pencil texture, simple legible forms, very subtle paper grain, not photorealistic or glossy.
+      Composition/framing: Wide 3:2 landscape, one coherent scene, clear foreground and distant energy sources, generous paper-colored negative space.
+      Lighting/mood: Gentle late-afternoon light, calm, thoughtful, practical.
+      Color palette: Background near #fbf8f1; muted greens around #2f6f5e; warm off-white, light gray, and dark warm gray-brown neutrals; restrained natural sky colors only.
+      Materials/textures: Matte rooftops, simple solar panels without markings, plain bus without text or symbols, subtle hand-painted texture.
+      Text (verbatim): None.
+      Constraints: No text, letters, pseudo-writing, numerals, logos, brands, watermarks, signs, readable screens, flags, maps, globes, borders, country symbols, real places, landmarks, or famous people. The bus, buildings, devices, and panels are unmarked.
+      Avoid: Power-plant disaster scenes, smoke, pollution, extreme weather, crisis, poverty, cultural or religious markers, stereotypes, clutter, saturated colors, diagram arrows, icon overlays.
+    model: 'OpenAI image_gen built-in tool (underlying model not exposed)'
+    createdAt: '2026-11-27'
+    usedIn: '04-01 opening'
+    alt: '가정에서 전기를 쓰고 전기 버스가 오가는 동네 뒤로 태양광 지붕과 풍력 발전기가 보인다.'
+  - src: /images/04-01/renewable-energy-sources.webp
+    prompt: |-
+      Use case: illustration-story
+      Asset type: concept illustration for a Korean high-school digital geography textbook, unit 04-01, comparing renewable energy sources
+      Primary request: Make the distinct natural features behind four renewable energy sources immediately legible in one coherent landscape: sunlight falls on rooftop solar panels; wind turns a few simple turbines on a ridge; flowing stream water powers a small, unobtrusive hydropower facility; and a modest community building uses a clearly visible geothermal ground-loop cutaway beneath it. Show the four sources as different practical ways of harvesting energy from sun, wind, moving water, and heat underground.
+      Scene/backdrop: An invented, calm countryside neighborhood in a wide continuous landscape with soft hills, a small stream and a modest plain building. An unobtrusive cutaway of the soil beneath just one building reveals simple geothermal pipes and warm underground layers. No recognizable region.
+      Subject: Solar panels, wind turbines, a small stream with modest hydropower equipment, and one clear geothermal loop beneath a building. No people are needed.
+      Style/medium: Restrained editorial textbook illustration in soft gouache and colored-pencil texture, simple readable shapes, very subtle paper grain, not photorealistic or glossy.
+      Composition/framing: Wide 3:2 horizontal composition, four energy sources visible at a glance and balanced across the landscape; natural transitions, generous paper-colored space, no panel borders.
+      Lighting/mood: Gentle diffused daylight, calm and explanatory.
+      Color palette: Background near #fbf8f1; muted greens around #2f6f5e; warm off-white, light gray, and dark warm gray-brown neutrals; restrained natural water and earth colors.
+      Text (verbatim): None.
+      Constraints: No text, letters, pseudo-writing, numerals, labels, arrows, symbols, logos, watermarks, signs, flags, maps, globes, borders, country symbols, real places, landmarks, or famous people. The illustration should explain through objects only.
+      Avoid: Dramatic dams, flooded land, smoke, pollution, disasters, extreme weather, inaccurate energy machinery, oversized icon-like objects, diagram clutter, cultural markers, saturated colors.
+    model: 'OpenAI image_gen built-in tool (underlying model not exposed)'
+    createdAt: '2026-11-27'
+    usedIn: '04-01 concept illustration'
+    alt: '태양광 패널, 풍력 터빈, 물 흐름을 이용한 수력 설비, 지열 관로를 한 풍경에서 비교한다.'
+  - src: /images/04-02/opening.webp
+    prompt: |-
+      Use case: illustration-story
+      Asset type: opening illustration for a Korean high-school digital geography textbook, unit 04-02 “Major environmental issues of the world”
+      Primary request: Show neighbors taking practical, hopeful care of their shared environment in one calm fictional riverside green space: a small group carefully removes a few pieces of litter from a clean riverbank, others plant young trees, and another pair sorts reusable objects at a plain community table. Emphasize cooperation and everyday collective action, without depicting environmental damage as spectacle.
+      Scene/backdrop: A quiet invented neighborhood park beside a clean stream, a broad accessible path, simple trees and shrubs, and unidentifiable homes set far back. No recognizable landscape or location.
+      Subject: People with varied skin tones, ages, genders, body types, and abilities working side by side. Some plant a young tree, some tidy the riverbank with simple gloves and a small plain collection basket, and others sort clean reusable jars and paper at an unmarked table. Each person has an active, dignified role.
+      Style/medium: Restrained editorial textbook illustration in soft gouache and colored-pencil texture, simple legible forms, very subtle paper grain, not photorealistic or glossy.
+      Composition/framing: Wide 3:2 landscape, one coherent continuous scene with the river, tree planting, and reuse activity readable at a glance; generous paper-colored space, no panels.
+      Lighting/mood: Gentle diffused daylight, calm, constructive, cooperative.
+      Color palette: Background near #fbf8f1; muted greens around #2f6f5e; warm off-white, light gray, and dark warm gray-brown neutrals, with restrained natural plant and water tones only.
+      Materials/textures: Plain unmarked gloves, basket, jars, paper, and gardening tools; simple shared space with light paper texture.
+      Text (verbatim): None.
+      Constraints: No text, letters, pseudo-writing, numerals, logos, brands, watermarks, signs, labels, readable screens, flags, maps, globes, borders, country symbols, real places, landmarks, or famous people. Use no visible pollution, disaster, or damaged ecosystem.
+      Avoid: Flooding, drought, fire, smoke, dead wildlife, piles of trash, suffering, crisis, blame, poverty, religious or cultural markers, stereotypes, clutter, saturated colors, diagram arrows.
+    model: 'OpenAI image_gen built-in tool (underlying model not exposed)'
+    createdAt: '2026-11-27'
+    usedIn: '04-02 opening'
+    alt: '이웃들이 깨끗한 하천 주변을 정돈하고 어린 나무를 심으며 재사용 가능한 물건을 분류한다.'
+  - src: /images/04-02/ecological-transition.webp
+    prompt: |-
+      Use case: illustration-story
+      Asset type: concept illustration for a Korean high-school digital geography textbook, unit 04-02, ecological transition in everyday life
+      Primary request: Show three practical low-impact routines in one calm fictional school-neighborhood courtyard: teenagers arrive by bicycle, neighbors tend a small garden and carry fresh local produce to a shared table, and another person washes clean containers for reuse. Make cycling, local food, and reuse clear through ordinary actions and objects.
+      Scene/backdrop: A quiet invented learning garden opening into a shared neighborhood courtyard, with a simple unmarked building, leafy raised beds, and a broad path. It is not tied to any country or culture.
+      Subject: A small group of teenagers and adult neighbors with varied skin tones, genders, body types, and abilities. One teenager parks a plain bicycle; two others harvest vegetables and carry a simple basket to the shared table; one person washes clean plain jars and reusable containers at a small outdoor basin. Everyone participates with agency.
+      Clothing: Individually varied everyday contemporary casual clothes in muted neutral colors. No matching outfits, school uniforms, ties, badges, hats, headscarves, or other head coverings.
+      Style/medium: Restrained editorial textbook illustration in soft gouache and colored-pencil texture, simple legible forms, very subtle paper grain, not photorealistic or glossy.
+      Composition/framing: Wide 3:2 horizontal, one coherent continuous scene where cycling, local food, and reuse are each visible at a glance; generous paper-colored space, no panels or visual clutter.
+      Lighting/mood: Gentle diffused daylight, practical, calm, collaborative.
+      Color palette: Background near #fbf8f1; muted greens around #2f6f5e; warm off-white, light gray, and dark warm gray-brown neutrals; restrained natural vegetable colors.
+      Materials/textures: Plain unbranded bicycle, simple basket, a few fresh vegetables, unmarked reusable containers, soft paper texture.
+      Text (verbatim): None.
+      Constraints: No text, letters, pseudo-writing, numerals, logos, brands, watermarks, signs, labels, packaging, readable screens, flags, maps, globes, borders, country symbols, real places, landmarks, or famous people. Keep the building generic and unlocated.
+      Avoid: Disposable clutter, moralizing symbols, luxury advertising, poverty, stereotypes, religious or cultural markers, caricature, saturated colors, infographic labels or arrows.
+    model: 'OpenAI image_gen built-in tool (underlying model not exposed)'
+    createdAt: '2026-11-27'
+    usedIn: '04-02 concept illustration'
+    alt: '청소년과 이웃들이 자전거를 이용하고 텃밭의 지역 먹거리를 나누며 용기를 씻어 다시 쓴다.'
+  - src: /images/04-03/opening.webp
+    prompt: |-
+      Use case: illustration-story
+      Asset type: opening illustration for a Korean high-school digital geography textbook, unit 04-03 “Efforts for coexistence and peace”
+      Primary request: In one calm, fictional community courtyard, show people from different backgrounds listening to one another in a small open conversation and then working side by side to care for their shared garden. Their relaxed expressions, attentive listening, and shared planting should suggest respect, dialogue, and peaceful coexistence through ordinary community life.
+      Scene/backdrop: An invented neighborhood garden with a simple shared table, several plants, and an accessible path. Plain unidentifiable buildings sit quietly in the background; no real place or cultural architecture.
+      Subject: A small group of adults, a young person, and an older adult with varied skin tones, genders, body types, and abilities. Everyone is at equal eye level, taking turns speaking and listening; a few people plant flowers and water a young tree together. Clothing is ordinary contemporary casual clothing, individually varied and unmarked. No person represents a whole culture or group.
+      Style/medium: Restrained editorial textbook illustration in soft gouache and colored-pencil texture, simple legible forms, very subtle paper grain, not photorealistic or glossy.
+      Composition/framing: Wide 3:2 landscape, one clear unified scene of thoughtful conversation and shared garden care, generous paper-colored negative space, no panel borders.
+      Lighting/mood: Gentle diffused daylight, serene, warm, dignified, hopeful but understated.
+      Color palette: Background near #fbf8f1; muted greens around #2f6f5e; warm off-white, light gray, and dark warm gray-brown neutrals. Avoid saturated colors.
+      Materials/textures: Plain chairs, simple garden tools, watering can, soil and plants; soft matte paper texture.
+      Text (verbatim): None.
+      Constraints: Absolutely no text, letters, pseudo-writing, numerals, logos, brands, watermarks, signs, symbols, readable screens, flags, national or religious symbols, maps, globes, borders, real places, landmarks, or famous people. Clothing must not identify a culture, religion, country, or political group.
+      Avoid: Soldiers, weapons, uniforms, violence, ruins, conflict, damaged places, disaster, suffering, cultural stereotypes, exoticizing, one fixed costume for a group, religious dress, peace emblems, caricature, clutter, saturated colors.
+    model: 'OpenAI image_gen built-in tool (underlying model not exposed)'
+    createdAt: '2026-11-27'
+    usedIn: '04-03 opening'
+    alt: '서로의 말을 듣는 이웃들이 대화를 나눈 뒤 함께 꽃을 심고 어린 나무에 물을 준다.'
