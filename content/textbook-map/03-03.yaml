@@ -1,0 +1,83 @@
+unit: '03-03'
+lessons:
+  - index: 1
+    textbookPages: [154, 155]
+    goalGist: 세계화 속에서 초국적 기업이 여러 나라에 사업망을 두고 글로벌 경제 체제를 움직이는 방식을 설명한다.
+    topics:
+      - title: 글로벌 경제와 세계화
+        concepts: [세계적 연결, 생산·유통·교환, 국가 간 자본과 상품 이동]
+        textbookMaterials: [전 세계 지역별 교역 지도]
+        ourData: [u0303-global-fdi-inflows-series]
+      - title: 초국적 기업의 성장과 영향
+        concepts: [초국적 기업, 해외 생산·판매망, 기업 규모와 지역 경제]
+        textbookMaterials: [초국적 기업 매출 비교 그래프, 국가별 대기업 분포도, 초국적 기업 성장 과정 개념도]
+        ourData: [u0303-fdi-inflows-gdp-map, u0303-global-fdi-inflows-series]
+      - title: 기업 활동과 지역의 연결
+        concepts: [글로벌 가치사슬의 형성, 생산 기능의 공간적 분업, 세계지역화]
+        textbookMaterials: [해외 생산·영업망 사례, 가치사슬 단계와 입지 조건]
+        ourData: [u0303-fdi-inflows-gdp-map, u0303-gdp-ppp-per-capita-map]
+  - index: 2
+    textbookPages: [156, 158]
+    goalGist: 글로벌 가치사슬의 공간적 분업과 국가 사이·국가 안의 경제적 차이가 나타나는 양상과 구조적 조건을 설명한다.
+    topics:
+      - title: 글로컬 가치사슬과 단계별 부가가치
+        concepts: [글로벌 가치사슬, 글로컬 가치사슬, 스마일 커브, 단계별 가치 배분]
+        textbookMaterials: [가치사슬의 단계와 부가가치 개념도, 가치사슬 단계별 생산 사례]
+        ourData: ['개념도:value-chain-schematic']
+      - title: 초국적 기업의 공간적 분업과 지역 변화
+        concepts: [연구·설계와 생산·조립 입지, 일자리와 기술 이전, 이익 배분과 공장 이전]
+        textbookMaterials: [기업의 기능별 공간 분포도, 공장 입지와 지역 변화 사례]
+        ourData: [u0303-fdi-inflows-gdp-map]
+      - title: 소득과 빈곤의 공간적 분포·변화
+        concepts: [1인당 GDP, 극빈율, 국가 평균과 가구 소득]
+        textbookMaterials: [국가별 소득·빈곤 분포 자료]
+        ourData: [u0303-gdp-ppp-per-capita-map, u0303-gdp-ppp-constant-series, u0303-extreme-poverty-map]
+      - title: 공간적 불균등의 구조적 원인
+        concepts: [역사적 산업 구조, 교역 조건, 기술·제도 격차]
+        textbookMaterials: [국제 분업과 불균등의 원인 사례]
+        ourData: []
+  - index: 3
+    textbookPages: [159, 160]
+    goalGist: 국제 협력과 기업의 책임, 개인·시민 사회의 실천이 공간적 불균등을 줄이는 데 할 수 있는 일을 근거와 함께 설명한다.
+    topics:
+      - title: 초국적 기업과 국제 사회의 노력
+        concepts: [공적개발원조, 무역 규칙, 기업의 책임 있는 경영]
+        textbookMaterials: [국가별 공적개발원조 지도, 국제 협력 사업 자료, 기업 책임 원칙]
+        ourData: [u0303-oda-received-gni-map, u0303-oda-received-constant-series]
+      - title: 지원 분포와 생활 조건 비교
+        concepts: [ODA 수원액, GNI 대비 비율, 극빈율과 관측 시점]
+        textbookMaterials: [공적개발원조와 개발 현황 자료]
+        ourData: [u0303-oda-received-gni-map, u0303-oda-received-constant-series, u0303-extreme-poverty-map]
+      - title: 개인과 시민 사회의 실천
+        concepts: [공정무역, 윤리적 소비, 시민 사회의 참여]
+        textbookMaterials: [공정무역·지역 소비 사례, 소비와 기업 책임 자료]
+        ourData: [u0303-extreme-poverty-map]
+
+dataJudgement:
+  existingData:
+    - lesson: 1
+      topic: 국가 간 투자 흐름과 경제 공간 비교
+      data: [u0303-fdi-inflows-gdp-map, u0303-global-fdi-inflows-series, u0303-gdp-ppp-per-capita-map]
+    - lesson: 2
+      topic: 소득 수준과 빈곤의 국가별 분포·변화
+      data: [u0303-fdi-inflows-gdp-map, u0303-gdp-ppp-per-capita-map, u0303-gdp-ppp-constant-series, u0303-extreme-poverty-map]
+    - lesson: 3
+      topic: 수원국의 ODA 비율·규모와 빈곤 분포 비교
+      data: [u0303-oda-received-gni-map, u0303-oda-received-constant-series, u0303-extreme-poverty-map]
+  conceptualDiagramTopics:
+    - lesson: 2
+      topic: 생산 단계·입지 조건과 글로컬 가치사슬의 연결
+      data: ['개념도:value-chain-schematic']
+  lessonDataCounts:
+    - lesson: 1
+      realDataCount: 3
+      conceptualDiagramCount: 0
+      totalMaterialCount: 3
+    - lesson: 2
+      realDataCount: 4
+      conceptualDiagramCount: 1
+      totalMaterialCount: 5
+    - lesson: 3
+      realDataCount: 3
+      conceptualDiagramCount: 0
+      totalMaterialCount: 3

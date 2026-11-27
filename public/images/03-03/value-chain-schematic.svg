@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" role="img" aria-labelledby="diagram-title diagram-desc">
+  <title id="diagram-title">글로벌 가치사슬과 지역 입지 조건</title>
+  <desc id="diagram-desc">연구와 설계, 부품 생산, 조립, 판매와 서비스가 여러 지역에 이어지며 지역 조건에 따라 기능이 배치되고 조정되는 관계.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#58726a"/>
+    </marker>
+    <marker id="arrow-soft" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#b06e44"/>
+    </marker>
+  </defs>
+  <rect x="18" y="18" width="964" height="394" rx="24" fill="#faf8f2" stroke="#d9d3c5" stroke-width="2"/>
+
+  <path d="M220 105 H270 M455 105 H505 M690 105 H740" fill="none" stroke="#58726a" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g font-family="Noto Sans KR, Malgun Gothic, sans-serif" text-anchor="middle">
+    <rect x="35" y="55" width="185" height="100" rx="17" fill="#dce9e3" stroke="#58726a" stroke-width="2"/>
+    <text x="127" y="98" font-size="20" font-weight="700" fill="#1f3b34">연구 · 설계</text>
+    <text x="127" y="130" font-size="16" fill="#334e46">전문 인력 · 연구 기반</text>
+
+    <rect x="270" y="55" width="185" height="100" rx="17" fill="#e8e4d5" stroke="#857b58" stroke-width="2"/>
+    <text x="362" y="98" font-size="20" font-weight="700" fill="#514a32">부품 생산</text>
+    <text x="362" y="130" font-size="16" fill="#5c5540">기술 · 협력 업체</text>
+
+    <rect x="505" y="55" width="185" height="100" rx="17" fill="#f0dfd0" stroke="#b06e44" stroke-width="2"/>
+    <text x="597" y="98" font-size="20" font-weight="700" fill="#704628">조립</text>
+    <text x="597" y="130" font-size="16" fill="#73533d">생산 기반 · 물류</text>
+
+    <rect x="740" y="55" width="220" height="100" rx="17" fill="#e5e2ed" stroke="#77718f" stroke-width="2"/>
+    <text x="850" y="98" font-size="20" font-weight="700" fill="#46415c">판매 · 서비스</text>
+    <text x="850" y="130" font-size="16" fill="#56516c">시장 · 유통망</text>
+  </g>
+
+  <path d="M850 165 C850 210 745 220 655 220 H342 C255 220 150 210 150 165" fill="none" stroke="#b06e44" stroke-width="3" stroke-dasharray="8 8" marker-end="url(#arrow-soft)"/>
+  <rect x="165" y="238" width="670" height="62" rx="18" fill="#f4eadc" stroke="#cda57d" stroke-width="2"/>
+  <text x="500" y="276" text-anchor="middle" font-family="Noto Sans KR, Malgun Gothic, sans-serif" font-size="18" fill="#64482f">지역의 수요 · 문화 · 제도에 따라 상품과 운영 방식이 조정된다</text>
+
+  <rect x="90" y="330" width="820" height="50" rx="16" fill="#e8eeea" stroke="#8da49a" stroke-width="2"/>
+  <text x="500" y="362" text-anchor="middle" font-family="Noto Sans KR, Malgun Gothic, sans-serif" font-size="18" fill="#28443b">기업 · 지역 · 제도에 따라 기능 배치와 가치 배분이 달라진다</text>
+</svg>

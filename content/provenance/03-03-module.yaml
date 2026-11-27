@@ -1,0 +1,15 @@
+items:
+  - src: /images/03-03/value-chain-schematic.svg
+    prompt: >-
+      손으로 작성한 독자 SVG 개념도. 연구·설계, 부품 생산, 조립, 판매·서비스가
+      여러 기업과 지역에 나뉘어 이어지는 글로벌 가치사슬의 단계와 전문 인력·협력 업체·
+      생산 기반·물류·시장 등 입지 조건을 함께 표시했다. 지역의 수요·문화·제도가
+      상품과 운영 방식의 조정에 작용하고, 기업·지역·제도에 따라 기능 배치와 가치
+      배분이 달라짐을 나타냈다. 수치·국가 사례·실제값 눈금을 넣지 않았고 교과서 그림을
+      재현하지 않았다.
+    model: 'Codex; hand-authored SVG'
+    createdAt: '2026-11-27'
+    usedIn: '03-03 lesson 2, 글로컬 가치사슬과 공간적 분업'
+    alt: '연구·설계, 부품 생산, 조립, 판매·서비스가 여러 지역에 나뉘어 연결되고 전문 인력·협력 업체·물류·시장 등의 지역 조건과 제도가 단계 배치에 영향을 준다.'
+    basis: 'OECD Trade in Value Added (TiVA), 글로벌 가치사슬 참여와 부가가치의 국가 간 연결'
+    source: https://www.oecd.org/en/topics/sub-issues/trade-in-value-added.html
