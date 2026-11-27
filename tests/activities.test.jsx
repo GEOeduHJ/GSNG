@@ -62,23 +62,9 @@ describe('lesson questions and evidence', () => {
     expect(screen.getByLabelText('무역은 왜 늘었을까')).toBeTruthy();
   });
 
-  it('pauses linking only when the work zone reaches the reading line', () => {
-    const { container } = renderLesson(1, { ...emptyUnitRecord('01-01'), questions: [question()] });
-    const activity = container.querySelector('.activity');
-    const zoneObserver = FakeObserver.instances.find((observer) => observer.targets.includes(activity));
-    const paragraphObserver = FakeObserver.instances.find((observer) => observer.targets.some((target) => target.tagName === 'P'));
-    expect(zoneObserver.options?.rootMargin).toBe(paragraphObserver.options.rootMargin);
-  });
-
-  it('stops scroll linking while the activity is on screen', () => {
-    const { container } = renderLesson(1, { ...emptyUnitRecord('01-01'), questions: [question()] });
-    const activity = container.querySelector('.activity');
-    const zoneObserver = FakeObserver.instances.find((observer) => observer.targets.includes(activity));
-    const paragraphObserver = FakeObserver.instances.find((observer) => observer.targets.some((target) => target.tagName === 'P'));
-    act(() => zoneObserver.callback([{ target: activity, isIntersecting: true }]));
-    const paragraphs = container.querySelectorAll('.prose p');
-    act(() => paragraphObserver.callback([{ target: paragraphs[3], isIntersecting: true }]));
-    expect(paragraphs[0].className).toBe('is-active');
+  it('does not watch paragraph scrolling on lesson pages', () => {
+    renderLesson(1, { ...emptyUnitRecord('01-01'), questions: [question()] });
+    expect(FakeObserver.instances.filter((observer) => observer.targets.some((target) => target.tagName === 'P'))).toHaveLength(0);
   });
 });
 

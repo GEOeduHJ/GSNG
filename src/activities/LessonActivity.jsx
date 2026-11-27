@@ -18,7 +18,8 @@ const LessonActivity = forwardRef(function LessonActivity({ unit, lesson }, ref)
   return (
     <section className="activity" ref={ref} aria-labelledby={`act-${lesson.id}`}>
       {fictional && <FictionalNote />}
-      <h2 id={`act-${lesson.id}`}>{config.title ?? '탐구 활동'}</h2>
+      <h2 id={`act-${lesson.id}`}>탐구하기</h2>
+      {config.title && <h3>{config.title}</h3>}
       {config.instruction && <p>{config.instruction}</p>}
       <Template config={config} value={value} onChange={onChange} fictional={false} />
     </section>

@@ -1,7 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { act, render, renderHook, screen, waitFor } from '@testing-library/react';
-import { useActiveStep } from '../src/book/lesson/useActiveStep.js';
-import { stageIndexFor } from '../src/book/lesson/stages.js';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { buildChartOption, chartHeader, chartRows, compactNumber } from '../src/viz/chartData.js';
 import { classBreaks, joinValues, legendLabels, formatNumber, pointCategories, countryNames, pointsView, mapOptions } from '../src/viz/mapData.js';
 import DataStage from '../src/book/lesson/DataStage.jsx';
@@ -29,51 +27,6 @@ afterEach(() => {
   FakeObserver.instances = [];
   vi.unstubAllGlobals();
   delete window.matchMedia;
-});
-
-describe('useActiveStep', () => {
-  function setup(enabled = true) {
-    vi.stubGlobal('IntersectionObserver', FakeObserver);
-    const elements = [0, 1, 2].map(() => document.createElement('p'));
-    const refs = elements.map((current) => ({ current }));
-    const hook = renderHook(({ on }) => useActiveStep(refs, { enabled: on }), { initialProps: { on: enabled } });
-    const observer = FakeObserver.instances.at(-1);
-    return { hook, observer, elements };
-  }
-
-  it('tracks the most recently intersecting paragraph', () => {
-    const { hook, observer, elements } = setup();
-    act(() => observer.fire(elements[1]));
-    expect(hook.result.current.active).toBe(1);
-  });
-
-  it('ignores scrolling while pinned and resumes after unpin', () => {
-    const { hook, observer, elements } = setup();
-    act(() => hook.result.current.pin(0));
-    act(() => observer.fire(elements[2]));
-    expect(hook.result.current.active).toBe(0);
-    expect(hook.result.current.pinned).toBe(true);
-    act(() => hook.result.current.unpin());
-    act(() => observer.fire(elements[2]));
-    expect(hook.result.current.active).toBe(2);
-  });
-
-  it('stops following when disabled (activity zone)', () => {
-    const { hook, observer, elements } = setup(true);
-    hook.rerender({ on: false });
-    act(() => observer?.fire(elements[2]));
-    expect(hook.result.current.active).toBe(0);
-  });
-});
-
-describe('stageIndexFor', () => {
-  const steps = [{ type: 'text' }, { type: 'chart' }, { type: 'text' }, { type: 'map' }];
-  it('keeps the latest data step for text paragraphs', () => {
-    expect(stageIndexFor(steps, 0)).toBe(1);
-    expect(stageIndexFor(steps, 1)).toBe(1);
-    expect(stageIndexFor(steps, 2)).toBe(1);
-    expect(stageIndexFor(steps, 3)).toBe(3);
-  });
 });
 
 describe('chart and map data', () => {
@@ -259,32 +212,28 @@ describe('DataStage', () => {
     expect(caption).toContain('© EuroGeographics');
   });
 
-  it('marks schematic data in the caption', async () => {
-    vi.stubGlobal('fetch', vi.fn(() => Promise.reject(new Error('offline'))));
-    const step = { id: 's2', type: 'chart', data: '/data/x.json', caption: '개념도', source: '', alt: '설명', config: { kind: 'bar' }, schematic: true, concepts: [] };
-    render(<DataStage step={step} manifest={{ items: [] }} />);
-    expect(await screen.findByText(/모식 자료/)).toBeTruthy();
+  it('labels schematic captions as 개념도', () => {
+    const step = { id: 'd9', type: 'image', data: '/images/03-01/model.svg', caption: '인구 변천 모형', source: '', alt: '설명', config: {}, schematic: true, concepts: [] };
+    const { container } = render(<DataStage step={step} manifest={{ items: [] }} />);
+    expect(container.querySelector('figcaption').textContent.startsWith('개념도 · 인구 변천 모형')).toBe(true);
   });
 });
 
-describe('LessonSpread layout', () => {
-  function renderLesson() {
-    vi.stubGlobal('IntersectionObserver', FakeObserver);
-    vi.stubGlobal('fetch', vi.fn(() => Promise.reject(new Error('offline'))));
-    const book = makeBook();
-    const unit = book.units[0];
-    return render(<BookProvider book={book} storage={memoryStorage()}><LessonSpread unit={unit} route={{ name: 'lesson', unitId: '01-01', index: 1 }} /></BookProvider>);
-  }
+function renderLesson(book = makeBook(), index = 1) {
+  vi.stubGlobal('fetch', vi.fn(() => Promise.reject(new Error('offline'))));
+  const unit = book.units[0];
+  return render(<BookProvider book={book} storage={memoryStorage()}><LessonSpread unit={unit} route={{ name: 'lesson', unitId: '01-01', index }} /></BookProvider>);
+}
 
-  it('stacks below 1024px and shows every data step after the text', () => {
+describe('LessonSpread layout', () => {
+  it('stacks below 1024px without a right-page data panel', () => {
     setMedia({ wide: false });
     const { container } = renderLesson();
     expect(container.querySelector('.spread.is-narrow')).toBeTruthy();
-    expect(container.querySelector('.page-right').dataset.sticky).toBe('false');
-    expect(container.querySelectorAll('.page-right .stage')).toHaveLength(2);
+    expect(container.querySelectorAll('.stage')).toHaveLength(0);
   });
 
-  it('shows one linked stage on wide screens', () => {
+  it('shows one selected stage on wide screens', () => {
     setMedia({ wide: true });
     const { container } = renderLesson();
     expect(container.querySelector('.page-right').dataset.sticky).toBe('true');
@@ -296,5 +245,62 @@ describe('LessonSpread layout', () => {
     setMedia({ wide: true, reduced: true });
     const { container } = renderLesson();
     expect(container.querySelector('.page-right .stage').dataset.motion).toBe('none');
+  });
+});
+
+describe('lesson module page', () => {
+  const dataButton = (id) => screen.getByRole('button', { name: new RegExp(`자료 보기.*${id}`) });
+
+  it('shows the first linked data on the right and switches only on button press', () => {
+    setMedia({ wide: true });
+    renderLesson(makeBook({ moduleLesson: true }), 2);
+    expect(document.querySelector('.page-right [data-step]').dataset.step).toBe('m1');
+    fireEvent.click(dataButton('m2'));
+    expect(document.querySelector('.page-right [data-step]').dataset.step).toBe('m2');
+    expect(dataButton('m2').getAttribute('aria-pressed')).toBe('true');
+    expect(dataButton('m1').getAttribute('aria-pressed')).toBe('false');
+    expect(document.querySelector('.data-panel-head').textContent).toContain('소주제 나');
+  });
+
+  it('expands data under the paragraph on narrow screens', () => {
+    setMedia({ wide: false });
+    renderLesson(makeBook({ moduleLesson: true }), 2);
+    expect(dataButton('m1').getAttribute('aria-expanded')).toBe('false');
+    fireEvent.click(dataButton('m1'));
+    expect(dataButton('m1').getAttribute('aria-expanded')).toBe('true');
+    expect(document.querySelectorAll('.inline-stage [data-step="m1"]')).toHaveLength(1);
+    fireEvent.click(dataButton('m1'));
+    expect(document.querySelectorAll('.inline-stage [data-step="m1"]')).toHaveLength(0);
+  });
+
+  it('shows the opener and topic headings', () => {
+    setMedia({ wide: true });
+    renderLesson(makeBook({ moduleLesson: true }), 2);
+    expect(screen.getByText('생각 열기 문장')).toBeTruthy();
+    expect(screen.getByRole('heading', { level: 2, name: '소주제 가' })).toBeTruthy();
+  });
+
+  it('puts activity, summary and my questions below the spread in that order', () => {
+    setMedia({ wide: true });
+    renderLesson(makeBook({ moduleLesson: true }), 2);
+    const headings = [...document.querySelectorAll('.lesson-after > section > h2')].map((h) => h.textContent);
+    expect(headings).toEqual(['탐구하기', '핵심 정리', '내 질문과 이 절']);
+    expect(document.querySelector('.spread .my-questions')).toBeNull();
+  });
+
+  it('renders legacy lessons with per-paragraph buttons and no empty opener or summary', () => {
+    setMedia({ wide: true });
+    renderLesson(makeBook(), 1);
+    expect(screen.getAllByRole('button', { name: /자료 보기/ })).toHaveLength(2);
+    expect(screen.queryByText('생각 열기')).toBeNull();
+    expect(screen.queryByRole('heading', { name: '핵심 정리' })).toBeNull();
+  });
+
+  it('skips buttons for unknown refs without crashing', () => {
+    setMedia({ wide: true });
+    const book = makeBook({ moduleLesson: true });
+    book.units[0].lessons[1].sections[0].paragraphs[0].refs = ['nope', 'm1'];
+    renderLesson(book, 2);
+    expect(screen.getAllByRole('button', { name: /자료 보기/ })).toHaveLength(3);
   });
 });

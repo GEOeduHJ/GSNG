@@ -20,7 +20,7 @@ function useMediaQuery(query, fallback) {
 export const useWide = () => useMediaQuery(WIDE_QUERY, false);
 export const useReducedMotion = () => useMediaQuery(REDUCED_QUERY, false);
 
-/** Two facing pages on wide screens; one column (left then right) below 1024px. */
+/** Two facing pages on wide screens; one column (left then right) below 1024px. A null `right` leaves only the left page. */
 export default function Spread({ left, right, rightSticky = false, pages, label }) {
   const wide = useWide();
   const sticky = wide && rightSticky;
@@ -30,10 +30,12 @@ export default function Spread({ left, right, rightSticky = false, pages, label 
         {left}
         {pages && <span className="folio">{pages[0]}</span>}
       </section>
-      <section className={`page page-right${sticky ? ' is-sticky' : ''}`} data-sticky={sticky ? 'true' : 'false'}>
-        <div className="page-right-inner">{right}</div>
-        {pages && <span className="folio">{pages[1]}</span>}
-      </section>
+      {right != null && (
+        <section className={`page page-right${sticky ? ' is-sticky' : ''}`} data-sticky={sticky ? 'true' : 'false'}>
+          <div className="page-right-inner">{right}</div>
+          {pages && <span className="folio">{pages[1]}</span>}
+        </section>
+      )}
     </div>
   );
 }

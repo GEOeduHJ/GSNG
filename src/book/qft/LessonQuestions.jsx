@@ -17,7 +17,7 @@ function newId() {
 }
 
 /** "My questions" for this lesson: which priority questions it can help answer, and attaching evidence to them. */
-const LessonQuestions = forwardRef(function LessonQuestions({ unit, lesson, currentStepId }, ref) {
+const LessonQuestions = forwardRef(function LessonQuestions({ unit, lesson, selectedStepId }, ref) {
   const { book } = useBook();
   const [record, update] = useUnitRecord(unit.id);
   const priority = selectedQuestions(record);
@@ -28,7 +28,7 @@ const LessonQuestions = forwardRef(function LessonQuestions({ unit, lesson, curr
   const [stepChoice, setStepChoice] = useState('');
   const [note, setNote] = useState('');
   const validChoice = dataSteps.some((step) => step.id === stepChoice) ? stepChoice : '';
-  const stepId = validChoice || currentStepId || dataSteps[0]?.id || '';
+  const stepId = validChoice || selectedStepId || dataSteps[0]?.id || '';
   const chosen = shown.some((question) => question.id === questionId) ? questionId : '';
   const canAttach = Boolean(chosen) && note.trim().length >= 4;
   const attached = record.evidence.filter((item) => item.lessonId === lesson.id);

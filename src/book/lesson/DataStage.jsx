@@ -15,9 +15,9 @@ export function Caption({ step, manifest }) {
   const { text } = sourceLine(step, manifest);
   return (
     <figcaption>
+      {step.schematic && <>개념도 · </>}
       <strong>{step.caption}</strong>
       {text && <> · 자료: {text}</>}
-      {step.schematic && <> · 모식 자료</>}
     </figcaption>
   );
 }
