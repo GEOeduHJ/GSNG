@@ -76,3 +76,75 @@ items:
     unit: visitors per fiscal year (x-axis year is fiscal year start)
     year: 2015
     summary: DNPWC 관리계획 부록 VII의 FY 1975/76–2014/15 기록이다. 1975/76년 3,600명, 2012/13년 36,650명, 2014/15년 34,412명이다. 원자료에서 빠진 7개 회계연도는 null이다.
+
+  - id: u0202-usgs-plate-boundaries
+    path: /data/02-02/plate-boundary-points.geojson
+    title: 세계 판 경계 대표 위치
+    organization: U.S. Geological Survey (USGS)
+    url: https://earthquake.usgs.gov/arcgis/rest/services/eq/map_plateboundaries/MapServer/1/query
+    retrievedAt: '2026-11-27'
+    license: 미국 정부 공개 도메인 자료; USGS 출처와 원 모델 참고 문헌 표시
+    attribution: >-
+      U.S. Geological Survey, Tectonic Plate Boundaries; boundary model cites Bird (2003) and
+      plate motion model cites DeMets, Gordon, and Argus (2010). Modified: representative points
+      sampled from line features.
+    script: scripts/data/02-02/plate_boundary_points.py
+    unit: 경계 위치 표본
+    year: null
+    summary: >-
+      USGS 서비스의 1,175개 선형 경계 피처를 약 350km 간격의 대표 위치 점으로 바꾸었다.
+      수렴·발산·변환·기타 경계 표본 1,406개다. 점은 경계선의 근사적 분포를 나타내며 지진 발생 위치가 아니다.
+
+  - id: u0202-wdi-international-tourism-arrivals
+    path: /data/02-02/international-tourism-arrivals-1995-2020.json
+    title: 국제 관광객 도착 수, 1995–2020
+    organization: World Bank, World Development Indicators (WDI); source data from UN Tourism
+    url: https://data.worldbank.org/indicator/ST.INT.ARVL
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      World Bank, World Development Indicators, ST.INT.ARVL, CC BY 4.0; source data from UN Tourism.
+      Modified: selected Nepal, Iceland, New Zealand, and Zambia series for 1995–2020; missing values
+      retained as null.
+    script: scripts/data/02-02/module_wdi.py
+    unit: 명
+    year: 2020
+    summary: >-
+      2020년 값은 네팔 230,000명, 아이슬란드 488,000명, 뉴질랜드 996,000명, 잠비아 502,000명이다.
+      국가 전체 국제 관광객 도착 수이며 특정 지형 관광지의 방문객 수가 아니다.
+
+  - id: u0202-wdi-terrestrial-protected-areas
+    path: /data/02-02/terrestrial-protected-areas-map-2025.json
+    title: 육상 보호 지역 비율, 2025년
+    organization: World Bank, World Development Indicators (WDI); source data from Protected Planet
+    url: https://data.worldbank.org/indicator/ER.LND.PTLD.ZS
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      World Bank, World Development Indicators, ER.LND.PTLD.ZS, CC BY 4.0; source data from
+      Protected Planet, WDPA and WD-OECM, UNEP-WCMC and IUCN. Modified: 2025 values and ISO3 codes
+      for a choropleth map.
+    script: scripts/data/02-02/module_wdi.py
+    unit: '% of total land area'
+    year: 2025
+    summary: >-
+      2025년 217개 국가·경제 코드 가운데 213개에 값이 있다. 네팔 23.6%, 뉴질랜드 33.4%, 잠비아
+      41.3%다. 지정·기록된 보전 구역의 비율로, 관리 효과나 주민 참여 정도를 직접 나타내지 않는다.
+
+  - id: u0202-natural-earth-landforms
+    path: /data/02-02/major-landforms.geojson
+    title: 세계 주요 지형 지역 대표점
+    organization: Natural Earth
+    url: https://www.naturalearthdata.com/downloads/10m-physical-vectors/10m-physical-labels/
+    retrievedAt: '2026-11-27'
+    license: Natural Earth 자료는 public domain
+    attribution: >-
+      Natural Earth, 1:10m Geography Regions Polygons. Public domain. Modified: selected physical
+      region polygons and derived one representative point per record.
+    script: scripts/data/02-02/natural_earth_landforms.py
+    unit: WGS84 decimal degrees; representative points
+    year: null
+    summary: >-
+      Natural Earth 지형 지역 폴리곤에서 산지 222곳, 고원 72곳, 평야 30곳, 분지·저지대 16곳,
+      계곡·협곡 9곳, 하구 평야 12곳의 대표점을 만들었다. 분포 개관용 일반화 자료이며 지질 구조나
+      형성 연대를 분류하지 않는다. 대표 사례 16곳의 이름을 지도에 표시한다.

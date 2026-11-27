@@ -1,0 +1,148 @@
+unit: '02-02'
+lessonPagesAreLearningObjectivePages: true
+lessons:
+  - index: 1
+    textbookPages: [72, 73]
+    goalGist: 판의 움직임과 지형 형성 작용을 연결하고 지진·화산 분포의 공간적 특징을 설명한다.
+    topics:
+      - title: 지형 형성 작용과 대지형
+        concepts: [내적 작용, 판 구조 운동, 대지형]
+        textbookMaterials: [지형 형성 설명, 판 구조 모식도]
+        ourData: [u0202-usgs-plate-boundaries]
+      - title: 판의 경계 유형과 지형 형성
+        concepts: [수렴 경계, 발산 경계, 변환 경계, 산맥·해령·지구대]
+        textbookMaterials: [판 경계 유형 설명, 세계 판 경계 지도]
+        ourData: [u0202-usgs-plate-boundaries]
+      - title: 지진·화산 분포와 판의 경계
+        concepts: [지진, 화산, 불의 고리, 경계 밖 화산]
+        textbookMaterials: [세계 화산·지진 분포 지도, 판 경계 지도]
+        ourData: [u0202-usgs-earthquakes-m6, u0202-gvp-holocene-volcanoes, u0202-usgs-plate-boundaries]
+  - index: 2
+    textbookPages: [74, 77]
+    goalGist: 세계 주요 대지형의 차이를 구분하고 지형 조건과 자원·정착·산업·위험 관리의 관계를 설명한다.
+    topics:
+      - title: 세계 주요 대지형의 분포
+        concepts: [안정육괴, 순상지, 구조 평야, 고기 습곡 산지, 신기 습곡 산지]
+        textbookMaterials: [세계 대지형 분포 지도]
+        ourData: [u0202-natural-earth-landforms]
+      - title: 평야·산지·하천과 인간 생활
+        concepts: [농업과 정착, 광물 자원, 공업 지역, 하천의 이용]
+        textbookMaterials: [평야와 도시 사례, 광물·공업 분포 지도]
+        ourData: [u0301-population-density]
+      - title: 활발한 지형에서의 이용과 적응
+        concepts: [화산·지진 위험, 화산회토, 지열·광물, 예방과 적응]
+        textbookMaterials: [지진 예방·피해 자료, 화산 지역 생활 사례]
+        ourData: [u0202-usgs-earthquakes-m6, u0202-gvp-holocene-volcanoes]
+      - title: 저지대 정착과 공간적 차이
+        concepts: [저지대 거주 인구, 저지대 면적, 국가 평균의 해석]
+        textbookMaterials: [저지대 인구·면적 비율 지도]
+        ourData: [u0202-wdi-low-elevation-population, u0202-wdi-low-elevation-land-area]
+  - index: 3
+    textbookPages: [78, 81]
+    goalGist: 다양한 지형 경관이 관광 자원이 되는 과정을 설명하고 관광 자료를 공간 규모에 맞게 해석한다.
+    topics:
+      - title: 지형 경관과 관광 자원
+        concepts: [침식 협곡, 해안 지형, 폭포, 화산 지형, 카르스트 지형]
+        textbookMaterials: [그랜드 캐니언·그레이트 오션 로드·빅토리아 폭포·화산·카르스트 사례]
+        ourData: [u0202-natural-earth-landforms]
+      - title: 관광 활동과 지역 경제
+        concepts: [관광 수입, 관광객 도착, 지역 서비스]
+        textbookMaterials: [세계 관광 수입 그래프, 관광의 국내 경제 기여 사례]
+        ourData: [u0202-wdi-international-tourism-arrivals]
+      - title: 산악 관광과 장소별 방문 변화
+        concepts: [산악 경관, 관광 이용, 방문객 변화]
+        textbookMaterials: [사가르마타 위치·방문객 자료]
+        ourData: [u0202-unesco-sagarmatha-point, u0202-sagarmatha-visitors-series]
+  - index: 4
+    textbookPages: [82, 83]
+    goalGist: 관광 개발과 지형·생태계 보전의 쟁점을 이해하고 참여와 관리 자료를 근거로 지속가능한 이용 방안을 제안한다.
+    topics:
+      - title: 지형 활용을 둘러싼 가치와 이해관계
+        concepts: [지역 소득, 자연성, 개발과 보전의 갈등]
+        textbookMaterials: [해안 관광·맹그로브 이용과 훼손 사례]
+        ourData: [u0202-wdi-international-tourism-arrivals]
+      - title: 보전과 이용을 함께 설계하기
+        concepts: [해안 사빈·사구, 생태 탐방로, 복원, 보호 지역]
+        textbookMaterials: [모래 포집기·생태 탐방로·골드코스트 복원·파묵칼레 관리 사례]
+        ourData: [u0202-wdi-terrestrial-protected-areas]
+      - title: 관광 영향을 살피고 관리 조정하기
+        concepts: [방문 압력, 관리 계획, 주민 참여, 지속가능한 이용]
+        textbookMaterials: [사가르마타 방문객 변화와 UNESCO 관리 쟁점]
+        ourData: [u0202-sagarmatha-visitors-series, u0202-unesco-sagarmatha-point]
+
+supplementaryCoverage:
+  - pages: [84, 85]
+    linkedLesson: 2
+    topic: 일본 두 해안 도시의 지형·인구·쓰나미 피해 차이를 비교하는 지리 탐구
+    textbookMaterials: [도시 지형 설명, 진원 위치 지도, 인명 피해·인구 구조 자료]
+  - pages: [86, 86]
+    linkedLesson: 3
+    topic: 뉴질랜드의 화산·빙하·해안 관광 경관을 살펴보는 지역 사례
+    textbookMaterials: [뉴질랜드 지형·관광 장소 설명]
+  - pages: [87, 87]
+    linkedLesson: null
+    topic: 중단원 학습 내용 자기 점검과 정리
+    textbookMaterials: [핵심 개념 정리, 학습 목표 자기 점검]
+
+rangeNote: >-
+  요청 범위 72–89쪽에서 학습 목표가 있는 네 소절은 72–83쪽이다. 84–86쪽의 보충 탐구·지역 이야기는
+  각각 2·3절에 연결했고, 87쪽은 중단원 정리로 기록했다. 88–89쪽은 다음 중단원 02-03의 도입이므로
+  이 대응표의 소절 범위에서 제외했다. 기존 unit.yaml의 여는·닫는 질문 흐름은 유지한다.
+
+dataJudgement:
+  reusedExisting:
+    - lesson: 1
+      topic: 지진과 화산 분포 비교
+      data: [u0202-usgs-earthquakes-m6, u0202-gvp-holocene-volcanoes]
+    - lesson: 2
+      topic: 인구 분포와 저지대 거주 비교
+      data: [u0301-population-density, u0202-wdi-low-elevation-population, u0202-wdi-low-elevation-land-area]
+    - lesson: 2
+      topic: 지진·화산 위험과 주민의 이용·적응
+      data: [u0202-usgs-earthquakes-m6, u0202-gvp-holocene-volcanoes]
+    - lesson: 3
+      topic: 사가르마타 위치와 과거 방문객 변화
+      data: [u0202-unesco-sagarmatha-point, u0202-sagarmatha-visitors-series]
+    - lesson: 3
+      topic: 관광 경관 지역의 일반 분포
+      data: [u0202-natural-earth-landforms]
+    - lesson: 4
+      topic: 관광 관리 쟁점 검토
+      data: [u0202-unesco-sagarmatha-point, u0202-sagarmatha-visitors-series]
+    - lesson: 4
+      topic: 국가 단위 관광객 도착 변화
+      data: [u0202-wdi-international-tourism-arrivals]
+  newRealDataTopics:
+    - lesson: 1
+      topic: 실제 판 경계 위치와 유형
+      data: [u0202-usgs-plate-boundaries]
+    - lesson: 2
+      topic: 주요 산지·고원·평야·분지·계곡·하구 평야의 일반화 분포
+      data: [u0202-natural-earth-landforms]
+    - lesson: 3
+      topic: 국가별 국제 관광객 도착 수
+      data: [u0202-wdi-international-tourism-arrivals]
+    - lesson: 4
+      topic: 육상 보호 지역 비율
+      data: [u0202-wdi-terrestrial-protected-areas]
+  conceptualDiagramTopics:
+    - lesson: 4
+      topic: 지속가능한 이용의 관찰·참여·조정 과정
+      data: ['개념도:sustainable-use-cycle']
+  lessonDataCounts:
+    - lesson: 1
+      realDataCount: 3
+      conceptualDiagramCount: 0
+      totalMaterialCount: 3
+    - lesson: 2
+      realDataCount: 6
+      conceptualDiagramCount: 0
+      totalMaterialCount: 6
+    - lesson: 3
+      realDataCount: 4
+      conceptualDiagramCount: 0
+      totalMaterialCount: 4
+    - lesson: 4
+      realDataCount: 4
+      conceptualDiagramCount: 1
+      totalMaterialCount: 5

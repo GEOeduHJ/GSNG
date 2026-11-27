@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 480" role="img" aria-label="지역의 생활과 필요, 지형과 생태계의 상태, 이용 방식, 관찰과 참여를 살피고 조정하는 지속가능한 이용의 순환">
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M1 1 L10 6 L1 11" fill="none" stroke="#2f6f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="1100" height="480" fill="#fbf8f1"/>
+  <g fill="none" stroke="#2f6f5e" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)">
+    <path d="M445 118 H655"/>
+    <path d="M840 188 V292"/>
+    <path d="M655 360 H445"/>
+    <path d="M260 292 V188"/>
+  </g>
+  <g fill="#fffdf8" stroke="#b8c9be" stroke-width="3">
+    <rect x="55" y="55" width="390" height="130" rx="22"/>
+    <rect x="655" y="55" width="390" height="130" rx="22"/>
+    <rect x="655" y="295" width="390" height="130" rx="22"/>
+    <rect x="55" y="295" width="390" height="130" rx="22"/>
+  </g>
+  <circle cx="550" cy="240" r="86" fill="#e9f0e8" stroke="#2f6f5e" stroke-width="4"/>
+  <g fill="#272923" font-family="sans-serif" font-size="24" text-anchor="middle">
+    <text x="250" y="112">지역의 생활과 필요</text>
+    <text x="250" y="151" font-size="19">생계 · 이동 · 방문 경험</text>
+    <text x="850" y="112">지형과 생태계의 상태</text>
+    <text x="850" y="151" font-size="19">경관 · 서식지 · 회복력</text>
+    <text x="850" y="352">이용 방식과 기준</text>
+    <text x="850" y="391" font-size="19">접근 · 안내 · 시설 · 규칙</text>
+    <text x="250" y="352">관찰 · 참여 · 재검토</text>
+    <text x="250" y="391" font-size="19">영향을 살피고 의견을 반영</text>
+    <text x="550" y="231" font-size="22">지속가능한</text>
+    <text x="550" y="267" font-size="22">이용</text>
+  </g>
+</svg>

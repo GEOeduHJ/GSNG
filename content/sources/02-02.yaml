@@ -39,3 +39,113 @@ sources:
     reuseBasis: 지형을 만드는 내부 작용과 물·바람·얼음·중력의 작용, 주요 지형 유형을 확인하는 설명 출처.
     verificationStatus: NPS 자료에서 지형의 다양한 형상과 지각·화산 활동 및 외부 작용의 역할, 해안·빙하·카르스트 지형 항목을 확인함.
     usage: 미국 국립공원 자료를 세계의 모든 지역에 일반화하지 않고 지형 과정의 참고 설명으로만 사용함.
+  usgs-plate-boundaries:
+    title: 'USGS Tectonic Plate Boundaries MapServer'
+    organization: U.S. Geological Survey (USGS)
+    url: https://earthquake.usgs.gov/arcgis/rest/services/eq/map_plateboundaries/MapServer/1
+    sourceDate: 'Plate boundary model: Bird 2003; plate motion model: DeMets, Gordon, and Argus 2010'
+    checkedAt: '2026-11-27'
+    licenseStatus: >-
+      USGS states that USGS-authored or produced information is public domain; give USGS credit.
+      The service cites Bird (2003) and DeMets et al. (2010) as source models.
+    reuseBasis: USGS feature service provides generalized global plate-boundary line features with boundary-type labels.
+    verificationStatus: >-
+      Layer 1 returned 1,175 line features and four labels. The web map stores representative source vertices
+      sampled at approximately 350 km intervals; it does not redraw the textbook map.
+    usage: >-
+      Treat the dots as a generalized trace of boundaries, not precise local fault locations or observations.
+      Compare broad spatial patterns with earthquake and Holocene-volcano distributions.
+  world-bank-wdi-02-02:
+    title: World Development Indicators — 지형·관광·보전 지표
+    organization: World Bank; source data from CIESIN, UN Tourism, and Protected Planet
+    url: https://data.worldbank.org/indicator/ST.INT.ARVL
+    sourceDate: '1995–2025 indicator coverage; this unit uses indicator-specific years'
+    checkedAt: '2026-11-27'
+    licenseStatus: >-
+      The World Bank indicator pages for ST.INT.ARVL and ER.LND.PTLD.ZS list CC BY 4.0.
+      WDI general data access and licensing terms were checked. Source providers are credited in the manifest.
+    reuseBasis: >-
+      WDI indicators include low-elevation population and land-area shares sourced from CIESIN,
+      international tourism arrivals sourced from UN Tourism, and terrestrial protected-area coverage
+      sourced from Protected Planet (WDPA and WD-OECM).
+    verificationStatus: >-
+      Official indicator pages and the WDI API were checked. The tourism-arrival series covers 1995–2020;
+      the protection indicator has 2025 values for 213 of 217 country/economy codes.
+    usage: >-
+      Country-wide international tourist arrivals are not visitors to a named landform or park.
+      Protected-area coverage includes WD-OECM and does not measure management effectiveness or local participation.
+  natural-earth-physical-regions:
+    title: '10m Physical Labels — Geography Regions Polygons'
+    organization: Natural Earth
+    url: https://www.naturalearthdata.com/downloads/10m-physical-vectors/10m-physical-labels/
+    sourceDate: 'Natural Earth 1:10m physical region dataset'
+    checkedAt: '2026-11-27'
+    licenseStatus: Natural Earth vector and raster data are public domain.
+    reuseBasis: >-
+      Generalized polygons and labels for major physical regions such as mountain ranges, plateaus,
+      plains, basins, valleys, gorges, and deltas.
+    verificationStatus: >-
+      The 10m geography-regions archive and Korean feature labels were checked. Polygons are generalized
+      to approximately 1:50m geographic accuracy; this derivative stores one representative point per
+      selected polygon record.
+    usage: >-
+      Use for broad physiographic distribution only. These labels do not classify cratons, shields,
+      fold age, local landform boundaries, or geological structure.
+  gns-new-zealand-volcanoes:
+    title: Volcanoes — Earth Sciences New Zealand
+    organization: Earth Sciences New Zealand | GNS Science
+    url: https://www.gns.cri.nz/our-science/natural-hazards-and-risks/volcanoes/
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: Reference link only; individual text, maps, and images are not redistributed.
+    reuseBasis: New Zealand's plate setting, volcanic landforms, hazards, monitoring, and visitor interest.
+    verificationStatus: >-
+      GNS Science describes New Zealand across the Pacific–Australian plate boundary and the relationship
+      between subduction and its volcanic landforms.
+    usage: Explain regional examples without implying that every volcano is currently active.
+  gns-new-zealand-glaciers:
+    title: Glaciers — Earth Sciences New Zealand
+    organization: Earth Sciences New Zealand | GNS Science
+    url: https://www.gns.cri.nz/our-science/environment-and-climate/climate-system/glaciers/
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: Reference link only; individual text, maps, and images are not redistributed.
+    reuseBasis: Glacial processes, erosion, and New Zealand glacier landscapes.
+    verificationStatus: GNS Science explains glacier movement and erosion of underlying landscapes.
+    usage: Use as a regional example of ice shaping landforms and landscapes.
+  unep-mangrove-forests:
+    title: Mangrove forests
+    organization: United Nations Environment Programme (UNEP)
+    url: https://www.unep.org/en/what-we-do/ocean-seas-and-coasts/blue-ecosystems/mangrove-forests
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: Reference link only; the report and page content are not redistributed.
+    reuseBasis: Mangrove ecosystem services and pressures from coastal development and other uses.
+    verificationStatus: >-
+      UNEP describes mangrove contributions to livelihoods, food, biodiversity, and coastal protection,
+      and identifies coastal development among the pressures on these ecosystems.
+    usage: Discuss the livelihood and conservation dimensions of mangrove use without generalizing local communities.
+  gold-coast-dune-management:
+    title: Sand dredging & dunes
+    organization: City of Gold Coast, Queensland, Australia
+    url: https://www.goldcoast.qld.gov.au/Environment-sustainability/Protecting-our-environment/Managing-our-beaches/Sand-dredging-dunes
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: Reference link only; no page text or images are redistributed.
+    reuseBasis: Official local management examples for beach sand, dunes, native vegetation, fencing, and accessways.
+    verificationStatus: >-
+      The city describes dune fencing to trap sand and limit access, native planting, revegetation,
+      litter removal, and maintained public accessways.
+    usage: Present Gold Coast practices as a place-specific management approach, not a universal recipe.
+  unesco-pamukkale:
+    title: Hierapolis-Pamukkale
+    organization: UNESCO World Heritage Centre
+    url: https://whc.unesco.org/en/list/485/
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: Reference link only; page text, images, and maps are not redistributed.
+    reuseBasis: Travertine landform, visitor access, conservation, and site-management context.
+    verificationStatus: >-
+      UNESCO describes spring-fed travertine terraces and restricted access to protect water flow and
+      the formation's appearance, alongside coordinated site management.
+    usage: Treat access rules as a site-specific conservation decision made through local governance.
