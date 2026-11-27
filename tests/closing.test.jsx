@@ -67,4 +67,18 @@ describe('UnitClosing', () => {
       expect(parsed.value.displayName).toBe('7번');
     });
   });
+
+  it('loads a lesson-born question into the revise box', () => {
+    const born = { ...question, id: 'q2', text: '인구는 왜 줄까', selected: false, fromLessonId: 'lesson-01-01-2' };
+    renderClosing({ ...emptyUnitRecord('01-01'), questions: [question, born], evidence: [evidence], explanation: { questionId: 'q1', claim: '주장 문장', reasoning: '설명 문장', evidenceIds: ['e1'] }, stageTimes: { explain: 't' } });
+    expect(screen.getByLabelText('다듬은 질문').value).toBe('무역은 왜 늘었을까');
+    fireEvent.click(screen.getByRole('button', { name: '불러오기: 인구는 왜 줄까' }));
+    expect(screen.getByLabelText('다듬은 질문').value).toBe('인구는 왜 줄까');
+  });
+
+  it('hides the lesson-born list when there are none', () => {
+    renderClosing({ ...emptyUnitRecord('01-01'), questions: [question], evidence: [evidence], explanation: { questionId: 'q1', claim: '주장 문장', reasoning: '설명 문장', evidenceIds: ['e1'] }, stageTimes: { explain: 't' } });
+    expect(screen.queryByText('학습하며 생긴 질문')).toBeNull();
+  });
 });
+

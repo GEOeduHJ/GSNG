@@ -3,7 +3,7 @@ import Spread from '../Spread.jsx';
 import { useBook, useUnitRecord } from '../BookContext.jsx';
 import { routes } from '../router.js';
 import DataStage from '../lesson/DataStage.jsx';
-import { questionText, selectedQuestions } from '../qft/questions.js';
+import { lessonBornQuestions, questionText, selectedQuestions } from '../qft/questions.js';
 import { buildResultFile, resultFileName } from '../../storage/resultFile.js';
 
 export const CLOSING_STAGES = [
@@ -78,6 +78,7 @@ function Explain({ record, update, unit }) {
 
 function Revise({ record, update }) {
   const original = record.questions.find((question) => question.id === record.explanation.questionId);
+  const born = lessonBornQuestions(record);
   const prefilled = useRef(false);
   useEffect(() => {
     if (prefilled.current || !original) return;
@@ -90,6 +91,20 @@ function Revise({ record, update }) {
       <p className="hint">탐구를 마친 지금, 처음 질문을 더 정확하거나 더 깊게 고쳐 씁니다.</p>
       <label htmlFor="revised">다듬은 질문</label>
       <textarea id="revised" rows="2" value={record.revisedQuestion} onChange={(event) => update((current) => ({ ...current, revisedQuestion: event.target.value }))} />
+      {born.length > 0 && (
+        <section className="born-questions" aria-labelledby="born-title">
+          <h3 id="born-title">학습하며 생긴 질문</h3>
+          <p className="hint">절을 마치며 적은 질문입니다. 하나를 불러와 다듬을 수도 있습니다.</p>
+          <ul className="question-list">
+            {born.map((question) => (
+              <li key={question.id}>
+                {questionText(question)}{' '}
+                <button type="button" className="text-button" aria-label={`불러오기: ${questionText(question)}`} onClick={() => update((current) => ({ ...current, revisedQuestion: questionText(question) }))}>불러오기</button>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </div>
   );
 }

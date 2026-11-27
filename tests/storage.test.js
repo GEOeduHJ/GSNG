@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { STORAGE_KEY_V4, createStore, emptyUnitRecord, migrateV3 } from '../src/storage/unitRecords.js';
+import { STORAGE_KEY_V4, createStore, emptyUnitRecord, migrateV3, normalizeUnitRecord } from '../src/storage/unitRecords.js';
 import { buildResultFile, parseResultFile, resultFileName } from '../src/storage/resultFile.js';
+import { newQuestion, lessonBornQuestions } from '../src/book/qft/questions.js';
 
 function memoryStorage(initial = {}) {
   const data = { ...initial };
@@ -87,5 +88,24 @@ describe('result files', () => {
     expect(parseResultFile('{"schema":"other"}')).toEqual({ ok: false, reason: 'wrong-schema' });
     expect(parseResultFile('null')).toEqual({ ok: false, reason: 'wrong-schema' });
     expect(parseResultFile('{"schema":"gsng-unit-result","schemaVersion":2}')).toEqual({ ok: false, reason: 'unsupported-version' });
+  });
+});
+
+describe('lesson-born questions', () => {
+  const unit = { id: '03-01', title: '인구' };
+  it('keeps fromLessonId through normalize and result-file round trip', () => {
+    const record = normalizeUnitRecord('03-01', { questions: [newQuestion('왜 줄까?', { fromLessonId: 'lesson-03-01-2' })] });
+    expect(record.questions[0].fromLessonId).toBe('lesson-03-01-2');
+    const parsed = parseResultFile(JSON.stringify(buildResultFile(record, unit, new Date('2026-11-27T00:00:00Z'))));
+    expect(parsed.ok).toBe(true);
+    expect(parsed.value.questions[0].fromLessonId).toBe('lesson-03-01-2');
+  });
+  it('defaults fromLessonId to null for old records', () => {
+    expect(normalizeUnitRecord('03-01', { questions: [{ id: 'a', text: 'x' }] }).questions[0].fromLessonId).toBeNull();
+  });
+  it('lists filled lesson-born questions, optionally for one lesson', () => {
+    const record = { questions: [newQuestion('가', { fromLessonId: 'l1' }), newQuestion('나', { fromLessonId: 'l2' }), newQuestion('다'), newQuestion('  ', { fromLessonId: 'l1' })] };
+    expect(lessonBornQuestions(record).map((q) => q.text)).toEqual(['가', '나']);
+    expect(lessonBornQuestions(record, 'l2').map((q) => q.text)).toEqual(['나']);
   });
 });

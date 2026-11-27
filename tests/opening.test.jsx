@@ -114,4 +114,15 @@ describe('stage rules', () => {
     expect(maxOpeningStage(emptyUnitRecord('01-01'))).toBe(0);
     expect(maxOpeningStage({ ...emptyUnitRecord('01-01'), stageTimes: { rules: 't' } })).toBe(1);
   });
+
+  it('badges lesson-born questions in produce and prioritize', () => {
+    const born = { id: 'q9', text: '학습 중 질문', classification: '', convertedType: '', convertedText: '', selectedVersion: 'original', selected: false, conceptTags: [], fromLessonId: 'lesson-01-01-2' };
+    const plain = { ...born, id: 'q8', text: '처음 질문', fromLessonId: null };
+    const produce = renderOpening({ storage: memoryStorage({ [STORAGE_KEY_V4]: JSON.stringify({ version: 4, units: { '01-01': { ...emptyUnitRecord('01-01'), questions: [plain, born], stageTimes: { rules: 't' } } } }) }) });
+    expect(screen.getAllByText('학습 중 생긴 질문')).toHaveLength(1);
+    produce.unmount();
+    renderOpening({ storage: memoryStorage({ [STORAGE_KEY_V4]: JSON.stringify({ version: 4, units: { '01-01': { ...emptyUnitRecord('01-01'), questions: [plain, born], stageTimes: { rules: 't', produce: 't', improve: 't' } } } }) }) });
+    expect(screen.getAllByText('학습 중 생긴 질문')).toHaveLength(1);
+  });
 });
+

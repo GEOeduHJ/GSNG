@@ -6,6 +6,7 @@ import DataStage from '../src/book/lesson/DataStage.jsx';
 import LessonSpread from '../src/book/lesson/LessonSpread.jsx';
 import { BookProvider } from '../src/book/BookContext.jsx';
 import { makeBook, memoryStorage } from './fixtures/book.js';
+import { STORAGE_KEY_V4, emptyUnitRecord } from '../src/storage/unitRecords.js';
 
 class FakeObserver {
   static instances = [];
@@ -302,5 +303,38 @@ describe('lesson module page', () => {
     book.units[0].lessons[1].sections[0].paragraphs[0].refs = ['nope', 'm1'];
     renderLesson(book, 2);
     expect(screen.getAllByRole('button', { name: /자료 보기/ })).toHaveLength(3);
+  });
+});
+
+describe('내 질문과 이 절', () => {
+  function renderWith(record) {
+    vi.stubGlobal('fetch', vi.fn(() => Promise.reject(new Error('offline'))));
+    setMedia({ wide: true });
+    const storage = memoryStorage({ [STORAGE_KEY_V4]: JSON.stringify({ version: 4, units: { '01-01': record } }) });
+    const book = makeBook();
+    render(<BookProvider book={book} storage={storage}><LessonSpread unit={book.units[0]} route={{ name: 'lesson', unitId: '01-01', index: 2 }} /></BookProvider>);
+    return storage;
+  }
+  it('adds a lesson-born question and disables the button for blank input', () => {
+    const storage = renderWith(emptyUnitRecord('01-01'));
+    const box = screen.getByLabelText('이 절을 마치며 새로 생긴 질문');
+    const add = screen.getByRole('button', { name: '질문 목록에 넣기' });
+    fireEvent.change(box, { target: { value: '   ' } });
+    expect(add.disabled).toBe(true);
+    fireEvent.change(box, { target: { value: '인구는 왜 줄까' } });
+    fireEvent.click(add);
+    const saved = JSON.parse(storage.data[STORAGE_KEY_V4]).units['01-01'];
+    expect(saved.questions.at(-1)).toMatchObject({ text: '인구는 왜 줄까', fromLessonId: 'lesson-01-01-2', selected: false });
+    expect(box.value).toBe('');
+    expect(screen.getByText('인구는 왜 줄까')).toBeTruthy();
+  });
+  it('shows old evidence whose stepId no longer exists as a note only', () => {
+    renderWith({ ...emptyUnitRecord('01-01'), evidence: [{ id: 'e1', questionId: 'q1', lessonId: 'lesson-01-01-2', stepId: 'gone', note: '옛 메모' }] });
+    expect(screen.getByText('옛 메모')).toBeTruthy();
+  });
+  it('defaults the evidence source to the data being viewed', () => {
+    renderWith(emptyUnitRecord('01-01'));
+    fireEvent.click(screen.getByRole('button', { name: /자료 보기.*l2s3/ }));
+    expect(screen.getByLabelText('어느 자료에서').value).toBe('l2s3');
   });
 });

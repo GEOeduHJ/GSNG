@@ -3,7 +3,7 @@ import Spread from '../Spread.jsx';
 import { useBook, useUnitRecord } from '../BookContext.jsx';
 import { routes } from '../router.js';
 import DataStage from '../lesson/DataStage.jsx';
-import { filled, newQuestion, opposite, questionText, selectedQuestions } from './questions.js';
+import { LESSON_BORN_LABEL, filled, newQuestion, opposite, questionText, selectedQuestions } from './questions.js';
 
 export const OPENING_STAGES = [
   { id: 'rules', label: '규칙 확인' },
@@ -84,6 +84,7 @@ function Produce({ record, update }) {
           <li key={index === 0 ? 'row-first' : question.id}>
             <label htmlFor={`q-${index}`}>질문 {index + 1}</label>
             <input id={`q-${index}`} type="text" value={question?.text ?? ''} onChange={(event) => change(index, event.target.value)} />
+            {question?.fromLessonId && <span className="badge">{LESSON_BORN_LABEL}</span>}
             {question && <button type="button" className="text-button" aria-label={`질문 ${index + 1} 지우기`} onClick={() => update((current) => ({ ...current, questions: current.questions.filter((item) => item.id !== question.id) }))}>지우기</button>}
           </li>
         ))}
@@ -143,6 +144,7 @@ function Prioritize({ record, update }) {
               <input type="checkbox" checked={question.selected} disabled={!question.selected && count >= 3} onChange={() => toggle(question)} />
               {question.text}
             </label>
+            {question.fromLessonId && <span className="badge">{LESSON_BORN_LABEL}</span>}
             {question.selected && question.convertedText?.trim() && (
               <div>
                 {[['original', `처음 질문: ${question.text}`], ['converted', `바꾼 질문: ${question.convertedText}`]].map(([value, text]) => (

@@ -28,6 +28,7 @@ function toQuestion(question = {}) {
     selectedVersion: question.selectedVersion === 'converted' ? 'converted' : 'original',
     selected: Boolean(question.selected),
     conceptTags: Array.isArray(question.conceptTags) ? question.conceptTags : [],
+    fromLessonId: question.fromLessonId ? String(question.fromLessonId) : null,
   };
 }
 
