@@ -1,0 +1,111 @@
+sources:
+  world-bank-wdi-catalog:
+    title: World Development Indicators
+    organization: World Bank
+    url: https://datacatalog.worldbank.org/search/dataset/0037712/world-development-indicators
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: WDI 자료 이용 조건은 CC BY 4.0으로 표시됨. 지표별 원천 자료의 조건도 확인함.
+    reuseBasis: 본문에 연결한 정적 WDI 지표는 중단원 자료 manifest에 지표·연도·가공 내역과 함께 기록했다. 본문에 원자료 표나 추가 수치를 복제하지 않았다.
+    verificationStatus: FDI, GDP PPP, 빈곤율, ODA 수치의 원천과 지표 정의를 확인했다. 국가별 값과 기간은 해당 자료 manifest 및 산출 파일을 기준으로 서술했다.
+    usage: 값과 단위, 기준 연도는 각 자료 manifest와 캡션을 함께 확인한다.
+  oecd-tiva:
+    title: Trade in Value-Added
+    organization: OECD
+    url: https://www.oecd.org/en/topics/sub-issues/trade-in-value-added.html
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 페이지 링크만 제공하며 TiVA 데이터나 도표를 내장하지 않음. 데이터별 제3자 권리와 재사용 조건은 별도 확인 필요.
+    reuseBasis: 글로벌 가치사슬 참여와 국내·해외 부가가치 지표가 무엇을 살피는지 확인하는 참고 자료로 사용했다.
+    verificationStatus: TiVA가 ICIO 표를 바탕으로 국가별 국내·해외 부가가치 내용과 GVC 참여 지표를 제공함을 확인했다. 이번 중단원에는 TiVA 수치 파일을 만들지 않았다.
+    usage: 가치사슬을 FDI 흐름과 구분하는 참고 링크다. 값이나 도표는 재배포하지 않았다.
+  world-bank-wdr-2020-gvc:
+    title: 'World Development Report 2020: Trading for Development in the Age of Global Value Chains'
+    organization: World Bank
+    url: https://www.worldbank.org/en/publication/wdr2020
+    sourceDate: 2020
+    checkedAt: '2026-11-27'
+    licenseStatus: 보고서 링크만 제공하며 표·그림·자료는 복제하지 않음. 원문 이용 조건을 따름.
+    reuseBasis: GVC 참여가 국가 간·국가 안에서 이익과 가치가 다르게 분배될 수 있다는 보고서의 분석을 새 문장으로 요약했다.
+    verificationStatus: 보고서의 핵심 결과에서 GVC 편익이 국가 간과 국가 내부에서 고르게 분배되지 않는다고 밝힌 점을 확인했다. 이 내용을 모든 국가에 같은 방식으로 적용하지 않았다.
+    usage: 글로벌 가치사슬의 발전 가능성과 분배의 한계를 함께 설명하는 참고 자료다.
+  unctad-state-of-commodity-dependence-2023:
+    title: The State of Commodity Dependence 2023
+    organization: UN Trade and Development (UNCTAD)
+    url: https://unctad.org/system/files/official-document/ditccom2023d3_en.pdf
+    sourceDate: 2023
+    checkedAt: '2026-11-27'
+    licenseStatus: 보고서 링크만 제공하며 표·그림·자료는 복제하지 않음. 원문 이용 조건을 따름.
+    reuseBasis: 수출 품목 의존과 교역 조건 충격, 제도·역사·지리 조건이 국가별 경제 취약성과 연결될 수 있다는 분석을 확인했다.
+    verificationStatus: 보고서가 자원 부존, 생산요소 구성, 제도, 지리, 역사 등 구조적 조건을 원자재 의존과 연결하고 교역 조건 충격의 위험을 논의함을 확인했다. 본문은 단일 원인을 단정하지 않았다.
+    usage: 불균등의 원인을 설명할 때 여러 조건을 함께 검토하기 위한 참고 자료다.
+  unctad-trade-diversification-2018:
+    title: Trade dependence, liberalization and exports diversification in developing countries
+    organization: UN Trade and Development (UNCTAD)
+    url: https://unctad.org/publication/trade-dependence-liberalization-and-exports-diversification-developing-countries
+    sourceDate: 2018
+    checkedAt: '2026-11-27'
+    licenseStatus: 보고서 링크만 제공하며 표·그림·자료는 복제하지 않음. 원문 이용 조건을 따름.
+    reuseBasis: 수출 다각화와 관련해 교역 비용·제도·인적·물적 자본·기반 시설·지리 조건을 함께 다룬 연구의 결론을 확인했다.
+    verificationStatus: 연구가 교역 강도·정책과 함께 제도, 인적 자본, 소득 수준, 지리, 기반 시설이 수출 다각화 전망과 관련됨을 보고한다. 관계를 모든 상황에서의 단일 원인으로 쓰지 않았다.
+    usage: 국가별 산업과 교역 조건을 살필 때 필요한 맥락을 설명하는 참고 링크다.
+  world-bank-extreme-poverty-lines-2025:
+    title: June 2025 Update to Global Poverty Lines
+    organization: World Bank
+    url: https://www.worldbank.org/en/news/factsheet/2025/06/05/june-2025-update-to-global-poverty-lines
+    sourceDate: 2025-06-05
+    checkedAt: '2026-11-27'
+    licenseStatus: 설명 페이지 링크만 제공하며 표·그림은 복제하지 않음.
+    reuseBasis: 국제 빈곤선이 2021 PPP 기준 하루 3.00달러로 갱신되었으며 이전 판과 직접 비교하기 어렵다는 안내를 확인했다.
+    verificationStatus: 2025년 6월 갱신에서 2.15달러(2017 PPP) 기준이 3.00달러(2021 PPP)로 바뀌었음을 확인했다. 본문은 새 기준 자료만 다뤘다.
+    usage: 빈곤율 자료의 기준과 이전 판과의 비교 한계를 확인하는 참고 링크다.
+  oecd-oda-definition:
+    title: Official development assistance – definition and coverage
+    organization: OECD
+    url: https://www.oecd.org/en/topics/sub-issues/oda-eligibility-and-conditions/official-development-assistance--definition-and-coverage.html
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 정의 안내 페이지 링크만 제공하며 문장·도표는 복제하지 않음.
+    reuseBasis: ODA의 제공 주체, 주된 목적, 수원 대상과 보조성 기준을 확인했다.
+    verificationStatus: ODA는 공공기관이 제공하며 개발과 복지를 주된 목적으로 하는 보조적 지원이라고 서술했다. 수원액 자료를 원조 효과로 확대 해석하지 않았다.
+    usage: ODA의 범위와 수원액 자료가 의미하는 바를 설명하는 참고 자료다.
+  wto-trade-principles:
+    title: 'Understanding the WTO: Principles of the trading system'
+    organization: World Trade Organization (WTO)
+    url: https://www.wto.org/english/thewto_e/whatis_e/tif_e/fact2_e.htm
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 설명 페이지 링크만 제공하며 원문이나 그림은 복제하지 않음.
+    reuseBasis: WTO 협정과 다자 무역 체계의 원칙을 확인하는 참고 자료로만 사용했다.
+    verificationStatus: WTO가 회원 간 무역 관계를 다루는 협정과 원칙을 운영함을 확인했다. 규칙의 존재를 모든 거래 결과의 공정성으로 설명하지 않았다.
+    usage: 국제 협력과 무역 규칙을 소개하는 참고 링크다.
+  fairtrade-trader-standard:
+    title: Fairtrade Standard for Traders
+    organization: Fairtrade International
+    url: https://www.fairtrade.net/en/why-fairtrade/how-we-do-it/standards/who-we-have-standards-for/trader-standard.html
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: Fairtrade International의 표준 안내 링크만 제공하며 표·문장은 복제하지 않음.
+    reuseBasis: 적용 상품의 거래 투명성, 최저가격 또는 시장가격, 생산자 프리미엄에 관한 자사 표준 안내를 확인했다.
+    verificationStatus: Fairtrade 기준이 해당 표준 적용 범위 안에서 거래 조건과 가격·프리미엄 원칙을 설정함을 확인했다. 특정 제품의 실제 성과나 모든 생산자의 상황을 보증한다고 쓰지 않았다.
+    usage: 인증 기준을 설명하는 참고 자료다. 제품별 실제 공급 경로·가격·성과는 별도로 확인한다.
+  oecd-guidelines-mne-2023:
+    title: OECD Guidelines for Multinational Enterprises on Responsible Business Conduct
+    organization: OECD
+    url: https://www.oecd.org/content/dam/oecd/en/publications/reports/2023/06/oecd-guidelines-for-multinational-enterprises-on-responsible-business-conduct_a0b49990/81f92357-en.pdf
+    sourceDate: 2023
+    checkedAt: '2026-11-27'
+    licenseStatus: 지침 링크만 제공하며 문서 일부를 복제하지 않음.
+    reuseBasis: 기업에 사람·환경에 대한 부정적 영향을 파악하고 예방·완화하며 대응 과정을 설명하도록 권고하는 내용을 확인했다.
+    verificationStatus: 2023년 OECD 지침에 위험 기반 실사와 이해관계 고려가 포함됨을 확인했다. 이를 법적 의무나 특정 기업의 실제 이행 증거라고 표현하지 않았다.
+    usage: 기업의 책임 있는 경영과 공급망 실사를 설명하는 참고 링크다.
+  oecd-minerals-due-diligence-2013:
+    title: 'OECD Due Diligence Guidance for Responsible Supply Chains of Minerals from Conflict-Affected and High-Risk Areas: Second Edition'
+    organization: OECD
+    url: https://www.oecd.org/en/publications/oecd-due-diligence-guidance-for-responsible-supply-chains-of-minerals-from-conflict-affected-and-high-risk-areas_9789264185050-en.html
+    sourceDate: 2013
+    checkedAt: '2026-11-27'
+    licenseStatus: 지침 링크만 제공하며 문서·그림은 복제하지 않음.
+    reuseBasis: 광물 구매와 공급망에서 기업이 인권을 존중하고 분쟁에 기여하지 않도록 하는 실사 권고를 전이 과제의 참고 자료로 안내했다.
+    verificationStatus: OECD가 광물·금속 기업을 위한 위험 기반 공급망 실사 권고를 제공함을 확인했다. 스마트폰의 특정 광물 원산지나 제조 경로를 이 지침만으로 단정하지 않도록 과제를 구성했다.
+    usage: 새로운 상품 사례를 조사할 때 기업 공개 자료와 함께 읽는 참고 링크다.
