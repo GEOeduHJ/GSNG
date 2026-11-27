@@ -69,3 +69,53 @@ sources:
     reuseBasis: 대피 장소 시설명·유형·좌표를 확인한다. 가공 자료에는 시설명·유형·좌표만 두었고 관리자 연락처와 수용가능면적은 제외했다.
     verificationStatus: 기준일 2026-01-21의 대피 장소 79곳과 유형별 시설 수를 원자료 설명 및 가공 산출물과 대조했다. 수용 인원·도로망·주변 인구·위험 구역 정보가 없음을 본문과 활동에 반영했다.
     usage: 대피 장소 위치와 유형의 출처는 content/manifests/01-03.yaml에 기록한 가공 자료를 따른다.
+  natural-earth-airports:
+    title: '10m Airports, v5.0.0'
+    organization: Natural Earth
+    url: https://www.naturalearthdata.com/downloads/10m-cultural-vectors/airports/
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 공개 도메인. Natural Earth Terms of Use에 따라 수정·전자 배포 가능.
+    reuseBasis: 세계 공항의 점 위치와 등급 속성에서 scalerank 3 이하, 근사 위치가 아닌 항목을 골라 지리 정보의 위치·속성 연결 사례로 사용한다.
+    verificationStatus: Natural Earth Airports v5.0.0의 Point geometry, scalerank, type, location, IATA 코드를 생성 산출물과 대조했다. 근사 위치 항목은 제외했고 전 세계 공항 전체 목록이나 항공편 규모로 설명하지 않았다.
+    usage: 주요 공항의 소축척 위치 자료이며 공항 수용력·운항량·현행 항공편을 나타내지 않는다.
+  daejeon-seogu-bus-stops:
+    title: 대전광역시 시내버스 기반정보
+    organization: 대전광역시 · 공공데이터포털
+    url: https://www.data.go.kr/data/15081730/fileData.do
+    sourceDate: '2025-04-24'
+    checkedAt: '2026-11-27'
+    licenseStatus: 공공데이터포털 표시 — 이용허락범위 제한 없음.
+    reuseBasis: 대전광역시 서구 행정동의 버스 정류장 위치, 정류장명, 국토부 코드, 버스 안내 단말기 설치 여부를 확인한다. 엑스·와이 좌표를 경도·위도로 읽어 GeoJSON에 옮겼다.
+    verificationStatus: 기준 자료의 서구 행 493건을 가공 산출물과 대조했다. 국토부 코드 493개가 서로 다르고 좌표 값은 유효한 경도·위도 범위에 들었다. 원자료는 좌표 기준계를 별도로 명시하지 않으며 안내 단말기 여부는 실시간 도착 정보나 노선 운행량을 뜻하지 않는다.
+    usage: 버스 정류장 위치와 안내 단말기 표시에 한정해 사용한다. 도보 접근 시간, 실제 운행 빈도, 실시간 도착 정보를 추정하지 않는다.
+  jtc-punggol-digital-twin:
+    title: Punggol Digital District Open Digital Platform and digital twin
+    organization: JTC, Singapore
+    url: https://www.jtc.gov.sg/about-jtc/news-and-stories/press-releases/panasonic-first-partner-to-develop-and-test-smart-facility-management-solutions-in-pdd
+    sourceDate: '2026-07-09'
+    checkedAt: '2026-11-27'
+    licenseStatus: 참고 링크만 제공. 페이지의 문장과 이미지·수치를 복제하지 않음.
+    reuseBasis: 센서와 도시 운영 자료를 모아 구역의 디지털 트윈에서 현황을 시각화하고 시뮬레이션하는 사례를 확인한다.
+    verificationStatus: JTC의 발표에서 Punggol Digital District의 플랫폼이 센서·시스템 자료를 결합하고 실시간 시각화·과거 자료 기반 시뮬레이션을 지원한다고 확인했다. 본문은 사례를 새 문장으로 요약하고 페이지의 수치는 사용하지 않았다.
+    usage: 디지털 트윈과 지리정보기술의 결합 사례를 설명하는 참고 링크다.
+  usgs-geoai-glossary:
+    title: Center of Excellence for Geospatial Information Science glossary
+    organization: U.S. Geological Survey (USGS)
+    url: https://www.usgs.gov/glossary/center-excellence-geospatial-information-science-cegis-glossary
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 참고 링크만 제공. 페이지의 문장과 그림은 복제하지 않음.
+    reuseBasis: GeoAI를 인공지능이 지리·공간 자료와 기술을 활용해 지리 정보를 분석하는 방식으로 설명하는지 확인한다.
+    verificationStatus: USGS의 CEGIS 용어집에 GeoAI 정의와 지리 자료의 분석 용도가 명시되어 있음을 확인했다. 본문은 정의를 새 문장으로 요약했다.
+    usage: 지리정보 인공지능의 개념을 설명하는 참고 링크다.
+  nasa-ar-vr:
+    title: XR Definitions
+    organization: National Aeronautics and Space Administration (NASA)
+    url: https://ntrs.nasa.gov/api/citations/20190027392/downloads/20190027392.pdf
+    sourceDate: '2019'
+    checkedAt: '2026-11-27'
+    licenseStatus: 참고 링크만 제공. 정의는 새 문장으로 요약하며 문서의 그림은 복제하지 않음.
+    reuseBasis: 증강 현실이 현실 장면에 가상 요소를 더하고 가상 현실이 몰입형 환경을 만든다는 기술 구분을 확인한다.
+    verificationStatus: NASA 기술 문서의 XR 정의에서 AR과 VR의 표현 차이를 확인했다. 본문은 지리 정보가 사용되는 화면·체험 방식의 일반 예로 설명했다.
+    usage: 증강 현실과 가상 현실의 개념을 설명하는 참고 링크다.

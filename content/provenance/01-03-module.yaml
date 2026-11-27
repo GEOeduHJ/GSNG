@@ -1,0 +1,22 @@
+items:
+  - src: /images/01-03/geospatial-technology-flow.svg
+    prompt: >-
+      손으로 작성한 독자 SVG 개념도. 원격 탐사는 위성·항공 센서가 반사·방출 에너지를 측정해 영상과 지표 특성 자료를 만들고,
+      GNSS는 위성 신호를 받은 수신기가 위치를 계산하며, GIS는 위치 정보와 속성 정보를 겹쳐 분석한 뒤 지도·표·계획으로
+      표현하는 세 역할을 나란히 나타냈다. 실제 장소, 숫자, 축, 연도는 넣지 않았다.
+    model: 'Codex; hand-authored SVG'
+    createdAt: '2026-11-27'
+    usedIn: '01-03 lesson 1, 지리정보기술의 자료 흐름'
+    alt: '원격 탐사는 센서로 지표를 관측하고, GNSS는 위치를 계산하며, GIS는 위치·속성 자료를 결합해 분석한다.'
+    basis: 'USGS remote sensing FAQ; UNOOSA GNSS; USGS GIS'
+  - src: /images/01-03/spatial-decision-workflow.svg
+    prompt: >-
+      손으로 작성한 독자 SVG 개념도. 문제와 공간 범위를 정한 뒤 위치·속성 자료를 모으고 공간 관계를 비교하며 대안과 기준을
+      검토하는 흐름을 그렸다. 자료의 한계와 주민 경험을 함께 고려하고 결과를 평가해 문제 설정으로 돌아가는 순환을 나타냈다.
+      실제 후보 위치, 수치, 연도는 넣지 않았다.
+    model: 'Codex; hand-authored SVG'
+    createdAt: '2026-11-27'
+    usedIn: '01-03 lesson 3, 공간적 의사 결정'
+    alt: '공간 문제를 정하고 위치·속성 자료를 분석한 뒤 대안과 기준을 검토해 결정하고 결과를 살핀다.'
+    basis: 'USGS GIS; 일반적인 공간적 의사 결정 과정'
+    source: https://www.usgs.gov/faqs/what-a-geographic-information-system-gis

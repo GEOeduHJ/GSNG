@@ -27,6 +27,20 @@ items:
     year: null
     summary: >-
       도쿄도 35,676,000명, 뉴욕 19,040,000명, 멕시코시티 19,028,000명이다. POP_MAX는 도시별 인구 정의와 기준 시점이 달라 현행 동시점 인구통계와 구분해서 읽는다.
+  - id: u0103-natural-earth-airports
+    path: /data/01-03/world-major-airports.geojson
+    title: Natural Earth 세계 주요 공항 위치, 10m
+    organization: Natural Earth
+    url: https://www.naturalearthdata.com/downloads/10m-cultural-vectors/airports/
+    retrievedAt: '2026-11-27'
+    license: 공개 도메인 (Natural Earth Terms of Use)
+    attribution: >-
+      Made with Natural Earth. 10m Airports v5.0.0. scalerank 3 이하이며 위치가 approximate로 표시되지 않은 공항을 골라 IATA 코드와 분류를 한국어로 표시했다.
+    script: scripts/data/01-03/natural_earth_airports.py
+    unit: 곳; 경도·위도 십진도
+    year: null
+    summary: >-
+      필터를 적용한 공항 90곳 가운데 주요 공항 85곳, 중간 규모 공항 5곳이다. Natural Earth의 축척용 선택 자료이며 항공편 수나 여객 처리량을 나타내지 않는다.
   - id: u0103-nepal-earthquakes-2015
     path: /data/01-03/nepal-earthquakes-apr-may-2015.geojson
     title: 네팔과 주변 지역 규모 4.5 이상 지진, 2015년 4–5월
@@ -83,3 +97,17 @@ items:
     year: 2026
     summary: >-
       학교운동장 72곳, 옥외 주차장 5곳, 공원 2곳이다. 이 집계는 대피장소 위치·유형 목록이며 지역 인구나 대피소 수용 인원은 나타내지 않는다.
+  - id: u0103-daejeon-seogu-bus-stops
+    path: /data/01-03/daejeon-seogu-bus-stops.geojson
+    title: 대전광역시 서구 버스 정류장 위치, 2025년
+    organization: 대전광역시 · 공공데이터포털
+    url: https://www.data.go.kr/data/15081730/fileData.do
+    retrievedAt: '2026-11-27'
+    license: 공공데이터포털 표시 — 이용허락범위 제한 없음
+    attribution: >-
+      출처: 대전광역시, 공공데이터포털 데이터 식별자 15081730. 정류장명·행정동·국토부 코드·버스 안내 단말기 설치 여부·좌표를 추출했다.
+    script: scripts/data/01-03/daejeon_seogu_bus_stops.py
+    unit: 곳; 경도·위도 십진도
+    year: 2025
+    summary: >-
+      2025-04-24 기준 대전광역시 서구 정류장 493곳 가운데 버스 안내 단말기 설치 332곳, 미설치 161곳이다. 안복수길, 대전과학기술대학교, 계룡아파트 등의 위치와 단말기 표시를 확인할 수 있다. 실시간 도착·운행 자료는 포함하지 않는다.

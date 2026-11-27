@@ -1,63 +1,69 @@
 # 01-03 지리 정보와 지리정보기술 — 실제 자료
 
-수집일은 2026-11-27이다. 원자료는 임시 폴더에서만 처리했고 저장소에는 가공된 GeoJSON·JSON만 두었다. 자료 6개는 모두 1MB 이하이다.
+자료를 수집한 날은 2026-11-27이다. 원자료는 임시 폴더에서 처리했고 저장소에는 가공된 GeoJSON·JSON만 둔다. 산출물은 모두 1MB 미만이다.
 
 ## 산출물
 
-| 파일 | 화면 자료 | 내용 | 크기 |
-| --- | --- | --- | ---: |
-| `populated-places-top32.geojson` | 점 지도 | Natural Earth POP_MAX 상위 32개 도시 | 7,120 bytes |
-| `populated-places-top10.json` | 막대그래프·값 표 | POP_MAX 상위 10개 도시 | 483 bytes |
-| `nepal-earthquakes-apr-may-2015.geojson` | 점 지도 | 네팔·주변 지역, 2015년 4–5월 규모 4.5 이상 지진 106건 | 20,148 bytes |
-| `nepal-osm-participation-2015.json` | 막대그래프·값 표 | HOT 보고서의 네팔 매핑 참여 규모 | 212 bytes |
-| `daejeon-seogu-earthquake-shelters.geojson` | 점 지도 | 대전광역시 서구 지진 옥외 대피장소 79곳 | 14,391 bytes |
-| `daejeon-seogu-shelters-by-type.json` | 막대그래프·값 표 | 대피장소 유형별 시설 수 | 141 bytes |
+| 파일 | 화면 자료 | 내용 |
+| --- | --- | --- |
+| populated-places-top32.geojson | 점 지도 | Natural Earth POP_MAX 상위 32개 도시 위치와 속성 |
+| populated-places-top10.json | 막대그래프 | POP_MAX 상위 10개 도시 인구 속성값 |
+| world-major-airports.geojson | 점 지도 | Natural Earth scalerank 3 이하 공항 위치 90곳 |
+| nepal-earthquakes-apr-may-2015.geojson | 점 지도 | 네팔·주변 지역, 2015년 4–5월 규모 4.5 이상 지진 진앙 106건 |
+| nepal-osm-participation-2015.json | 막대그래프 | HOT 보고서의 네팔 매핑 참여 규모 |
+| daejeon-seogu-earthquake-shelters.geojson | 점 지도 | 대전광역시 서구 지진 옥외 대피장소 79곳 |
+| daejeon-seogu-shelters-by-type.json | 막대그래프 | 대피장소 유형별 시설 수 |
+| daejeon-seogu-bus-stops.geojson | 점 지도 | 대전광역시 서구 버스 정류장 위치와 안내 단말기 표시 493건 |
 
-막대그래프 JSON은 프로젝트의 값 표에서도 읽을 수 있도록 공통 막대 자료 형식(`year`, `unit`, `rows`)을 따른다.
+막대그래프 JSON은 공통 값 표 형식(year, unit, rows)을 따른다. 점 지도는 GeoJSON Point FeatureCollection이며 좌표 순서는 경도·위도다.
 
 ## 출처와 이용 조건
 
-- **세계 도시:** [Natural Earth Populated Places](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-populated-places/) 1:10m, v5.1.2에서 `POP_MAX`, `NAME_KO`, `ADM0_A3`와 Point geometry를 읽었다. [Natural Earth 이용 조건](https://www.naturalearthdata.com/about/terms-of-use/)은 웹사이트의 벡터·래스터 자료를 공개 도메인으로 두며 수정·전자 배포를 허용한다. `POP_MAX` 내림차순으로 상위 32곳을 골랐고, 도시 이름은 원자료 `NAME_KO`, 국가는 `ADM0_A3`에 대응하는 한국어 표시명이다. 좌표는 DBF의 보조 위·경도 열이 아니라 지도용 SHP Point geometry를 사용했다.
-- **지진:** [USGS FDSN Earthquake Catalog API](https://earthquake.usgs.gov/fdsnws/event/1/)에서 2015-04-01 00:00:00–2015-05-31 23:59:59 UTC, 북위 24–34도·동경 79–90도, 규모 4.5 이상을 조회했다. USGS는 자체 제작 데이터·정보를 미국 공개 도메인 자료로 설명하고 출처 표기를 요청한다([저작권 안내](https://www.usgs.gov/faqs/are-usgs-reportspublications-copyrighted)). 지도는 진앙 위치를 보여 주며 흔들림 세기나 피해 범위를 나타내지 않는다.
-- **디지털 매핑 참여 수:** [HOT 2015 연차보고서](https://www.hotosm.org/downloads/2015-Annual-Report.pdf)에서 첫 48시간 약 2,000명, 발생 5일 뒤 3,679명, 활성화 기간 전체 8,000명 이상을 옮겼다. 보고서 마지막 면의 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) 조건에 따라 출처와 편집 사실을 표시하고 파생 표도 같은 조건으로 배포한다. `2,000`은 보고서의 반올림 값이고 `8,000`은 하한이므로 각각 표 이름에서 그 상태를 보존했다.
-- **기존 GFDRR 사례:** [PreventionWeb의 「Mapping Local Communities to Inform Response and Recovery in Nepal」](https://www.preventionweb.net/publication/mapping-local-communities-inform-response-and-recovery-nepal)은 Open Cities Kathmandu에서 학생·자원봉사자·공무원이 OSM으로 지역을 디지털 매핑한 맥락을 소개한다. 기존 출처 ID `gfdrr-nepal-osm`을 읽기 링크로 유지한다. 연결 PDF의 개별 지도·이미지 재사용 조건은 이 작업에서 확인하지 않아 복제하거나 산출 파일에 넣지 않았다.
-- **대피장소:** [공공데이터포털 대전광역시 서구 지진 옥외 대피장소](https://www.data.go.kr/data/15124341/fileData.do), 데이터 식별자 `15124341`, 기준일 `2026-01-21`을 썼다. 포털은 이용 허락을 **이용허락범위 제한 없음**으로 표시한다. 파일에는 시설명·유형·좌표·수용가능면적·연락처가 있지만 산출물에는 시설명·유형·좌표만 남겼다. 수용 인원 열은 없으므로 `capacity`를 만들지 않았고, 관리자 연락처와 면적도 넣지 않았다. 이 실제 공개 자료의 조건이 맞아 INFORM Risk 대안은 쓰지 않았다.
+- **세계 도시:** Natural Earth 1:10m Populated Places v5.1.2의 POP_MAX, NAME_KO, ADM0_A3와 Point geometry를 사용했다. Natural Earth Terms of Use는 데이터의 수정·재배포를 허용하는 공개 도메인 조건이다. POP_MAX 내림차순으로 상위 도시를 선택했다. 도시별 경계 정의와 인구 기준 시점은 통일되어 있지 않아 현행 동시점 인구 순위로 해석하지 않는다.
+- **세계 공항:** Natural Earth 10m Airports v5.0.0에서 scalerank 3 이하, location이 approximate가 아닌 항목 중 IATA 코드가 있는 점을 골랐다. Natural Earth 공개 도메인 자료다. 90개 위치 가운데 85개는 major, 5개는 mid 분류다. 이는 축척용 선택 목록이며 모든 공항의 현황·운항량을 나타내지 않는다.
+- **지진:** USGS FDSN Earthquake Catalog에서 2015-04-01 00:00:00–2015-05-31 23:59:59 UTC, 북위 24–34도·동경 79–90도, 규모 4.5 이상을 조회했다. USGS 자체 제작 자료는 미국 공개 도메인이며 출처 표기를 요청한다. 진앙은 흔들림이나 피해 범위와 다르다.
+- **디지털 매핑 참여 수:** HOT 2015 Annual Report pp. 5–6에서 첫 48시간 약 2,000명, 발생 5일 뒤 3,679명, 활성화 기간 8,000명 이상을 옮겼다. 보고서에는 CC BY-SA 4.0 조건이 표시되어 출처와 편집 사실을 기록했다. 직접 PDF URL 접속은 현재 제한될 수 있으나 HOT 공식 검색 색인의 PDF 내용에서 수치와 라이선스 문구를 확인했다. 2,000은 반올림 수치이고 8,000은 하한이다.
+- **대피 장소:** 대전광역시 서구·공공데이터포털 데이터 식별자 15124341, 기준일 2026-01-21을 사용했다. 이용허락범위 제한 없음. 시설명·유형·좌표만 남기고 관리자 연락처와 수용가능면적은 제외했다. 수용 인원은 원자료에 없다.
+- **버스 정류장:** 대전광역시 시내버스 기반정보, 데이터 식별자 15081730, 2025-04-24 자료를 사용했다. 공공데이터포털 표시는 이용허락범위 제한 없음이다. 서구에 속한 493개 국토부 코드의 정류장명·행정동·안내 단말기 설치 여부와 엑스·와이 값을 가공했다. 원자료는 좌표 기준계를 별도로 명시하지 않는다. 값의 범위에 따라 엑스·와이를 경도·위도로 읽어 지도에 표시했다. 실시간 도착·운행량·도보 접근 시간은 추정하지 않았다.
 
-## 원자료 대조
+## 원사이트 대조
 
-각 산출 파일에서 값 세 개를 원 사이트 자료와 다시 대조했다. GeoJSON 좌표는 `[경도, 위도]` 순서다.
+Natural Earth는 원본 ZIP 속성·좌표를, USGS와 국내 공공데이터는 가공 스크립트가 받은 원자료를 산출물의 값과 대조했다. 기존 자료의 대조 예시는 다음과 같다.
 
-| 산출 파일 | 확인한 값 세 개 | 원 사이트 확인 |
+| 산출 파일 | 항목·값 | 확인 URL |
 | --- | --- | --- |
-| `populated-places-top32.geojson` | 도쿄도 `POP_MAX=35,676,000`, `[139.7494616, 35.6869628]`; 뉴욕 `19,040,000`, `[-73.9957175, 40.7215617]`; 멕시코시티 `19,028,000`, `[-99.1329341, 19.4443883]` | [Natural Earth 10m ZIP](https://naciscdn.org/naturalearth/10m/cultural/ne_10m_populated_places.zip) |
-| `populated-places-top10.json` | 도쿄도 35,676,000명; 뉴욕 19,040,000명; 멕시코시티 19,028,000명 | [Natural Earth 10m ZIP](https://naciscdn.org/naturalearth/10m/cultural/ne_10m_populated_places.zip) |
-| `nepal-earthquakes-apr-may-2015.geojson` | `us20002926` 2015-04-25, M7.8, `[84.7314, 28.2305]`; `us20002ejl` 2015-05-12, M7.3, `[86.0655, 27.8087]`; `us200029bt` 2015-04-26, M6.7, `[86.0173, 27.7711]` | [같은 조건의 USGS API 응답](https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2015-04-01T00%3A00%3A00&endtime=2015-05-31T23%3A59%3A59&eventtype=earthquake&minmagnitude=4.5&minlatitude=24&maxlatitude=34&minlongitude=79&maxlongitude=90&orderby=time-asc&limit=2000) |
-| `nepal-osm-participation-2015.json` | 첫 48시간 약 2,000명; 5일 뒤 3,679명; 전체 활성화 8,000명 이상 | [HOT 2015 연차보고서](https://www.hotosm.org/downloads/2015-Annual-Report.pdf), 5–6쪽 |
-| `daejeon-seogu-earthquake-shelters.geojson` | 삼천초등학교 `학교운동장` `[127.4010118, 36.35436477]`; 문정초등학교 `[127.3962181, 36.3503752]`; 문정중학교 `[127.4015493, 36.35547599]` | [대전광역시 서구 원자료 페이지](https://www.data.go.kr/data/15124341/fileData.do) |
-| `daejeon-seogu-shelters-by-type.json` | 학교운동장 72곳; 주차장(옥외) 5곳; 공원 2곳 | [대전광역시 서구 원자료 페이지](https://www.data.go.kr/data/15124341/fileData.do) |
+| populated-places-top32.geojson | 도쿄도 POP_MAX 35,676,000, [139.7494616, 35.6869628] | https://naciscdn.org/naturalearth/10m/cultural/ne_10m_populated_places.zip |
+| populated-places-top32.geojson | 뉴욕 POP_MAX 19,040,000, [-73.9957175, 40.7215617] | 같은 Natural Earth ZIP |
+| populated-places-top32.geojson | 멕시코시티 POP_MAX 19,028,000, [-99.1329341, 19.4443883] | 같은 Natural Earth ZIP |
+| populated-places-top10.json | 도쿄도 35,676,000명; 뉴욕 19,040,000명; 멕시코시티 19,028,000명 | 같은 Natural Earth ZIP |
+| nepal-earthquakes-apr-may-2015.geojson | us20002926, 2015-04-25, M7.8, [84.7314, 28.2305] | https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2015-04-01T00%3A00%3A00&endtime=2015-05-31T23%3A59%3A59&eventtype=earthquake&minmagnitude=4.5&minlatitude=24&maxlatitude=34&minlongitude=79&maxlongitude=90&orderby=time-asc&limit=2000 |
+| nepal-earthquakes-apr-may-2015.geojson | us20002ejl, 2015-05-12, M7.3, [86.0655, 27.8087] | 같은 USGS 조회 URL |
+| nepal-earthquakes-apr-may-2015.geojson | us200029bt, 2015-04-26, M6.7, [86.0173, 27.7711] | 같은 USGS 조회 URL |
+| nepal-osm-participation-2015.json | 첫 48시간 약 2,000명; 5일 뒤 3,679명; 활성화 기간 8,000명 이상 | HOT 2015 Annual Report, pp. 5–6 |
+| daejeon-seogu-earthquake-shelters.geojson | 삼천초등학교 학교운동장 [127.4010118, 36.35436477]; 문정초등학교 학교운동장 [127.3962181, 36.3503752]; 문정중학교 학교운동장 [127.4015493, 36.35547599] | https://www.data.go.kr/data/15124341/fileData.do |
+| daejeon-seogu-shelters-by-type.json | 학교운동장 72곳; 옥외 주차장 5곳; 공원 2곳 | 같은 대전광역시 서구 자료 |
+| world-major-airports.geojson | KMG 공항 [102.9285227592646, 25.101205531845622], 주요 공항 | https://naciscdn.org/naturalearth/10m/cultural/ne_10m_airports.zip |
+| world-major-airports.geojson | CPH 공항 [12.64935086845077, 55.628501722152784], 주요 공항 | 같은 Natural Earth ZIP |
+| world-major-airports.geojson | BBU 공항 [26.085725158776373, 44.49704145597203], 중간 규모 공항 | 같은 Natural Earth ZIP |
+| daejeon-seogu-bus-stops.geojson | 안복수길, 국토부 코드 185003334, [127.37679, 36.29668], 안내 단말기 미설치 | https://www.data.go.kr/data/15081730/fileData.do |
+| daejeon-seogu-bus-stops.geojson | 대전과학기술대학교, 국토부 코드 185003325, [127.37279, 36.304924], 안내 단말기 미설치 | 같은 대전광역시 자료 |
+| daejeon-seogu-bus-stops.geojson | 계룡아파트, 국토부 코드 185003326, [127.37292, 36.305378], 안내 단말기 설치 | 같은 대전광역시 자료 |
 
-## 가공·경계·결측 처리
+## 소절별 자료 단계 연결
 
-- Natural Earth는 `POP_MAX`가 500만 명 이상이고 한국어 도시명·국가 표시명이 있는 도시 중 상위 32개를 사용했다. 범주 경계는 `1,000만 명 이상`, `800만~1,000만 명 미만`, `500만~800만 명 미만`이며 실제 `POP_MAX` 값은 반올림하지 않았다. `POP_MAX`는 도시별 도시권·행정 경계와 기준 시점이 일치하는 최신 인구총조사가 아니며, 단일 시점의 정밀한 순위처럼 해석하지 않는다.
-- USGS 자료는 지시한 기간·범위·최소 규모 필터로 잘랐다. 데이터 API의 최대 2,000건보다 적은 106건을 받았다. 시간은 UTC 날짜로 바꿨고, magnitude가 4.5 미만인 자료는 값 0이나 결측으로 바꾸지 않고 포함하지 않았다.
-- 대전 서구 파일의 79개 행에는 위·경도가 모두 있었다. 시설 유형 집계는 점 지도에 남긴 79개 행에서 계산했다. 좌표가 없는 행이 있으면 추정·지오코딩하지 않고 지도에서 제외한다. 이 파일에는 수용 인원 열이 없고 면적만 있어 수용 인원으로 환산하지 않았다.
-- 대피장소 점 지도는 시설 목록 자료다. 인구 분포, 도로망, 대피소 수용 인원은 포함하지 않으므로 가까운 시설이나 실제 대피 경로를 결정하는 자료로 단독 사용하지 않는다.
-- 경계 자료는 추가하지 않았다. 도시는 점 위치, USGS는 명시한 위·경도 범위, 대피장소는 대전광역시 서구 파일의 공간 범위를 썼다. 세 데이터 모두 제공 원자료에 좌표가 있는 관측만 사용했다.
+| 절 | 자료 연결 |
+| --- | --- |
+| 1. 지리정보기술은 무엇일까? | 도시 위치 지도와 POP_MAX 그래프에서 공간·속성 정보를 구분하고, 공항 지도로 위치·분류 속성을 확인한다. 개념도는 원격 탐사·GNSS·GIS의 역할을 정리한다. |
+| 2. 세계시민의 일상생활에서 활용되는 지리정보기술에는 무엇이 있을까? | 대전 서구 정류장 지도는 위치 기반 서비스의 위치 자료, 네팔 지진 진앙과 HOT 참여 그래프는 커뮤니티 매핑·재난 대응 자료로 연결한다. |
+| 3. 지리적 문제를 어떻게 탐색하고 해결할 수 있을까? | 대전 서구 대피 장소 지도·유형 그래프·버스 정류장 지도를 비교하고, 개념도로 공간 의사 결정 절차를 정리한다. |
 
-## 절별 자료 단계 추천
-
-| 절 | 자료 단계 | 파일과 사용 초점 |
-| --- | --- | --- |
-| 1. 지리정보기술은 무엇일까? | 1단계 | `populated-places-top32.geojson`에서 도시 위치와 이름·국가·POP_MAX가 함께 기록되는 공간 정보와 속성 정보를 구분한다. |
-|  | 2단계 | `populated-places-top10.json`에서 인구 규모 구간과 상위 도시 값을 함께 읽고, 도시별 인구 정의·기준 시점이 다를 수 있다는 한계를 확인한다. |
-| 2. 세계시민의 일상생활에서 활용되는 지리정보기술에는 무엇이 있을까? | 1단계 | `nepal-earthquakes-apr-may-2015.geojson`에서 진앙의 위치·날짜·규모를 함께 읽으며 공개 지진 자료가 지도에 놓이는 방식을 살핀다. |
-|  | 2단계 | `nepal-osm-participation-2015.json`과 GFDRR 사례 링크를 사용해 자원봉사자·지역 공동체의 디지털 지도 제작 참여가 재난 대응과 연결된 사례를 조사한다. |
-| 3. 지리적 문제를 어떻게 탐색하고 해결할 수 있을까? | 1단계 | `daejeon-seogu-earthquake-shelters.geojson`에서 대피 시설의 위치와 유형을 읽고, 의사결정에 더 필요한 인구·접근성 자료를 찾는다. |
-|  | 2단계 | `daejeon-seogu-shelters-by-type.json`에서 학교 운동장·옥외 주차장·공원의 수를 비교해 자료만으로 알 수 있는 점과 알 수 없는 점을 구분한다. |
+세 절은 각각 실제 자료 3개를 사용한다. 총 단계 수는 1절 4개(개념도 1개), 2절 3개, 3절 4개(개념도 1개)다. 국가별 지표 자료가 아니므로 유효 국가 수는 해당되지 않는다.
 
 ## 생성 스크립트
 
-- `python3 scripts/data/01-03/natural_earth_places.py`
-- `python3 scripts/data/01-03/nepal_earthquakes.py`
-- `python3 scripts/data/01-03/nepal_osm_participation.py`
-- `python3 scripts/data/01-03/daejeon_seogu_shelters.py`
+- python3 scripts/data/01-03/natural_earth_places.py
+- python3 scripts/data/01-03/natural_earth_airports.py
+- python3 scripts/data/01-03/nepal_earthquakes.py
+- python3 scripts/data/01-03/nepal_osm_participation.py
+- python3 scripts/data/01-03/daejeon_seogu_shelters.py
+- python3 scripts/data/01-03/daejeon_seogu_bus_stops.py

@@ -1,0 +1,92 @@
+unit: '01-03'
+lessons:
+  - index: 1
+    textbookPages: [34, 35]
+    goalGist: 지리 정보의 구성과 표현 방법을 구분하고 지리정보기술의 수집·분석 원리를 설명한다.
+    topics:
+      - title: 지리 정보의 구성과 표현
+        concepts: [지리 정보, 공간 정보, 속성 정보, 위치와 형태, 점·선·면, 지도와 통계 표현]
+        textbookMaterials: [열대 저기압의 위치·경로 지도, 인터넷 지도 화면, 위치와 장소 특성]
+        ourData: [u0103-populated-places-top32, u0103-populated-places-top10]
+      - title: 지리정보기술과 위치 기반 서비스
+        concepts: [원격 탐사, 위성항법 시스템(GNSS), GPS, 지리정보시스템(GIS), 위치 기반 서비스]
+        textbookMaterials: [GIS·GPS 설명, 이동 경로와 주변 정보, 증강 현실과 가상 현실]
+        ourData: [u0103-natural-earth-airports, '개념도:geospatial-technology-flow']
+      - title: 디지털 전환과 지리정보기술
+        concepts: [디지털 트윈, 사물 인터넷(IoT), 지리정보 인공지능(GeoAI), 3차원 도시 모형]
+        textbookMaterials: [버추얼 싱가포르, 3차원 도시 자료, 도시 운영과 에너지 시각화]
+        ourData: ['개념도:geospatial-technology-flow']
+  - index: 2
+    textbookPages: [36, 37]
+    goalGist: 일상 서비스와 시민 참여, 재난 대응에서 지리정보기술이 활용되는 방식을 사례와 자료로 설명한다.
+    topics:
+      - title: 일상생활의 위치 기반 서비스
+        concepts: [스마트 모빌리티, 버스 위치와 도착 정보, 위치 기반 날씨 정보, 주변 장소 검색]
+        textbookMaterials: [버스 도착 안내, 날씨 알림, 스마트 모빌리티, 신고 위치]
+        ourData: [u0103-daejeon-seogu-bus-stops]
+      - title: 위치 정보를 공유하는 시민 활동
+        concepts: [지오태깅, 온라인 지도, 위치 정보 공유, 지역 정보의 갱신]
+        textbookMaterials: [사진·동영상 위치 표시, 온라인 지도 추가·수정]
+        ourData: [u0103-daejeon-seogu-bus-stops]
+      - title: 커뮤니티 매핑과 재난 대응
+        concepts: [시민 참여, 커뮤니티 매핑, 재난 정보 지도, 의료·구호 대응]
+        textbookMaterials: [아이티 지진 커뮤니티 매핑, 코로나19 웹 지리정보 시스템]
+        ourData: [u0103-nepal-earthquakes-2015, u0103-nepal-osm-participation]
+  - index: 3
+    textbookPages: [38, 39]
+    goalGist: 지리정보기술로 문제를 탐색하고, 여러 공간 자료와 지역의 목소리를 고려해 해결 방안을 검토한다.
+    topics:
+      - title: 지리정보기술을 활용한 문제 탐색
+        concepts: [원격 탐사, 공간 분포, 시각화, 지역 간 차이]
+        textbookMaterials: [독감 유행 지역 지도, 감염병 이동 정보 분석, 원격 탐사]
+        ourData: [u0103-daejeon-seogu-earthquake-shelters, u0103-daejeon-seogu-bus-stops]
+      - title: 지리정보기술을 활용한 의사 결정과 문제 해결
+        concepts: [공간 자료의 중첩, 입지 조건, 기업과 공공 부문의 의사 결정, 공간적 의사 결정]
+        textbookMaterials: [기업 입지와 운영, 공공 부문 토지 이용 계획, 교통 관리 상황판]
+        ourData:
+          - u0103-daejeon-seogu-earthquake-shelters
+          - u0103-daejeon-seogu-shelters-by-type
+          - u0103-daejeon-seogu-bus-stops
+          - '개념도:spatial-decision-workflow'
+
+dataJudgement:
+  existingEnoughTopics:
+    - lesson: 1
+      topic: 지리 정보의 위치·속성 자료와 표현
+      data: [u0103-populated-places-top32, u0103-populated-places-top10]
+    - lesson: 2
+      topic: 일상 위치 서비스와 재난 대응 자료의 비교
+      data: [u0103-daejeon-seogu-bus-stops, u0103-nepal-earthquakes-2015, u0103-nepal-osm-participation]
+    - lesson: 3
+      topic: 대피 장소·대중교통 위치를 활용한 공간적 의사 결정
+      data: [u0103-daejeon-seogu-earthquake-shelters, u0103-daejeon-seogu-shelters-by-type, u0103-daejeon-seogu-bus-stops]
+  newRealDataTopics:
+    - lesson: 1
+      topic: 세계 주요 공항 위치와 속성
+      data: [u0103-natural-earth-airports]
+    - lesson: 2
+      topic: 대전 서구 버스 정류장과 안내 단말기 위치
+      data: [u0103-daejeon-seogu-bus-stops]
+    - lesson: 3
+      topic: 대피 시설과 대중교통 지점의 공간 범위 비교
+      data: [u0103-daejeon-seogu-earthquake-shelters, u0103-daejeon-seogu-bus-stops]
+  conceptualDiagramTopics:
+    - lesson: 1
+      topic: 원격 탐사·GNSS·GIS의 역할과 자료 흐름
+      data: ['개념도:geospatial-technology-flow']
+    - lesson: 3
+      topic: 공간 자료를 활용한 문제 탐색과 의사 결정 절차
+      data: ['개념도:spatial-decision-workflow']
+  lessonDataCounts:
+    - lesson: 1
+      realDataCount: 3
+      conceptualDiagramCount: 1
+      totalMaterialCount: 4
+    - lesson: 2
+      realDataCount: 3
+      conceptualDiagramCount: 0
+      totalMaterialCount: 3
+    - lesson: 3
+      realDataCount: 3
+      conceptualDiagramCount: 1
+      totalMaterialCount: 4

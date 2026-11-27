@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" role="img" aria-label="문제 범위를 정하고 자료를 비교해 지역 의견과 함께 해결 방안을 고르는 절차">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#477A69"/>
+    </marker>
+    <style>
+      text { font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif; fill: #28342f; }
+      .box { fill: #fffdf8; stroke: #477A69; stroke-width: 2; }
+      .step { font-size: 18px; font-weight: 600; }
+      .note { font-size: 17px; }
+      .arrow { stroke: #477A69; stroke-width: 3; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect x="18" y="18" width="1164" height="304" rx="24" fill="#fbf8f1"/>
+  <rect class="box" x="42" y="65" width="188" height="92" rx="16"/>
+  <text class="step" x="136" y="104" text-anchor="middle">문제와</text>
+  <text class="step" x="136" y="132" text-anchor="middle">공간 범위</text>
+
+  <path class="arrow" d="M240 111 H286"/>
+  <rect class="box" x="302" y="65" width="188" height="92" rx="16"/>
+  <text class="step" x="396" y="104" text-anchor="middle">위치·속성</text>
+  <text class="step" x="396" y="132" text-anchor="middle">자료 수집</text>
+
+  <path class="arrow" d="M500 111 H546"/>
+  <rect class="box" x="562" y="65" width="188" height="92" rx="16"/>
+  <text class="step" x="656" y="104" text-anchor="middle">공간 관계</text>
+  <text class="step" x="656" y="132" text-anchor="middle">비교·분석</text>
+
+  <path class="arrow" d="M760 111 H806"/>
+  <rect class="box" x="822" y="65" width="188" height="92" rx="16"/>
+  <text class="step" x="916" y="104" text-anchor="middle">대안과 기준</text>
+  <text class="step" x="916" y="132" text-anchor="middle">함께 검토</text>
+
+  <path class="arrow" d="M1018 111 H1064"/>
+  <rect class="box" x="1080" y="65" width="78" height="92" rx="16"/>
+  <text class="step" x="1119" y="104" text-anchor="middle">선택</text>
+  <text class="step" x="1119" y="132" text-anchor="middle">평가</text>
+
+  <rect x="138" y="207" width="924" height="68" rx="18" fill="#e7eee8" stroke="#c5d5ca" stroke-width="2"/>
+  <text class="note" x="600" y="249" text-anchor="middle">자료의 한계와 주민의 경험을 함께 살핀다</text>
+  <path d="M1118 176 C1118 270 91 290 91 190" fill="none" stroke="#9b7750" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#arrow)"/>
+</svg>
