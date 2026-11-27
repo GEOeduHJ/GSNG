@@ -1,5 +1,6 @@
 # 생각 루틴 사전. 루틴 이름과 단계 구성은 Harvard Project Zero의 Thinking Routines를 따른다.
 # 학생용 안내문(label, hint)은 이 교과서가 우리말로 새로 쓴 것이며 PZ 원문의 번역이 아니다.
+# 단계를 줄이거나 고친 루틴에는 adapted에 바꾼 내용을 적는다(도움말 쪽에 표시).
 source:
   title: Project Zero Thinking Routines
   organization: Project Zero, Harvard Graduate School of Education
@@ -171,6 +172,7 @@ routines:
       - { id: care, label: 관심, hint: 그 사람이 무엇을 중요하게 여길지 적는다. }
   ways-things-can-be-complex:
     name: Ways Things Can Be Complex
+    adapted: 여러 복잡성 유형을 네 단계 안내로 정리했다
     nameKo: 복잡함의 여러 모습
     category: [objects_and_systems, introducing_and_exploring_ideas]
     url: https://pz.harvard.edu/resources/ways-things-can-be-complex
@@ -229,6 +231,7 @@ routines:
       - { id: rethink, label: 다시 생각하기, hint: 여러 관점을 살핀 뒤 이 주장을 어떻게 보는지 적는다. }
   unveiling-stories:
     name: Unveiling Stories
+    adapted: 원래 다섯 질문 가운데 「새로운 이야기」를 빼고 넷만 썼다
     nameKo: 숨은 이야기 찾기
     category: [global_thinking, digging_deeper_into_ideas]
     url: https://pz.harvard.edu/resources/unveiling-stories

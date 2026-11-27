@@ -14,8 +14,10 @@ export default function RoutineCard({ unit, lesson, slot, routine }) {
     const byLesson = current.routineState?.[lesson.id] ?? {};
     return { ...current, routineState: { ...current.routineState, [lesson.id]: { ...byLesson, [slot]: { ...(byLesson[slot] ?? {}), ...patch } } } };
   });
+  const inList = (questions, text) => (questions ?? []).some((question) => String(question?.text ?? '').trim() === text);
   function send(text) {
     update((current) => {
+      if (inList(current.questions, text)) return current;
       const byLesson = current.routineState?.[lesson.id] ?? {};
       return {
         ...current,
@@ -33,7 +35,7 @@ export default function RoutineCard({ unit, lesson, slot, routine }) {
           const fieldId = `routine-${lesson.id}-${slot}-${step.id}`;
           const value = String(answers[step.id] ?? '');
           const text = value.trim();
-          const alreadySent = Boolean(text) && answers.sent === text;
+          const alreadySent = Boolean(text) && inList(record.questions, text);
           return (
             <div key={step.id} className="routine-step">
               <label htmlFor={fieldId}>{step.label}</label>

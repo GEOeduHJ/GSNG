@@ -52,6 +52,8 @@ describe('book shell', () => {
     expect(screen.getAllByText(/Project Zero/).length).toBeGreaterThan(0);
     expect(screen.getByText(/CC BY-NC-ND/)).toBeTruthy();
     expect(screen.getByRole('link', { name: /See, Think, Wonder/ }).getAttribute('href')).toBe('https://pz.harvard.edu/resources/see-think-wonder');
+    expect(screen.getByRole('link', { name: /CC BY-NC-ND 4.0/ }).getAttribute('href')).toBe('https://creativecommons.org/licenses/by-nc-nd/4.0/');
+    expect(screen.getByText(/원래 다섯 질문 가운데 넷만 썼다/)).toBeTruthy();
   });
 
   it('has no storage notice when storage works', () => {

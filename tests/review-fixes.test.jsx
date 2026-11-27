@@ -154,8 +154,8 @@ describe('deferred minors fixed during unit II', () => {
     const book = makeBook();
     const lesson = { ...book.units[0].lessons[2], activity: { template: 'civic-hearing', fictional: true, config: { title: '청문회', actors: [], levels: [] } } };
     const { container } = render(<BookProvider book={book} storage={memoryStorage()}><LessonActivity unit={book.units[0]} lesson={lesson} /></BookProvider>);
-    const section = container.querySelector('.activity');
-    expect(section.firstElementChild.className).toBe('fictional-note');
+    const task = container.querySelector('.activity .activity-task');
+    expect(task.firstElementChild.className).toBe('fictional-note');
     expect(container.querySelectorAll('.fictional-note')).toHaveLength(1);
   });
 

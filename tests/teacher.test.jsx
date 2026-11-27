@@ -93,6 +93,15 @@ describe('TeacherPage', () => {
     expect(screen.queryByText(/sent/)).toBeNull();
   });
 
+  it('survives malformed routine answers inside a valid file', async () => {
+    render(<BookProvider book={makeBook({ moduleLesson: true })} storage={memoryStorage()}><TeacherPage unitId="01-01" /></BookProvider>);
+    const { text } = result('3번', { routineState: { 'lesson-01-01-2': { opener: 'abc', inquiry: { claim: { toString: 1 }, support: '근거 문장' } } } });
+    fireEvent.change(screen.getByLabelText('결과 파일 고르기'), { target: { files: [new File([text], '3번.json', { type: 'application/json' })] } });
+    await waitFor(() => expect(screen.getByText('3번')).toBeTruthy());
+    expect(screen.getByText(/근거: 근거 문장/)).toBeTruthy();
+    expect(screen.queryByText(/0: a/)).toBeNull();
+  });
+
   it('shows the teacher guide for the unit', () => {
     render(<BookProvider book={makeBook()} storage={memoryStorage()}><TeacherPage unitId="01-01" /></BookProvider>);
     expect(screen.getByText(/예시 발문/)).toBeTruthy();

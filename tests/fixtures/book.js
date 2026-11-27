@@ -59,6 +59,7 @@ export function makeBook({ moduleLesson: useModule = false } = {}) {
     routines: { source: { organization: 'Project Zero', url: 'https://pz.harvard.edu/thinking-routines', license: 'CC BY-NC-ND 4.0' }, items: {
       'see-think-wonder': { id: 'see-think-wonder', name: 'See, Think, Wonder', nameKo: '보고·생각하고·궁금해하기', url: 'https://pz.harvard.edu/resources/see-think-wonder', steps: [{ id: 'see', label: '본 것', hint: '본 것 안내' }, { id: 'think', label: '생각한 것', hint: '생각 안내' }, { id: 'wonder', label: '궁금한 것', hint: '궁금 안내', toQuestion: true }] },
       'claim-support-question': { id: 'claim-support-question', name: 'Claim, Support, Question', nameKo: '주장·근거·되묻기', url: 'https://pz.harvard.edu/resources/claim-support-question', steps: [{ id: 'claim', label: '주장', hint: '' }, { id: 'support', label: '근거', hint: '' }, { id: 'question', label: '되묻기', hint: '', toQuestion: true }] },
+      'unveiling-stories': { id: 'unveiling-stories', name: 'Unveiling Stories', nameKo: '숨은 이야기 찾기', url: 'https://pz.harvard.edu/resources/unveiling-stories', adapted: '원래 다섯 질문 가운데 넷만 썼다', steps: [{ id: 'story', label: '드러난 이야기' }, { id: 'untold', label: '가려진 이야기' }] },
       'used-to-think': { id: 'used-to-think', name: 'I Used to Think… Now I Think…', nameKo: '예전 생각·지금 생각', url: 'https://pz.harvard.edu/resources/i-used-think-now-i-think', steps: [{ id: 'used', label: '예전 생각', hint: '' }, { id: 'now', label: '지금 생각', hint: '' }] },
     } },
     manifest: { items: [] },

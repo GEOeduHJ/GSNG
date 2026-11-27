@@ -417,6 +417,29 @@ describe('routine cards', () => {
     expect(send.disabled).toBe(false);
   });
 
+  it('does not add the same question again after edit-and-revert or when already in the list', () => {
+    const { storage } = renderModule();
+    const box = screen.getByLabelText('궁금한 것');
+    const send = within(box.closest('.routine-step')).getByRole('button', { name: '질문 목록에 넣기' });
+    fireEvent.change(box, { target: { value: '왜 무역이 늘었을까' } });
+    fireEvent.click(send);
+    fireEvent.change(box, { target: { value: '왜 무역이 늘었을까?' } });
+    fireEvent.click(send);
+    fireEvent.change(box, { target: { value: '왜 무역이 늘었을까' } });
+    expect(send.disabled).toBe(true);
+    fireEvent.click(send);
+    expect(saved(storage).questions.filter((q) => q.text === '왜 무역이 늘었을까')).toHaveLength(1);
+  });
+
+  it('puts the fictional note on the activity, not above the routine card', () => {
+    const book = makeBook({ moduleLesson: true });
+    book.units[0].lessons[1].activity = { template: 'civic-hearing', fictional: true, config: { title: '청문회', actors: [], levels: [] } };
+    renderModule({ book });
+    const note = document.querySelector('.activity .fictional-note');
+    expect(note.closest('.activity-task')).toBeTruthy();
+    expect(note.parentElement.firstElementChild).toBe(note);
+  });
+
   it('skips a card whose routine id is unknown', () => {
     const book = makeBook({ moduleLesson: true });
     book.units[0].lessons[1].routines.inquiry = { id: 'nope', prompt: 'x' };

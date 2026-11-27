@@ -32,10 +32,10 @@ export default function HelpPage() {
       {routineItems.length > 0 && (
         <section>
           <h2>생각 루틴의 출처</h2>
-          <p>각 절의 생각 루틴은 {routineSource.organization ?? 'Project Zero'}의 <a href={routineSource.url}>Thinking Routines</a>에서 이름과 단계 구성을 가져왔습니다. 이용 조건: {routineSource.license}.</p>
+          <p>각 절의 생각 루틴은 {routineSource.organization ?? 'Project Zero'}의 <a href={routineSource.url}>Thinking Routines</a>에서 이름과 단계 구성을 가져왔습니다. 이용 조건은 루틴 페이지 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>, Global Thinking 묶음 <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>입니다.</p>
           <p>학생용 안내문은 이 교과서가 우리말로 새로 쓴 것이며 원문의 번역이 아닙니다.</p>
           <ul>
-            {routineItems.map((item) => <li key={item.id}><a href={item.url}>{item.name}</a>{item.nameKo ? ` (${item.nameKo})` : ''}</li>)}
+            {routineItems.map((item) => <li key={item.id}><a href={item.url}>{item.name}</a>{item.nameKo ? ` (${item.nameKo})` : ''}{item.adapted ? ` — 단계를 고쳐 씀: ${item.adapted}` : ''}</li>)}
           </ul>
         </section>
       )}

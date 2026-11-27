@@ -16,21 +16,22 @@ function readFile(file) {
 }
 
 const SLOT_LABELS = { opener: '생각 열기', inquiry: '탐구하기', closing: '정리' };
+const isPlainObject = (value) => Boolean(value) && typeof value === 'object' && !Array.isArray(value);
 
 /** Routine answers by lesson and slot; labels come from the routine library, the internal `sent` mark is hidden. */
 function RoutineAnswers({ student, unit, book }) {
-  const byLesson = student.routineResponses ?? {};
-  const lessons = (unit?.lessons ?? []).filter((lesson) => byLesson[lesson.id]);
+  const byLesson = isPlainObject(student.routineResponses) ? student.routineResponses : {};
+  const lessons = (unit?.lessons ?? []).filter((lesson) => isPlainObject(byLesson[lesson.id]));
   if (!lessons.length) return <p className="hint">응답 없음</p>;
   return (
     <ul>
       {lessons.map((lesson) => (
         <li key={lesson.id}>
           <strong>{lesson.title}</strong>
-          {['opener', 'inquiry', 'closing'].filter((slot) => byLesson[lesson.id]?.[slot]).map((slot) => {
+          {['opener', 'inquiry', 'closing'].filter((slot) => isPlainObject(byLesson[lesson.id]?.[slot])).map((slot) => {
             const routine = routineForSlot(book, lesson, slot);
             const answers = byLesson[lesson.id][slot];
-            const lines = Object.entries(answers).filter(([key, value]) => key !== 'sent' && String(value ?? '').trim())
+            const lines = Object.entries(answers).filter(([key, value]) => key !== 'sent' && typeof value === 'string' && value.trim())
               .map(([key, value]) => `${routine?.steps.find((step) => step.id === key)?.label ?? key}: ${value}`);
             return lines.length ? <p key={slot}>{SLOT_LABELS[slot]}{routine ? ` · ${routine.name}` : ''} — {lines.join(' / ')}</p> : null;
           })}
