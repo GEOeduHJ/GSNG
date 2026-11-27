@@ -1,0 +1,41 @@
+id: '01-02'
+standardCode: 12세지01-02
+title: 지역 변화의 역동성
+goal: 지역 통합과 분리, 도시화 자료를 해석해 지역 변화가 여러 공간 규모에서 나타나는 양상을 설명하고 이해관계자의 관점을 고려한 대응을 제안할 수 있다.
+concepts: [region, scale, regional-integration, regional-separation]
+opening:
+  intro: |
+    region(지역)은 자연·문화·경제의 특징이나 사람과 장소의 관계를 기준으로 구분한 공간이다. 지역의 경계와 의미는 기준과 상황에 따라 달라진다. 여러 나라와 지역은 공동의 문제를 해결하려고 연결을 강화하기도 하고, 정체성이나 이해관계의 차이에 따라 기존 결합을 바꾸려 하기도 한다.
+
+    이 중단원에서는 EEC(유럽경제공동체)에서 이어진 EU(유럽연합)의 확대, 스코틀랜드의 독립 주민투표, 도시화와 대도시 집중 자료를 읽는다. 통합과 분리의 이익·조정 과정을 함께 살핀다. 도시화가 생활 공간과 지역 관계를 바꾸는 모습도 여러 공간 규모에서 설명한다.
+  illustration:
+    src: /images/01-02/opening.webp
+    alt: 다리와 철도로 이어진 두 동네를 오가는 주민들과 공용 공간에서 의견을 나누는 이웃들.
+  focus:
+    kind: map
+    step:
+      id: focus
+      type: map
+      data: /data/01-02/eu-accession-year-map.json
+      source: u0102-eu-accession-year
+      caption: 현재 EU 회원국의 EEC·EU 가입 연도, 2026년
+      alt: 현재 EU 회원국의 유럽경제공동체·유럽연합 가입 연도를 국가별 색으로 나타낸 지도다.
+      config: { kind: choropleth }
+      concepts: [region, regional-integration, scale]
+closing:
+  summary: |
+    지역 통합은 경제·정치·사회적 협력과 연결을 강화한다. 지역 분리는 기존 결합을 바꾸려는 요구로 나타날 수 있다. EU의 가입·탈퇴와 스코틀랜드 주민투표는 지역의 관계가 시간과 선택에 따라 달라지는 모습을 보여 준다. 결과 자료와 주민의 동기·관점은 서로 다른 자료로 살핀다.
+
+    도시화율과 최대 도시 인구 비중은 국가 수준의 인구 분포 변화를 보여 준다. 통근·통학과 서비스 이용을 살피면 행정 경계와 다른 생활권을 찾을 수 있다. 다음 중단원에서는 지리 정보와 지리정보기술로 위치와 공간 관계를 표현하고 분석한다.
+  bridge: 다음 중단원에서는 지역 변화의 위치와 분포를 나타내는 지리 정보와 이를 분석하는 지리정보기술을 살펴본다.
+  transfer:
+    prompt: 방글라데시를 새 사례로 삼아, 그래프에서 1960년 이후 도시화율의 변화를 읽고 2025년 최대 도시 인구 비중(42.2%)과 함께 살펴보시오. 수도권으로 사람과 기능이 모이는 변화가 생활권과 지역의 관계를 어떻게 바꿀 수 있는지 지역·공간 규모 개념으로 설명하고, 판단에 더 필요한 지역 자료를 함께 쓰시오.
+    step:
+      id: transfer
+      type: chart
+      data: /data/01-02/urbanization-rate-series.json
+      source: u0102-urbanization-rate
+      caption: 세계와 주요국의 도시화율, 1960–2025년
+      alt: 세계와 대한민국, 일본, 독일, 방글라데시의 도시화율 변화를 연도별 선으로 나타낸 그래프다.
+      config: { kind: line }
+      concepts: [region, scale]

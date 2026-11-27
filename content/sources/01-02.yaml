@@ -1,0 +1,101 @@
+sources:
+  eu-history-01-02:
+    title: History of the European Union
+    organization: European Union
+    url: https://european-union.europa.eu/principles-countries-history/history-eu_en
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 참고 링크만 제공. 사이트의 문장·그림·도표는 복제하지 않음.
+    reuseBasis: EEC 창립 이후의 유럽 협력과 확대·탈퇴 연혁을 확인하는 참고 링크로 사용했다. 지도와 시계열 수치는 별도 자료 매니페스트의 가공 자료를 따른다.
+    verificationStatus: EU 공식 연혁에서 1958년 EEC 창립, 1973년 첫 확대, 2013년 크로아티아 가입과 영국 탈퇴 관련 시기를 확인했다. 1958년을 EU 출범 연도로 표현하지 않았다.
+    usage: 교재는 연혁을 새 문장으로 요약하고, 가입 연도와 회원국 수의 수치는 자료 파일을 따른다.
+  eu-enlargement-01-02:
+    title: Enlargement
+    organization: European Commission
+    url: https://commission.europa.eu/topics/enlargement_en
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 참고 링크만 제공. 사이트의 문장·그림·도표는 복제하지 않음.
+    reuseBasis: EU 확대 정책이 밝힌 평화·안정·공동 기준·경제 기회와 가입 과정의 제도 개혁을 확인했다.
+    verificationStatus: 유럽연합 집행위원회가 제시한 확대 정책의 목적과 가입 과정의 법·기준·개혁 안내를 확인했다. 기관의 설명을 유일한 평가로 제시하지 않고, 이익과 조정 과정을 여러 주체의 관점에서 살피도록 했다.
+    usage: EU 기관의 정책 설명을 참고 사실로 사용했다. 성과의 지역별 분배나 비용을 수치로 단정하지 않았다.
+  hcl-scottish-referendum-table33:
+    title: 'UK Election Statistics: 1918–2023, A Long Century of Elections'
+    organization: House of Commons Library
+    url: https://researchbriefings.files.parliament.uk/documents/CBP-7529/CBP-7529.pdf
+    sourceDate: '2023-08-09'
+    checkedAt: '2026-11-27'
+    licenseStatus: Open Parliament Licence v3.0.
+    reuseBasis: 부록 표 33의 2014년 스코틀랜드 독립 주민투표 전국·지방 의회 구역별 득표 비율과 투표율을 확인했다. 파생 지도·그래프의 이용 조건은 자료 매니페스트에 기록했다.
+    verificationStatus: 표 33에서 Glasgow City와 Aberdeen City의 찬성 비율·투표율, 전국 유효 투표 비율을 대조했다. 점의 좌표는 별도 GeoNames 자료이며 행정구역 경계로 사용하지 않았다.
+    usage: Contains Parliamentary information licensed under the Open Parliament Licence v3.0. 자료의 변환·표시 방식은 매니페스트와 데이터 README를 따른다.
+  hcl-scottish-independence-2014:
+    title: Scottish Independence Referendum 2014
+    organization: House of Commons Library
+    url: https://commonslibrary.parliament.uk/research-briefings/rp14-50/
+    sourceDate: '2014-09-30'
+    checkedAt: '2026-11-27'
+    licenseStatus: 참고 링크만 제공. 보고서의 표·그림·문장 재사용 조건을 별도 확인해야 함.
+    reuseBasis: 주민투표의 공식 전국 결과와 32개 지방 의회 구역 분포, 투표율을 확인하는 참고 링크다.
+    verificationStatus: 전국 결과에서 유효 투표의 찬성 44.7%, 반대 55.3%를 확인했다. 전국 결과는 주민 개인의 동기 자료로 사용하지 않았다.
+    usage: 원 보고서의 문장과 표 이미지를 복제하지 않고 결과 수치만 별도 가공 자료와 대조했다.
+  hcl-scotland-currency-2014:
+    title: 'Economic aspects of Scottish independence: currency'
+    organization: House of Commons Library
+    url: https://commonslibrary.parliament.uk/research-briefings/SN06685/
+    sourceDate: '2014-02-21'
+    checkedAt: '2026-11-27'
+    licenseStatus: 참고 링크만 제공. 보고서의 문장·그림 재사용 조건을 별도 확인해야 함.
+    reuseBasis: 독립 뒤 통화 선택이 당시 경제 논쟁의 주요 쟁점이었음을 확인했다.
+    verificationStatus: 하원 도서관 브리핑에서 통화 선택과 교역·재정·통화 정책의 관계 및 논쟁의 여러 선택지를 확인했다. 경제적 결과를 하나로 단정하지 않았다.
+    usage: 주민투표 당시 경제 쟁점의 범위를 확인하는 참고 링크다.
+  scotland-identities-2015:
+    title: National Identities and the 2014 Independence Referendum in Scotland
+    organization: Ross Bond, Sociological Research Online
+    url: https://journals.sagepub.com/doi/10.5153/sro.3797
+    sourceDate: '2015'
+    checkedAt: '2026-11-27'
+    licenseStatus: 참고 링크만 제공. 논문 본문을 복제하지 않음.
+    reuseBasis: 스코틀랜드의 국가 정체성과 헌법적·정치적 태도의 관계를 다룬 연구의 초록과 서지 정보를 확인했다.
+    verificationStatus: 연구는 정체성이 부분적으로 겹치고 변화할 수 있으며 주민의 정치적 태도와 관련된다고 설명한다. 단일 정체성이나 투표 동기를 모든 주민에게 일반화하지 않았다.
+    usage: 연구 결과를 새 문장으로 요약한 참고 출처다.
+  wdi-urbanization-rate-01-02:
+    title: Urban population (% of total population)
+    organization: 'World Bank, World Development Indicators; source: United Nations Population Division'
+    url: https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: World Bank 지표 CC BY 4.0. 출처와 수정 사항 표시가 필요함.
+    reuseBasis: 도시 인구 비율의 정의와 국가별 도시 정의 사용을 확인했다. 화면 수치는 자료 매니페스트의 정적 시계열을 따른다.
+    verificationStatus: 도시화율이 각국 통계기관의 도시 정의를 사용하고 UN 세계 도시화 전망을 바탕으로 함을 확인했다. 2025년 값은 추정·잠정치일 수 있음을 표시했다.
+    usage: 지표 해석을 위한 참고 출처다. 국가별 도시 정의가 다른 점을 함께 안내한다.
+  wdi-largest-city-share-01-02:
+    title: Population in the largest city (% of urban population)
+    organization: 'World Bank, World Development Indicators; source: United Nations Population Division'
+    url: https://databank.worldbank.org/metadataglossary/world-development-indicators/series/EN.URB.LCTY.UR.ZS
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: World Bank 지표 CC BY 4.0. 출처와 수정 사항 표시가 필요함.
+    reuseBasis: 각 나라 도시 인구 중 가장 큰 대도시권에 사는 인구가 차지하는 비율의 정의를 확인했다. 화면 수치는 자료 매니페스트의 정적 시계열을 따른다.
+    verificationStatus: 지표가 도시 인구를 분모로 하며 가장 큰 대도시권의 몫을 나타냄을 확인했다. 수도권 인구 비중이나 통근 자료와 같은 지표로 해석하지 않았다.
+    usage: 지표의 분모와 해석을 위한 참고 출처다.
+  oecd-functional-urban-area:
+    title: OECD Definition of Cities and Functional Urban Areas
+    organization: Organisation for Economic Co-operation and Development (OECD)
+    url: https://www.oecd.org/en/data/datasets/oecd-definition-of-cities-and-functional-urban-areas.html
+    sourceDate: null
+    checkedAt: '2026-11-27'
+    licenseStatus: 참고 링크만 제공. 사이트의 자료·문장은 복제하지 않음.
+    reuseBasis: 도시와 주변 통근권을 함께 살피는 기능적 도시권의 정의와 이동 자료의 역할을 확인했다.
+    verificationStatus: OECD 설명에서 통근 흐름이 기능적 도시권의 경계를 정하는 핵심 정보이며, 해당 범위가 행정 경계와 다를 수 있음을 확인했다.
+    usage: 통근·통학 자료를 이용해 생활권을 살펴보는 참고 출처다.
+  daejeon-seogu-shelters-transfer:
+    title: 대전광역시 서구 지진 옥외 대피장소
+    organization: 대전광역시 서구 · 공공데이터포털
+    url: https://www.data.go.kr/data/15124341/fileData.do
+    sourceDate: '2026-01-21'
+    checkedAt: '2026-11-27'
+    licenseStatus: 공공데이터포털 표시 — 이용허락범위 제한 없음.
+    reuseBasis: 대피 장소의 시설 유형과 위치를 담은 자료다. 전달용 지도는 시설명·유형·좌표만 사용한다.
+    verificationStatus: 자료 매니페스트와 01-03의 데이터 README에서 대피 장소 위치·유형을 확인했다. 수용 인원·이동 시간·주변 인구는 자료에 없음을 전이 과제에 반영했다.
+    usage: 위치 분포를 읽는 전이 과제에 사용하며, 실제 대피 계획으로 안내하지 않는다.
