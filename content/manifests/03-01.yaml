@@ -166,13 +166,13 @@ items:
       United Nations, Department of Economic and Social Affairs, Population Division (2024),
       World Population Prospects 2024, CC BY 3.0 IGO. Modified: selected the World total for
       1950–2100 from TPopulation1July; estimates run through 2023 and medium-variant projections
-      cover 2024–2100.
+      cover 2024–2100; values converted from thousands to persons.
     script: scripts/data/03-01/wpp2024_population.py
-    unit: thousands of persons (1 July)
+    unit: persons (1 July)
     year: 2100
     summary: >-
-      세계 총인구는 WPP 2024의 1월 1일이 아닌 7월 1일 계열에서 1950년 2,493,092.848천 명,
-      2024년 8,161,972.572천 명, 2100년 중위 전망 10,180,160.751천 명이다.
+      세계 총인구(7월 1일 기준)는 1950년 2,493,092,848명, 2024년 8,161,972,572명,
+      2100년 중위 전망 10,180,160,751명이다. WPP의 천 명 단위 값에 1,000을 곱해 명 단위로 저장했다.
 
   - id: u0301-wpp-continent-share
     path: /data/03-01/continent-population-share-wpp2024-1950-2100.json

@@ -4,7 +4,7 @@
 
 - 검수 반영으로 신규 WDI 스냅샷은 2024년으로 통일했다. 조출생률·조사망률·부양비·순이동은 각 217/217, 산업별 종사자 비율은 지표별 182/217 국가·경제 코드에 값이 있었다. 2025년 WPP·ILO 모형 전망 구간은 제외했다. WDI API 메타데이터의 `lastupdated`는 `2026-11-11`이며 각 지표 페이지는 CC BY 4.0을 표시한다. 산업별 종사자 비율은 ILO 모형 추정치다.
 - UN DESA World Population Prospects 2024에서 같은 연도인 2024년 중위 시나리오의 성별·5세 연령 자료를 썼다. CSV의 인구 단위는 천 명이다. `PopMale`과 `PopFemale`을 해당 국가의 21개 연령 구간 `PopTotal` 합계로 나누고 100을 곱해 전체 인구 대비 비율로 저장했다. WPP 2024 공식 Data Sources 간행물은 표·그림 재사용을 CC BY 3.0 IGO로 허용하며, [UN DESA 데이터 포털의 WPP 국가 프로필](https://population.un.org/dataportal/countryProfiles/types/1/topics/1/coreThemes/7/locations/392)도 WPP 2024 데이터의 CC BY 3.0 IGO 표기를 제공한다. 출처와 변환 내용을 manifest 캡션에 남겼다.
-- 신규 WPP 자료는 `WPP2024_Demographic_Indicators_Medium.csv.gz`를 사용했다. 인구 규모는 `TPopulation1July`(천 명)를 사용하며 1950–2023년 추계와 2024–2100년 중위 전망을 구분해 기록했다. 대륙 비중은 공식 여섯 대륙 지역 인구를 같은 해 세계 인구로 나눴다. 2024년 이후 값은 전망이며 국가별 관측치가 아니다.
+- 신규 WPP 자료는 `WPP2024_Demographic_Indicators_Medium.csv.gz`를 사용했다. 인구 규모는 `TPopulation1July`(천 명)에 1,000을 곱해 명 단위로 저장하며 1950–2023년 추계와 2024–2100년 중위 전망을 구분해 기록했다. 대륙 비중은 공식 여섯 대륙 지역 인구를 같은 해 세계 인구로 나눴다. 2024년 이후 값은 전망이며 국가별 관측치가 아니다.
 - WPP 2024는 1950–2023년 추계와 2024–2100년 중위 변이 전망을 제공한다. 따라서 기존 인구 피라미드의 2024년 수치도 중위 변이 전망이며 개별 국가의 단일 인구조사 원자료가 아니다. 대상 국가는 대한민국·일본·우간다다.
 - World Bank의 `SM.POP.TOTL.ZS`는 UN DESA International Migrant Stock를 출처로 표시한다. 국제 이주민 비율은 거주 인구 중 국제 이주민의 비중을 나타내며, 이주 흐름·이유·개인의 법적 지위를 뜻하지 않는다.
 - `BX.TRF.PWKR.DT.GD.ZS`는 개인 송금 수입의 GDP 대비 규모다. 송금은 유출 지역에 미칠 수 있는 경제적 경로를 보여 주지만, 국가별 비율만으로 이주가 경제에 미친 인과 효과를 설명하지 않는다.

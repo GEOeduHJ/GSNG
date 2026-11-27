@@ -123,12 +123,13 @@ def read_population_rows(raw_path: Path) -> dict[str, dict[int, float | None]]:
 def build_datasets(population: dict[str, dict[int, float | None]]) -> tuple[dict, dict]:
     world_values = population[WORLD_LOC_ID]
     population_series = {
-        "unit": "thousands of persons (1 July)",
+        # WPP reports thousands; store persons so chart axes read in 억 명 without a scale note.
+        "unit": "persons (1 July)",
         "years": YEARS,
         "series": [
             {
                 "name": "세계",
-                "values": [world_values[year] for year in YEARS],
+                "values": [None if world_values[year] is None else round(world_values[year] * 1000) for year in YEARS],
             }
         ],
     }
