@@ -1,0 +1,123 @@
+items:
+  - id: u0402-global-temperature
+    path: /data/04-02/global-temperature-anomaly-1850-2025.json
+    title: 전 지구 연평균 육지·해양 기온 편차
+    organization: NOAA National Centers for Environmental Information (NCEI)
+    url: https://www.ncei.noaa.gov/data/noaa-global-surface-temperature/v6.1/access/timeseries/aravg.ann.land_ocean.90S.90N.v6.1.0.202610.asc
+    retrievedAt: '2026-11-27'
+    license: Public domain (NOAA/NCEI environmental data)
+    attribution: >-
+      NOAA NCEI, NOAAGlobalTemp v6.1.0. Modified: annual global land-ocean series, 1850–2025;
+      anomalies use the 1991–2020 baseline.
+    script: scripts/data/04-02/noaa_temperature.py
+    unit: °C anomaly (1991–2020 baseline)
+    year: 2025
+    summary: >-
+      NOAA의 연평균 육지·해양 기온 편차는 1991–2020 평균 기준이다. 2024년은 +0.646°C,
+      2025년은 +0.511°C이며 1850년부터 이어진 연도별 변화가 담겨 있다.
+
+  - id: u0402-forest-area-series
+    path: /data/04-02/forest-area-selected-countries-1990-2024.json
+    title: 주요국 산림 면적 비율 변화
+    organization: "World Bank, World Development Indicators (source: FAOSTAT, FAO)"
+    url: https://data.worldbank.org/indicator/AG.LND.FRST.ZS
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      World Bank, World Development Indicators, CC BY 4.0; indicator source FAOSTAT (FAO).
+      Modified: selected six country series for 1990–2024; no interpolation.
+    script: scripts/data/04-02/world_bank.py
+    unit: '% of land area'
+    year: 2024
+    summary: >-
+      산림이 국토에서 차지하는 비율은 브라질에서 1990년 73.99%에서 2024년 58.55%로
+      변했고, 중국의 2024년 값은 24.02%다. 브라질·인도네시아·콩고민주공화국·중국·인도·대한민국의
+      1990–2024 시계열이다.
+
+  - id: u0402-pm25-exposure
+    path: /data/04-02/pm25-annual-exposure-map-2023.json
+    title: 국가별 연평균 PM2.5 노출
+    organization: "World Bank, World Development Indicators (source: IHME, GBD 2023)"
+    url: https://data.worldbank.org/indicator/EN.ATM.PM25.MC.M3
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      World Bank, World Development Indicators, CC BY 4.0; indicator source Institute for Health
+      Metrics and Evaluation, Global Burden of Disease Study 2023. Modified: 2023 values matched
+      to Natural Earth ISO3 codes.
+    script: scripts/data/04-02/world_bank.py
+    unit: µg/m³
+    year: 2023
+    summary: >-
+      2023년 연평균 PM2.5 노출 추정치는 인도 54.05µg/m³, 대한민국 21.89µg/m³,
+      미국 6.97µg/m³이다. 국가별 평균 노출이며 개인이 측정한 농도는 아니다.
+
+  - id: u0402-co2-per-capita
+    path: /data/04-02/co2-per-capita-map-2024.json
+    title: 국가별 1인당 화석연료·산업 CO₂ 배출량
+    organization: Global Carbon Project, Global Carbon Budget 2026; Our World in Data
+    url: https://ourworldindata.org/grapher/co-emissions-per-capita
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      Global Carbon Budget (2026), with major processing by Our World in Data; CC BY 4.0.
+      Modified: selected 2024 country values and Natural Earth ISO3 codes.
+    script: scripts/data/04-02/owid_emissions.py
+    unit: t CO₂/person/year
+    year: 2024
+    summary: >-
+      2024년 1인당 영토 기준 CO₂ 배출량은 미국 14.22t, 대한민국 11.31t, 중국 8.74t이다.
+      화석연료와 산업 배출량이며 토지이용 변화와 수입품에 포함된 배출은 제외한다.
+
+  - id: u0402-cumulative-co2-top10
+    path: /data/04-02/cumulative-co2-top10-1850-2024.json
+    title: 1850–2024 누적 화석연료·산업 CO₂ 배출 상위 10개국
+    organization: Global Carbon Project, Global Carbon Budget 2026; Our World in Data
+    url: https://ourworldindata.org/grapher/annual-co2-emissions-per-country
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      Global Carbon Budget (2026), with major processing by Our World in Data; CC BY 4.0.
+      Modified: annual territorial CO₂ emissions summed from 1850 through 2024, selected top ten,
+      and converted from tonnes to Gt.
+    script: scripts/data/04-02/owid_emissions.py
+    unit: Gt CO₂ (누적, 1850–2024)
+    year: 2024
+    summary: >-
+      1850–2024 누적 화석연료·산업 CO₂ 배출량은 미국 434.14Gt, 중국 286.06Gt,
+      러시아 121.81Gt이다. 각 연도 국가 귀속은 원자료의 시계열을 따랐으며 토지이용 변화는 포함하지 않는다.
+
+  - id: u0402-korea-ghg-series
+    path: /data/04-02/south-korea-ghg-1990-2024.json
+    title: 대한민국 연도별 온실가스 배출량 (토지이용 포함)
+    organization: Jones et al. (2025), Our World in Data
+    url: https://ourworldindata.org/grapher/total-ghg-emissions
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      Jones et al. (2025), National Contributions to Climate Change, with major processing by
+      Our World in Data; CC BY 4.0. Modified: Republic of Korea series for 1990–2024; tonnes
+      converted to Mt.
+    script: scripts/data/04-02/owid_emissions.py
+    unit: Mt CO₂e/year
+    year: 2024
+    summary: >-
+      대한민국 온실가스 배출량은 1990년 288.63Mt CO₂e, 2018년 709.06Mt, 2024년 630.57Mt이다.
+      CO₂·CH₄·N₂O와 토지이용 배출을 포함하며 OWID/Jones의 GWP* 환산 계열이다.
+
+  - id: u0402-renewable-energy-share
+    path: /data/04-02/renewable-energy-consumption-map-2021.json
+    title: 국가별 재생에너지 소비 비중
+    organization: "World Bank, World Development Indicators (source: IEA Energy Statistics)"
+    url: https://data.worldbank.org/indicator/EG.FEC.RNEW.ZS
+    retrievedAt: '2026-11-27'
+    license: CC BY 4.0
+    attribution: >-
+      World Bank, World Development Indicators, CC BY 4.0; indicator source IEA Energy Statistics.
+      Modified: selected 2021 country values and Natural Earth ISO3 codes.
+    script: scripts/data/04-02/world_bank.py
+    unit: '% of total final energy consumption'
+    year: 2021
+    summary: >-
+      2021년 최종 에너지 소비 중 재생에너지 비중은 브라질 46.5%, 대한민국 3.6%, 미국 10.9%이다.
+      2022년 값은 일부 국가만 있어 2021년을 비교 연도로 사용했다.
