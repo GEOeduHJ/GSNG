@@ -6,7 +6,7 @@ import DataStage from '../lesson/DataStage.jsx';
 import { QUESTION_ORIGINS, lessonBornQuestions, questionText, reviseQuestion, selectedQuestions } from '../qft/questions.js';
 import { buildResultFile, resultFileName } from '../../storage/resultFile.js';
 import { ensurePilotRecordId, isPilotUnit } from '../../storage/unitRecords.js';
-import { saveExplanationRevision } from '../../storage/feedbackFile.js';
+import { resetExplanationRevisionBaseline, saveExplanationRevision } from '../../storage/feedbackFile.js';
 import TeacherFeedback from './TeacherFeedback.jsx';
 
 export const CLOSING_STAGES = [
@@ -27,7 +27,11 @@ const explanationSnapshot = (value = {}) => ({
 
 const ready = {
   explain: (r) => Boolean(r.explanation.questionId) && atLeast(r.explanation.claim) && (r.explanation.evidenceIds ?? []).length > 0 && atLeast(r.explanation.reasoning),
-  revise: (r) => atLeast(r.revisedQuestion),
+  revise: (r, pilot) => {
+    if (!pilot) return atLeast(r.revisedQuestion);
+    const original = r.questions.find((question) => question.id === r.explanation.questionId);
+    return atLeast(original ? questionText(original) : r.revisedQuestion);
+  },
   transfer: (r) => atLeast(r.transferResponse),
   reflect: (r) => atLeast(r.reflection),
 };
@@ -108,7 +112,7 @@ function Explain({ record, update, unit, pilot }) {
       )}
       <label htmlFor="reasoning">근거와 주장을 잇는 설명</label>
       <textarea id="reasoning" rows="4" value={explanation.reasoning} onChange={(event) => set({ reasoning: event.target.value })} />
-      {pilot && <section className="explanation-revision-editor" aria-labelledby="explanation-revision-title">
+      {pilot && record.stageTimes?.explain && <section className="explanation-revision-editor" aria-labelledby="explanation-revision-title">
         <h3 id="explanation-revision-title">설명 수정 기록</h3>
         {questionFeedbacks.length > 0 && <fieldset>
           <legend>이 설명에 연결할 교사 피드백</legend>
@@ -151,6 +155,16 @@ function Revise({ record, update, pilot }) {
   ];
   const prefilled = useRef(false);
   const revisedQuestion = typeof record.revisedQuestion === 'string' ? record.revisedQuestion : '';
+  function clearQuestionState(questionId) {
+    for (const setState of [setDrafts, setReasons, setSources, setEvidenceSelections, setFeedbackSelections]) {
+      setState((current) => {
+        if (!Object.prototype.hasOwnProperty.call(current, questionId)) return current;
+        const next = { ...current };
+        delete next[questionId];
+        return next;
+      });
+    }
+  }
   useEffect(() => {
     if (prefilled.current || !original) return;
     prefilled.current = true;
@@ -213,7 +227,7 @@ function Revise({ record, update, pilot }) {
             </fieldset>}
             <details className="question-revision-history">
               <summary>질문 이력 보기</summary>
-              <p><strong>처음 질문:</strong> {question.initialText ?? question.text}</p>
+              <p><strong>처음 질문:</strong> {question.initialText || question.text}</p>
               {revisions.length > 0 ? <ol>{revisions.map((revision, index) => <li key={revision.id ?? `${question.id}-revision-${index}`}>
                 <p>{revision.before} → {revision.after}</p>
                 <p>{revision.reason}</p>
@@ -222,11 +236,17 @@ function Revise({ record, update, pilot }) {
                 {revision.createdAt && <time dateTime={revision.createdAt}>{revision.createdAt}</time>}
               </li>)}</ol> : <p className="hint">저장된 수정 기록이 없습니다.</p>}
             </details>
-            <p className="row-actions"><button type="button" className="button secondary" aria-label={`질문 수정 저장: ${currentText}`} disabled={!canSave} onClick={() => update((current) => {
-              const revised = reviseQuestion(current, { questionId: question.id, after, reason, source, evidenceIds, ...(feedbackIds.length ? { feedbackIds } : {}) }, new Date());
-              if (revised === current || current.explanation.questionId !== question.id) return revised;
-              return { ...revised, revisedQuestion: questionText(revised.questions.find((item) => item.id === question.id)) };
-            })}>수정 기록 저장</button></p>
+            <p className="row-actions"><button type="button" className="button secondary" aria-label={`질문 수정 저장: ${currentText}`} disabled={!canSave} onClick={() => {
+              let savedRevision = false;
+              update((current) => {
+                const revised = reviseQuestion(current, { questionId: question.id, after, reason, source, evidenceIds, ...(feedbackIds.length ? { feedbackIds } : {}) }, new Date());
+                if (revised === current) return current;
+                savedRevision = true;
+                if (current.explanation.questionId !== question.id) return revised;
+                return { ...revised, revisedQuestion: questionText(revised.questions.find((item) => item.id === question.id)) };
+              });
+              if (savedRevision) clearQuestionState(question.id);
+            }}>수정 기록 저장</button></p>
           </fieldset>;
         })}
       </section>}
@@ -287,7 +307,7 @@ function Export({ record, update, unit }) {
     link.remove();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
     update((current) => ({
-      ...current,
+      ...(isPilotUnit(unit.id) ? resetExplanationRevisionBaseline(current) : current),
       ...(exportedRecord.recordId ? { recordId: exportedRecord.recordId } : {}),
       stageTimes: { ...current.stageTimes, export: exportedAt.toISOString() },
     }));
@@ -319,7 +339,10 @@ export default function UnitClosing({ unit }) {
   const nextReady = nextUnit && book.units.some((item) => item.id === nextUnit.id);
 
   function complete(stageId) {
-    update((rec) => ({ ...rec, stageTimes: { ...rec.stageTimes, [stageId]: rec.stageTimes[stageId] ?? new Date().toISOString() } }));
+    update((rec) => {
+      const completed = { ...rec, stageTimes: { ...rec.stageTimes, [stageId]: rec.stageTimes[stageId] ?? new Date().toISOString() } };
+      return stageId === 'explain' && isPilotUnit(unit.id) ? resetExplanationRevisionBaseline(completed) : completed;
+    });
     setView(CLOSING_STAGES.findIndex((item) => item.id === stageId) + 1);
   }
 
@@ -344,14 +367,14 @@ export default function UnitClosing({ unit }) {
           </li>
         ))}
       </ol>
-      {isPilotUnit(unit.id) && <TeacherFeedback record={record} update={update} unit={unit} />}
+      {isPilotUnit(unit.id) && record.stageTimes?.export && <TeacherFeedback record={record} update={update} unit={unit} />}
       {stage === 'explain' && <Explain record={record} update={update} unit={unit} pilot={isPilotUnit(unit.id)} />}
       {stage === 'revise' && <Revise record={record} update={update} pilot={isPilotUnit(unit.id)} />}
       {stage === 'transfer' && <Transfer record={record} update={update} unit={unit} manifest={book.manifest} />}
       {stage === 'reflect' && <Reflect record={record} update={update} />}
       {stage === 'export' && <Export record={record} update={update} unit={unit} />}
       {stage !== 'export' && (
-        <p className="row-actions"><button type="button" className="button" disabled={!ready[stage](record)} onClick={() => complete(stage)}>다음 단계</button></p>
+        <p className="row-actions"><button type="button" className="button" disabled={!ready[stage](record, isPilotUnit(unit.id))} onClick={() => complete(stage)}>다음 단계</button></p>
       )}
     </>
   );

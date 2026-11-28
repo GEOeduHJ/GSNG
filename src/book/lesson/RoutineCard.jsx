@@ -33,7 +33,7 @@ function RoutineFields({ routine, lesson, slot, answers, setAnswers, send, recor
   );
 }
 
-function SelectedQuestionContext({ record }) {
+export function SelectedQuestionContext({ record }) {
   const questions = selectedQuestions(record);
   return (
     <aside className="pilot-question-context" aria-label="현재 선택한 질문">
@@ -85,7 +85,7 @@ export default function RoutineCard({ unit, lesson, slot, routine }) {
 
   return (
     <section className="routine-card" data-slot={slot} data-default={pilot ? 'true' : undefined} aria-label={`생각 루틴 ${routine.name}`}>
-      {defaultRoutine && <SelectedQuestionContext record={record} />}
+      {defaultRoutine && slot !== 'closing' && <SelectedQuestionContext record={record} />}
       {title}
       {fields}
     </section>

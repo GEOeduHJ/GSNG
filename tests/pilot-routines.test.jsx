@@ -75,10 +75,10 @@ describe('question-based pilot routines', () => {
     expect(screen.getByText(/응답은 근거 초안에 불러와 확인·수정한 뒤 질문에 붙일 수 있습니다/)).toBeTruthy();
     expect(screen.getByText('현재 선택한 질문')).toBeTruthy();
     expect(within(document.querySelector('.pilot-question-context')).getByText('지금 이어갈 질문은 무엇일까?')).toBeTruthy();
-    expect(document.querySelectorAll('.routine-card[data-default="true"]')).toHaveLength(1);
+    expect(document.querySelectorAll('.routine-card[data-default="true"]')).toHaveLength(2);
     expect(document.querySelector('.routine-card[data-slot="inquiry"][data-default="true"]')).toBeTruthy();
     expect(document.querySelector('details.routine-card[data-slot="opener"]').open).toBe(false);
-    expect(document.querySelector('details.routine-card[data-slot="closing"]').open).toBe(false);
+    expect(document.querySelector('details.routine-card[data-slot="closing"]')).toBeNull();
     expect(screen.getByText('더 살펴보기(선택)').closest('details').open).toBe(false);
   });
 
@@ -87,11 +87,53 @@ describe('question-based pilot routines', () => {
       const { lesson, storage } = renderPilot({ unitId, index: 1 });
       expect(document.querySelector('.routine-card[data-slot="opener"][data-default="true"]')).toBeTruthy();
       expect(document.querySelector('details.routine-card[data-slot="inquiry"]').open).toBe(false);
-      expect(document.querySelector('details.routine-card[data-slot="closing"]').open).toBe(false);
+      expect(document.querySelector('.routine-card[data-slot="closing"][data-default="true"]')).toBeTruthy();
       expect(lesson.id).toBe(`lesson-${unitId}-1`);
       screen.getByRole('heading', { name: '내 질문으로 자료 읽기' });
       expect(saved(storage, unitId).questions[0].id).toBe('q1');
       if (index === 0) cleanup();
+    }
+  });
+
+  it('shows the selected question and an expanded inquiry activity in lesson 1', () => {
+    for (const unitId of ['01-01', '03-01']) {
+      const { book, unit, lesson, storage } = pilotFixture({ unitId, index: 1 });
+      render(lessonContents({ book, unit, lesson, storage }));
+
+      const extension = document.querySelector('.activity-extension');
+      expect(extension.open).toBe(true);
+      expect(within(extension).getByText('현재 선택한 질문')).toBeTruthy();
+      expect(within(extension).getByText('지금 이어갈 질문은 무엇일까?')).toBeTruthy();
+      expect(within(extension).getByText('자료 비교')).toBeTruthy();
+      cleanup();
+    }
+  });
+
+  it('marks fictional activity evidence and displays its source label', () => {
+    const lessonId = 'lesson-01-01-2';
+    const { book, unit, lesson, storage } = pilotFixture({ recordPatch: {
+      activityState: { [lessonId]: { notes: { 'trade-map': '가상 활동에서 살핀 내용' } } },
+    } });
+    lesson.activity.fictional = true;
+    render(lessonContents({ book, unit, lesson, storage }));
+
+    expect([...screen.getByLabelText('불러올 응답').options].map((option) => option.textContent)).toContain('가상 상황 활동 · 무역 자료에서 찾은 변화');
+    fireEvent.click(screen.getByLabelText('지금 이어갈 질문은 무엇일까?'));
+    fireEvent.change(screen.getByLabelText('불러올 응답'), { target: { value: 'activity:trade-map' } });
+    fireEvent.click(screen.getByRole('button', { name: '응답을 초안에 불러오기' }));
+    fireEvent.click(screen.getByRole('button', { name: '근거로 붙이기' }));
+
+    expect(saved(storage).evidence[0].sourceRef.kind).toBe('fictional');
+    expect(document.querySelector('.evidence-list').textContent).toContain('가상 상황 활동');
+  });
+
+  it('shows the short closing routine expanded in every pilot lesson', () => {
+    for (const unitId of ['01-01', '03-01']) {
+      renderPilot({ unitId, index: 2 });
+
+      expect(document.querySelector('details.routine-card[data-slot="closing"]')).toBeNull();
+      expect(document.querySelector('.routine-card[data-slot="closing"][data-default="true"]')).toBeTruthy();
+      cleanup();
     }
   });
 
@@ -106,7 +148,7 @@ describe('question-based pilot routines', () => {
 
     const source = screen.getByLabelText('불러올 응답');
     const note = screen.getByLabelText('근거 초안 · 자료에서 찾은 것');
-    expect([...source.options].map((option) => option.textContent)).toContain('생각 루틴 · 주장');
+    expect([...source.options].map((option) => option.textContent)).toContain('생각 루틴 · 탐구하기 · 주장');
     expect([...source.options].map((option) => option.textContent)).toContain('활동 · 무역 자료에서 찾은 변화');
     expect([...source.options].map((option) => option.textContent)).not.toContain('정적 안내 문장');
 
@@ -114,22 +156,38 @@ describe('question-based pilot routines', () => {
     fireEvent.change(source, { target: { value: 'routine:inquiry:claim' } });
     fireEvent.click(screen.getByRole('button', { name: '응답을 초안에 불러오기' }));
     expect(note.value).toBe(routineAnswer);
-    fireEvent.change(note, { target: { value: '수정해 확인한 루틴 근거' } });
     fireEvent.click(screen.getByRole('button', { name: '근거로 붙이기' }));
 
     fireEvent.change(source, { target: { value: 'activity:trade-map' } });
     fireEvent.click(screen.getByRole('button', { name: '응답을 초안에 불러오기' }));
     expect(note.value).toBe(activityAnswer);
-    fireEvent.change(note, { target: { value: '수정해 확인한 활동 근거' } });
     fireEvent.click(screen.getByRole('button', { name: '근거로 붙이기' }));
 
     const record = saved(storage);
     expect(record.routineState[lessonId].inquiry.claim).toBe(routineAnswer);
     expect(record.activityState[lessonId].notes['trade-map']).toBe(activityAnswer);
     expect(record.evidence).toEqual(expect.arrayContaining([
-      expect.objectContaining({ questionId: 'q1', lessonId, note: '수정해 확인한 루틴 근거', sourceRef: { kind: 'routine', lessonId, slot: 'inquiry', fieldId: 'claim' } }),
-      expect.objectContaining({ questionId: 'q1', lessonId, note: '수정해 확인한 활동 근거', sourceRef: { kind: 'activity', lessonId, template: 'layer-compare', fieldId: 'trade-map' } }),
+      expect.objectContaining({ questionId: 'q1', lessonId, note: routineAnswer, sourceRef: { kind: 'routine', lessonId, slot: 'inquiry', fieldId: 'claim' } }),
+      expect.objectContaining({ questionId: 'q1', lessonId, note: activityAnswer, sourceRef: { kind: 'activity', lessonId, template: 'layer-compare', fieldId: 'trade-map' } }),
     ]));
+  });
+
+  it('drops the loaded answer source reference when the student edits its text', () => {
+    const lessonId = 'lesson-01-01-2';
+    const activityAnswer = '활동 칸에 쓴 학생 응답';
+    const { storage } = renderPilot({ recordPatch: {
+      activityState: { [lessonId]: { notes: { 'trade-map': activityAnswer } } },
+    } });
+
+    fireEvent.click(screen.getByLabelText('지금 이어갈 질문은 무엇일까?'));
+    fireEvent.change(screen.getByLabelText('불러올 응답'), { target: { value: 'activity:trade-map' } });
+    fireEvent.click(screen.getByRole('button', { name: '응답을 초안에 불러오기' }));
+    const note = screen.getByLabelText('근거 초안 · 자료에서 찾은 것');
+    fireEvent.change(note, { target: { value: '학생이 내용을 다시 쓴 근거' } });
+    fireEvent.click(screen.getByRole('button', { name: '근거로 붙이기' }));
+
+    expect(saved(storage).evidence[0]).toMatchObject({ note: '학생이 내용을 다시 쓴 근거' });
+    expect(saved(storage).evidence[0]).not.toHaveProperty('sourceRef');
   });
 
   it('keeps non-pilot headings, routine cards, and activities in their existing open layout', () => {

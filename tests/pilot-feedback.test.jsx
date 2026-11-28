@@ -6,7 +6,7 @@ import UnitClosing from '../src/book/close/UnitClosing.jsx';
 import { buildResultFile } from '../src/storage/resultFile.js';
 import { parseResultFile } from '../src/storage/resultFile.js';
 import { STORAGE_KEY_V4, createStore, emptyUnitRecord, normalizeUnitRecord } from '../src/storage/unitRecords.js';
-import { importFeedbackFile, parseFeedbackFile } from '../src/storage/feedbackFile.js';
+import { buildFeedbackFile, importFeedbackFile, parseFeedbackFile } from '../src/storage/feedbackFile.js';
 import { summarizeResults } from '../src/teacher/summarize.js';
 import { makeBook, memoryStorage } from './fixtures/book.js';
 
@@ -36,6 +36,7 @@ function feedback(overrides = {}) {
 function renderStudent(record) {
   const book = makeBook();
   const savedRecord = { ...emptyUnitRecord('01-01'), ...record };
+  if (!Object.prototype.hasOwnProperty.call(record, 'stageTimes')) savedRecord.stageTimes = { export: '2026-11-28T08:00:00.000Z' };
   const storage = memoryStorage({ [STORAGE_KEY_V4]: JSON.stringify({ version: 4, units: { '01-01': savedRecord } }) });
   const view = render(<BookProvider book={book} storage={storage}><UnitClosing unit={book.units[0]} /></BookProvider>);
   return { storage, savedRecord, ...view };
@@ -135,6 +136,41 @@ describe('pilot teacher feedback', () => {
     expect(imported.record.teacherFeedbacks[0].sourceSnapshot.questions[0].text).toBe('교사가 초안에서 본 질문');
   });
 
+  it('imports feedback when an unrelated empty snapshot question was later removed', () => {
+    const emptyQuestion = { id: 'q-empty', text: '' };
+    const earlier = feedback({ sourceSnapshot: {
+      questions: [question, emptyQuestion], explanation,
+    } });
+    const record = { ...emptyUnitRecord(unit.id), recordId: 'record-a', questions: [question], explanation };
+
+    expect(importFeedbackFile(record, earlier, unit.id)).toMatchObject({ ok: true });
+  });
+
+  it('rejects feedback when a comment target or explanation question is missing from the current record', () => {
+    const record = { ...emptyUnitRecord(unit.id), recordId: 'record-a', questions: [question], explanation };
+    const missingCommentTarget = feedback({
+      comments: [{ questionId: 'q-deleted', text: '확인해 보세요.' }],
+      sourceSnapshot: { questions: [question, { id: 'q-deleted', text: '삭제된 질문' }], explanation },
+    });
+    const missingExplanationQuestion = feedback({
+      sourceSnapshot: {
+        questions: [question, { id: 'q-deleted', text: '삭제된 질문' }],
+        explanation: { ...explanation, questionId: 'q-deleted' },
+      },
+    });
+
+    expect(importFeedbackFile(record, missingCommentTarget, unit.id)).toMatchObject({ ok: false, reason: 'bad-reference' });
+    expect(importFeedbackFile(record, missingExplanationQuestion, unit.id)).toMatchObject({ ok: false, reason: 'bad-reference' });
+  });
+
+  it('omits empty questions from a newly exported feedback snapshot', () => {
+    const student = { recordId: 'record-a', questions: [question, { id: 'q-empty', text: '  ' }], explanation };
+
+    const file = buildFeedbackFile(student, unit.id, [{ questionId: 'q1', text: '자료를 확인해 보세요.' }], new Date('2026-11-28T09:00:00Z'));
+
+    expect(file.sourceSnapshot.questions).toEqual([question]);
+  });
+
   it('lets a teacher export a question comment tied to the student record and source snapshot', async () => {
     let blob;
     let downloadName = '';
@@ -187,7 +223,7 @@ describe('pilot teacher feedback', () => {
     pilotUnit.lessons[0].activity = { template: 'layer-compare', config: { fields: [{ id: 'same', label: '두 자료에서 같은 점' }] } };
     pilotUnit.lessons[1].activity = { template: 'decision-matrix', config: { options: [{ id: 'a', label: '교통 개선' }], criteria: [{ id: 'cost', label: '비용' }] } };
     pilotUnit.lessons[2].activity = { template: 'evidence-sort', config: { items: [{ id: 'growth', text: '세계 인구 증가' }], categories: [{ id: 'interpretation', label: '자료 해석' }] } };
-    pilotUnit.lessons.push({ ...pilotUnit.lessons[2], id: 'lesson-01-01-4', index: 4, title: '절 4 제목', activity: { template: 'civic-hearing', config: { actors: [{ id: 'residents', label: '주민', place: '지역' }], levels: [{ id: 'local', label: '지역 수준', action: '지역 협의' }] } } });
+    pilotUnit.lessons.push({ ...pilotUnit.lessons[2], id: 'lesson-01-01-4', index: 4, title: '절 4 제목', activity: { template: 'civic-hearing', fictional: true, config: { actors: [{ id: 'residents', label: '주민', place: '지역' }], levels: [{ id: 'local', label: '지역 수준', action: '지역 협의' }] } } });
     const student = {
       ...emptyUnitRecord(unit.id), recordId: 'record-a', displayName: '7번',
       activityState: {
@@ -207,12 +243,12 @@ describe('pilot teacher feedback', () => {
     expect(screen.getByText(/^절 1 제목 · 활동 · 두 자료에서 같은 점$/)).toBeTruthy();
     expect(screen.getByText(/^절 2 제목 · 활동 · 고른 대안$/)).toBeTruthy();
     expect(screen.getByText(/^절 3 제목 · 활동 · 분류 응답 · 세계 인구 증가$/)).toBeTruthy();
-    expect(screen.getByText(/^절 4 제목 · 활동 · 고른 관점$/)).toBeTruthy();
+    expect(screen.getByText(/^절 4 제목 · 가상 상황 활동 · 고른 관점$/)).toBeTruthy();
     expect(screen.getByText(/무역 자료와 인터넷 자료가 함께 늘었다/)).toBeTruthy();
   });
 
   it('imports only a matching feedback file and leaves a legacy record unchanged on mismatch', async () => {
-    const legacy = { ...emptyUnitRecord('01-01'), displayName: '7번', questions: [question], explanation };
+    const legacy = { ...emptyUnitRecord('01-01'), displayName: '7번', questions: [question], explanation, stageTimes: { export: '2026-11-28T08:00:00.000Z' } };
     const { storage } = renderStudent(legacy);
     const before = storage.data[STORAGE_KEY_V4];
     const file = new File([JSON.stringify(feedback())], 'feedback.json', { type: 'application/json' });
@@ -227,7 +263,7 @@ describe('pilot teacher feedback', () => {
     const { storage } = renderStudent({ recordId: 'record-a', displayName: '7번', questions: [question], explanation });
     fireEvent.change(screen.getByLabelText('교사 피드백 파일 고르기'), { target: { files: [new File([JSON.stringify(feedback())], 'feedback.json', { type: 'application/json' })] } });
 
-    expect(await screen.findAllByText('자료의 범위와 시점을 근거와 함께 밝혀 보세요.')).toHaveLength(2);
+    expect(await screen.findAllByText('자료의 범위와 시점을 근거와 함께 밝혀 보세요.')).toHaveLength(1);
     const imported = JSON.parse(storage.data[STORAGE_KEY_V4]).units['01-01'];
     expect(imported.recordId).toBe('record-a');
     expect(imported.questions[0].text).toBe(question.text);
@@ -296,6 +332,7 @@ describe('pilot teacher feedback', () => {
   it('keeps the explanation before-state through stage unmount before the explicit feedback save', async () => {
     const initialClaim = explanation.claim;
     const nextClaim = '무역 비중만으로 생활 수준을 단정할 수 없다';
+    const savedClaim = '소득과 분배 자료도 함께 살펴야 한다';
     const { storage, unmount } = renderStudent({
       recordId: 'record-a', questions: [question], evidence: [{ id: 'e1', questionId: 'q1', note: '무역 비중 변화 자료' }],
       explanation, teacherFeedbacks: [feedback()],
@@ -308,13 +345,50 @@ describe('pilot teacher feedback', () => {
     render(<BookProvider book={book} storage={storage}><UnitClosing unit={book.units[0]} /></BookProvider>);
     fireEvent.click(screen.getByRole('button', { name: /1\. 설명하기/ }));
     fireEvent.click(screen.getByLabelText('설명 피드백 연결: 자료의 범위와 시점을 근거와 함께 밝혀 보세요.'));
+    fireEvent.change(screen.getByLabelText('내 주장'), { target: { value: savedClaim } });
     fireEvent.change(screen.getByLabelText('설명 수정한 까닭'), { target: { value: '자료의 범위를 구분해 설명을 고쳤다' } });
     fireEvent.click(screen.getByRole('button', { name: '설명 수정 기록 저장' }));
 
     const saved = JSON.parse(storage.data[STORAGE_KEY_V4]).units['01-01'];
     expect(saved.explanationRevisions).toHaveLength(1);
-    expect(saved.explanationRevisions[0]).toMatchObject({ before: explanation, after: { questionId: 'q1', claim: nextClaim }, reason: '자료의 범위를 구분해 설명을 고쳤다', feedbackIds: ['feedback-file-1'] });
-    expect(saved.explanationRevisions[0].before.claim).toBe(initialClaim);
+    expect(saved.explanationRevisions[0]).toMatchObject({ before: { ...explanation, claim: nextClaim }, after: { questionId: 'q1', claim: savedClaim }, reason: '자료의 범위를 구분해 설명을 고쳤다', feedbackIds: ['feedback-file-1'] });
+    expect(saved.explanationRevisions[0].before.claim).not.toBe(initialClaim);
+  });
+
+  it('uses the completed explanation as before after an empty-start draft is exported and feedback is imported', async () => {
+    const initial = { questionId: 'q1', claim: '처음 저장한 주장', reasoning: '처음 저장한 설명', evidenceIds: ['e1'] };
+    let blob;
+    vi.stubGlobal('URL', { ...URL, createObjectURL: vi.fn((value) => { blob = value; return 'blob:initial-explanation'; }), revokeObjectURL: vi.fn() });
+    vi.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(() => {});
+    const { storage } = renderStudent({
+      recordId: 'record-a', questions: [question], evidence: [{ id: 'e1', questionId: 'q1', note: '무역 비중 변화 자료' }],
+      explanation: { questionId: 'q1', claim: '', reasoning: '', evidenceIds: [] },
+      stageTimes: {},
+    });
+
+    fireEvent.change(screen.getByLabelText('내 주장'), { target: { value: initial.claim } });
+    fireEvent.click(screen.getByLabelText('무역 비중 변화 자료'));
+    fireEvent.change(screen.getByLabelText('근거와 주장을 잇는 설명'), { target: { value: initial.reasoning } });
+    fireEvent.click(screen.getByRole('button', { name: '다음 단계' }));
+    await screen.findByRole('heading', { name: '질문 다시 다듬기' });
+    await waitFor(() => expect(screen.getByRole('button', { name: '다음 단계' }).disabled).toBe(false));
+    fireEvent.click(screen.getByRole('button', { name: '다음 단계' }));
+    fireEvent.change(screen.getByLabelText('새 사례에 적용한 설명'), { target: { value: '새 사례에 적용한다' } });
+    fireEvent.click(screen.getByRole('button', { name: '다음 단계' }));
+    fireEvent.change(screen.getByLabelText('질문이 어떻게 바뀌었고, 무엇을 새로 알게 되었는지'), { target: { value: '자료를 근거로 질문을 좁혔다' } });
+    fireEvent.click(screen.getByRole('button', { name: '다음 단계' }));
+    fireEvent.click(screen.getByRole('button', { name: '결과 파일 내보내기' }));
+    await blob.text();
+
+    const returnedFeedback = feedback({ sourceSnapshot: { questions: [question], explanation: initial } });
+    fireEvent.change(screen.getByLabelText('교사 피드백 파일 고르기'), { target: { files: [new File([JSON.stringify(returnedFeedback)], 'feedback.json', { type: 'application/json' })] } });
+    await screen.findByText('교사 피드백 파일을 가져왔습니다. 원래 질문과 설명은 자동으로 바뀌지 않습니다.');
+    fireEvent.click(screen.getByRole('button', { name: /1\. 설명하기/ }));
+    fireEvent.change(screen.getByLabelText('내 주장'), { target: { value: '피드백 뒤에 다시 쓴 주장' } });
+    fireEvent.change(screen.getByLabelText('설명 수정한 까닭'), { target: { value: '교사 의견을 반영해 설명을 고쳤다' } });
+    fireEvent.click(screen.getByRole('button', { name: '설명 수정 기록 저장' }));
+
+    expect(JSON.parse(storage.data[STORAGE_KEY_V4]).units['01-01'].explanationRevisions[0].before).toEqual(initial);
   });
 
   it('does not write for wrong-unit, wrong-question, duplicate, malformed, or student-result inputs', async () => {
@@ -346,7 +420,7 @@ describe('pilot teacher feedback', () => {
     const initial = {
       recordId: 'record-a', displayName: '7번', questions: [question],
       evidence: [{ id: 'e1', questionId: 'q1', note: '무역 비중 변화 자료' }], explanation,
-      revisedQuestion: question.text, stageTimes: { explain: '2026-11-28T08:00:00.000Z' },
+      revisedQuestion: question.text, stageTimes: { explain: '2026-11-28T08:00:00.000Z', export: '2026-11-28T08:00:00.000Z' },
     };
     const { storage, unmount } = renderStudent(initial);
     fireEvent.change(screen.getByLabelText('교사 피드백 파일 고르기'), { target: { files: [new File([JSON.stringify(feedback())], 'feedback.json', { type: 'application/json' })] } });

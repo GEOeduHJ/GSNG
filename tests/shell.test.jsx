@@ -56,6 +56,18 @@ describe('book shell', () => {
     expect(screen.getByText(/원래 다섯 질문 가운데 넷만 썼다/)).toBeTruthy();
   });
 
+  it('explains pilot file privacy, deletion, research use, and the lower bound of AI-open logs', () => {
+    renderAt('#/help');
+    const helpText = document.querySelector('.help-page').textContent;
+    expect(helpText).toMatch(/실명 대신.*별칭/);
+    expect(helpText).toMatch(/결과 파일에는 질문 이력과 외부 AI 링크를 연 시각/);
+    expect(helpText).toMatch(/교사 피드백 파일에는 질문.*코멘트/);
+    expect(helpText).toMatch(/수업이 끝나면.*파일을 삭제/);
+    expect(helpText).toMatch(/연구 계획.*동의 절차.*기관 심의/);
+    expect(helpText).toMatch(/가운데 클릭.*새 탭.*기록되지 않을 수/);
+    expect(helpText).toMatch(/실제 링크 열기의 하한/);
+  });
+
   it('has no storage notice when storage works', () => {
     renderAt('#/help');
     expect(screen.queryByText(/이 기기에서는 학습 기록이 저장되지 않습니다/)).toBeNull();

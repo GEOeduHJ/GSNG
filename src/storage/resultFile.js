@@ -45,7 +45,7 @@ function validResultQuestion(question) {
   if (!isObject(question) || !optionalString(question.text) || (question.selected && typeof question.text !== 'string')) return false;
   if (question.selected != null && typeof question.selected !== 'boolean') return false;
   if (question.selectedVersion != null && !['original', 'converted'].includes(question.selectedVersion)) return false;
-  for (const key of ['convertedText', 'classification', 'convertedType', 'initialText', 'origin']) {
+  for (const key of ['convertedText', 'classification', 'convertedType', 'initialText', 'origin', 'questionTextOverride']) {
     if (!optionalString(question[key])) return false;
   }
   if (question.conceptTags != null && !stringArray(question.conceptTags)) return false;
@@ -66,7 +66,7 @@ function validFeedback(feedback) {
   const questionIds = new Set();
   for (const question of snapshot.questions) {
     if (!isObject(question) || !nonBlankString(question.id) || typeof question.text !== 'string' || questionIds.has(question.id)) return false;
-    for (const key of ['initialText', 'origin', 'classification', 'convertedType', 'convertedText']) {
+    for (const key of ['initialText', 'origin', 'classification', 'convertedType', 'convertedText', 'questionTextOverride']) {
       if (question[key] != null && typeof question[key] !== 'string') return false;
     }
     if (question.selectedVersion != null && !['original', 'converted'].includes(question.selectedVersion)) return false;
@@ -106,7 +106,16 @@ function validExplanationRevision(revision) {
 function hasValidShape(value) {
   if (!optionalString(value.unitId) || !optionalString(value.displayName)) return false;
   if (value.recordId != null && typeof value.recordId !== 'string') return false;
-  if (value.questions != null && !(Array.isArray(value.questions) && value.questions.every(validResultQuestion))) return false;
+  if (value.questions != null) {
+    if (!Array.isArray(value.questions) || !value.questions.every(validResultQuestion)) return false;
+    const questionIds = new Set();
+    for (const question of value.questions) {
+      if (typeof question.id !== 'string' || !question.id.trim()) continue;
+      const id = question.id.trim();
+      if (questionIds.has(id)) return false;
+      questionIds.add(id);
+    }
+  }
   if (value.evidence != null && !(Array.isArray(value.evidence) && value.evidence.every(isObject))) return false;
   if (value.explanation != null && !(isObject(value.explanation) && (value.explanation.evidenceIds == null || Array.isArray(value.explanation.evidenceIds)))) return false;
   if (value.routineResponses != null && !isObject(value.routineResponses)) return false;

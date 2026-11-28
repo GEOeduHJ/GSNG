@@ -32,7 +32,13 @@ export function canShowCarryOver(record) {
 export function canOpenExternalAI(unitId, record) {
   if (!isPilotUnit(unitId)) return canShowCarryOver(record);
   const count = selectedQuestions(record).length;
-  return Boolean(record.stageTimes?.prioritize && count >= 1 && count <= 3 && String(record.priorityReason ?? '').trim().length >= 4);
+  const snapshot = record.prioritySnapshot;
+  const snapshotQuestions = Array.isArray(snapshot?.questions) ? snapshot.questions : [];
+  const hasPrioritySnapshot = snapshotQuestions.length >= 1 && snapshotQuestions.length <= 3
+    && snapshotQuestions.every((question) => typeof question?.questionId === 'string' && Boolean(question.questionId.trim()) && typeof question.text === 'string' && Boolean(question.text.trim()))
+    && typeof snapshot?.reason === 'string' && snapshot.reason.trim().length >= 4
+    && typeof snapshot?.createdAt === 'string' && Number.isFinite(Date.parse(snapshot.createdAt));
+  return Boolean(record.stageTimes?.prioritize && hasPrioritySnapshot && count >= 1 && count <= 3 && String(record.priorityReason ?? '').trim().length >= 4);
 }
 
 /** Plan is done when at least one priority question exists, each has a concept tag, and the plan line is written. */
@@ -80,7 +86,7 @@ function Produce({ record, update, pilot }) {
   function change(index, text) {
     update((current) => {
       const questions = current.questions.length ? [...current.questions] : [newQuestion('', { trackHistory: pilot })];
-      questions[index] = { ...questions[index], text };
+      questions[index] = { ...questions[index], text, ...(pilot ? { questionTextOverride: text } : {}) };
       return { ...current, questions };
     });
   }
@@ -311,7 +317,7 @@ export default function UnitOpening({ unit }) {
             <p className="hint">
               <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" onClick={recordExternalAiOpening}>외부 AI로 질문 넓혀 보기(선택, 새 창)</a> — 학교 계정으로만 씁니다.
             </p>
-            <p className="hint">링크를 연 시각과 질문 선택·이유만 기록합니다. 외부 대화 내용이나 실제 사용 여부는 추적하지 않습니다. AI를 사용해 질문을 만들었다면 출처를 직접 기록하세요.</p>
+            <p className="hint">보통 클릭으로 링크를 연 시각과 질문 선택·이유를 기록할 수 있습니다. 가운데 클릭이나 링크 메뉴에서 새 탭을 여는 경우 등은 기록되지 않을 수 있어, 기록 건수는 실제 링크 열기의 하한입니다. 외부 대화 내용이나 실제 사용 여부는 추적하지 않습니다. AI를 사용해 질문을 만들었다면 출처를 직접 기록하세요.</p>
           </>}
         </aside>
       )}

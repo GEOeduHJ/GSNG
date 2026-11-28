@@ -21,7 +21,7 @@ function readFile(file) {
 function ActivityAnswers({ student, unit, book }) {
   const record = { ...student, routineState: student.routineResponses };
   const answers = (unit?.lessons ?? []).flatMap((lesson) => pilotAnswerSources(record, lesson, book)
-    .filter((source) => source.sourceRef.kind === 'activity')
+    .filter((source) => source.sourceRef.kind === 'activity' || source.sourceRef.kind === 'fictional')
     .map((source) => ({ lessonTitle: lesson.title, ...source })));
   return (
     <>

@@ -43,6 +43,18 @@ describe('UnitClosing', () => {
     expect(saved(storage).revisedQuestion).toBe('무역은 왜 늘었을까');
   });
 
+  it('uses the current question when initialText is empty', () => {
+    const questionWithEmptyInitial = { ...question, initialText: '' };
+    renderClosing({
+      ...emptyUnitRecord('01-01'), questions: [questionWithEmptyInitial],
+      explanation: { questionId: 'q1', claim: '주장 문장', reasoning: '설명 문장', evidenceIds: [] }, stageTimes: { explain: 't' },
+    });
+    const history = screen.getByText('질문 이력 보기').closest('details');
+    fireEvent.click(screen.getByText('질문 이력 보기'));
+
+    expect(history.textContent).toContain(`처음 질문: ${question.text}`);
+  });
+
   it('includes an unselected explanation question in the revision editor and keeps the saved final question visible', () => {
     const unselected = { ...question, selected: false };
     const storage = renderClosing({
@@ -120,6 +132,82 @@ describe('UnitClosing', () => {
   it('hides the lesson-born list when there are none', () => {
     renderClosing({ ...emptyUnitRecord('01-01'), questions: [question], evidence: [evidence], explanation: { questionId: 'q1', claim: '주장 문장', reasoning: '설명 문장', evidenceIds: ['e1'] }, stageTimes: { explain: 't' } });
     expect(screen.queryByText('학습하며 생긴 질문')).toBeNull();
+  });
+
+  it('clears question revision form state after each successful save', () => {
+    const comment = '자료의 범위와 시점을 밝혀 보세요.';
+    const teacherFeedback = {
+      schema: 'gsng-teacher-feedback', schemaVersion: 1, feedbackId: 'feedback-1', recordId: 'record-a', unitId: '01-01',
+      createdAt: '2026-11-28T09:00:00.000Z', comments: [{ questionId: 'q1', text: comment }],
+      sourceSnapshot: { questions: [question], explanation: { questionId: 'q1', claim: '주장', reasoning: '설명', evidenceIds: ['e1'] } },
+    };
+    const storage = renderClosing({
+      ...emptyUnitRecord('01-01'), questions: [question], evidence: [evidence],
+      explanation: { questionId: 'q1', claim: '주장', reasoning: '설명', evidenceIds: ['e1'] },
+      teacherFeedbacks: [teacherFeedback], stageTimes: { explain: 't' },
+    });
+    const firstRevision = '무역 비중의 범위와 시점은 무엇일까?';
+
+    fireEvent.change(screen.getByLabelText(`질문 수정: ${question.text}`), { target: { value: firstRevision } });
+    fireEvent.change(screen.getByLabelText(`수정한 까닭: ${question.text}`), { target: { value: '자료 범위와 시점을 밝혀 다시 썼다' } });
+    fireEvent.change(screen.getByLabelText(`수정 출처: ${question.text}`), { target: { value: 'peer' } });
+    fireEvent.click(screen.getByLabelText(`수정 근거: ${evidence.note}`));
+    fireEvent.click(screen.getByLabelText(`교사 피드백 연결: ${comment}`));
+    fireEvent.click(screen.getByRole('button', { name: `질문 수정 저장: ${question.text}` }));
+
+    expect(screen.getByLabelText(`수정한 까닭: ${firstRevision}`).value).toBe('');
+    expect(screen.getByLabelText(`수정 출처: ${firstRevision}`).value).toBe('student');
+    expect(screen.getByLabelText(`수정 근거: ${evidence.note}`).checked).toBe(false);
+    expect(screen.getByLabelText(`교사 피드백 연결: ${comment}`).checked).toBe(false);
+
+    const secondRevision = '비교할 지역을 더 분명히 정하면 무엇이 보일까?';
+    fireEvent.change(screen.getByLabelText(`질문 수정: ${firstRevision}`), { target: { value: secondRevision } });
+    fireEvent.change(screen.getByLabelText(`수정한 까닭: ${firstRevision}`), { target: { value: '새 기준으로 질문을 다듬었다' } });
+    fireEvent.click(screen.getByRole('button', { name: `질문 수정 저장: ${firstRevision}` }));
+
+    expect(saved(storage).questions[0].revisions[1]).toMatchObject({ source: 'student', evidenceIds: [] });
+    expect(saved(storage).questions[0].revisions[1]).not.toHaveProperty('feedbackIds');
+  });
+
+  it('lets pilot students continue when the original question is long enough', () => {
+    renderClosing({
+      ...emptyUnitRecord('01-01'), questions: [question],
+      explanation: { questionId: 'q1', claim: '주장 문장', reasoning: '설명 문장', evidenceIds: ['e1'] },
+      revisedQuestion: '짧', stageTimes: { explain: 't' },
+    });
+
+    expect(screen.queryByLabelText('다듬은 질문')).toBeNull();
+    expect(screen.getByRole('button', { name: '다음 단계' }).disabled).toBe(false);
+  });
+
+  it('hides the pilot feedback importer until a result has been exported', () => {
+    const { unmount } = (() => {
+      const book = makeBook();
+      const storage = memoryStorage({ [STORAGE_KEY_V4]: JSON.stringify({ version: 4, units: { '01-01': emptyUnitRecord('01-01') } }) });
+      return render(<BookProvider book={book} storage={storage}><UnitClosing unit={book.units[0]} /></BookProvider>);
+    })();
+    expect(screen.queryByLabelText('교사 피드백 파일 고르기')).toBeNull();
+    unmount();
+
+    renderClosing({ ...emptyUnitRecord('01-01'), stageTimes: { export: 't' } });
+    expect(screen.getByLabelText('교사 피드백 파일 고르기')).toBeTruthy();
+  });
+
+  it('hides explanation revision controls until the first explanation is complete', () => {
+    const { unmount } = (() => {
+      const book = makeBook();
+      const storage = memoryStorage({ [STORAGE_KEY_V4]: JSON.stringify({ version: 4, units: { '01-01': emptyUnitRecord('01-01') } }) });
+      return render(<BookProvider book={book} storage={storage}><UnitClosing unit={book.units[0]} /></BookProvider>);
+    })();
+    expect(screen.queryByRole('heading', { name: '설명 수정 기록' })).toBeNull();
+    unmount();
+
+    const book = makeBook();
+    const record = { ...emptyUnitRecord('01-01'), questions: [question], stageTimes: { explain: 't' } };
+    const storage = memoryStorage({ [STORAGE_KEY_V4]: JSON.stringify({ version: 4, units: { '01-01': record } }) });
+    render(<BookProvider book={book} storage={storage}><UnitClosing unit={book.units[0]} /></BookProvider>);
+    fireEvent.click(screen.getByRole('button', { name: /1\. 설명하기/ }));
+    expect(screen.getByRole('heading', { name: '설명 수정 기록' })).toBeTruthy();
   });
 });
 

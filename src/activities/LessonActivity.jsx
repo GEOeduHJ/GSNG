@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { useBook, useUnitRecord } from '../book/BookContext.jsx';
-import RoutineCard from '../book/lesson/RoutineCard.jsx';
+import RoutineCard, { SelectedQuestionContext } from '../book/lesson/RoutineCard.jsx';
 import { routineForSlot } from '../content-loader/routines.js';
 import { ACTIVITY_TEMPLATES } from './registry.jsx';
 import FictionalNote from './FictionalNote.jsx';
@@ -27,9 +27,10 @@ const LessonActivity = forwardRef(function LessonActivity({ unit, lesson }, ref)
       {pilot && <p className="hint">선택한 질문을 중심으로 자료와 기본 루틴의 응답을 살펴봅니다. 루틴이나 활동 응답은 근거 초안에 불러와 확인·수정한 뒤 질문에 붙일 수 있습니다.</p>}
       <RoutineCard unit={unit} lesson={lesson} slot="inquiry" routine={routine} />
       {Template && (pilot ? (
-        <details className="activity-extension">
+        <details className="activity-extension" open={lesson.index === 1}>
           <summary>더 살펴보기(선택)</summary>
           <p className="hint">기본 루틴과 자료를 살펴본 뒤 이어갈 수 있는 별도 활동입니다.</p>
+          {lesson.index === 1 && <SelectedQuestionContext record={record} />}
           <div className="activity-task">
             {fictional && <FictionalNote />}
             {config.title && <h3>{config.title}</h3>}

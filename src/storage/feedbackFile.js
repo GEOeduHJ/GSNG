@@ -24,7 +24,7 @@ function validSnapshot(snapshot) {
   const questionIds = new Set();
   for (const question of snapshot.questions) {
     if (!isObject(question) || !nonBlankString(question.id) || typeof question.text !== 'string' || questionIds.has(question.id)) return false;
-    for (const key of ['initialText', 'origin', 'classification', 'convertedType', 'convertedText']) {
+    for (const key of ['initialText', 'origin', 'classification', 'convertedType', 'convertedText', 'questionTextOverride']) {
       if (question[key] != null && typeof question[key] !== 'string') return false;
     }
     if (question.selectedVersion != null && !['original', 'converted'].includes(question.selectedVersion)) return false;
@@ -72,7 +72,8 @@ export function parseFeedbackFile(text) {
 export function buildFeedbackFile(student, unitId, comments, now = new Date()) {
   const recordId = typeof student?.recordId === 'string' ? student.recordId.trim() : '';
   if (!isPilotUnit(unitId) || !recordId || !Array.isArray(student?.questions)) return null;
-  const questionIds = new Set(student.questions.filter((question) => nonBlankString(question?.id)).map((question) => question.id));
+  const questions = student.questions.filter((question) => nonBlankString(question?.id) && nonBlankString(question?.text));
+  const questionIds = new Set(questions.map((question) => question.id));
   const safeComments = [];
   const seen = new Set();
   for (const comment of comments ?? []) {
@@ -83,7 +84,6 @@ export function buildFeedbackFile(student, unitId, comments, now = new Date()) {
     safeComments.push({ questionId, text });
   }
   if (!safeComments.length) return null;
-  const questions = student.questions.filter((question) => nonBlankString(question?.id) && typeof question.text === 'string');
   const explanation = isObject(student.explanation) ? student.explanation : {};
   const sourceSnapshot = {
     questions: copyJson(questions),
@@ -116,12 +116,9 @@ export function validateFeedbackTarget(record, feedback, unitId) {
   }
   const recordQuestions = Array.isArray(record.questions) ? record.questions : [];
   const byId = new Map(recordQuestions.filter((question) => nonBlankString(question?.id)).map((question) => [question.id, question]));
-  for (const sourceQuestion of feedback.sourceSnapshot.questions) {
-    const question = byId.get(sourceQuestion.id);
-    if (!question) return { ok: false, reason: 'bad-reference' };
-  }
   const snapshotIds = new Set(feedback.sourceSnapshot.questions.map((question) => question.id));
-  if (feedback.sourceSnapshot.explanation.questionId && !byId.has(feedback.sourceSnapshot.explanation.questionId)) return { ok: false, reason: 'bad-reference' };
+  const explanationQuestionId = feedback.sourceSnapshot.explanation.questionId;
+  if (explanationQuestionId && (!snapshotIds.has(explanationQuestionId) || !byId.has(explanationQuestionId))) return { ok: false, reason: 'bad-reference' };
   if (feedback.comments.some((comment) => !snapshotIds.has(comment.questionId) || !byId.has(comment.questionId))) return { ok: false, reason: 'bad-reference' };
   return { ok: true };
 }
@@ -133,6 +130,20 @@ export function importFeedbackFile(record, feedback, unitId) {
   return {
     ok: true,
     record: { ...record, teacherFeedbacks: [...(Array.isArray(record.teacherFeedbacks) ? record.teacherFeedbacks : []), copyJson(feedback)] },
+  };
+}
+
+/** Reset the next explanation revision's baseline to the currently saved explanation. */
+export function resetExplanationRevisionBaseline(record) {
+  const explanation = record?.explanation ?? {};
+  return {
+    ...record,
+    pendingExplanationRevision: { before: {
+      questionId: typeof explanation.questionId === 'string' ? explanation.questionId : '',
+      claim: typeof explanation.claim === 'string' ? explanation.claim : '',
+      reasoning: typeof explanation.reasoning === 'string' ? explanation.reasoning : '',
+      evidenceIds: Array.isArray(explanation.evidenceIds) ? [...explanation.evidenceIds] : [],
+    } },
   };
 }
 

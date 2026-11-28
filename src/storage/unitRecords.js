@@ -44,6 +44,7 @@ function toQuestion(question = {}) {
   };
   if (typeof question.initialText !== 'string') delete normalized.initialText;
   if (typeof question.origin !== 'string') delete normalized.origin;
+  if (typeof question.questionTextOverride !== 'string') delete normalized.questionTextOverride;
   if (Array.isArray(question.revisions)) normalized.revisions = question.revisions.filter((revision) => revision && typeof revision === 'object');
   else delete normalized.revisions;
   return normalized;
@@ -60,7 +61,7 @@ function validFeedbackFileRecord(feedback) {
   for (const question of feedback.sourceSnapshot.questions) {
     if (!isPlainObject(question) || typeof question.id !== 'string' || !question.id.trim()
       || typeof question.text !== 'string' || ids.has(question.id)) return false;
-    for (const key of ['initialText', 'origin', 'classification', 'convertedType', 'convertedText']) {
+    for (const key of ['initialText', 'origin', 'classification', 'convertedType', 'convertedText', 'questionTextOverride']) {
       if (question[key] != null && typeof question[key] !== 'string') return false;
     }
     if (question.selectedVersion != null && !['original', 'converted'].includes(question.selectedVersion)) return false;

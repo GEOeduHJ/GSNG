@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { importFeedbackFile, parseFeedbackFile, saveFeedbackResponse } from '../../storage/feedbackFile.js';
+import { importFeedbackFile, parseFeedbackFile, resetExplanationRevisionBaseline, saveFeedbackResponse } from '../../storage/feedbackFile.js';
 import { isPilotUnit } from '../../storage/unitRecords.js';
 import { questionText } from '../qft/questions.js';
 
@@ -51,7 +51,7 @@ export default function TeacherFeedback({ record, update, unit }) {
     if (!parsed.ok) { setMessage(importReasons[parsed.reason] ?? '피드백 파일을 읽을 수 없습니다.'); return; }
     const imported = importFeedbackFile(currentRecord.current, parsed.value, unit.id);
     if (!imported.ok) { setMessage(importReasons[imported.reason] ?? '피드백 파일을 가져올 수 없습니다.'); return; }
-    update(() => imported.record);
+    update(() => resetExplanationRevisionBaseline(imported.record));
     setMessage('교사 피드백 파일을 가져왔습니다. 원래 질문과 설명은 자동으로 바뀌지 않습니다.');
   }
 

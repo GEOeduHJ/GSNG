@@ -90,6 +90,15 @@ describe('result files', () => {
     expect(parseResultFile(JSON.stringify(file))).toEqual({ ok: true, value: file });
   });
 
+  it('rejects a result file with duplicate question ids', () => {
+    const file = buildResultFile({
+      ...emptyUnitRecord('01-01'),
+      questions: [{ id: 'q1', text: '첫 질문' }, { id: 'q1', text: '다른 질문' }],
+    }, unit);
+
+    expect(parseResultFile(JSON.stringify(file))).toEqual({ ok: false, reason: 'bad-shape' });
+  });
+
   it('rejects broken or foreign files', () => {
     expect(parseResultFile('x')).toEqual({ ok: false, reason: 'not-json' });
     expect(parseResultFile('{"schema":"other"}')).toEqual({ ok: false, reason: 'wrong-schema' });

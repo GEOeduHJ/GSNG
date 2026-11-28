@@ -46,6 +46,18 @@ describe('summarizeResults', () => {
     expect(summary.skipped).toEqual([{ name: '1번.json', reason: 'duplicate-older' }]);
   });
 
+  it('deduplicates an older legacy export with the same student’s recordId export', () => {
+    const legacy = result('7번', { revisedQuestion: '옛 파일' }, '2026-11-27T00:00:00Z');
+    const current = result('7번', { recordId: 'record-7', revisedQuestion: '새 파일' }, '2026-11-28T00:00:00Z');
+
+    for (const files of [[legacy, current], [current, legacy]]) {
+      const summary = summarizeResults(files, '01-01', concepts);
+      expect(summary.students).toHaveLength(1);
+      expect(summary.students[0]).toMatchObject({ recordId: 'record-7', revisedQuestion: '새 파일' });
+      expect(summary.skipped.map(({ reason }) => reason)).toEqual(['duplicate-older']);
+    }
+  });
+
   it('counts closed, open and unclassified questions', () => {
     expect(summarizeResults([result('1번'), result('2번')], '01-01', concepts).closedOpen).toEqual({ closed: 2, open: 2, unclassified: 2 });
   });

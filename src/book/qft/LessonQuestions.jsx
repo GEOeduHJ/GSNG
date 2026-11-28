@@ -106,11 +106,15 @@ const LessonQuestions = forwardRef(function LessonQuestions({ unit, lesson, sele
         <button type="button" className="button secondary" disabled={!selectedAnswerSource} onClick={loadAnswerSource}>응답을 초안에 불러오기</button>
       </div>}
       <label htmlFor={`evidence-note-${lesson.id}`}>{pilot ? '근거 초안 · 자료에서 찾은 것' : '이 자료에서 찾은 근거'}</label>
-      <textarea id={`evidence-note-${lesson.id}`} rows="2" value={note} onChange={(event) => setNote(event.target.value)} />
+      <textarea id={`evidence-note-${lesson.id}`} rows="2" value={note} onChange={(event) => {
+        const next = event.target.value;
+        setNote(next);
+        if (draftSourceRef && next !== selectedAnswerSource?.text) setDraftSourceRef(null);
+      }} />
       <p className="row-actions"><button type="button" className="button" disabled={!canAttach} onClick={attach}>근거로 붙이기</button></p>
       {attached.length > 0 && (
         <ul className="evidence-list">
-          {attached.map((item) => <li key={item.id}>{item.note}{captionOf(item.stepId) && <span className="evidence-source"> · {captionOf(item.stepId)}</span>}{item.sourceRef?.kind === 'routine' && <span className="evidence-source"> · 생각 루틴 응답</span>}{item.sourceRef?.kind === 'activity' && <span className="evidence-source"> · 활동 응답</span>}</li>)}
+          {attached.map((item) => <li key={item.id}>{item.note}{captionOf(item.stepId) && <span className="evidence-source"> · {captionOf(item.stepId)}</span>}{item.sourceRef?.kind === 'routine' && <span className="evidence-source"> · 생각 루틴 응답</span>}{item.sourceRef?.kind === 'activity' && <span className="evidence-source"> · 활동 응답</span>}{item.sourceRef?.kind === 'fictional' && <span className="evidence-source"> · 가상 상황 활동</span>}</li>)}
         </ul>
       )}
       <h3>이 절을 마치며</h3>

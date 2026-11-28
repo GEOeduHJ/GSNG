@@ -28,6 +28,23 @@ export function summarizeResults(files, unitId, concepts = {}) {
     latest.set(key, newer);
     duplicates.push({ name: older.fileName, reason: 'duplicate-older' });
   }
+  const modernByName = new Map();
+  for (const student of latest.values()) {
+    if (!student.recordId) continue;
+    const matching = modernByName.get(student.displayName) ?? [];
+    matching.push(student);
+    modernByName.set(student.displayName, matching);
+  }
+  for (const legacy of [...latest.values()].filter((student) => !student.recordId)) {
+    const candidates = modernByName.get(legacy.displayName) ?? [];
+    if (candidates.length !== 1) continue;
+    const modern = candidates[0];
+    const newer = String(legacy.exportedAt) > String(modern.exportedAt) ? legacy : modern;
+    const older = newer === legacy ? modern : legacy;
+    latest.set(`record:${modern.recordId}`, newer === legacy ? { ...legacy, recordId: modern.recordId } : modern);
+    latest.delete(`legacy:${legacy.displayName}`);
+    duplicates.push({ name: older.fileName, reason: 'duplicate-older' });
+  }
   const students = [...latest.values()];
 
   const closedOpen = { closed: 0, open: 0, unclassified: 0 };

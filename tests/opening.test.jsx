@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import { BookProvider } from '../src/book/BookContext.jsx';
-import UnitOpening, { canShowCarryOver, maxOpeningStage } from '../src/book/qft/UnitOpening.jsx';
+import UnitOpening, { canOpenExternalAI, canShowCarryOver, maxOpeningStage } from '../src/book/qft/UnitOpening.jsx';
 import { STORAGE_KEY_V4, emptyUnitRecord } from '../src/storage/unitRecords.js';
 import { makeBook, memoryStorage } from './fixtures/book.js';
 
@@ -137,7 +137,9 @@ describe('UnitOpening', () => {
       stageTimes: { rules: 't', produce: 't', improve: 't' },
     };
     const storage = memoryStorage({ [STORAGE_KEY_V4]: JSON.stringify({ version: 4, units: { '01-01': record } }) });
-    renderOpening({ storage });
+    const book = makeBook();
+    book.units[0].opening.focus.step = { ...book.units[0].opening.focus.step, type: 'text' };
+    renderOpening({ storage, book });
     expect(screen.queryByRole('link', { name: /외부 AI/ })).toBeNull();
     fireEvent.click(screen.getByLabelText(/무역은 왜 늘었을까/));
     fireEvent.change(screen.getByLabelText('이 질문들을 고른 까닭'), { target: { value: '자료로 답할 수 있기 때문' } });
@@ -164,6 +166,56 @@ describe('UnitOpening', () => {
       openedAt: expect.any(String),
       selection: { questions: [{ questionId: 'q1', text: '무역은 왜 늘었을까' }], reason: '자료로 답할 수 있기 때문' },
     });
+  });
+
+  it('requires a saved priority snapshot before showing the pilot external AI link', () => {
+    const question = { id: 'q1', text: '무역은 왜 늘었을까?', selected: true, selectedVersion: 'original', conceptTags: [] };
+    const legacy = {
+      ...emptyUnitRecord('01-01'), questions: [question], priorityReason: '자료로 답할 수 있어서', stageTimes: { prioritize: 't' },
+    };
+
+    expect(canOpenExternalAI('01-01', legacy)).toBe(false);
+    expect(canOpenExternalAI('01-01', {
+      ...legacy,
+      prioritySnapshot: { questions: [{ questionId: 'q1', text: question.text }], reason: '자료로 답할 수 있어서', createdAt: '2026-11-28T09:00:00.000Z' },
+    })).toBe(true);
+  });
+
+  it('labels ordinary-click AI opening logs as a lower bound', () => {
+    const question = { id: 'q1', text: '무역은 왜 늘었을까?', selected: true, selectedVersion: 'original', conceptTags: [] };
+    const record = {
+      ...emptyUnitRecord('01-01'),
+      questions: [question],
+      priorityReason: '자료로 답할 수 있어서',
+      prioritySnapshot: { questions: [{ questionId: 'q1', text: question.text }], reason: '자료로 답할 수 있어서', createdAt: '2026-11-28T09:00:00.000Z' },
+      stageTimes: { produce: 't', prioritize: 't' },
+    };
+    const storage = memoryStorage({ [STORAGE_KEY_V4]: JSON.stringify({ version: 4, units: { '01-01': record } }) });
+    const book = makeBook();
+    book.units[0].opening.focus.step = { ...book.units[0].opening.focus.step, type: 'text' };
+    renderOpening({ storage, book });
+
+    expect(screen.getByText(/가운데 클릭.*새 탭.*기록되지 않을 수/)).toBeTruthy();
+    expect(screen.getByText(/실제 링크 열기의 하한/)).toBeTruthy();
+  });
+
+  it('shows an opening-side edit after a question already has revision history', () => {
+    const original = {
+      id: 'q1', text: '처음 질문', initialText: '처음 질문', selected: true, selectedVersion: 'original', conceptTags: ['interdependence'],
+      revisions: [{ id: 'r1', before: '처음 질문', after: '수정 기록의 질문', reason: '범위를 좁혔다', source: 'student', evidenceIds: [], createdAt: '2026-11-28T08:00:00.000Z' }],
+    };
+    const record = {
+      ...emptyUnitRecord('01-01'), questions: [original], stageTimes: { rules: 't', produce: 't', improve: 't', prioritize: 't' },
+    };
+    const storage = memoryStorage({ [STORAGE_KEY_V4]: JSON.stringify({ version: 4, units: { '01-01': record } }) });
+    const book = makeBook();
+    book.units[0].opening.focus.step = { ...book.units[0].opening.focus.step, type: 'text' };
+    renderOpening({ storage, book });
+    fireEvent.click(screen.getByRole('button', { name: /2\. 질문 만들기/ }));
+    fireEvent.change(screen.getByLabelText('질문 1'), { target: { value: '여는 쪽에서 다시 고친 질문' } });
+    fireEvent.click(screen.getByRole('button', { name: /5\. 자료 활용 계획/ }));
+
+    expect(screen.getByText('여는 쪽에서 다시 고친 질문')).toBeTruthy();
   });
 });
 

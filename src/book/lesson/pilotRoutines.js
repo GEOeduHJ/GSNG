@@ -6,10 +6,11 @@ const DEFAULT_COMPARE_FIELDS = [
   { id: 'diff', label: '두 자료에서 다른 점' },
   { id: 'link', label: '내 질문과 이어지는 점' },
 ];
+const ROUTINE_SLOT_LABELS = { opener: '생각 열기', inquiry: '탐구하기', closing: '정리' };
 
 export function isDefaultPilotRoutine(unitId, lesson, slot) {
   if (!isPilotUnit(unitId)) return false;
-  return (lesson.index === 1 && slot === 'opener') || ((lesson.index === 2 || lesson.index === 3) && slot === 'inquiry');
+  return slot === 'closing' || (lesson.index === 1 && slot === 'opener') || ((lesson.index === 2 || lesson.index === 3) && slot === 'inquiry');
 }
 
 /** Collect only actual student answers; static prompts and configuration labels are never sources. */
@@ -27,7 +28,7 @@ export function pilotAnswerSources(record, lesson, book) {
       if (!text) continue;
       sources.push({
         id: `routine:${slot}:${step.id}`,
-        label: `생각 루틴 · ${step.label}`,
+        label: `생각 루틴 · ${ROUTINE_SLOT_LABELS[slot]} · ${step.label}`,
         text,
         sourceRef: { kind: 'routine', lessonId, slot, fieldId: step.id },
       });
@@ -37,6 +38,7 @@ export function pilotAnswerSources(record, lesson, book) {
   const activity = lesson.activity;
   if (!activity?.template) return sources;
   const template = activity.template;
+  const sourceKind = activity.fictional ? 'fictional' : 'activity';
   const config = activity.config ?? {};
   const value = record.activityState?.[lessonId] ?? {};
   const addActivity = (fieldId, label, answer) => {
@@ -44,9 +46,9 @@ export function pilotAnswerSources(record, lesson, book) {
     if (!text) return;
     sources.push({
       id: `activity:${fieldId}`,
-      label: `활동 · ${label}`,
+      label: `${activity.fictional ? '가상 상황 활동' : '활동'} · ${label}`,
       text,
-      sourceRef: { kind: 'activity', lessonId, template, fieldId },
+      sourceRef: { kind: sourceKind, lessonId, template, fieldId },
     });
   };
 

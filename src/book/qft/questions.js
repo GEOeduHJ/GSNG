@@ -35,6 +35,7 @@ export const LESSON_BORN_LABEL = '학습 중 생긴 질문';
 
 /** The version of a question the student chose to carry forward. */
 export function questionText(question) {
+  if (typeof question?.questionTextOverride === 'string') return question.questionTextOverride.trim();
   const revisions = Array.isArray(question?.revisions) ? question.revisions : [];
   const latest = [...revisions].reverse().find((revision) => {
     if (typeof revision?.before !== 'string' || typeof revision?.after !== 'string' || typeof revision?.reason !== 'string') return false;
@@ -67,7 +68,8 @@ export function reviseQuestion(record, change = {}, now = new Date()) {
   if (Array.isArray(change.feedbackIds)) revision.feedbackIds = [...change.feedbackIds];
 
   const questions = [...record.questions];
-  questions[index] = { ...question, revisions: [...(Array.isArray(question.revisions) ? question.revisions : []), revision] };
+  const { questionTextOverride, ...withoutOpeningOverride } = question;
+  questions[index] = { ...withoutOpeningOverride, revisions: [...(Array.isArray(question.revisions) ? question.revisions : []), revision] };
   return { ...record, questions };
 }
 
