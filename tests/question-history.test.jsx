@@ -108,6 +108,19 @@ describe('pilot record identity and exported question history', () => {
 });
 
 describe('explicit revision editor', () => {
+  it('keeps the revision step editable when a pilot record has no question target', () => {
+    const record = { ...unitRecordApi.emptyUnitRecord('01-01'), revisedQuestion: '', stageTimes: { explain: 't' } };
+    const storage = memoryStorage({ [unitRecordApi.STORAGE_KEY_V4]: JSON.stringify({ version: 4, units: { '01-01': record } }) });
+    const book = makeBook();
+    render(<BookProvider book={book} storage={storage}><UnitClosing unit={book.units[0]} /></BookProvider>);
+
+    const fallback = screen.queryByLabelText('다듬은 질문');
+    expect(fallback).toBeTruthy();
+    if (!fallback) return;
+    fireEvent.change(fallback, { target: { value: '마무리할 질문을 적는다' } });
+    expect(screen.getByRole('button', { name: '다음 단계' }).disabled).toBe(false);
+  });
+
   it('saves a question revision only after a changed sentence and reason are entered', () => {
     const storage = memoryStorage({
       [unitRecordApi.STORAGE_KEY_V4]: JSON.stringify({

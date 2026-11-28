@@ -43,6 +43,29 @@ describe('UnitClosing', () => {
     expect(saved(storage).revisedQuestion).toBe('무역은 왜 늘었을까');
   });
 
+  it('includes an unselected explanation question in the revision editor and keeps the saved final question visible', () => {
+    const unselected = { ...question, selected: false };
+    const storage = renderClosing({
+      ...emptyUnitRecord('01-01'),
+      questions: [unselected],
+      explanation: { questionId: 'q1', claim: '주장 문장', reasoning: '설명 문장', evidenceIds: [] },
+      revisedQuestion: '예전 최종 질문 문장',
+      stageTimes: { explain: 't' },
+    });
+
+    expect(screen.getByText('예전 최종 질문 문장')).toBeTruthy();
+    expect(screen.queryByLabelText('다듬은 질문')).toBeNull();
+    const after = screen.queryByLabelText('질문 수정: 무역은 왜 늘었을까');
+    expect(after).toBeTruthy();
+    if (!after) return;
+    fireEvent.change(after, { target: { value: '근거를 반영한 설명 대상 질문' } });
+    fireEvent.change(screen.getByLabelText('수정한 까닭: 무역은 왜 늘었을까'), { target: { value: '설명에 사용한 근거를 좁혀 반영했다' } });
+    fireEvent.click(screen.getByRole('button', { name: '질문 수정 저장: 무역은 왜 늘었을까' }));
+
+    expect(saved(storage).questions[0].selected).toBe(false);
+    expect(saved(storage).revisedQuestion).toBe('근거를 반영한 설명 대상 질문');
+  });
+
   it('shows the unit transfer task without research-measure wording', () => {
     const { container } = (() => {
       const store = memoryStorage({ [STORAGE_KEY_V4]: JSON.stringify({ version: 4, units: { '01-01': { ...emptyUnitRecord('01-01'), stageTimes: { explain: 't', revise: 't' } } } }) });
@@ -66,6 +89,25 @@ describe('UnitClosing', () => {
       const parsed = parseResultFile(text);
       expect(parsed.ok).toBe(true);
       expect(parsed.value.displayName).toBe('7번');
+    });
+  });
+
+  it('includes and persists a record id on the first export of a legacy pilot record', () => {
+    let blob;
+    vi.stubGlobal('URL', { ...URL, createObjectURL: vi.fn((value) => { blob = value; return 'blob:legacy-pilot'; }), revokeObjectURL: vi.fn() });
+    vi.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(() => {});
+    const legacy = { ...emptyUnitRecord('01-01'), displayName: '7번' };
+    const storage = memoryStorage({ [STORAGE_KEY_V4]: JSON.stringify({ version: 4, units: { '01-01': legacy } }) });
+    renderClosing(legacy, storage);
+
+    fireEvent.click(screen.getByRole('button', { name: /결과 파일/ }));
+    fireEvent.click(screen.getByRole('button', { name: '결과 파일 내보내기' }));
+
+    return blob.text().then((text) => {
+      const parsed = parseResultFile(text);
+      expect(parsed.ok).toBe(true);
+      expect(parsed.value.recordId).toBeTruthy();
+      expect(saved(storage).recordId).toBe(parsed.value.recordId);
     });
   });
 

@@ -5,7 +5,7 @@ import { routes } from '../router.js';
 import DataStage from '../lesson/DataStage.jsx';
 import { QUESTION_ORIGINS, lessonBornQuestions, questionText, reviseQuestion, selectedQuestions } from '../qft/questions.js';
 import { buildResultFile, resultFileName } from '../../storage/resultFile.js';
-import { isPilotUnit } from '../../storage/unitRecords.js';
+import { ensurePilotRecordId, isPilotUnit } from '../../storage/unitRecords.js';
 
 export const CLOSING_STAGES = [
   { id: 'explain', label: '설명하기' },
@@ -85,7 +85,11 @@ function Revise({ record, update, pilot }) {
   const original = record.questions.find((question) => question.id === record.explanation.questionId);
   const born = lessonBornQuestions(record);
   const chosen = selectedQuestions(record);
-  const revisionTargets = [...chosen, ...born.filter((question) => !chosen.some((item) => item.id === question.id))];
+  const revisionTargets = [
+    ...chosen,
+    ...born.filter((question) => !chosen.some((item) => item.id === question.id)),
+    ...(original && !chosen.some((item) => item.id === original.id) && !born.some((item) => item.id === original.id) ? [original] : []),
+  ];
   const prefilled = useRef(false);
   useEffect(() => {
     if (prefilled.current || !original) return;
@@ -96,10 +100,11 @@ function Revise({ record, update, pilot }) {
     <div>
       <h2>질문 다시 다듬기</h2>
       <p className="hint">탐구를 마친 지금, 처음 질문을 더 정확하거나 더 깊게 고쳐 씁니다.</p>
-      {!pilot && <>
+      {(!pilot || revisionTargets.length === 0) && <>
         <label htmlFor="revised">다듬은 질문</label>
         <textarea id="revised" rows="2" value={record.revisedQuestion} onChange={(event) => update((current) => ({ ...current, revisedQuestion: event.target.value }))} />
       </>}
+      {pilot && revisionTargets.length > 0 && record.revisedQuestion?.trim() && <p className="hint">기존 마무리 질문: <span>{record.revisedQuestion}</span></p>}
       {pilot && revisionTargets.length > 0 && <section className="question-revision-editor" aria-labelledby="question-revision-title">
         <h3 id="question-revision-title">질문별 수정 기록</h3>
         <p className="hint">문장, 수정 이유, 출처는 학생이 기록합니다. 저장을 누를 때만 이력에 추가되고 처음 질문은 그대로 보존됩니다.</p>
@@ -195,17 +200,23 @@ function Reflect({ record, update }) {
 function Export({ record, update, unit }) {
   const [done, setDone] = useState(false);
   function download() {
-    const file = buildResultFile(record, unit, new Date());
+    const exportedRecord = ensurePilotRecordId(unit.id, record);
+    const exportedAt = new Date();
+    const file = buildResultFile(exportedRecord, unit, exportedAt);
     const blob = new Blob([JSON.stringify(file, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = resultFileName(record, unit.id);
+    link.download = resultFileName(exportedRecord, unit.id);
     document.body.appendChild(link);
     link.click();
     link.remove();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
-    update((current) => ({ ...current, stageTimes: { ...current.stageTimes, export: new Date().toISOString() } }));
+    update((current) => ({
+      ...current,
+      ...(exportedRecord.recordId ? { recordId: exportedRecord.recordId } : {}),
+      stageTimes: { ...current.stageTimes, export: exportedAt.toISOString() },
+    }));
     setDone(true);
   }
   return (
