@@ -25,27 +25,16 @@ const LessonActivity = forwardRef(function LessonActivity({ unit, lesson }, ref)
     <section className="activity" ref={ref} aria-labelledby={`act-${lesson.id}`}>
       <h2 id={`act-${lesson.id}`}>{pilot ? '내 질문으로 자료 읽기' : '탐구하기'}</h2>
       {pilot && <p className="hint">선택한 질문을 중심으로 자료와 기본 루틴의 응답을 살펴봅니다. 루틴이나 활동 응답은 근거 초안에 불러와 확인·수정한 뒤 질문에 붙일 수 있습니다.</p>}
-      <RoutineCard unit={unit} lesson={lesson} slot="inquiry" routine={routine} />
-      {Template && (pilot ? (
-        <details className="activity-extension" open={lesson.index === 1}>
-          <summary>더 살펴보기(선택)</summary>
-          <p className="hint">기본 루틴과 자료를 살펴본 뒤 이어갈 수 있는 별도 활동입니다.</p>
-          {lesson.index === 1 && <SelectedQuestionContext record={record} />}
-          <div className="activity-task">
-            {fictional && <FictionalNote />}
-            {config.title && <h3>{config.title}</h3>}
-            {config.instruction && <p>{config.instruction}</p>}
-            <Template config={config} value={value} onChange={onChange} fictional={false} />
-          </div>
-        </details>
-      ) : (
+      {pilot && <SelectedQuestionContext record={record} />}
+      <RoutineCard unit={unit} lesson={lesson} slot="inquiry" routine={routine} showQuestionContext={!pilot} />
+      {Template && (
         <div className="activity-task">
           {fictional && <FictionalNote />}
           {config.title && <h3>{config.title}</h3>}
           {config.instruction && <p>{config.instruction}</p>}
           <Template config={config} value={value} onChange={onChange} fictional={false} />
         </div>
-      ))}
+      )}
     </section>
   );
 });

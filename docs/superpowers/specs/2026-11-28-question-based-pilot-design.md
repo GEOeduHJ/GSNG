@@ -17,6 +17,7 @@
 ## 루틴·피드백 계약
 
 - 두 단원 모두 절 1은 opener, 절 2·3은 inquiry 루틴 하나를 기본으로 보여 준다. 나머지 루틴과 기본 closing은 접힌 선택 활동이다. 기존 응답은 보존하고 응답 필수화나 새 진도 잠금은 두지 않는다.
+- 2026-11-28 연구자 결정 B8: 탐구 활동은 펼친 핵심 과제로 둔다
 - 별도 활동은 겹치는 사고 목표가 있으면 확장으로 구분한다. 학생이 루틴·활동 응답을 골라 근거 작성 칸에 불러와 확인·수정한 뒤 질문에 연결한다. 원응답은 유지하고 출처 종류·절·카드/필드 ID를 근거에 보존한다.
 - 교사 피드백 파일은 `{schema:'gsng-teacher-feedback',schemaVersion:1,feedbackId,recordId,unitId,createdAt,comments:[{questionId,text}],sourceSnapshot:{questions,explanation}}`이다. `feedbackId`는 파일 전체 ID이며 코멘트 대상은 questionId다. 원코멘트는 학생 응답과 별도로 보존한다.
 - 가져오기는 같은 unitId·recordId와 존재하는 questionId에만 추가한다. 타 기록·다른 단원·깨진 형식·참조는 기록을 바꾸지 않는다. 같은 feedbackId는 중복 거부 또는 무해한 무시로 처리한다.

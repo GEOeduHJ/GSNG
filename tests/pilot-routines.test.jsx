@@ -68,7 +68,7 @@ afterEach(() => {
 });
 
 describe('question-based pilot routines', () => {
-  it('shows one mapped basic routine, the current question, and collapsed choices', () => {
+  it('shows one mapped basic routine and keeps other thinking routines collapsed as choices', () => {
     renderPilot({ index: 2 });
 
     expect(screen.getByRole('heading', { name: '내 질문으로 자료 읽기' })).toBeTruthy();
@@ -79,7 +79,6 @@ describe('question-based pilot routines', () => {
     expect(document.querySelector('.routine-card[data-slot="inquiry"][data-default="true"]')).toBeTruthy();
     expect(document.querySelector('details.routine-card[data-slot="opener"]').open).toBe(false);
     expect(document.querySelector('details.routine-card[data-slot="closing"]')).toBeNull();
-    expect(screen.getByText('더 살펴보기(선택)').closest('details').open).toBe(false);
   });
 
   it('uses opener for lesson 1 in both pilot units', () => {
@@ -95,17 +94,30 @@ describe('question-based pilot routines', () => {
     }
   });
 
-  it('shows the selected question and an expanded inquiry activity in lesson 1', () => {
+  it('keeps the selected question, inquiry routine, and core activity in order across pilot lessons 1–3', () => {
     for (const unitId of ['01-01', '03-01']) {
-      const { book, unit, lesson, storage } = pilotFixture({ unitId, index: 1 });
-      render(lessonContents({ book, unit, lesson, storage }));
+      for (const index of [1, 2, 3]) {
+        const { book, unit, lesson, storage } = pilotFixture({ unitId, index });
+        render(lessonContents({ book, unit, lesson, storage }));
 
-      const extension = document.querySelector('.activity-extension');
-      expect(extension.open).toBe(true);
-      expect(within(extension).getByText('현재 선택한 질문')).toBeTruthy();
-      expect(within(extension).getByText('지금 이어갈 질문은 무엇일까?')).toBeTruthy();
-      expect(within(extension).getByText('자료 비교')).toBeTruthy();
-      cleanup();
+        const activity = document.querySelector('.activity');
+        const question = activity.querySelector('.pilot-question-context');
+        const routine = activity.querySelector('.routine-card[data-slot="inquiry"]');
+        const task = activity.querySelector('.activity-task');
+        expect(question).toBeTruthy();
+        expect(activity.querySelectorAll('.pilot-question-context')).toHaveLength(1);
+        expect(within(question).getByText('지금 이어갈 질문은 무엇일까?')).toBeTruthy();
+        expect(routine).toBeTruthy();
+        expect(task).toBeTruthy();
+        expect(question.compareDocumentPosition(routine) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+        expect(routine.compareDocumentPosition(task) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+        expect(task.closest('details:not([open])')).toBeNull();
+        if (index === 1) expect(routine.closest('details').open).toBe(false);
+        else expect(routine.dataset.default).toBe('true');
+        expect(screen.queryByText('더 살펴보기(선택)')).toBeNull();
+        expect(within(task).getByRole('heading', { name: '자료 비교' })).toBeTruthy();
+        cleanup();
+      }
     }
   });
 
@@ -195,7 +207,8 @@ describe('question-based pilot routines', () => {
     render(lessonContents({ book, unit, lesson, storage }));
     expect(screen.getByRole('heading', { name: '탐구하기' })).toBeTruthy();
     expect(document.querySelector('.routine-card[data-slot="inquiry"]')).toBeTruthy();
-    expect(document.querySelector('.activity .activity-task details')).toBeNull();
+    expect(document.querySelector('.activity .activity-task')).toBeTruthy();
+    expect(within(document.querySelector('.activity .activity-task')).getByRole('heading', { name: '자료 비교' })).toBeTruthy();
     expect(screen.queryByText('더 살펴보기(선택)')).toBeNull();
   });
 });

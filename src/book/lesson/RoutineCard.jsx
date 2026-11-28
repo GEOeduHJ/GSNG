@@ -48,7 +48,7 @@ export function SelectedQuestionContext({ record }) {
  * Answers live in record.routineState[lessonId][slot][stepId]; a toQuestion step can be sent once
  * to the unit's question list (same path as lesson-born questions).
  */
-export default function RoutineCard({ unit, lesson, slot, routine }) {
+export default function RoutineCard({ unit, lesson, slot, routine, showQuestionContext = true }) {
   const [record, update] = useUnitRecord(unit.id);
   if (!routine) return null;
   const pilot = isPilotUnit(unit.id);
@@ -85,7 +85,7 @@ export default function RoutineCard({ unit, lesson, slot, routine }) {
 
   return (
     <section className="routine-card" data-slot={slot} data-default={pilot ? 'true' : undefined} aria-label={`생각 루틴 ${routine.name}`}>
-      {defaultRoutine && slot !== 'closing' && <SelectedQuestionContext record={record} />}
+      {defaultRoutine && slot !== 'closing' && showQuestionContext && <SelectedQuestionContext record={record} />}
       {title}
       {fields}
     </section>
