@@ -3,7 +3,8 @@ import Spread from '../Spread.jsx';
 import { useBook, useUnitRecord } from '../BookContext.jsx';
 import { routes } from '../router.js';
 import DataStage from '../lesson/DataStage.jsx';
-import { LESSON_BORN_LABEL, filled, newQuestion, opposite, questionText, selectedQuestions } from './questions.js';
+import { LESSON_BORN_LABEL, QUESTION_ORIGINS, filled, newQuestion, opposite, questionText, selectedQuestions } from './questions.js';
+import { isPilotUnit } from '../../storage/unitRecords.js';
 
 export const OPENING_STAGES = [
   { id: 'rules', label: '규칙 확인' },
@@ -25,6 +26,13 @@ export function maxOpeningStage(record) {
 /** Earlier-unit questions and the external AI link open only after the student finishes producing questions. */
 export function canShowCarryOver(record) {
   return Boolean(record.stageTimes?.produce) && (record.questions ?? []).some(filled);
+}
+
+/** Pilot AI links require a completed priority stage and a still-valid selection and reason. */
+export function canOpenExternalAI(unitId, record) {
+  if (!isPilotUnit(unitId)) return canShowCarryOver(record);
+  const count = selectedQuestions(record).length;
+  return Boolean(record.stageTimes?.prioritize && count >= 1 && count <= 3 && String(record.priorityReason ?? '').trim().length >= 4);
 }
 
 /** Plan is done when at least one priority question exists, each has a concept tag, and the plan line is written. */
@@ -67,12 +75,22 @@ function Rules({ onStart }) {
   );
 }
 
-function Produce({ record, update }) {
+function Produce({ record, update, pilot }) {
   const rows = record.questions.length ? record.questions : [null];
   function change(index, text) {
     update((current) => {
-      const questions = current.questions.length ? [...current.questions] : [newQuestion()];
+      const questions = current.questions.length ? [...current.questions] : [newQuestion('', { trackHistory: pilot })];
       questions[index] = { ...questions[index], text };
+      return { ...current, questions };
+    });
+  }
+  function changeOrigin(index, origin) {
+    update((current) => {
+      const questions = current.questions.length ? [...current.questions] : [newQuestion('', { trackHistory: pilot })];
+      const question = { ...questions[index] };
+      if (origin) question.origin = origin;
+      else delete question.origin;
+      questions[index] = question;
       return { ...current, questions };
     });
   }
@@ -84,12 +102,20 @@ function Produce({ record, update }) {
           <li key={index === 0 ? 'row-first' : question.id}>
             <label htmlFor={`q-${index}`}>질문 {index + 1}</label>
             <input id={`q-${index}`} type="text" value={question?.text ?? ''} onChange={(event) => change(index, event.target.value)} />
+            {pilot && question && <>
+              <label htmlFor={`origin-${index}`}>질문 출처: {index + 1}</label>
+              <select id={`origin-${index}`} value={question.origin ?? ''} onChange={(event) => changeOrigin(index, event.target.value)}>
+                <option value="">기록 없음</option>
+                {QUESTION_ORIGINS.map((origin) => <option key={origin.value} value={origin.value}>{origin.label}</option>)}
+              </select>
+            </>}
             {question?.fromLessonId && <span className="badge">{LESSON_BORN_LABEL}</span>}
             {question && <button type="button" className="text-button" aria-label={`질문 ${index + 1} 지우기`} onClick={() => update((current) => ({ ...current, questions: current.questions.filter((item) => item.id !== question.id) }))}>지우기</button>}
           </li>
         ))}
       </ol>
-      <button type="button" className="button secondary" onClick={() => update((current) => ({ ...current, questions: [...(current.questions.length ? current.questions : [newQuestion()]), newQuestion()] }))}>질문 추가</button>
+      <button type="button" className="button secondary" onClick={() => update((current) => ({ ...current, questions: [...(current.questions.length ? current.questions : [newQuestion('', { trackHistory: pilot })]), newQuestion('', { trackHistory: pilot })] }))}>질문 추가</button>
+      {pilot && <p className="hint">질문 출처는 학생이 직접 기록합니다. 외부 AI 링크를 열어도 실제 대화나 사용 여부는 추적하지 않습니다.</p>}
     </div>
   );
 }
@@ -204,10 +230,37 @@ export default function UnitOpening({ unit }) {
   const [view, setView] = useState(max);
   const current = Math.min(view, max);
   const stage = OPENING_STAGES[current].id;
+  const pilot = isPilotUnit(unit.id);
 
   function complete(stageId) {
-    update((rec) => ({ ...rec, stageTimes: { ...rec.stageTimes, [stageId]: rec.stageTimes[stageId] ?? new Date().toISOString() } }));
+    const completedAt = new Date().toISOString();
+    update((rec) => {
+      const next = { ...rec, stageTimes: { ...rec.stageTimes, [stageId]: rec.stageTimes[stageId] ?? completedAt } };
+      if (stageId === 'produce' && pilot) {
+        next.questions = next.questions.map((question) => question.initialText?.trim() ? question : { ...question, initialText: question.text });
+      }
+      if (stageId === 'prioritize' && pilot && !rec.prioritySnapshot) {
+        next.prioritySnapshot = {
+          questions: selectedQuestions(rec).map((question) => ({ questionId: question.id, text: questionText(question) })),
+          reason: String(rec.priorityReason ?? '').trim(),
+          createdAt: completedAt,
+        };
+      }
+      return next;
+    });
     setView(OPENING_STAGES.findIndex((item) => item.id === stageId) + 1);
+  }
+
+  function recordExternalAiOpening() {
+    update((rec) => {
+      if (!canOpenExternalAI(unit.id, rec)) return rec;
+      const openedAt = new Date().toISOString();
+      const selection = {
+        questions: selectedQuestions(rec).map((question) => ({ questionId: question.id, text: questionText(question) })),
+        reason: String(rec.priorityReason ?? '').trim(),
+      };
+      return { ...rec, externalAiOpenings: [...(rec.externalAiOpenings ?? []), { openedAt, selection }] };
+    });
   }
 
   const previousId = previousUnitId(book, unit.id);
@@ -235,7 +288,7 @@ export default function UnitOpening({ unit }) {
         ))}
       </ol>
       {stage === 'rules' && <Rules onStart={() => complete('rules')} />}
-      {stage === 'produce' && <Produce record={record} update={update} />}
+      {stage === 'produce' && <Produce record={record} update={update} pilot={pilot} />}
       {stage === 'improve' && <Improve record={record} update={update} />}
       {stage === 'prioritize' && <Prioritize record={record} update={update} />}
       {stage === 'plan' && <Plan record={record} update={update} unit={unit} concepts={book.concepts} />}
@@ -248,9 +301,15 @@ export default function UnitOpening({ unit }) {
             <h3>지난 중단원에서 남은 질문</h3>
             <ul>{carried.map((question) => <li key={question.id}>{questionText(question)}</li>)}</ul>
           </>}
-          <p className="hint">
+          {!pilot && <p className="hint">
             <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">외부 AI로 질문 넓혀 보기(선택, 새 창)</a> — 학교 계정으로만 쓰고, AI가 낸 질문은 내 질문과 구분해 적습니다.
-          </p>
+          </p>}
+          {pilot && canOpenExternalAI(unit.id, record) && <>
+            <p className="hint">
+              <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" onClick={recordExternalAiOpening}>외부 AI로 질문 넓혀 보기(선택, 새 창)</a> — 학교 계정으로만 씁니다.
+            </p>
+            <p className="hint">링크를 연 시각과 질문 선택·이유만 기록합니다. 외부 대화 내용이나 실제 사용 여부는 추적하지 않습니다. AI를 사용해 질문을 만들었다면 출처를 직접 기록하세요.</p>
+          </>}
         </aside>
       )}
     </>

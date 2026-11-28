@@ -5,6 +5,7 @@ import { routes } from '../router.js';
 import { lessonBornQuestions, newQuestion, questionText, selectedQuestions } from './questions.js';
 import RoutineCard from '../lesson/RoutineCard.jsx';
 import { routineForSlot } from '../../content-loader/routines.js';
+import { isPilotUnit } from '../../storage/unitRecords.js';
 
 export function relatedQuestions(record, lesson, concepts) {
   const lessonConcepts = new Set([...(lesson.keyTerms ?? []), ...lesson.steps.flatMap((step) => step.concepts ?? [])]
@@ -49,7 +50,7 @@ const LessonQuestions = forwardRef(function LessonQuestions({ unit, lesson, sele
 
   function addQuestion() {
     if (!canAdd) return;
-    update((current) => ({ ...current, questions: [...current.questions, newQuestion(newText.trim(), { fromLessonId: lesson.id })] }));
+    update((current) => ({ ...current, questions: [...current.questions, newQuestion(newText.trim(), { fromLessonId: lesson.id, trackHistory: isPilotUnit(unit.id) })] }));
     setNewText('');
   }
 

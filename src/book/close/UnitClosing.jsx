@@ -3,8 +3,9 @@ import Spread from '../Spread.jsx';
 import { useBook, useUnitRecord } from '../BookContext.jsx';
 import { routes } from '../router.js';
 import DataStage from '../lesson/DataStage.jsx';
-import { lessonBornQuestions, questionText, selectedQuestions } from '../qft/questions.js';
+import { QUESTION_ORIGINS, lessonBornQuestions, questionText, reviseQuestion, selectedQuestions } from '../qft/questions.js';
 import { buildResultFile, resultFileName } from '../../storage/resultFile.js';
+import { isPilotUnit } from '../../storage/unitRecords.js';
 
 export const CLOSING_STAGES = [
   { id: 'explain', label: '설명하기' },
@@ -76,9 +77,15 @@ function Explain({ record, update, unit }) {
   );
 }
 
-function Revise({ record, update }) {
+function Revise({ record, update, pilot }) {
+  const [drafts, setDrafts] = useState({});
+  const [reasons, setReasons] = useState({});
+  const [sources, setSources] = useState({});
+  const [evidenceSelections, setEvidenceSelections] = useState({});
   const original = record.questions.find((question) => question.id === record.explanation.questionId);
   const born = lessonBornQuestions(record);
+  const chosen = selectedQuestions(record);
+  const revisionTargets = [...chosen, ...born.filter((question) => !chosen.some((item) => item.id === question.id))];
   const prefilled = useRef(false);
   useEffect(() => {
     if (prefilled.current || !original) return;
@@ -89,17 +96,70 @@ function Revise({ record, update }) {
     <div>
       <h2>질문 다시 다듬기</h2>
       <p className="hint">탐구를 마친 지금, 처음 질문을 더 정확하거나 더 깊게 고쳐 씁니다.</p>
-      <label htmlFor="revised">다듬은 질문</label>
-      <textarea id="revised" rows="2" value={record.revisedQuestion} onChange={(event) => update((current) => ({ ...current, revisedQuestion: event.target.value }))} />
+      {!pilot && <>
+        <label htmlFor="revised">다듬은 질문</label>
+        <textarea id="revised" rows="2" value={record.revisedQuestion} onChange={(event) => update((current) => ({ ...current, revisedQuestion: event.target.value }))} />
+      </>}
+      {pilot && revisionTargets.length > 0 && <section className="question-revision-editor" aria-labelledby="question-revision-title">
+        <h3 id="question-revision-title">질문별 수정 기록</h3>
+        <p className="hint">문장, 수정 이유, 출처는 학생이 기록합니다. 저장을 누를 때만 이력에 추가되고 처음 질문은 그대로 보존됩니다.</p>
+        {revisionTargets.map((question) => {
+          const currentText = questionText(question);
+          const after = drafts[question.id] ?? currentText;
+          const reason = reasons[question.id] ?? '';
+          const source = sources[question.id] ?? 'student';
+          const availableEvidence = record.evidence.filter((item) => item.questionId === question.id);
+          const evidenceIds = evidenceSelections[question.id] ?? [];
+          const revisions = Array.isArray(question.revisions) ? question.revisions.filter((revision) => typeof revision?.before === 'string' && typeof revision?.after === 'string' && typeof revision?.reason === 'string') : [];
+          const canSave = Boolean(after.trim() && reason.trim() && after.trim() !== currentText);
+          return <fieldset key={question.id}>
+            <legend>{currentText}</legend>
+            <label htmlFor={`question-revision-after-${question.id}`}>질문 수정: {currentText}</label>
+            <textarea id={`question-revision-after-${question.id}`} rows="2" value={after} onChange={(event) => setDrafts((current) => ({ ...current, [question.id]: event.target.value }))} />
+            <label htmlFor={`question-revision-reason-${question.id}`}>수정한 까닭: {currentText}</label>
+            <textarea id={`question-revision-reason-${question.id}`} rows="2" value={reason} onChange={(event) => setReasons((current) => ({ ...current, [question.id]: event.target.value }))} />
+            <label htmlFor={`question-revision-source-${question.id}`}>수정 출처: {currentText}</label>
+            <select id={`question-revision-source-${question.id}`} value={source} onChange={(event) => setSources((current) => ({ ...current, [question.id]: event.target.value }))}>
+              {QUESTION_ORIGINS.map((origin) => <option key={origin.value} value={origin.value}>{origin.label}</option>)}
+            </select>
+            {availableEvidence.length > 0 && <fieldset>
+              <legend>수정에 연결할 근거 (선택)</legend>
+              {availableEvidence.map((item) => <label key={item.id} className="choice">
+                <input type="checkbox" checked={evidenceIds.includes(item.id)} onChange={(event) => setEvidenceSelections((current) => ({
+                  ...current,
+                  [question.id]: event.target.checked ? [...new Set([...evidenceIds, item.id])] : evidenceIds.filter((id) => id !== item.id),
+                }))} />
+                수정 근거: {item.note}
+              </label>)}
+            </fieldset>}
+            <details className="question-revision-history">
+              <summary>질문 이력 보기</summary>
+              <p><strong>처음 질문:</strong> {question.initialText ?? question.text}</p>
+              {revisions.length > 0 ? <ol>{revisions.map((revision, index) => <li key={revision.id ?? `${question.id}-revision-${index}`}>
+                <p>{revision.before} → {revision.after}</p>
+                <p>{revision.reason}</p>
+                <p>출처: {QUESTION_ORIGINS.find((origin) => origin.value === revision.source)?.label ?? revision.source ?? '기록 없음'}</p>
+                {revision.evidenceIds?.length > 0 && <p>연결한 근거: {revision.evidenceIds.map((id) => record.evidence.find((item) => item.id === id)?.note ?? id).join(', ')}</p>}
+                {revision.createdAt && <time dateTime={revision.createdAt}>{revision.createdAt}</time>}
+              </li>)}</ol> : <p className="hint">저장된 수정 기록이 없습니다.</p>}
+            </details>
+            <p className="row-actions"><button type="button" className="button secondary" aria-label={`질문 수정 저장: ${currentText}`} disabled={!canSave} onClick={() => update((current) => {
+              const revised = reviseQuestion(current, { questionId: question.id, after, reason, source, evidenceIds }, new Date());
+              if (revised === current || current.explanation.questionId !== question.id) return revised;
+              return { ...revised, revisedQuestion: questionText(revised.questions.find((item) => item.id === question.id)) };
+            })}>수정 기록 저장</button></p>
+          </fieldset>;
+        })}
+      </section>}
       {born.length > 0 && (
         <section className="born-questions" aria-labelledby="born-title">
           <h3 id="born-title">학습하며 생긴 질문</h3>
-          <p className="hint">절을 마치며 적은 질문입니다. 하나를 불러와 다듬을 수도 있습니다.</p>
+          <p className="hint">절을 마치며 적은 질문입니다.{pilot ? ' 질문별 수정 기록에서 문장을 다듬을 수 있습니다.' : ' 하나를 불러와 다듬을 수도 있습니다.'}</p>
           <ul className="question-list">
             {born.map((question) => (
               <li key={question.id}>
                 {questionText(question)}{' '}
-                <button type="button" className="text-button" aria-label={`불러오기: ${questionText(question)}`} onClick={() => update((current) => ({ ...current, revisedQuestion: questionText(question) }))}>불러오기</button>
+                {!pilot && <button type="button" className="text-button" aria-label={`불러오기: ${questionText(question)}`} onClick={() => update((current) => ({ ...current, revisedQuestion: questionText(question) }))}>불러오기</button>}
               </li>
             ))}
           </ul>
@@ -200,7 +260,7 @@ export default function UnitClosing({ unit }) {
         ))}
       </ol>
       {stage === 'explain' && <Explain record={record} update={update} unit={unit} />}
-      {stage === 'revise' && <Revise record={record} update={update} />}
+      {stage === 'revise' && <Revise record={record} update={update} pilot={isPilotUnit(unit.id)} />}
       {stage === 'transfer' && <Transfer record={record} update={update} unit={unit} manifest={book.manifest} />}
       {stage === 'reflect' && <Reflect record={record} update={update} />}
       {stage === 'export' && <Export record={record} update={update} unit={unit} />}

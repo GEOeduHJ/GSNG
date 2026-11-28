@@ -68,7 +68,8 @@ describe('I2: external AI and carry-over open only after question production', (
   it('stays hidden while producing and appears once production is done', () => {
     vi.stubGlobal('fetch', vi.fn(() => Promise.reject(new Error('offline'))));
     const book = makeBook();
-    render(<BookProvider book={book} storage={memoryStorage()}><UnitOpening unit={book.units[0]} /></BookProvider>);
+    const unit = { ...book.units[0], id: '02-01' };
+    render(<BookProvider book={book} storage={memoryStorage()}><UnitOpening unit={unit} /></BookProvider>);
     fireEvent.click(screen.getByRole('button', { name: '선생님 안내에 따라 시작' }));
     fireEvent.change(screen.getByLabelText('질문 1'), { target: { value: '새 질문' } });
     expect(screen.queryByRole('link', { name: /외부 AI/ })).toBeNull();
@@ -167,9 +168,10 @@ describe('deferred minors fixed during unit II', () => {
   it('lets the student clear the revised question', async () => {
     const { default: UnitClosing } = await import('../src/book/close/UnitClosing.jsx');
     const q = { id: 'q1', text: '처음 질문', classification: '열린', convertedType: '', convertedText: '', selectedVersion: 'original', selected: true, conceptTags: [] };
-    const storage = memoryStorage({ [STORAGE_KEY_V4]: JSON.stringify({ version: 4, units: { '01-01': { ...emptyUnitRecord('01-01'), questions: [q], explanation: { questionId: 'q1', claim: '주장', reasoning: '설명', evidenceIds: ['e'] }, stageTimes: { explain: 't' } } } }) });
+    const storage = memoryStorage({ [STORAGE_KEY_V4]: JSON.stringify({ version: 4, units: { '02-01': { ...emptyUnitRecord('02-01'), questions: [q], explanation: { questionId: 'q1', claim: '주장', reasoning: '설명', evidenceIds: ['e'] }, stageTimes: { explain: 't' } } } }) });
     const book = makeBook();
-    render(<BookProvider book={book} storage={storage}><UnitClosing unit={book.units[0]} /></BookProvider>);
+    const unit = { ...book.units[0], id: '02-01' };
+    render(<BookProvider book={book} storage={storage}><UnitClosing unit={unit} /></BookProvider>);
     const field = screen.getByLabelText('다듬은 질문');
     expect(field.value).toBe('처음 질문');
     fireEvent.change(field, { target: { value: '' } });

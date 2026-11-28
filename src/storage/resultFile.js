@@ -15,6 +15,7 @@ export function buildResultFile(record, unit, now = new Date()) {
     exportedAt: now.toISOString(),
     unitId: unit.id,
     unitTitle: unit.title,
+    ...(record.recordId ? { recordId: record.recordId } : {}),
     displayName: record.displayName ?? '',
     questions: record.questions ?? [],
     priorityReason: record.priorityReason ?? '',
@@ -27,6 +28,8 @@ export function buildResultFile(record, unit, now = new Date()) {
     stageTimes: record.stageTimes ?? {},
     routineResponses: record.routineState ?? {},
     activityState: record.activityState ?? {},
+    ...(record.prioritySnapshot ? { prioritySnapshot: record.prioritySnapshot } : {}),
+    ...(Array.isArray(record.externalAiOpenings) ? { externalAiOpenings: record.externalAiOpenings } : {}),
   };
 }
 

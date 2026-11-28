@@ -36,7 +36,14 @@ describe('createStore', () => {
   it('round-trips units through storage', () => {
     const storage = memoryStorage();
     const store = createStore(storage);
-    const record = { ...emptyUnitRecord('01-01'), displayName: '3번' };
+    const record = {
+      ...emptyUnitRecord('01-01'),
+      displayName: '3번',
+      recordId: 'opaque-record-id',
+      prioritySnapshot: { questions: [{ questionId: 'q1', text: '당시 질문' }], reason: '자료로 답할 수 있어서', createdAt: '2026-11-27T00:00:00.000Z' },
+      externalAiOpenings: [{ openedAt: '2026-11-27T00:01:00.000Z', selection: { questions: [{ questionId: 'q1', text: '당시 질문' }], reason: '자료로 답할 수 있어서' } }],
+      questions: [newQuestion('처음 질문')],
+    };
     expect(store.save({ '01-01': record })).toBe(true);
     expect(JSON.parse(storage.data[STORAGE_KEY_V4]).version).toBe(4);
     expect(createStore(storage).load()).toEqual({ units: { '01-01': record }, available: true });

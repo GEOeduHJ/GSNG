@@ -33,6 +33,7 @@ describe('UnitOpening', () => {
     const { storage } = renderOpening();
     fireEvent.click(screen.getByRole('button', { name: '선생님 안내에 따라 시작' }));
     fireEvent.change(screen.getByLabelText('질문 1'), { target: { value: '왜 무역이 늘었을까' } });
+    expect(saved(storage).recordId).toBeTruthy();
     fireEvent.click(screen.getByRole('button', { name: '질문 추가' }));
     fireEvent.change(screen.getByLabelText('질문 2'), { target: { value: '누가 이익을 볼까' } });
     expect(saved(storage).questions.map((q) => q.text)).toEqual(['왜 무역이 늘었을까', '누가 이익을 볼까']);
@@ -49,6 +50,35 @@ describe('UnitOpening', () => {
     fireEvent.change(input, { target: { value: '왜' } });
     expect(document.activeElement).toBe(screen.getByLabelText('질문 1'));
     expect(screen.getByLabelText('질문 1')).toBe(input);
+  });
+
+  it('pins each original question when production is first completed', () => {
+    const { storage } = renderOpening();
+    fireEvent.click(screen.getByRole('button', { name: '선생님 안내에 따라 시작' }));
+    fireEvent.change(screen.getByLabelText('질문 1'), { target: { value: '처음 질문 문장' } });
+    fireEvent.click(screen.getByRole('button', { name: '다음 단계' }));
+    expect(saved(storage).questions[0]).toMatchObject({ text: '처음 질문 문장', initialText: '처음 질문 문장', origin: 'student', revisions: [] });
+  });
+
+  it('lets students self-report a question source without inferring it from link use', () => {
+    const { storage } = renderOpening();
+    fireEvent.click(screen.getByRole('button', { name: '선생님 안내에 따라 시작' }));
+    fireEvent.change(screen.getByLabelText('질문 1'), { target: { value: '외부 AI에서 떠올린 질문' } });
+    fireEvent.change(screen.getByLabelText('질문 출처: 1'), { target: { value: 'external-ai' } });
+    fireEvent.click(screen.getByRole('button', { name: '다음 단계' }));
+    expect(saved(storage).questions[0]).toMatchObject({ origin: 'external-ai', initialText: '외부 AI에서 떠올린 질문' });
+  });
+
+  it('keeps non-pilot question records on their existing shape', () => {
+    const { storage } = renderOpening({ book: bookWithSecondUnit(), unitIndex: 1 });
+    fireEvent.click(screen.getByRole('button', { name: '선생님 안내에 따라 시작' }));
+    fireEvent.change(screen.getByLabelText('질문 1'), { target: { value: '기존 단원의 질문' } });
+    fireEvent.click(screen.getByRole('button', { name: '다음 단계' }));
+    const question = saved(storage, '01-02').questions[0];
+    expect(question.text).toBe('기존 단원의 질문');
+    expect(question).not.toHaveProperty('initialText');
+    expect(question).not.toHaveProperty('origin');
+    expect(question).not.toHaveProperty('revisions');
   });
 
   it('requires classifying and changing a question before prioritizing', () => {
@@ -98,6 +128,42 @@ describe('UnitOpening', () => {
     fireEvent.click(screen.getByRole('button', { name: '다음 단계' }));
     expect(screen.getByText('지난 질문')).toBeTruthy();
     expect(screen.getByRole('link', { name: /외부 AI/ })).toBeTruthy();
+  });
+
+  it('gates pilot external AI on completed prioritization and a current selection with a reason', () => {
+    const record = {
+      ...emptyUnitRecord('01-01'),
+      questions: [{ id: 'q1', text: '무역은 왜 늘었을까', classification: '열린', convertedType: '닫힌', convertedText: '무역은 늘었을까', selectedVersion: 'original', selected: false, conceptTags: [] }],
+      stageTimes: { rules: 't', produce: 't', improve: 't' },
+    };
+    const storage = memoryStorage({ [STORAGE_KEY_V4]: JSON.stringify({ version: 4, units: { '01-01': record } }) });
+    renderOpening({ storage });
+    expect(screen.queryByRole('link', { name: /외부 AI/ })).toBeNull();
+    fireEvent.click(screen.getByLabelText(/무역은 왜 늘었을까/));
+    fireEvent.change(screen.getByLabelText('이 질문들을 고른 까닭'), { target: { value: '자료로 답할 수 있기 때문' } });
+    fireEvent.click(screen.getByRole('button', { name: '다음 단계' }));
+    expect(screen.getByRole('link', { name: /외부 AI/ })).toBeTruthy();
+    const firstSnapshot = saved(storage).prioritySnapshot;
+    expect(firstSnapshot).toMatchObject({
+      questions: [{ questionId: 'q1', text: '무역은 왜 늘었을까' }],
+      reason: '자료로 답할 수 있기 때문', createdAt: expect.any(String),
+    });
+
+    fireEvent.click(screen.getByRole('button', { name: /4\. 질문 고르기/ }));
+    fireEvent.click(screen.getAllByRole('checkbox')[0]);
+    expect(screen.queryByRole('link', { name: /외부 AI/ })).toBeNull();
+    expect(saved(storage).prioritySnapshot).toEqual(firstSnapshot);
+    fireEvent.click(screen.getAllByRole('checkbox')[0]);
+    fireEvent.change(screen.getByLabelText('이 질문들을 고른 까닭'), { target: { value: '' } });
+    expect(screen.queryByRole('link', { name: /외부 AI/ })).toBeNull();
+    fireEvent.change(screen.getByLabelText('이 질문들을 고른 까닭'), { target: { value: '자료로 답할 수 있기 때문' } });
+    fireEvent.click(screen.getByRole('button', { name: '다음 단계' }));
+    fireEvent.click(screen.getByRole('link', { name: /외부 AI/ }));
+    expect(saved(storage).prioritySnapshot).toEqual(firstSnapshot);
+    expect(saved(storage).externalAiOpenings[0]).toMatchObject({
+      openedAt: expect.any(String),
+      selection: { questions: [{ questionId: 'q1', text: '무역은 왜 늘었을까' }], reason: '자료로 답할 수 있기 때문' },
+    });
   });
 });
 

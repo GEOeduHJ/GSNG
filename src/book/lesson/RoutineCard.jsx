@@ -1,5 +1,6 @@
 import { useUnitRecord } from '../BookContext.jsx';
 import { newQuestion } from '../qft/questions.js';
+import { isPilotUnit } from '../../storage/unitRecords.js';
 
 /**
  * One thinking-routine card (Project Zero routine, Korean prompts written for this textbook).
@@ -21,7 +22,7 @@ export default function RoutineCard({ unit, lesson, slot, routine }) {
       const byLesson = current.routineState?.[lesson.id] ?? {};
       return {
         ...current,
-        questions: [...current.questions, newQuestion(text, { fromLessonId: lesson.id })],
+        questions: [...current.questions, newQuestion(text, { fromLessonId: lesson.id, origin: 'routine', trackHistory: isPilotUnit(unit.id) })],
         routineState: { ...current.routineState, [lesson.id]: { ...byLesson, [slot]: { ...(byLesson[slot] ?? {}), sent: text } } },
       };
     });

@@ -1,5 +1,15 @@
 export const STORAGE_KEY_V4 = 'gsng-textbook-v4';
 const V3_KEY = 'world-citizenship-geography-digital-textbook-v2';
+const PILOT_UNIT_IDS = new Set(['01-01', '03-01']);
+
+export const isPilotUnit = (unitId) => PILOT_UNIT_IDS.has(unitId);
+
+/** Create a name-independent stable identity at the first real pilot record update. */
+export function ensurePilotRecordId(unitId, record) {
+  if (!isPilotUnit(unitId) || record?.recordId) return record;
+  const recordId = globalThis.crypto?.randomUUID?.() ?? `record-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  return { ...record, recordId };
+}
 
 export function emptyUnitRecord(unitId) {
   return {
@@ -20,7 +30,8 @@ export function emptyUnitRecord(unitId) {
 }
 
 function toQuestion(question = {}) {
-  return {
+  const normalized = {
+    ...question,
     id: String(question.id ?? ''),
     text: String(question.text ?? ''),
     classification: question.classification ?? '',
@@ -31,6 +42,11 @@ function toQuestion(question = {}) {
     conceptTags: Array.isArray(question.conceptTags) ? question.conceptTags : [],
     fromLessonId: question.fromLessonId ? String(question.fromLessonId) : null,
   };
+  if (typeof question.initialText !== 'string') delete normalized.initialText;
+  if (typeof question.origin !== 'string') delete normalized.origin;
+  if (Array.isArray(question.revisions)) normalized.revisions = question.revisions.filter((revision) => revision && typeof revision === 'object');
+  else delete normalized.revisions;
+  return normalized;
 }
 
 /** Fill any missing fields so older or hand-edited records never crash the screens. */

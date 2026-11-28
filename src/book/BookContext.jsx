@@ -1,6 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { STORAGE_KEY_V4 } from '../storage/unitRecords.js';
-import { createStore, emptyUnitRecord } from '../storage/unitRecords.js';
+import { createStore, emptyUnitRecord, ensurePilotRecordId } from '../storage/unitRecords.js';
 
 const BookContext = createContext(null);
 
@@ -13,7 +13,8 @@ export function BookProvider({ book, storage, children }) {
 
   const updateUnit = useCallback((unitId, updater) => {
     const current = unitsRef.current[unitId] ?? emptyUnitRecord(unitId);
-    const nextRecord = typeof updater === 'function' ? updater(current) : { ...current, ...updater };
+    const updatedRecord = typeof updater === 'function' ? updater(current) : { ...current, ...updater };
+    const nextRecord = updatedRecord === current ? current : ensurePilotRecordId(unitId, updatedRecord);
     const next = { ...unitsRef.current, [unitId]: nextRecord };
     unitsRef.current = next;
     setUnits(next);
