@@ -6,7 +6,7 @@ const filled = (question) => Boolean(question?.text?.trim());
 
 /**
  * files: [{name, text}] → class summary for one unit. Nothing leaves memory.
- * Duplicate display names keep the most recent export.
+ * Stable pilot IDs distinguish equal display names; legacy exports keep the most recent name match.
  */
 export function summarizeResults(files, unitId, concepts = {}) {
   const skipped = [];
@@ -17,8 +17,10 @@ export function summarizeResults(files, unitId, concepts = {}) {
     if (!parsed.ok) { skipped.push({ name: file.name, reason: parsed.reason }); continue; }
     const value = parsed.value;
     if (value.unitId !== unitId) { skipped.push({ name: file.name, reason: 'other-unit' }); continue; }
-    const key = String(value.displayName ?? '').trim() || file.name;
-    const row = { ...value, fileName: file.name, displayName: String(value.displayName ?? '').trim() || file.name };
+    const displayName = String(value.displayName ?? '').trim() || file.name;
+    const recordId = typeof value.recordId === 'string' && value.recordId.trim() ? value.recordId.trim() : '';
+    const key = recordId ? `record:${recordId}` : `legacy:${displayName}`;
+    const row = { ...value, fileName: file.name, displayName, recordId };
     const existing = latest.get(key);
     if (!existing) { latest.set(key, row); continue; }
     const newer = String(row.exportedAt) > String(existing.exportedAt) ? row : existing;

@@ -6,6 +6,8 @@ import DataStage from '../lesson/DataStage.jsx';
 import { QUESTION_ORIGINS, lessonBornQuestions, questionText, reviseQuestion, selectedQuestions } from '../qft/questions.js';
 import { buildResultFile, resultFileName } from '../../storage/resultFile.js';
 import { ensurePilotRecordId, isPilotUnit } from '../../storage/unitRecords.js';
+import { saveExplanationRevision } from '../../storage/feedbackFile.js';
+import TeacherFeedback from './TeacherFeedback.jsx';
 
 export const CLOSING_STAGES = [
   { id: 'explain', label: '설명하기' },
@@ -16,6 +18,12 @@ export const CLOSING_STAGES = [
 ];
 
 const atLeast = (text, n = 4) => String(text ?? '').trim().length >= n;
+const explanationSnapshot = (value = {}) => ({
+  questionId: typeof value.questionId === 'string' ? value.questionId : '',
+  claim: typeof value.claim === 'string' ? value.claim : '',
+  reasoning: typeof value.reasoning === 'string' ? value.reasoning : '',
+  evidenceIds: Array.isArray(value.evidenceIds) ? [...value.evidenceIds] : [],
+});
 
 const ready = {
   explain: (r) => Boolean(r.explanation.questionId) && atLeast(r.explanation.claim) && (r.explanation.evidenceIds ?? []).length > 0 && atLeast(r.explanation.reasoning),
@@ -33,12 +41,39 @@ function maxStage(record) {
   return stage;
 }
 
-function Explain({ record, update, unit }) {
+function Explain({ record, update, unit, pilot }) {
+  const revisionBaseline = useRef(record.pendingExplanationRevision?.before ?? null);
+  const [revisionReason, setRevisionReason] = useState('');
+  const [linkedFeedbackIds, setLinkedFeedbackIds] = useState([]);
   const questions = selectedQuestions(record);
   const explanation = { evidenceIds: [], ...record.explanation };
-  const set = (patch) => update((current) => ({ ...current, explanation: { evidenceIds: [], ...current.explanation, ...patch } }));
+  const set = (patch) => update((current) => {
+    let next = current;
+    if (pilot && revisionBaseline.current == null) {
+      const before = explanationSnapshot(current.explanation);
+      revisionBaseline.current = before;
+      next = { ...current, pendingExplanationRevision: { before } };
+    }
+    return { ...next, explanation: { evidenceIds: [], ...current.explanation, ...patch } };
+  });
   const toggleEvidence = (id) => set({ evidenceIds: explanation.evidenceIds.includes(id) ? explanation.evidenceIds.filter((item) => item !== id) : [...explanation.evidenceIds, id] });
   const lessonTitle = (lessonId) => unit.lessons.find((lesson) => lesson.id === lessonId)?.title;
+  const feedbacks = (Array.isArray(record.teacherFeedbacks) ? record.teacherFeedbacks : []).filter((feedback) => Array.isArray(feedback?.comments));
+  const questionFeedbacks = feedbacks.flatMap((feedback) => feedback.comments
+    .filter((comment) => comment.questionId === explanation.questionId)
+    .map((comment) => ({ feedback, comment })));
+  const explanationRevisions = Array.isArray(record.explanationRevisions) ? record.explanationRevisions : [];
+  function saveRevision() {
+    const baseline = record.pendingExplanationRevision?.before ?? revisionBaseline.current ?? record.explanation;
+    const withBaseline = { ...record, explanation: explanationSnapshot(baseline) };
+    const saved = saveExplanationRevision(withBaseline, { after: explanation, reason: revisionReason, feedbackIds: linkedFeedbackIds }, new Date());
+    if ((saved.explanationRevisions?.length ?? 0) === explanationRevisions.length) return;
+    const { pendingExplanationRevision, ...recordWithRevision } = saved;
+    update(() => recordWithRevision);
+    revisionBaseline.current = null;
+    setRevisionReason('');
+    setLinkedFeedbackIds([]);
+  }
   return (
     <div>
       <h2>내 질문에 답하기</h2>
@@ -73,6 +108,29 @@ function Explain({ record, update, unit }) {
       )}
       <label htmlFor="reasoning">근거와 주장을 잇는 설명</label>
       <textarea id="reasoning" rows="4" value={explanation.reasoning} onChange={(event) => set({ reasoning: event.target.value })} />
+      {pilot && <section className="explanation-revision-editor" aria-labelledby="explanation-revision-title">
+        <h3 id="explanation-revision-title">설명 수정 기록</h3>
+        {questionFeedbacks.length > 0 && <fieldset>
+          <legend>이 설명에 연결할 교사 피드백</legend>
+          {questionFeedbacks.map(({ feedback, comment }) => (
+            <label key={feedback.feedbackId} className="choice">
+              <input type="checkbox" aria-label={`설명 피드백 연결: ${comment.text}`} checked={linkedFeedbackIds.includes(feedback.feedbackId)} onChange={(event) => setLinkedFeedbackIds((current) => event.target.checked ? [...new Set([...current, feedback.feedbackId])] : current.filter((id) => id !== feedback.feedbackId))} />
+              {comment.text}
+            </label>
+          ))}
+        </fieldset>}
+        <label htmlFor="explanation-revision-reason">설명 수정한 까닭</label>
+        <textarea id="explanation-revision-reason" rows="2" value={revisionReason} onChange={(event) => setRevisionReason(event.target.value)} />
+        <p className="row-actions"><button type="button" className="button secondary" disabled={!revisionReason.trim()} onClick={saveRevision}>설명 수정 기록 저장</button></p>
+        {explanationRevisions.length > 0 && <details className="explanation-revision-history">
+          <summary>이전 설명 기록 보기</summary>
+          <ol>{explanationRevisions.map((revision, index) => <li key={revision.id ?? `explanation-revision-${index}`}>
+            <p>이전 주장: {revision.before?.claim || '—'} → 수정한 주장: {revision.after?.claim || '—'}</p>
+            <p>이전 설명: {revision.before?.reasoning || '—'} → 수정한 설명: {revision.after?.reasoning || '—'}</p>
+            <p>수정한 까닭: {revision.reason || '—'}</p>
+          </li>)}</ol>
+        </details>}
+      </section>}
     </div>
   );
 }
@@ -82,6 +140,7 @@ function Revise({ record, update, pilot }) {
   const [reasons, setReasons] = useState({});
   const [sources, setSources] = useState({});
   const [evidenceSelections, setEvidenceSelections] = useState({});
+  const [feedbackSelections, setFeedbackSelections] = useState({});
   const original = record.questions.find((question) => question.id === record.explanation.questionId);
   const born = lessonBornQuestions(record);
   const chosen = selectedQuestions(record);
@@ -116,6 +175,10 @@ function Revise({ record, update, pilot }) {
           const source = sources[question.id] ?? 'student';
           const availableEvidence = record.evidence.filter((item) => item.questionId === question.id);
           const evidenceIds = evidenceSelections[question.id] ?? [];
+          const questionFeedbacks = (Array.isArray(record.teacherFeedbacks) ? record.teacherFeedbacks : []).filter((feedback) => Array.isArray(feedback?.comments)).flatMap((feedback) => feedback.comments
+            .filter((comment) => comment.questionId === question.id)
+            .map((comment) => ({ feedback, comment })));
+          const feedbackIds = feedbackSelections[question.id] ?? [];
           const revisions = Array.isArray(question.revisions) ? question.revisions.filter((revision) => typeof revision?.before === 'string' && typeof revision?.after === 'string' && typeof revision?.reason === 'string') : [];
           const canSave = Boolean(after.trim() && reason.trim() && after.trim() !== currentText);
           return <fieldset key={question.id}>
@@ -138,6 +201,16 @@ function Revise({ record, update, pilot }) {
                 수정 근거: {item.note}
               </label>)}
             </fieldset>}
+            {questionFeedbacks.length > 0 && <fieldset>
+              <legend>질문 수정에 연결할 교사 피드백</legend>
+              {questionFeedbacks.map(({ feedback, comment }) => <label key={feedback.feedbackId} className="choice">
+                <input type="checkbox" aria-label={`교사 피드백 연결: ${comment.text}`} checked={feedbackIds.includes(feedback.feedbackId)} onChange={(event) => setFeedbackSelections((current) => ({
+                  ...current,
+                  [question.id]: event.target.checked ? [...new Set([...feedbackIds, feedback.feedbackId])] : feedbackIds.filter((id) => id !== feedback.feedbackId),
+                }))} />
+                {comment.text}
+              </label>)}
+            </fieldset>}
             <details className="question-revision-history">
               <summary>질문 이력 보기</summary>
               <p><strong>처음 질문:</strong> {question.initialText ?? question.text}</p>
@@ -150,7 +223,7 @@ function Revise({ record, update, pilot }) {
               </li>)}</ol> : <p className="hint">저장된 수정 기록이 없습니다.</p>}
             </details>
             <p className="row-actions"><button type="button" className="button secondary" aria-label={`질문 수정 저장: ${currentText}`} disabled={!canSave} onClick={() => update((current) => {
-              const revised = reviseQuestion(current, { questionId: question.id, after, reason, source, evidenceIds }, new Date());
+              const revised = reviseQuestion(current, { questionId: question.id, after, reason, source, evidenceIds, ...(feedbackIds.length ? { feedbackIds } : {}) }, new Date());
               if (revised === current || current.explanation.questionId !== question.id) return revised;
               return { ...revised, revisedQuestion: questionText(revised.questions.find((item) => item.id === question.id)) };
             })}>수정 기록 저장</button></p>
@@ -271,7 +344,8 @@ export default function UnitClosing({ unit }) {
           </li>
         ))}
       </ol>
-      {stage === 'explain' && <Explain record={record} update={update} unit={unit} />}
+      {isPilotUnit(unit.id) && <TeacherFeedback record={record} update={update} unit={unit} />}
+      {stage === 'explain' && <Explain record={record} update={update} unit={unit} pilot={isPilotUnit(unit.id)} />}
       {stage === 'revise' && <Revise record={record} update={update} pilot={isPilotUnit(unit.id)} />}
       {stage === 'transfer' && <Transfer record={record} update={update} unit={unit} manifest={book.manifest} />}
       {stage === 'reflect' && <Reflect record={record} update={update} />}

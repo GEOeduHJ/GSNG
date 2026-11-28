@@ -49,11 +49,65 @@ function toQuestion(question = {}) {
   return normalized;
 }
 
+function validFeedbackFileRecord(feedback) {
+  if (!isPlainObject(feedback) || typeof feedback.feedbackId !== 'string' || !feedback.feedbackId.trim()
+    || typeof feedback.recordId !== 'string' || !feedback.recordId.trim() || !isPilotUnit(feedback.unitId)
+    || typeof feedback.createdAt !== 'string' || !Number.isFinite(Date.parse(feedback.createdAt))
+    || !Array.isArray(feedback.comments) || feedback.comments.length === 0
+    || !isPlainObject(feedback.sourceSnapshot) || !Array.isArray(feedback.sourceSnapshot.questions)
+    || !isPlainObject(feedback.sourceSnapshot.explanation)) return false;
+  const ids = new Set();
+  for (const question of feedback.sourceSnapshot.questions) {
+    if (!isPlainObject(question) || typeof question.id !== 'string' || !question.id.trim()
+      || typeof question.text !== 'string' || ids.has(question.id)) return false;
+    for (const key of ['initialText', 'origin', 'classification', 'convertedType', 'convertedText']) {
+      if (question[key] != null && typeof question[key] !== 'string') return false;
+    }
+    if (question.selectedVersion != null && !['original', 'converted'].includes(question.selectedVersion)) return false;
+    if (question.revisions != null && !Array.isArray(question.revisions)) return false;
+    ids.add(question.id);
+  }
+  const explanation = feedback.sourceSnapshot.explanation;
+  if (explanation.questionId != null && typeof explanation.questionId !== 'string') return false;
+  if (explanation.claim != null && typeof explanation.claim !== 'string') return false;
+  if (explanation.reasoning != null && typeof explanation.reasoning !== 'string') return false;
+  if (explanation.evidenceIds != null && (!Array.isArray(explanation.evidenceIds) || !explanation.evidenceIds.every((id) => typeof id === 'string'))) return false;
+  if (explanation.questionId && !ids.has(explanation.questionId)) return false;
+  const commentIds = new Set();
+  return feedback.comments.every((comment) => isPlainObject(comment)
+    && typeof comment.questionId === 'string' && comment.questionId.trim() && ids.has(comment.questionId)
+    && typeof comment.text === 'string' && comment.text.trim() && !commentIds.has(comment.questionId)
+    && commentIds.add(comment.questionId));
+}
+
+function validFeedbackResponse(response) {
+  return isPlainObject(response)
+    && typeof response.id === 'string' && Boolean(response.id.trim())
+    && typeof response.feedbackId === 'string' && Boolean(response.feedbackId.trim())
+    && ['applied', 'deferred'].includes(response.status)
+    && typeof response.reason === 'string' && Boolean(response.reason.trim())
+    && Array.isArray(response.questionRevisionIds) && response.questionRevisionIds.every((id) => typeof id === 'string')
+    && Array.isArray(response.explanationRevisionIds) && response.explanationRevisionIds.every((id) => typeof id === 'string')
+    && typeof response.createdAt === 'string' && Number.isFinite(Date.parse(response.createdAt));
+}
+
+function validExplanationRevision(revision) {
+  const validState = (state) => isPlainObject(state)
+    && typeof state.questionId === 'string' && typeof state.claim === 'string' && typeof state.reasoning === 'string'
+    && Array.isArray(state.evidenceIds) && state.evidenceIds.every((id) => typeof id === 'string');
+  return isPlainObject(revision)
+    && typeof revision.id === 'string' && Boolean(revision.id.trim())
+    && validState(revision.before) && validState(revision.after)
+    && typeof revision.reason === 'string' && Boolean(revision.reason.trim())
+    && Array.isArray(revision.feedbackIds) && revision.feedbackIds.every((id) => typeof id === 'string')
+    && typeof revision.createdAt === 'string' && Number.isFinite(Date.parse(revision.createdAt));
+}
+
 /** Fill any missing fields so older or hand-edited records never crash the screens. */
 export function normalizeUnitRecord(unitId, value = {}) {
   const base = emptyUnitRecord(unitId);
   const record = value && typeof value === 'object' ? value : {};
-  return {
+  const normalized = {
     ...base,
     ...record,
     unitId,
@@ -66,6 +120,28 @@ export function normalizeUnitRecord(unitId, value = {}) {
       ? Object.fromEntries(Object.entries(record.routineState).filter(([, value]) => isPlainObject(value)))
       : {},
   };
+  if (Object.prototype.hasOwnProperty.call(record, 'teacherFeedbacks')) {
+    normalized.teacherFeedbacks = Array.isArray(record.teacherFeedbacks) ? record.teacherFeedbacks.filter(validFeedbackFileRecord) : [];
+  }
+  if (Object.prototype.hasOwnProperty.call(record, 'feedbackResponses')) {
+    normalized.feedbackResponses = Array.isArray(record.feedbackResponses) ? record.feedbackResponses.filter(validFeedbackResponse) : [];
+  }
+  if (Object.prototype.hasOwnProperty.call(record, 'explanationRevisions')) {
+    normalized.explanationRevisions = Array.isArray(record.explanationRevisions) ? record.explanationRevisions.filter(validExplanationRevision) : [];
+  }
+  if (Object.prototype.hasOwnProperty.call(record, 'pendingExplanationRevision')) {
+    const before = record.pendingExplanationRevision?.before;
+    if (isPlainObject(before) && typeof before.questionId === 'string' && typeof before.claim === 'string'
+      && typeof before.reasoning === 'string' && Array.isArray(before.evidenceIds)
+      && before.evidenceIds.every((id) => typeof id === 'string')) {
+      normalized.pendingExplanationRevision = { before: {
+        questionId: before.questionId, claim: before.claim, reasoning: before.reasoning, evidenceIds: [...before.evidenceIds],
+      } };
+    } else {
+      delete normalized.pendingExplanationRevision;
+    }
+  }
+  return normalized;
 }
 
 function isPlainObject(value) {
