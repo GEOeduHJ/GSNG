@@ -39,31 +39,33 @@
 
 **Files:** 위 질문/AI 경로, 필요한 소형 helper/UI, `tests/question-history.test.jsx`, `tests/storage.test.js`, `tests/opening.test.jsx`.
 
-**Interfaces:** `newQuestion`·`questionText`가 최초 질문/출처/revisions를 왕복한다. `reviseQuestion(record, change, now)`는 유효한 변경만 추가한다. pilot 판별과 recordId 보장 helper를 제공한다. 선택 질문과 이유 스냅샷은 링크 열기 기록에 남긴다.
+**Interfaces:** `newQuestion`·`questionText`가 최초 질문/출처/revisions를 왕복한다. `reviseQuestion(record, change, now)`는 유효한 변경만 추가한다. pilot 판별과 recordId 보장 helper를 제공한다. 최초 독립 선택 스냅샷은 우선화 완료 때 한 번 저장하고 링크 클릭 시점과 분리한다. revisions는 optional feedbackIds를 왕복하며 Task 3이 이를 검증한다.
 
-- [ ] 테스트: AI 링크가 선택 전 숨고, 선택+이유 완료 후 열리며, 선택 삭제/이유 삭제 뒤 다시 숨는 경우를 작성한다.
-- [ ] RED: `npm test -- tests/question-history.test.jsx` — 게이트·이력 테스트 실패를 확인한다.
-- [ ] 구현: 최초 질문 고정, 명시 수정 이력, pilot gate, 무작위 recordId와 optional schema 1 필드를 추가한다.
-- [ ] GREEN: 위 질문 테스트와 `npm test -- tests/storage.test.js tests/opening.test.jsx` 통과, legacy 읽기·저장·내보내기 왕복을 확인한다.
+**Rules:** 01-01·03-01만 opt-in; 새 의존성 없음; 기존 result schema 1과 storage v4 호환; 질문 이력은 명시 수정 저장만 기록한다. legacy origin은 추정하지 않고 `기록 없음`, 새 QFT 질문은 `student` 기본값을 쓴다.
+
+- [ ] 테스트: AI 링크의 선택 전 숨김·선택/이유 완료 후 표시·선택 삭제 후 숨김, 우선화 완료 시 ID/문장/이유/시각 스냅샷 고정, origin 누락 legacy 표시, 명시 수정·최초 질문 보존을 작성한다.
+- [ ] RED: `npm test -- tests/question-history.test.jsx` — 게이트·legacy·이력 테스트 실패를 확인한다.
+- [ ] 구현: 최초 질문 고정, 명시 수정 이력, 우선화 시점 스냅샷, pilot gate, 무작위 recordId와 optional schema 1 필드를 추가한다.
+- [ ] GREEN: 질문 테스트와 `npm test -- tests/storage.test.js tests/opening.test.jsx`, 전체 `npm test` 통과. legacy 읽기·저장·내보내기 왕복을 확인한다.
 - [ ] 커밋: `feat: record pilot question revisions and gate external AI`.
 
 ### Task 2: 기본 루틴과 근거 재사용
 
-**Files:** 위 루틴/근거 경로, 01-01·03-01의 여섯 lesson 설정과 두 `teacher.md`, `tests/pilot-routines.test.jsx`.
+**Files:** `src/book/lesson/RoutineCard.jsx`, `LessonReading.jsx`, `LessonQuestions.jsx`, `src/activities/LessonActivity.jsx`, 필요한 소형 helper, 01-01·03-01의 여섯 lesson 설정과 두 `teacher.md`, `tests/pilot-routines.test.jsx`.
 
 **Interfaces:** Task 1의 `questionText`와 question ID를 사용한다. 선택한 루틴/활동 응답을 편집 가능한 근거 초안으로 불러오며 출처 종류·절·카드/필드 ID를 유지한다. 기본 매핑은 두 단원 모두 절 1 opener, 절 2·3 inquiry다.
 
 - [ ] 테스트: 기본 루틴 1개·접힌 선택 루틴, 기존 응답 보존, 근거 불러오기/수정/질문 연결 후 원응답과 출처 보존, 비파일럿 기존 표시를 작성한다.
 - [ ] RED: `npm test -- tests/pilot-routines.test.jsx` — 신규 기본 표시·근거 왕복 테스트 실패를 확인한다.
 - [ ] 구현: 선택 접근을 추가하고 겹치는 활동은 확장으로 표시한다. 두 교사용 50분×5차시 안에 루틴과 초안 제출/재작성을 배분해 각 합계 50분을 확인한다.
-- [ ] GREEN: `npm test -- tests/pilot-routines.test.jsx tests/lesson.test.jsx`와 `npm run check:book` 통과.
+- [ ] GREEN: `npm test -- tests/pilot-routines.test.jsx tests/lesson.test.jsx`, 전체 `npm test`, `npm run check:book` 통과.
 - [ ] 커밋: `feat: streamline pilot routines and evidence reuse`.
 
 ### Task 3: 교사 피드백 왕복과 도움말
 
-**Files:** 위 교사/파일 경로, README·`src/book/HelpPage.jsx`, 두 `teacher.md`, `tests/pilot-feedback.test.jsx`, `tests/teacher.test.jsx`.
+**Files:** `src/teacher/TeacherPage.jsx`, `summarize.js`, 신규 `src/storage/feedbackFile.js`, 작은 교사/학생 컴포넌트, `src/storage/resultFile.js`, `unitRecords.js`, `src/book/close/UnitClosing.jsx`, README·`src/book/HelpPage.jsx`, 두 `teacher.md`, `tests/pilot-feedback.test.jsx`, `tests/teacher.test.jsx`.
 
-**Interfaces:** Task 1의 recordId/revision과 Task 2의 응답 출처를 사용한다. 피드백 JSON은 `gsng-teacher-feedback` schemaVersion 1, feedbackId·recordId·unitId·createdAt·comments(questionId,text)·sourceSnapshot(questions,explanation)을 가진다. 가져온 피드백의 응답/반영 상태는 별도 optional `feedbackResponses`, 설명 전후는 `explanationRevisions`로 보존한다.
+**Interfaces:** Task 1의 recordId/revision과 Task 2의 응답 출처를 사용한다. 피드백 JSON은 `gsng-teacher-feedback` schemaVersion 1, feedbackId·recordId·unitId·createdAt·comments(questionId,text)·sourceSnapshot(questions,explanation)을 가진다. comments는 feedback file ID로 묶이고 questionId로 대상을 찾는다. `feedbackResponses`는 `{id,feedbackId,status:'applied'|'deferred',reason,questionRevisionIds:[],explanationRevisionIds:[],createdAt}`다. applied는 feedbackId를 포함하는 실제 revision 하나 이상에 연결되고 deferred는 이유만 남긴다. `explanationRevisions`는 before/after의 questionId·claim·reasoning·evidenceIds, reason·feedbackIds·createdAt을 저장한다. 원코멘트는 보존한다.
 
 - [ ] 테스트: 활동 라벨 표시, 결과→교사 코멘트 파일→같은 학생 가져오기→질문/설명 재작성·응답 재내보내기 왕복, 타인/다른 단원/중복/깨진 파일 불변, legacy 열람을 작성한다.
 - [ ] RED: `npm test -- tests/pilot-feedback.test.jsx` — 왕복과 불변 테스트 실패를 확인한다.
