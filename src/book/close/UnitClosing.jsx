@@ -91,20 +91,21 @@ function Revise({ record, update, pilot }) {
     ...(original && !chosen.some((item) => item.id === original.id) && !born.some((item) => item.id === original.id) ? [original] : []),
   ];
   const prefilled = useRef(false);
+  const revisedQuestion = typeof record.revisedQuestion === 'string' ? record.revisedQuestion : '';
   useEffect(() => {
     if (prefilled.current || !original) return;
     prefilled.current = true;
-    if (!record.revisedQuestion) update((current) => ({ ...current, revisedQuestion: questionText(original) }));
+    if (typeof record.revisedQuestion === 'string' && !record.revisedQuestion.trim()) update((current) => ({ ...current, revisedQuestion: questionText(original) }));
   }, [original, record.revisedQuestion, update]);
   return (
     <div>
       <h2>질문 다시 다듬기</h2>
-      <p className="hint">탐구를 마친 지금, 처음 질문을 더 정확하거나 더 깊게 고쳐 씁니다.</p>
+      <p className="hint">{pilot ? '자료를 살펴본 지금' : '탐구를 마친 지금'}, 처음 질문을 더 정확하거나 더 깊게 고쳐 씁니다.</p>
       {(!pilot || revisionTargets.length === 0) && <>
         <label htmlFor="revised">다듬은 질문</label>
-        <textarea id="revised" rows="2" value={record.revisedQuestion} onChange={(event) => update((current) => ({ ...current, revisedQuestion: event.target.value }))} />
+        <textarea id="revised" rows="2" value={revisedQuestion} onChange={(event) => update((current) => ({ ...current, revisedQuestion: event.target.value }))} />
       </>}
-      {pilot && revisionTargets.length > 0 && record.revisedQuestion?.trim() && <p className="hint">기존 마무리 질문: <span>{record.revisedQuestion}</span></p>}
+      {pilot && revisionTargets.length > 0 && revisedQuestion.trim() && <p className="hint">기존 마무리 질문: <span>{revisedQuestion}</span></p>}
       {pilot && revisionTargets.length > 0 && <section className="question-revision-editor" aria-labelledby="question-revision-title">
         <h3 id="question-revision-title">질문별 수정 기록</h3>
         <p className="hint">문장, 수정 이유, 출처는 학생이 기록합니다. 저장을 누를 때만 이력에 추가되고 처음 질문은 그대로 보존됩니다.</p>

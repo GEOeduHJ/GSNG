@@ -49,7 +49,7 @@ describe('lesson questions and evidence', () => {
   it('attaches evidence with lesson and step ids', () => {
     const { storage } = renderLesson(1, { ...emptyUnitRecord('01-01'), questions: [question()] });
     fireEvent.click(screen.getByLabelText('무역은 왜 늘었을까'));
-    fireEvent.change(screen.getByLabelText('이 자료에서 찾은 근거'), { target: { value: '무역 비중이 높아졌다' } });
+    fireEvent.change(screen.getByLabelText('근거 초안 · 자료에서 찾은 것'), { target: { value: '무역 비중이 높아졌다' } });
     fireEvent.click(screen.getByRole('button', { name: '근거로 붙이기' }));
     const saved = JSON.parse(storage.data[STORAGE_KEY_V4]).units['01-01'];
     expect(saved.evidence[0]).toMatchObject({ questionId: 'q1', lessonId: 'lesson-01-01-1', stepId: 'l1s2', note: '무역 비중이 높아졌다' });

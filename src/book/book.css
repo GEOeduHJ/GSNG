@@ -247,11 +247,23 @@ label { display: block; margin: 10px 0 4px; }
 
 /* ---------- thinking routines ---------- */
 .routine-card { margin: 14px 0 18px; padding: 14px 16px; border: 1px dashed var(--accent-2); border-radius: 6px; background: #fffdf8; }
+.routine-card-choice > summary, .activity-extension > summary { cursor: pointer; color: var(--accent); font-weight: 700; }
+.routine-card-choice[open] > summary, .activity-extension[open] > summary { margin-bottom: 12px; }
 .routine-card h3 { margin: 0 0 6px; font-size: 17px; color: var(--accent-2); }
 .routine-prompt { margin: 0 0 10px; font-size: var(--small-size); }
 .routine-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px 14px; }
 .routine-step label { margin-top: 0; font-weight: 700; }
 .routine-step .hint { margin: 0 0 4px; }
 .routine-step .row-actions { margin-top: 6px; }
+.pilot-question-context { margin: 0 0 12px; padding: 10px 12px; border-left: 3px solid var(--accent); background: #f5f7f4; }
+.pilot-question-context .pilot-question-label { margin: 0 0 4px; font-weight: 700; color: var(--accent); }
+.pilot-question-context ul { margin: 0; padding-left: 1.2em; }
+.pilot-question-context .hint { margin: 0; }
 .opener .routine-card { margin-bottom: 0; background: #fff; }
 .activity-task { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--rule); }
+.activity-extension { margin-top: 18px; padding: 12px 14px; border: 1px solid var(--rule); border-radius: 4px; }
+.activity-extension > .hint { margin: 0 0 12px; }
+.answer-reuse { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 12px; align-items: end; margin: 16px 0 12px; }
+.answer-reuse label { grid-column: 1 / -1; margin: 0; font-weight: 700; }
+.answer-reuse select { width: 100%; min-height: 40px; padding: 8px 10px; border: 1px solid var(--rule); border-radius: 4px; background: #fff; }
+@media (max-width: 540px) { .answer-reuse { grid-template-columns: 1fr; } }

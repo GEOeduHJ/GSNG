@@ -149,7 +149,7 @@ function Improve({ record, update }) {
   );
 }
 
-function Prioritize({ record, update }) {
+function Prioritize({ record, update, pilot }) {
   const count = selectedQuestions(record).length;
   const setQuestion = (id, patch) => update((current) => ({ ...current, questions: current.questions.map((q) => (q.id === id ? { ...q, ...patch } : q)) }));
   function toggle(question) {
@@ -161,7 +161,7 @@ function Prioritize({ record, update }) {
   }
   return (
     <div>
-      <h2>탐구할 질문 고르기</h2>
+      <h2>{pilot ? '이어갈 질문 고르기' : '탐구할 질문 고르기'}</h2>
       <p className="hint">이 중단원 동안 자료로 답을 찾아갈 질문을 1~3개 고릅니다. 지금 {count}개를 골랐습니다.</p>
       <ul className="question-list">
         {record.questions.filter(filled).map((question) => (
@@ -190,7 +190,7 @@ function Prioritize({ record, update }) {
   );
 }
 
-function Plan({ record, update, unit, concepts }) {
+function Plan({ record, update, unit, concepts, pilot }) {
   const toggleTag = (question, tag) => update((current) => ({
     ...current,
     questions: current.questions.map((q) => (q.id === question.id ? { ...q, conceptTags: q.conceptTags.includes(tag) ? q.conceptTags.filter((t) => t !== tag) : [...q.conceptTags, tag] } : q)),
@@ -198,7 +198,7 @@ function Plan({ record, update, unit, concepts }) {
   const ready = stageReady.plan(record);
   return (
     <div>
-      <h2>탐구 계획 세우기</h2>
+      <h2>{pilot ? '자료 활용 계획 세우기' : '탐구 계획 세우기'}</h2>
       <p className="hint">질문마다 관련된 개념을 하나 이상 고릅니다. 같은 개념을 다루는 절에서 이 질문을 다시 만납니다.</p>
       {selectedQuestions(record).map((question) => (
         <fieldset key={question.id}>
@@ -281,17 +281,20 @@ export default function UnitOpening({ unit }) {
     <>
       <DataStage step={unit.opening.focus.step} manifest={book.manifest} />
       <ol className="stage-steps" aria-label="질문 만들기 단계">
-        {OPENING_STAGES.map((item, index) => (
+        {OPENING_STAGES.map((item, index) => {
+          const label = pilot && item.id === 'prioritize' ? '이어갈 질문' : pilot && item.id === 'plan' ? '자료 활용 계획' : item.label;
+          return (
           <li key={item.id} aria-current={index === current ? 'step' : undefined}>
-            {index <= max ? <button type="button" className="text-button" onClick={() => setView(index)}>{index + 1}. {item.label}</button> : <span>{index + 1}. {item.label}</span>}
+            {index <= max ? <button type="button" className="text-button" onClick={() => setView(index)}>{index + 1}. {label}</button> : <span>{index + 1}. {label}</span>}
           </li>
-        ))}
+          );
+        })}
       </ol>
       {stage === 'rules' && <Rules onStart={() => complete('rules')} />}
       {stage === 'produce' && <Produce record={record} update={update} pilot={pilot} />}
       {stage === 'improve' && <Improve record={record} update={update} />}
-      {stage === 'prioritize' && <Prioritize record={record} update={update} />}
-      {stage === 'plan' && <Plan record={record} update={update} unit={unit} concepts={book.concepts} />}
+      {stage === 'prioritize' && <Prioritize record={record} update={update} pilot={pilot} />}
+      {stage === 'plan' && <Plan record={record} update={update} unit={unit} concepts={book.concepts} pilot={pilot} />}
       {stage !== 'rules' && stage !== 'plan' && (
         <p className="row-actions"><button type="button" className="button" disabled={!stageReady[stage](record)} onClick={() => complete(stage)}>다음 단계</button></p>
       )}

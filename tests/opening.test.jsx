@@ -149,7 +149,7 @@ describe('UnitOpening', () => {
       reason: '자료로 답할 수 있기 때문', createdAt: expect.any(String),
     });
 
-    fireEvent.click(screen.getByRole('button', { name: /4\. 질문 고르기/ }));
+    fireEvent.click(screen.getByRole('button', { name: /4\. 이어갈 질문/ }));
     fireEvent.click(screen.getAllByRole('checkbox')[0]);
     expect(screen.queryByRole('link', { name: /외부 AI/ })).toBeNull();
     expect(saved(storage).prioritySnapshot).toEqual(firstSnapshot);

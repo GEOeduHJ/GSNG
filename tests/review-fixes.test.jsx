@@ -53,11 +53,11 @@ describe('I1: lesson state does not leak across lessons', () => {
     window.location.hash = '#/u/01-01/l/1';
     render(<App book={makeBook()} storage={storage} />);
     fireEvent.change(screen.getByLabelText('어느 자료에서'), { target: { value: 'l1s3' } });
-    fireEvent.change(screen.getByLabelText('이 자료에서 찾은 근거'), { target: { value: '절 1 메모' } });
+    fireEvent.change(screen.getByLabelText('근거 초안 · 자료에서 찾은 것'), { target: { value: '절 1 메모' } });
     act(() => { window.location.hash = '#/u/01-01/l/2'; window.dispatchEvent(new HashChangeEvent('hashchange')); });
-    expect(screen.getByLabelText('이 자료에서 찾은 근거').value).toBe('');
+    expect(screen.getByLabelText('근거 초안 · 자료에서 찾은 것').value).toBe('');
     fireEvent.click(screen.getByLabelText('질문'));
-    fireEvent.change(screen.getByLabelText('이 자료에서 찾은 근거'), { target: { value: '절 2 메모' } });
+    fireEvent.change(screen.getByLabelText('근거 초안 · 자료에서 찾은 것'), { target: { value: '절 2 메모' } });
     fireEvent.click(screen.getByRole('button', { name: '근거로 붙이기' }));
     const saved = JSON.parse(storage.data[STORAGE_KEY_V4]).units['01-01'].evidence[0];
     expect(saved).toMatchObject({ lessonId: 'lesson-01-01-2', stepId: 'l2s2' });

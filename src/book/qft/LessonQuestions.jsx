@@ -6,6 +6,7 @@ import { lessonBornQuestions, newQuestion, questionText, selectedQuestions } fro
 import RoutineCard from '../lesson/RoutineCard.jsx';
 import { routineForSlot } from '../../content-loader/routines.js';
 import { isPilotUnit } from '../../storage/unitRecords.js';
+import { pilotAnswerSources } from '../lesson/pilotRoutines.js';
 
 export function relatedQuestions(record, lesson, concepts) {
   const lessonConcepts = new Set([...(lesson.keyTerms ?? []), ...lesson.steps.flatMap((step) => step.concepts ?? [])]
@@ -33,6 +34,8 @@ const LessonQuestions = forwardRef(function LessonQuestions({ unit, lesson, sele
   const [questionId, setQuestionId] = useState('');
   const [stepChoice, setStepChoice] = useState('');
   const [note, setNote] = useState('');
+  const [answerSourceId, setAnswerSourceId] = useState('');
+  const [draftSourceRef, setDraftSourceRef] = useState(null);
   const [newText, setNewText] = useState('');
   const born = lessonBornQuestions(record, lesson.id);
   const canAdd = newText.trim().length >= 4;
@@ -41,11 +44,25 @@ const LessonQuestions = forwardRef(function LessonQuestions({ unit, lesson, sele
   const chosen = shown.some((question) => question.id === questionId) ? questionId : '';
   const canAttach = Boolean(chosen) && note.trim().length >= 4;
   const attached = record.evidence.filter((item) => item.lessonId === lesson.id);
+  const pilot = isPilotUnit(unit.id);
+  const answerSources = pilot ? pilotAnswerSources(record, lesson, book) : [];
+  const selectedAnswerSource = answerSources.find((source) => source.id === answerSourceId);
+
+  function loadAnswerSource() {
+    if (!selectedAnswerSource) return;
+    setNote(selectedAnswerSource.text);
+    setDraftSourceRef(selectedAnswerSource.sourceRef);
+  }
 
   function attach() {
     if (!canAttach) return;
-    update((current) => ({ ...current, evidence: [...current.evidence, { id: newId(), questionId: chosen, lessonId: lesson.id, stepId, note: note.trim() }] }));
+    update((current) => ({ ...current, evidence: [...current.evidence, {
+      id: newId(), questionId: chosen, lessonId: lesson.id, stepId, note: note.trim(),
+      ...(draftSourceRef ? { sourceRef: draftSourceRef } : {}),
+    }] }));
     setNote('');
+    setAnswerSourceId('');
+    setDraftSourceRef(null);
   }
 
   function addQuestion() {
@@ -80,12 +97,20 @@ const LessonQuestions = forwardRef(function LessonQuestions({ unit, lesson, sele
           {dataSteps.map((step) => <option key={step.id} value={step.id}>{step.caption}</option>)}
         </select>
       </>}
-      <label htmlFor={`evidence-note-${lesson.id}`}>이 자료에서 찾은 근거</label>
+      {pilot && <div className="answer-reuse">
+        <label htmlFor={`answer-source-${lesson.id}`}>불러올 응답</label>
+        <select id={`answer-source-${lesson.id}`} value={answerSourceId} onChange={(event) => setAnswerSourceId(event.target.value)}>
+          <option value="">응답을 선택하세요</option>
+          {answerSources.map((source) => <option key={source.id} value={source.id}>{source.label}</option>)}
+        </select>
+        <button type="button" className="button secondary" disabled={!selectedAnswerSource} onClick={loadAnswerSource}>응답을 초안에 불러오기</button>
+      </div>}
+      <label htmlFor={`evidence-note-${lesson.id}`}>{pilot ? '근거 초안 · 자료에서 찾은 것' : '이 자료에서 찾은 근거'}</label>
       <textarea id={`evidence-note-${lesson.id}`} rows="2" value={note} onChange={(event) => setNote(event.target.value)} />
       <p className="row-actions"><button type="button" className="button" disabled={!canAttach} onClick={attach}>근거로 붙이기</button></p>
       {attached.length > 0 && (
         <ul className="evidence-list">
-          {attached.map((item) => <li key={item.id}>{item.note}{captionOf(item.stepId) && <span className="evidence-source"> · {captionOf(item.stepId)}</span>}</li>)}
+          {attached.map((item) => <li key={item.id}>{item.note}{captionOf(item.stepId) && <span className="evidence-source"> · {captionOf(item.stepId)}</span>}{item.sourceRef?.kind === 'routine' && <span className="evidence-source"> · 생각 루틴 응답</span>}{item.sourceRef?.kind === 'activity' && <span className="evidence-source"> · 활동 응답</span>}</li>)}
         </ul>
       )}
       <h3>이 절을 마치며</h3>

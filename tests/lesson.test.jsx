@@ -294,7 +294,7 @@ describe('lesson module page', () => {
     setMedia({ wide: true });
     renderLesson(makeBook({ moduleLesson: true }), 2);
     const headings = [...document.querySelectorAll('.lesson-after > section > h2')].map((h) => h.textContent);
-    expect(headings).toEqual(['탐구하기', '핵심 정리', '내 질문과 이 절']);
+    expect(headings).toEqual(['내 질문으로 자료 읽기', '핵심 정리', '내 질문과 이 절']);
     expect(document.querySelector('.spread .my-questions')).toBeNull();
   });
 
@@ -445,6 +445,6 @@ describe('routine cards', () => {
     book.units[0].lessons[1].routines.inquiry = { id: 'nope', prompt: 'x' };
     renderModule({ book });
     expect(document.querySelector('.routine-card[data-slot="inquiry"]')).toBeNull();
-    expect(document.querySelector('.activity h2').textContent).toBe('탐구하기');
+    expect(document.querySelector('.activity h2').textContent).toBe('내 질문으로 자료 읽기');
   });
 });
