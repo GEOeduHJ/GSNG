@@ -41,6 +41,21 @@ const optionalString = (value) => value == null || typeof value === 'string';
 const nonBlankString = (value) => typeof value === 'string' && Boolean(value.trim());
 const stringArray = (value) => Array.isArray(value) && value.every((item) => typeof item === 'string');
 
+function validResultQuestion(question) {
+  if (!isObject(question) || !optionalString(question.text) || (question.selected && typeof question.text !== 'string')) return false;
+  if (question.selected != null && typeof question.selected !== 'boolean') return false;
+  if (question.selectedVersion != null && !['original', 'converted'].includes(question.selectedVersion)) return false;
+  for (const key of ['convertedText', 'classification', 'convertedType', 'initialText', 'origin']) {
+    if (!optionalString(question[key])) return false;
+  }
+  if (question.conceptTags != null && !stringArray(question.conceptTags)) return false;
+  if (question.revisions != null && (!Array.isArray(question.revisions) || !question.revisions.every((revision) => isObject(revision)
+    && ['id', 'before', 'after', 'reason', 'source', 'createdAt'].every((key) => typeof revision[key] === 'string')
+    && stringArray(revision.evidenceIds)
+    && (revision.feedbackIds == null || stringArray(revision.feedbackIds))))) return false;
+  return true;
+}
+
 function validFeedback(feedback) {
   if (!isObject(feedback) || feedback.schema !== 'gsng-teacher-feedback' || feedback.schemaVersion !== 1
     || !nonBlankString(feedback.feedbackId) || !nonBlankString(feedback.recordId)
@@ -91,7 +106,7 @@ function validExplanationRevision(revision) {
 function hasValidShape(value) {
   if (!optionalString(value.unitId) || !optionalString(value.displayName)) return false;
   if (value.recordId != null && typeof value.recordId !== 'string') return false;
-  if (value.questions != null && !(Array.isArray(value.questions) && value.questions.every((q) => isObject(q) && optionalString(q.text) && (q.conceptTags == null || Array.isArray(q.conceptTags))))) return false;
+  if (value.questions != null && !(Array.isArray(value.questions) && value.questions.every(validResultQuestion))) return false;
   if (value.evidence != null && !(Array.isArray(value.evidence) && value.evidence.every(isObject))) return false;
   if (value.explanation != null && !(isObject(value.explanation) && (value.explanation.evidenceIds == null || Array.isArray(value.explanation.evidenceIds)))) return false;
   if (value.routineResponses != null && !isObject(value.routineResponses)) return false;

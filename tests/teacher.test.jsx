@@ -62,6 +62,47 @@ describe('summarizeResults', () => {
   it('lists priority questions in their chosen version', () => {
     expect(summarizeResults([result('1번')], '01-01', concepts).priorityQuestions).toEqual([{ displayName: '1번', text: '바꾼 열린 질문' }]);
   });
+
+  it('rejects a malformed selected question instead of crashing teacher collection', () => {
+    const file = result('깨진 질문', {
+      questions: [{ id: 'q1', text: '질문', selected: true, selectedVersion: 'converted', convertedText: { bad: true }, conceptTags: [] }],
+    });
+
+    const summary = summarizeResults([file], '01-01', concepts);
+
+    expect(summary.students).toEqual([]);
+    expect(summary.skipped).toEqual([{ name: file.name, reason: 'bad-shape' }]);
+  });
+
+  it.each([
+    ['selected', { selected: { bad: true } }],
+    ['selectedVersion', { selectedVersion: { bad: true } }],
+    ['convertedText', { selectedVersion: 'converted', convertedText: { bad: true } }],
+    ['classification', { classification: { bad: true } }],
+    ['convertedType', { convertedType: 1 }],
+    ['initialText', { initialText: { bad: true } }],
+    ['origin', { origin: ['student'] }],
+    ['conceptTags', { conceptTags: [{}] }],
+    ['revisions', { revisions: [{ id: 'r1', before: {}, after: '수정', reason: '까닭', source: 'student', evidenceIds: [], createdAt: '2026-11-28T00:00:00Z' }] }],
+  ])('skips malformed question %s values at the result file boundary', (_field, patch) => {
+    const file = result('형식 오류', {
+      questions: [{ id: 'q1', text: '질문', selected: true, selectedVersion: 'original', conceptTags: [], ...patch }],
+    });
+
+    const summary = summarizeResults([file], '01-01', concepts);
+
+    expect(summary.students).toEqual([]);
+    expect(summary.skipped).toEqual([{ name: file.name, reason: 'bad-shape' }]);
+  });
+
+  it('accepts legacy questions when newer optional question fields are absent', () => {
+    const file = result('이전 결과', { questions: [{ id: 'q1', text: '이전 질문', selected: true }] });
+
+    const summary = summarizeResults([file], '01-01', concepts);
+
+    expect(summary.skipped).toEqual([]);
+    expect(summary.priorityQuestions).toEqual([{ displayName: '이전 결과', text: '이전 질문' }]);
+  });
 });
 
 describe('TeacherPage', () => {

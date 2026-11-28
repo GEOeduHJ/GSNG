@@ -1,6 +1,6 @@
 # 질문 기반 파일럿 준비 ledger
 
-- 상태 (2026-11-28): Task 1–3 구현 완료. Task 1/2 root review PASS; Task 3 독립 검수 pending. Task 3 product commit `5d39723b26ed37bdd6703b6f2a7164197f70d72c`.
+- 상태 (2026-11-28): Task 1–3 구현 완료. Task 1/2 root review PASS. Task 3의 Important 결과 파일 경계 결함은 fix round 1/5에서 수정했고 focused/full 검사 PASS; post-fix review pending. Task 3 product commit `5d39723b26ed37bdd6703b6f2a7164197f70d72c`.
 - 작업공간: `platform/worktrees/question-based-pilot`, branch `codex/question-based-pilot-prepare-2026-11-28`.
 - 기준: `dd14b439505738bf6d182956e3e93efed06a0c46`; 기준 `main`은 변경 없이 clean.
 - 초기 baseline (작업 전 기록): `npm test` 통과(11 files, 176 tests; scrollTo 미구현 안내만 출력). `npm run check:book` 통과(13 units).
@@ -18,6 +18,13 @@
 | --- | --- | --- | --- |
 | 1 | `d1617b6b188847fcfced32ff7f272b7842fb8f72` | PASS | root PASS |
 | 2 | `ef67dd7aa81f7de63dbafb1a625625187e5aa4ad` | PASS | root PASS |
-| 3 | `5d39723b26ed37bdd6703b6f2a7164197f70d72c` | PASS: focused 19; full 14 files / 217 tests; check:book 13 units; build | pending |
+| 3 | `5d39723b26ed37bdd6703b6f2a7164197f70d72c` + fix round 1/5 | PASS: malformed result questions rejected; focused 11; full 14 files / 228 tests; check:book 13 units; build | post-fix review pending |
 
 Task 3 report: `platform/worktrees/question-based-pilot/.superpowers/sdd/2026-11-28-question-based-pilot/task-3-report.md`. Scoped and broad review packages are stored in the same SDD directory. Build passed with a non-blocking >500 kB chunk warning. Browser QA remains assigned separately by root.
+
+## Review disposition after Task 3 final review
+
+- The single Important finding was the result parser accepting malformed selected-question fields (`selectedVersion`, `convertedText`, and related optional question values) that could crash teacher collection. Fix round 1/5 adds shape checks at the result-file boundary while leaving optional fields optional; the specified malformed result is skipped as `bad-shape`.
+- The final reviewer found no other Important issue. Two Minor test coverage suggestions are deferred per root: directly test picker-vs-loaded-source selection/reset, and test each activity extractor through editable draft plus `sourceRef`. The review confirmed the existing selection/load/attach reset behavior by inspection; Task 3 already tests all four activity labels.
+- After fix round: focused malformed-question coverage 11 passed; full `npm test` 14 files / 228 tests; `check:book` 13 units; build pass with a non-blocking large-chunk warning.
+- Browser QA remains unverified because CUA had no browser entries and Chrome could not launch; details are recorded in `coordination/handoffs/pilot-browser-qa-2026-11-28.md`.
